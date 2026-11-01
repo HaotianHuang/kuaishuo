@@ -1,0 +1,162 @@
+{
+  "id": "rent-rise",
+  "format": "chat",
+  "title": "房租涨五百",
+  "title_en": "Five Hundred More a Month",
+  "level": 4,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 2,
+  "status": "live",
+  "tags": ["房东", "租房", "讲价"],
+  "write": ["房租", "合同"],
+  "setting": "Sunday night, on your sofa. Your landlady only messages when something's up.",
+  "stage": "🏠",
+  "bg": ["#4a1d1d", "#b8503a"],
+  "chat": { "with": "wang", "giveup": [
+    { "who": "wang", "zh": "不说话就是同意了啊。", "en": "Silence means yes, then." },
+    { "who": "wang", "zh": "下个月起，房租涨五百。", "en": "From next month, the rent goes up five hundred." },
+    { "end": "lose", "en": "You said nothing, so she took it as a yes. Five hundred more, every month.", "zh": "房租涨了五百。" }
+  ] },
+  "cast": {
+    "wang": { "is": "wangayi", "name": "房东王阿姨", "en": "your landlady", "emoji": "👩‍🦳", "voice": "f-mid" }
+  },
+  "steps": [
+    { "narr": "Sunday night. Your landlady never messages unless something's up.", "zh": "房东平时不找你，找你准没好事。" },
+    { "who": "wang", "zh": "在吗？", "en": "Are you there?", "clock": "20:15", "typing": 1 },
+    { "who": "wang", "zh": "跟你说个事儿", "en": "There's something I need to tell you.", "typing": 1.5 },
+    { "who": "wang", "zh": "从下个月开始，房租涨五百。", "en": "From next month, the rent goes up by five hundred.", "typing": 2.5 },
+    { "who": "wang", "zh": "现在什么都涨价，阿姨也没办法", "tail": "🙏", "en": "Everything's going up these days. My hands are tied.", "typing": 2 },
+    { "say": {
+      "id": "toomuch",
+      "en": "Five hundred?! Tell her that's way too much.",
+      "cue": "Five hundred?!",
+      "reply": "type",
+      "answers": ["五百？也太多了吧！", "涨五百？太多了吧！", "一下子涨五百，太多了！", "五百也太多了！"],
+      "gloss": "Five hundred? That's way too much!",
+      "need": [["太多", "太贵", "多了"]],
+      "time": 18,
+      "tip": "也太……了吧 = that's way too … (surprised, a bit indignant, still polite). 一下子 = all at once.",
+      "ok": [
+        { "who": "wang", "kind": "voice", "secs": 6, "zh": "你去附近问问，现在都是这个价。", "en": "Go and ask around. That's the going rate now.", "typing": 3 },
+        { "who": "wang", "zh": "阿姨对你已经很好了", "en": "I've been very good to you, you know.", "typing": 1.5 }
+      ],
+      "fail": [ { "who": "wang", "zh": "怎么不说话了？", "en": "Why so quiet?", "typing": 1 } ],
+      "levels": {
+        "5": { "en": "Five hundred?! Say, politely, that you understand her position, but it's far too much.",
+               "answers": ["阿姨，理解您的难处，但一下子涨五百确实太多了。", "我理解您的难处，可一下子涨五百也太多了吧。", "阿姨，我能理解，但涨五百实在是太多了。", "理解是理解，可五百也太贵了。"],
+               "gloss": "I understand your position, Auntie, but five hundred at once really is too much.", "need": [["太多", "太贵", "多了"], ["理解", "难处", "体谅", "不容易"]], "time": 30,
+               "tip": "理解您的难处 = I understand your position (难处 = difficulty). Grant her point first, then 但……: polite persuasion.", "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "ontime",
+      "en": "Remind her you've always paid your rent on time.",
+      "cue": "You're never late.",
+      "reply": "type",
+      "answers": ["我一直按时交房租的。", "我每个月都按时交房租。", "我从来没晚交过房租。", "我交房租从来没拖过。"],
+      "gloss": "I've always paid my rent on time.",
+      "need": [["按时", "没晚交", "没拖", "从来没"]],
+      "not": [ { "heard": ["没按时", "没有按时"], "note": "That says you DIDN'T pay on time." } ],
+      "time": 22,
+      "tip": "按时 ànshí = on time. 交房租 = pay the rent (交 = hand in: 交作业, 交电费). 从来没……过 = not once, ever.",
+      "decoys": ["叫", "教"],
+      "ok": [
+        { "who": "wang", "zh": "这个阿姨知道，你是个好租客", "en": "I know that. You're a good tenant.", "typing": 2 },
+        { "who": "wang", "zh": "但是……", "en": "But…", "typing": 1.5 }
+      ],
+      "fail": [ { "who": "wang", "zh": "那就这么定了啊", "en": "So that's settled, then.", "typing": 1 } ],
+      "levels": {
+        "5": { "en": "Remind her, politely, that you've never once been late with the rent, as she well knows.",
+               "answers": ["这几年我从没拖欠过房租，这您也是知道的。", "我每个月都按时交租，这您也清楚。", "阿姨，我从来没晚交过一天房租，您也知道的。", "我交租一向准时，从来没拖过，您是知道的。"],
+               "gloss": "In all these years I've never once been behind on the rent, as you know.", "need": [["按时", "没晚交", "没拖", "从来没"], ["知道", "清楚"]], "time": 32,
+               "tip": "拖欠 tuōqiàn = fall behind (on rent, on wages): 从没拖欠过 = never once been behind. 您也是知道的 = as you well know: it invites her to agree.",
+               "key": { "从没拖欠": "never once fell behind" }, "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "less",
+      "en": "Ask if she could put it up by a bit less.",
+      "cue": "Haggle her down.",
+      "reply": "type",
+      "answers": ["能不能少涨一点？", "阿姨，能不能少涨点儿？", "可以少涨一点吗？", "少涨一点行不行？"],
+      "gloss": "Could you put it up a little less?",
+      "need": [["少涨", "少点", "便宜点", "便宜一点", "别涨那么多"]],
+      "time": 18,
+      "tip": "能不能……? = could you possibly …? 少涨一点: 少 before the verb means do less of it, 一点 after.",
+      "mistakes": [ { "heard": ["少一点涨"], "note": "少 goes right before the verb and 一点 after it: 少涨一点." } ],
+      "alts": [
+        { "en": "Offer to renew for another year if it stays the same",
+          "answers": ["不涨的话，我再续一年。", "房租不涨，我就续租一年。"],
+          "gloss": "If it stays the same, I'll renew for another year.",
+          "need": [["续一年", "续租", "再续", "续签"]],
+          "then": [ { "who": "wang", "zh": "续一年？那……涨三百吧", "en": "Another year? Well… three hundred, then.", "typing": 3 } ] }
+      ],
+      "ok": [
+        { "who": "wang", "zh": "那……涨四百吧", "en": "Well… four hundred, then.", "typing": 3 },
+        { "who": "wang", "zh": "不能再少了", "en": "I can't go any lower.", "typing": 1 }
+      ],
+      "fail": [ { "who": "wang", "zh": "那……四百八？", "en": "Fine… four hundred and eighty?", "typing": 2 } ],
+      "levels": {
+        "5": { "en": "Ask her, at your most polite, if she could bend a little and raise it by less.",
+               "answers": ["阿姨，您看能不能通融一下，少涨一点？", "阿姨，我一直按时交租，您看能不能通融一下，少涨一点？", "您看能不能照顾一下，少涨点儿？", "王阿姨，能不能通融通融，少涨一点？"],
+               "gloss": "Auntie, could you possibly bend a little, and raise it by less?", "need": [["少涨", "少点", "便宜点", "便宜一点", "别涨那么多"], ["通融", "照顾"]], "time": 30,
+               "alts": [{ "of": 0, "answers": ["要是房租不涨，我愿意跟您再续一年。", "您要是不涨，我就再续租一年。", "如果房租不变，我可以再续签一年。"], "gloss": "If the rent stays the same, I'd be glad to renew with you for another year." }],
+               "tip": "通融 tōngróng = bend the rules a little, make an exception. 您看能不能……？ = would you consider …? The politest way to ask.", "status": "live" }
+      }
+    } },
+    { "who": "wang", "zh": "合同上写着可以涨的，不信你看", "en": "The contract says I can, you know. Look, if you don't believe me.", "typing": 2 },
+    { "who": "wang", "kind": "photo", "art": "📄🔍", "zh": "第五条：租期内，房租不变。", "en": "Clause 5: The rent stays the same for the length of the lease.", "typing": 2 },
+    { "say": {
+      "id": "contract",
+      "en": "Read her photo. Point out the contract says the rent stays the same during the lease.",
+      "cue": "Read the contract!",
+      "reply": "tiles",
+      "answers": ["合同上写的是租期内房租不变。", "阿姨，合同上写的是租期内不涨。", "可是合同上说租期内房租不变啊。", "合同写了租期内不能涨。"],
+      "gloss": "The contract says the rent stays the same during the lease.",
+      "need": [["合同"], ["不变", "不涨", "不能涨"]],
+      "time": 25,
+      "tip": "合同上写的是…… = what the contract says is … . 租期内 = during the lease. 不变 = stays the same.",
+      "decoys": ["得", "便"],
+      "ok": [
+        { "who": "wang", "kind": "sticker", "art": "😳", "zh": "尴尬", "en": "Awkward.", "typing": 4 },
+        { "who": "wang", "zh": "哎呀，阿姨记错了", "en": "Oh dear, I remembered it wrong.", "typing": 2 },
+        { "who": "wang", "zh": "那……明年再说吧", "en": "Well… let's talk about it next year.", "typing": 1.5 }
+      ],
+      "fail": [ { "who": "wang", "zh": "你说什么？说清楚点", "en": "What do you mean? Spell it out.", "typing": 1 } ],
+      "levels": {
+        "3": { "answers": ["合同上写着呢，房租不变！", "合同上写了，租期内不涨！", "可是合同上写着不能涨啊。", "合同写了房租不变！"],
+               "gloss": "It's right there in the contract: the rent stays the same!",
+               "tip": "合同上写着呢 = it's written right there in the contract (着呢: see, it's there). 不变 = stays the same.", "decoys": ["便", "这"], "status": "live" },
+        "5": { "en": "Read her photo. Point out, politely, that it's there in black and white: the rent stays the same during the lease.", "reply": "type",
+               "answers": ["您看，合同上白纸黑字写着，租期内房租不变。", "阿姨，合同上白纸黑字写着租期内不涨的。", "合同第五条白纸黑字写着呢，租期内房租不变。", "可是合同上白纸黑字写的是，租期内不能涨啊。"],
+               "gloss": "Look: it's there in the contract in black and white. The rent stays the same for the whole lease.", "need": [["合同"], ["不变", "不涨", "不能涨"], ["白纸黑字"]], "time": 35,
+               "tip": "白纸黑字 = in black and white: written down, so there's no arguing with it. 租期内 = for the length of the lease.", "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "nextyear",
+      "en": "End on a good note: thank her, and say you'll talk it over next year.",
+      "cue": "End it nicely.",
+      "reply": "speak",
+      "answers": ["谢谢阿姨，明年再商量！", "好的，谢谢阿姨！明年再说。", "谢谢王阿姨，那明年再聊。"],
+      "gloss": "Thank you! Let's talk it over next year.",
+      "need": [["谢"], ["明年"]],
+      "time": 15,
+      "tip": "再商量 = talk it over again (商量 = discuss and agree). Ending warmly keeps a landlord on your side.",
+      "ok": [
+        { "who": "wang", "kind": "voice", "secs": 7, "zh": "唉，本来还想报个拉丁舞班呢。", "en": "Sigh. I was going to sign up for a Latin dance class.", "typing": 4 },
+        { "who": "wang", "zh": "算了，先跳广场舞吧", "en": "Oh well. Square dancing in the park it is.", "typing": 1.5 },
+        { "who": "wang", "kind": "sticker", "art": "💃", "zh": "走起", "en": "Let's go!" }
+      ],
+      "fail": [ { "who": "wang", "zh": "嗯？", "en": "Hm?", "typing": 1 } ],
+      "levels": {
+        "5": { "en": "End on a good note: thank her for understanding, and say you'll talk it over properly next year.",
+               "answers": ["谢谢阿姨体谅，那咱们明年再好好商量。", "谢谢您的体谅，阿姨，明年我们再商量。", "谢谢阿姨理解，明年再坐下来好好聊。", "阿姨，谢谢您通情达理，明年咱们再商量！"],
+               "gloss": "Thank you for understanding, Auntie. Let's talk it over properly next year.", "need": [["谢"], ["明年"], ["体谅", "理解", "通情达理"]], "time": 18,
+               "tip": "体谅 tǐliàng = understanding, consideration: 谢谢您体谅 thanks her for giving way, and lets her keep face. 好好商量 = talk it over properly.", "status": "live" }
+      }
+    } },
+    { "end": "win", "en": "The rent stays put until the lease is up. Your landlady's Latin dance career will have to wait.", "zh": "房租不涨了。" }
+  ]
+}

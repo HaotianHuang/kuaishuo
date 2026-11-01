@@ -1,0 +1,60 @@
+{
+  "id": "summer",
+  "title": "那年夏天",
+  "title_en": "That Summer",
+  "eps": 6,
+  "audience": "heritage",
+  "levels": [
+    2,
+    4
+  ],
+  "genre": "drama",
+  "home": {
+    "name": "河边小县城",
+    "en": "a riverside county town, the summer after 高考: your grandfather's house, the bridge, the cicadas"
+  },
+  "cast": {
+    "xiaomin": {
+      "name": "小敏",
+      "en": "your cousin, eighteen, top of the county",
+      "emoji": "👧",
+      "voice": "f-young",
+      "tts": "zf_042"
+    },
+    "xiaoyi": {
+      "name": "小姨",
+      "en": "小敏's mother: proud, and already telling the neighbours",
+      "emoji": "👩",
+      "voice": "f-mid",
+      "tts": "zf_047"
+    },
+    "yifu": {
+      "name": "姨父",
+      "en": "小敏's father: says little",
+      "emoji": "👨",
+      "voice": "m-mid",
+      "tts": "zm_013"
+    },
+    "waigong": {
+      "name": "外公",
+      "en": "your grandfather, whose house this is",
+      "emoji": "👴",
+      "voice": "m-old",
+      "tts": "zm_014"
+    },
+    "luren": {
+      "name": "路人",
+      "en": "a passer-by on a 北京 campus",
+      "emoji": "🚶",
+      "voice": "f-mid",
+      "tts": "zf_023"
+    },
+    "tongxue": {
+      "name": "同学",
+      "en": "a student from your own town, three years in 北京",
+      "emoji": "🎒",
+      "voice": "m-young",
+      "tts": "zm_057"
+    }
+  }
+}

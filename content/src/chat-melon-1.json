@@ -1,0 +1,137 @@
+{
+  "id": "melon-1",
+  "format": "chat",
+  "title": "西装和裙子",
+  "title_en": "The Suit and the Dress",
+  "level": 3,
+  "listen": 3,
+  "topics": ["home"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "melon", "ep": 1, "next": "老周 needs a third dancer by Saturday. He's asked you." },
+  "tags": ["吃瓜", "业主群", "谣言"],
+  "setting": "金桂苑, an old estate in Hangzhou, 8 pm. The residents' group has a theory.",
+  "stage": "🍉",
+  "bg": ["#0f3a1e", "#3c9a4f"],
+  "chat": { "group": { "zh": "金桂苑业主群" }, "members": 128, "me": { "zh": "小邻居" }, "giveup": [
+    { "who": "hu", "zh": "小邻居睡了。", "en": "Our young neighbour's asleep." },
+    { "end": "lose", "en": "By morning the rumour has reached the next estate. Run that back. 🍉" }
+  ] },
+  "cast": {
+    "hu": { "name": "胡阿姨", "en": "5号楼: first to see everything", "emoji": "👩‍🦱", "voice": "f-mid" },
+    "wu": { "name": "吴阿姨", "en": "3号楼: knows someone who saw it", "emoji": "👩", "voice": "f-mid" },
+    "zhao": { "name": "赵奶奶", "en": "eighty, sends only sixty-second voice notes", "emoji": "👵", "voice": "f-old" },
+    "ting": { "name": "婷婷", "en": "老周's daughter, also in the group", "emoji": "🙍", "voice": "f-young" },
+    "laozhou": { "name": "老周", "en": "3号楼: retired, lately in a suit every evening", "emoji": "👴", "voice": "m-old" }
+  },
+  "steps": [
+    { "narr": "8 pm. The estate's group chat. The aunties have a theory." },
+    { "who": "hu", "zh": "又看见了！老周穿西装出门了！", "en": "Saw it again! 老周 went out in a suit!", "clock": "20:01" },
+    { "who": "wu", "zh": "方阿姨也穿了裙子，同一个时间！", "en": "And 方阿姨 in a dress, at the very same time!", "typing": 0.8 },
+    { "who": "zhao", "kind": "voice", "secs": 60, "zh": "这事儿不简单，我一看就知道。", "en": "There's more to this. I could tell at a glance." },
+    { "who": "hu", "kind": "sticker", "art": "🍉🪑", "zh": "搬好小板凳吃瓜", "en": "Pulling up a stool for the show" },
+    { "who": "wu", "zh": "小邻居，你说是不是？", "mention": true, "en": "What do you say, young neighbour?", "typing": 1 },
+    { "say": {
+      "id": "deflect",
+      "en": "Don't join in: tell them not to jump to conclusions.",
+      "cue": "Don't join in.",
+      "answers": ["别乱说，人家也许有事。", "大家别乱猜，可能是误会。", "别乱说，没准是误会。"],
+      "gloss": "Don't say things like that. Maybe they're just busy.",
+      "need": [["别乱说", "别乱猜"], ["有事", "误会", "没看见"]],
+      "key": { "别乱说": "don't talk nonsense" },
+      "time": 30,
+      "tip": "乱 luàn = wildly, carelessly: 别乱说 = don't go saying things. 误会 wùhuì = a misunderstanding.",
+      "decoys": ["论", "物"],
+      "ok": [ { "who": "wu", "zh": "小邻居，你还年轻，不懂。", "en": "You're young, dear. You don't understand.", "typing": 1 } ],
+      "fail": [ { "who": "hu", "zh": "小邻居也来吃瓜啦？", "en": "Has our young neighbour come for the show too?", "typing": 1 } ],
+      "levels": {
+        "2": {
+          "answers": ["别乱说！", "别乱说了。", "别瞎猜。"],
+          "need": [["别乱说", "别瞎说", "别乱猜", "别瞎猜"]],
+          "gloss": "Don't say that!",
+          "status": "live" },
+        "4": {
+          "answers": ["眼见为实，没看见就别乱说。", "眼见为实，大家别乱说，可能是误会。"],
+          "need": [["眼见为实"], ["别乱说"]],
+          "gloss": "Seeing is believing. If you didn't see it, don't say it.",
+          "tip": "眼见为实 = what you see with your own eyes is real: seeing is believing.",
+          "status": "live" }
+      }
+    } },
+    { "who": "ting", "zh": "……我也在群里。", "en": "...I'm in this group too, you know.", "typing": 2, "fx": "shake" },
+    { "who": "zhao", "kind": "voice", "secs": 60, "zh": "婷婷你别管，大人的事。", "en": "Don't you worry, 婷婷. Grown-up business." },
+    { "say": {
+      "id": "who",
+      "en": "Ask who actually saw them together.",
+      "cue": "Who actually saw?",
+      "answers": ["到底是谁看见了？", "谁亲眼看见了？", "谁看见他们在一起了？"],
+      "gloss": "Who actually saw anything?",
+      "need": [["谁"], ["看见", "看到"]],
+      "time": 30,
+      "tip": "亲眼 qīnyǎn = with your own eyes. 到底 dàodǐ = actually, in the end: pressing for the truth.",
+      "ok": [ { "who": "wu", "zh": "我楼下的楼下的邻居看见的。", "en": "The neighbour of the neighbour below me saw them.", "typing": 1.5 } ],
+      "fail": [ { "who": "wu", "zh": "大家都知道啊。", "en": "Everybody knows.", "typing": 1 } ],
+      "levels": {
+        "2": {
+          "answers": ["谁看见了？", "谁看见的？", "谁看到了？"],
+          "need": [["谁看见", "谁看到", "谁亲眼", "是谁看见"]],
+          "gloss": "Who saw it?",
+          "status": "live" },
+        "4": {
+          "answers": ["空口无凭，到底谁亲眼看见了？", "空口无凭，谁亲眼看见了？"],
+          "need": [["空口无凭"], ["亲眼"]],
+          "gloss": "Words are cheap. Who actually saw it with their own eyes?",
+          "tip": "空口无凭 = an empty mouth is no proof: say-so isn't evidence.",
+          "status": "live" }
+      }
+    } },
+    { "who": "hu", "zh": "有照片！", "en": "There's a photo!", "typing": 0.6 },
+    { "who": "hu", "kind": "photo", "art": "🌳🔊🕺💃", "zh": "公园里，一个音箱，两个人在跳舞。", "en": "The park. A speaker. Two people, dancing.", "typing": 2 },
+    { "who": "zhao", "kind": "voice", "secs": 3, "zh": "……华尔兹？", "en": "...A waltz?" },
+    { "narr": "You remember the poster in the lift: the estate talent show, Saturday." },
+    { "who": "wu", "zh": "小邻居，你知道什么吧？", "mention": true, "en": "You know something, don't you, dear?", "typing": 1 },
+    { "say": {
+      "id": "secret",
+      "en": "Keep their secret, or tell the group they're practising.",
+      "cue": "Keep it, or tell?",
+      "answers": ["我什么也没看见。", "我什么都没看见。"],
+      "gloss": "I didn't see a thing.",
+      "need": [["什么也没", "什么都没"]],
+      "key": { "什么也没": "nothing at all" },
+      "time": 30,
+      "tip": "什么也没…… = didn't ... anything at all: 什么也没看见.",
+      "sets": { "melon.dance": "kept" },
+      "ok": [ { "who": "hu", "zh": "小邻居真没意思！", "en": "Our young neighbour is no fun at all!", "typing": 1 } ],
+      "alts": [
+        { "en": "Or: tell them they're practising", "answers": ["他们在练舞，为了才艺比赛！", "人家是在练舞！"], "need": [["练舞"]], "gloss": "They're practising, for the talent show!",
+          "key": { "练舞": "practise dancing" },
+          "sets": { "melon.dance": "told" },
+          "then": [
+            { "who": "hu", "zh": "练舞？！", "en": "Dance practice?!", "typing": 0.6 },
+            { "who": "wu", "zh": "跳得还挺好。", "en": "They're rather good, actually.", "typing": 1 },
+            { "who": "zhao", "kind": "voice", "secs": 60, "zh": "我年轻的时候也跳过……", "en": "When I was young, I danced too..." },
+            { "who": "ting", "zh": "谢谢你，小邻居。", "en": "Thank you, neighbour.", "typing": 1 }
+          ] }
+      ],
+      "fail": [ { "who": "wu", "zh": "你知道什么吧？", "en": "You know something, don't you?", "typing": 1 } ],
+      "levels": {
+        "2": {
+          "answers": ["我没看见。", "什么都没看见。"],
+          "need": [["没看见"]],
+          "gloss": "I didn't see anything.",
+          "alts": [ { "of": 0, "answers": ["他们在练舞！"], "need": [["练舞"]], "gloss": "They're practising!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["我什么也没看见，大家也别说了。", "我什么都没看见，大家就别说了。"],
+          "need": [["什么也没", "什么都没"], ["别说"]],
+          "gloss": "I didn't see a thing, and nobody needs to say any more.",
+          "alts": [ { "of": 0, "answers": ["人家在练舞，准备才艺比赛呢！"], "need": [["练舞"], ["比赛"]], "gloss": "They're practising, getting ready for the talent show!" } ],
+          "status": "live" }
+      }
+    } },
+    { "who": "laozhou", "zh": "小邻居，你会跳舞吗？", "mention": true, "en": "Young neighbour, can you dance?", "typing": 2 },
+    { "when": { "melon.dance": "kept" }, "end": "win", "en": "老周 sends a thumbs-up, and a dance video. Forty minutes long. 💃",
+      "else": [ { "end": "win", "en": "By ten, half the group wants to join the dance. 老周 asked you first. 💃" } ] }
+  ]
+}

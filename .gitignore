@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+review/
+.cache/
+dist/
+/web/
+*.wav
+__pycache__/
+.wrangler/

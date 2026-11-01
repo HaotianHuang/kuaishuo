@@ -1,0 +1,155 @@
+{
+  "id": "expectations-4",
+  "format": "scene",
+  "title": "舅舅来了",
+  "title_en": "Uncle Visits",
+  "level": 3,
+  "listen": 3,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "expectations", "ep": 4, "next": "Your twenty-first birthday. A storm. Someone knocks: the man from the mudflats." },
+  "tags": ["远大前程", "舅舅", "深圳"],
+  "setting": "Your flat in 深圳, Saturday afternoon. 小柏, two smart friends from college, and a view of cranes. Then a knock.",
+  "stage": "🏙️",
+  "bg": ["#141820", "#6a7a8a"],
+  "cast": {
+    "jiujiu": { "name": "舅舅", "en": "your uncle, in his work clothes", "emoji": "👨", "voice": "m-mid" },
+    "xiaobai": { "name": "小柏", "en": "your flatmate: kind", "emoji": "🧑", "voice": "m-young" }
+  },
+  "steps": [
+    { "when": { "expectations.ep3": "go" }, "narr": "A year in 深圳. You haven't written home once.",
+      "else": [ { "narr": "You took that day to think, back then. 舅舅 still tells everyone in the village about it." } ] },
+    { "narr": "Saturday. The flat looks out over cranes. 小柏, two smart friends from college, and coffee you're still learning to like.", "prop": "☕" },
+    { "sfx": "knock" },
+    { "who": "xiaobai", "zh": "有人敲门。", "en": "Someone's at the door." },
+    { "narr": "At the door: 舅舅, in his work clothes, with a bag of dried fish. He has taken his hat off, and doesn't know what to do with it.", "prop": "🧢" },
+    { "who": "jiujiu", "zh": "……你好。", "en": "...Hello.", "hold": 1 },
+    { "say": {
+      "id": "greet",
+      "en": "Greet him: 舅舅, what are you doing here?",
+      "cue": "Greet him.",
+      "answers": ["舅舅，您怎么来了？", "舅舅！您怎么来了？"],
+      "gloss": "舅舅, what brings you here?",
+      "need": [["舅舅"], ["怎么来了"]],
+      "tip": "您怎么来了？ = what brings you here? Surprise, not a complaint.",
+      "ok": [
+        { "who": "jiujiu", "zh": "路过。……不是路过。坐了一夜的车。", "en": "Passing by. ...Not passing by. I was on the bus all night." }
+      ],
+      "fail": [ { "who": "jiujiu", "zh": "我……是不是走错了？", "en": "Have I... got the wrong door?" } ],
+      "levels": {
+        "2": {
+          "answers": ["舅舅？您来了！", "舅舅，您来了！"],
+          "need": [["来了"]],
+          "gloss": "舅舅?",
+          "status": "live" },
+        "4": {
+          "answers": ["舅舅，您怎么来了？快进来坐！"],
+          "need": [["进来坐"], ["怎么来了"]],
+          "gloss": "舅舅, what brings you here? Come in, sit down!",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaobai", "zh": "这位是？", "en": "And this is?" },
+    { "say": {
+      "id": "intro",
+      "en": "Introduce him to 小柏: this is my uncle.",
+      "cue": "Introduce him.",
+      "answers": ["小柏，这是我舅舅。", "这是我舅舅。"],
+      "gloss": "小柏, this is my uncle.",
+      "need": [["这是"], ["我舅舅"]],
+      "tip": "舅舅 jiùjiu = your mother's brother.",
+      "ok": [
+        { "who": "xiaobai", "zh": "舅舅好！快坐，我去泡茶。", "en": "Hello, Uncle! Sit down, I'll make tea." },
+        { "who": "jiujiu", "zh": "不坐了。衣服脏。", "en": "I won't sit. My clothes are dirty." }
+      ],
+      "fail": [ { "who": "xiaobai", "zh": "这位是……？", "en": "This is...?" } ],
+      "levels": {
+        "2": {
+          "answers": ["我舅舅。", "这是我舅舅。"],
+          "need": [["我舅舅"]],
+          "gloss": "My uncle.",
+          "status": "live" },
+        "4": {
+          "answers": ["小柏，给你介绍一下，这是我舅舅。"],
+          "need": [["介绍"], ["我舅舅"]],
+          "gloss": "小柏, let me introduce you: this is my uncle.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "舅舅 stands by the door. The friends glance at his boots, and then away." },
+    { "who": "jiujiu", "zh": "舅妈让我带的。鱼干。", "en": "Your aunt sent this. Dried fish." },
+    { "narr": "One of the friends laughs at something on their phone. 舅舅 thinks it's at him." },
+    { "who": "jiujiu", "zh": "你……过得好吗？", "en": "Are you... doing all right?" },
+    { "say": {
+      "id": "well",
+      "en": "Answer him: you're doing well, he needn't worry.",
+      "cue": "Answer him.",
+      "answers": ["我过得很好，舅舅。", "我很好，您放心。"],
+      "gloss": "I'm doing well, 舅舅.",
+      "need": [["很好"], ["舅舅", "放心"]],
+      "tip": "过得很好 = getting on well. 您放心 = don't worry about me.",
+      "ok": [ { "who": "jiujiu", "zh": "那就好。那就好。", "en": "Good. That's good." } ],
+      "fail": [ { "who": "jiujiu", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "2": {
+          "answers": ["我很好！", "我过得很好。"],
+          "need": [["很好"]],
+          "gloss": "I'm fine!",
+          "status": "live" },
+        "4": {
+          "answers": ["我过得很好，您和舅妈放心吧。"],
+          "need": [["舅妈"], ["放心"]],
+          "gloss": "I'm doing well. You and 舅妈 needn't worry.",
+          "status": "live" }
+      }
+    } },
+    { "who": "jiujiu", "zh": "我不该来的。给你丢人了。", "en": "I shouldn't have come. I've embarrassed you.", "pace": "slow", "hold": 2 },
+    { "who": "jiujiu", "zh": "还有……何小姐想见你。", "en": "And... 何小姐 wants to see you.", "pace": "slow" },
+    { "who": "jiujiu", "zh": "我就是来说这个的。", "en": "That's all I came to say.", "pace": "slow", "hold": 1 },
+    { "say": {
+      "id": "proud",
+      "en": "Honour him: he's no embarrassment, he's your uncle. Or walk him to the station.",
+      "cue": "Honour him, or the station?",
+      "answers": ["您不丢人。您是我舅舅。", "舅舅，您不丢人。"],
+      "gloss": "You're no embarrassment. You're my uncle.",
+      "need": [["不丢人"], ["舅舅"]],
+      "key": { "丢人": "embarrassing, a disgrace" },
+      "tip": "丢人 diūrén = lose face, be an embarrassment. 您不丢人 = you're nothing to be ashamed of.",
+      "sets": { "expectations.ep4": "proud" },
+      "ok": [
+        { "narr": "舅舅 looks at the floor for a long time.", "hold": 2 },
+        { "who": "xiaobai", "zh": "舅舅，留下来吃饭吧！", "en": "Stay for dinner, Uncle!" },
+        { "who": "jiujiu", "zh": "……好。", "en": "...All right.", "fx": "laugh" },
+        { "narr": "He sits. He keeps his hat on his knee all through dinner." }
+      ],
+      "alts": [
+        { "en": "Or: walk him to the station", "answers": ["舅舅，我送您去车站吧。", "我送您去车站吧。"], "need": [["送您"], ["车站"]], "gloss": "舅舅, let me walk you to the station.",
+          "sets": { "expectations.ep4": "hurry" },
+          "then": [
+            { "who": "jiujiu", "zh": "好，好。你忙。", "en": "Yes, yes. You're busy.", "pace": "slow" },
+            { "narr": "At the station he buys you a can of drink, and won't let you pay." },
+            { "who": "jiujiu", "zh": "没事。我懂。", "en": "It's all right. I understand.", "pace": "slow", "hold": 2 }
+          ] }
+      ],
+      "fail": [ { "who": "jiujiu", "zh": "我走了。", "en": "I'll go." } ],
+      "levels": {
+        "2": {
+          "answers": ["您不丢人！", "舅舅不丢人。"],
+          "need": [["不丢人"]],
+          "gloss": "You're nothing to be ashamed of!",
+          "alts": [ { "of": 0, "answers": ["我送您吧。"], "need": [["送您"]], "gloss": "Let me walk you out." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["舅舅，您不丢人，留下来吃饭吧。"],
+          "need": [["留下来"], ["不丢人"]],
+          "gloss": "舅舅, you're nothing to be ashamed of. Stay for dinner.",
+          "alts": [ { "of": 0, "answers": ["天晚了，舅舅，我送您去车站吧。"], "need": [["天晚了"], ["车站"]], "gloss": "It's late, 舅舅. Let me walk you to the station." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "expectations.ep4": "proud" }, "end": "win", "en": "舅舅 takes the night bus home with a full stomach. The dried fish lasts you a month. 🐟",
+      "else": [ { "end": "win", "en": "The bus pulls out. You stand on the platform long after it's gone, holding a can of drink you never open. 🐟" } ] }
+  ]
+}

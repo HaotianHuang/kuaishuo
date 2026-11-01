@@ -1,0 +1,301 @@
+/* 接 Calls. The card is the phone: a status bar, the caller, their photo, the in-call buttons, and the shared answer
+   panel sitting low where a call's own controls would be. States live on the card: --ring (incoming), --live (on the
+   line), --turn (your line: the panel is up), --talk (they're speaking), --bad (the line is breaking up), --you
+   (you're speaking), --also (someone else on their end), --pad (keypad open), --missed, --over (call ended). */
+.ks-call { background: linear-gradient(170deg, var(--ks-call-a, #1b1f2a), var(--ks-call-b, #3a4252)); }
+.ks-call-bg { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.ks-call-bg span { position: absolute; left: 50%; top: 30%; transform: translate(-50%, -50%); font-size: 320px; line-height: 1; filter: blur(48px) saturate(1.3); opacity: 0.55; }
+.ks-call-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6, 6, 10, 0.28), rgba(6, 6, 10, 0.5) 50%, rgba(6, 6, 10, 0.82)); }
+
+/* ---------- status bar (the time sits in the middle: the back button owns the left corner) ---------- */
+.ks-call-bar { position: absolute; z-index: 4; top: calc(18px + var(--safe-t)); left: var(--safe-l); right: var(--safe-r); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; font-size: 15px; font-weight: 600; pointer-events: none; }
+.ks-call-clock { grid-column: 2; font-variant-numeric: tabular-nums; letter-spacing: 0.3px; }
+.ks-call-net { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: 5px; font-size: 12px; font-style: normal; }
+.ks-call-net i { font-style: normal; }
+.ks-call-net svg { height: 11px; fill: currentColor; }
+.ks-call-net svg:last-child { height: 12px; }
+.ks-call--bad .ks-call-net svg:first-child rect:nth-child(n+2) { animation: ks-call-flicker 0.5s steps(2) infinite; }
+@keyframes ks-call-flicker { 50% { opacity: 0.15; } }
+
+/* ---------- the phone: one column, top to bottom ---------- */
+.ks-call-phone { position: absolute; inset: 0; z-index: 3; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; padding: calc(64px + var(--safe-t)) var(--safe-r) calc(22px + var(--safe-b)) var(--safe-l); transition: padding 0.25s; }
+.ks-call--ring .ks-call-phone, .ks-call--missed .ks-call-phone { padding-bottom: calc(100px + var(--safe-b)); }
+.ks-call--turn .ks-call-phone { padding-bottom: calc(var(--ks-call-panel, 260px) + 8px); }
+.ks-call--turn:not(.ks-call--relaxed) .ks-call-phone { padding-bottom: calc(var(--ks-call-panel, 260px) + 40px); } /* room for the patience bar */
+
+.ks-call-head { flex: none; max-width: 100%; display: grid; justify-items: center; gap: 2px; text-align: center; }
+.ks-call-kind { display: flex; align-items: center; gap: 6px; min-height: 22px; font-size: 16px; color: rgba(247, 242, 232, 0.8); font-variant-numeric: tabular-nums; }
+.ks-call-kind svg { width: 15px; height: 15px; fill: currentColor; }
+.ks-call-kind i { font-style: normal; font-size: 14px; opacity: 0.75; }
+.ks-call-hd { font-size: 10px !important; font-weight: 800; line-height: 1.3; padding: 0 3px; border: 1px solid currentColor; border-radius: 4px; }
+.ks-call--missed .ks-call-kind, .ks-call--over .ks-call-kind { color: #ff7b72; }
+.ks-call-name { max-width: 100%; font-size: 40px; font-weight: 500; line-height: 1.15; letter-spacing: 1px; overflow-wrap: anywhere; transition: font-size 0.25s; }
+.ks-call-name .ks-zh { line-height: 1.5; }
+.ks-call-name rt { font-size: 0.34em; color: rgba(247, 242, 232, 0.72); letter-spacing: 0.5px; }
+.ks-call-num { font-size: 32px; font-weight: 400; letter-spacing: 0.5px; font-variant-numeric: tabular-nums; }
+.ks-call-sub { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 2px 10px; font-size: 17px; color: rgba(247, 242, 232, 0.85); }
+.ks-call-sub .ks-zh { line-height: 1.6; }
+.ks-call-warn { color: #ff9d92; font-weight: 600; }
+.ks-call-numsm { font-variant-numeric: tabular-nums; font-size: 15px; }
+
+/* ---------- the photo: rings while it rings, breathes while they talk ---------- */
+.ks-call-face { position: relative; flex: none; width: 132px; height: 132px; margin: 30px 0 12px; transition: width 0.25s, height 0.25s, margin 0.25s; }
+.ks-call-photo { position: relative; z-index: 1; width: 100%; height: 100%; box-sizing: border-box; display: grid; place-items: center; border-radius: 50%; font-size: 70px; line-height: 1; background: rgba(255, 255, 255, 0.16); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.14); transition: font-size 0.25s, filter 0.3s; }
+.ks-call-halo i { position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.55); opacity: 0; }
+.ks-call--ring .ks-call-halo i { animation: ks-call-halo 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite; }
+.ks-call--ring .ks-call-halo i:nth-child(2) { animation-delay: 0.8s; }
+.ks-call--ring .ks-call-halo i:nth-child(3) { animation-delay: 1.6s; }
+@keyframes ks-call-halo { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(2.1); opacity: 0; } }
+.ks-call--ring .ks-call-face, .ks-call--missed .ks-call-face { width: 148px; height: 148px; margin: auto 0; }
+.ks-call--ring .ks-call-photo, .ks-call--missed .ks-call-photo { font-size: 78px; }
+.ks-call--talk .ks-call-halo i:first-child { border-color: rgba(255, 255, 255, 0.4); animation: ks-call-breathe 0.8s ease-in-out infinite alternate; }
+@keyframes ks-call-breathe { from { transform: scale(1.05); opacity: 0.7; } to { transform: scale(1.25); opacity: 0.12; } }
+.ks-call-photo[data-fx=angry] { animation: ks-shake 0.4s 2; box-shadow: 0 0 0 4px rgba(255, 77, 94, 0.55), 0 14px 44px rgba(0, 0, 0, 0.35); }
+.ks-call-photo[data-fx=laugh] { animation: ks-call-hop 0.35s ease-in-out 3 alternate; }
+.ks-call-photo[data-fx=jump] { animation: ks-call-hop 0.3s ease-out 2 alternate; }
+.ks-call-photo[data-fx=squint] { transform: rotate(-8deg) scaleY(0.92); transition: transform 0.2s; }
+.ks-call-photo[data-fx=shake] { animation: ks-shake 0.4s 2; }
+@keyframes ks-call-hop { to { transform: translateY(-10px); } }
+.ks-call-also { position: absolute; z-index: 2; right: -14px; top: -8px; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; font-size: 26px; background: var(--ink-3); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4); opacity: 0; transform: scale(0.6); transition: opacity 0.2s, transform 0.2s; }
+.ks-call--also .ks-call-also { opacity: 1; transform: none; }
+
+/* their voice as a waveform; yours, in green, while you speak */
+.ks-call-wave { flex: none; display: flex; align-items: center; gap: 4px; height: 26px; margin-bottom: 8px; visibility: hidden; }
+.ks-call--live .ks-call-wave { visibility: visible; }
+.ks-call-wave i { width: 4px; height: 100%; border-radius: 2px; background: var(--paper); opacity: 0.28; transform: scaleY(0.12); }
+.ks-call--talk .ks-call-wave i, .ks-call--you .ks-call-wave i { opacity: 0.9; animation: ks-call-bar 0.44s ease-in-out infinite alternate; }
+.ks-call--talk .ks-call-wave i:nth-child(3n+1), .ks-call--you .ks-call-wave i:nth-child(3n+1) { animation-duration: 0.33s; animation-delay: -0.12s; }
+.ks-call--talk .ks-call-wave i:nth-child(3n+2), .ks-call--you .ks-call-wave i:nth-child(3n+2) { animation-duration: 0.57s; animation-delay: -0.3s; }
+.ks-call--talk .ks-call-wave i:nth-child(4n), .ks-call--you .ks-call-wave i:nth-child(4n) { animation-duration: 0.39s; animation-delay: -0.21s; }
+@keyframes ks-call-bar { from { transform: scaleY(0.14); } to { transform: scaleY(1); } }
+.ks-call--you .ks-call-wave i { background: #34c759; }
+.ks-call--bad .ks-call-wave i { animation: ks-call-glitch 0.62s steps(3) infinite; }
+@keyframes ks-call-glitch { 0% { transform: scaleY(0.9); } 33% { transform: scaleY(0.06); } 66% { transform: scaleY(0.45); } }
+
+/* ---------- subtitles: hidden until you peek ---------- */
+.ks-call-subs { flex: 1 1 auto; min-height: 0; width: 100%; max-width: 520px; display: none; flex-direction: column; justify-content: flex-end; gap: 10px; overflow: hidden; }
+.ks-call--live .ks-call-subs { display: flex; }
+.ks-call-lines { min-height: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 32px); mask-image: linear-gradient(to bottom, transparent, #000 32px); padding-top: 12px; }
+.ks-call-line { flex: none; align-self: flex-start; max-width: 90%; box-sizing: border-box; padding: 6px 13px 7px; border-radius: 18px 18px 18px 6px; background: rgba(0, 0, 0, 0.34); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); animation: ks-call-in 0.25s ease-out; }
+@keyframes ks-call-in { from { opacity: 0; transform: translateY(8px); } }
+.ks-call-line .ks-zh { font-size: 21px; }
+.ks-call-line .ks-en { font-size: 14px; }
+.ks-call-line-who { display: block; font-size: 12px; font-weight: 700; color: var(--mute); }
+.ks-call-txt { display: block; }
+/* a hidden line is a bar as long as what was said: you can see that they spoke, not what */
+.ks-call-redact { display: none; height: 12px; width: calc(var(--n, 8) * 14px); max-width: 100%; margin: 9px 0; border-radius: 6px; background: repeating-linear-gradient(90deg, rgba(247, 242, 232, 0.42) 0 44px, transparent 44px 52px); }
+.ks-call-line[data-peek=hide] .ks-call-txt { display: none; }
+.ks-call-line[data-peek=hide] .ks-call-redact { display: block; }
+.ks-call-subs--open .ks-call-line[data-peek=hide] .ks-call-txt { display: block; }
+.ks-call-subs--open .ks-call-line[data-peek=hide] .ks-call-redact { display: none; }
+/* a hidden line can be heard once more, free, before a peek: tap its bar */
+.ks-call-line[role=button] { position: relative; padding-right: 38px; cursor: pointer; }
+.ks-call-line[role=button]::after { content: '↻'; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 17px; font-weight: 700; color: rgba(247, 242, 232, 0.65); }
+.ks-call-subs--open .ks-call-line[role=button]::after { content: none; }
+.ks-call-again .ks-call-redact, .ks-call-now .ks-call-redact { animation: ks-blink 0.8s infinite; }
+.ks-call-garble { display: block; font-size: 21px; letter-spacing: 3px; color: var(--mute); }
+.ks-call-garble i { font-style: normal; font-size: 13px; letter-spacing: 0; margin-left: 8px; }
+.ks-call-mine { align-self: flex-end; border-radius: 18px 18px 6px 18px; background: rgba(52, 199, 89, 0.2); }
+.ks-call-mine .ks-call-line-who { color: #7fe39b; }
+.ks-call-peek { flex: none; align-self: center; display: flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(0, 0, 0, 0.3); font-size: 15px; font-weight: 600; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.ks-call-peek i { font-style: normal; color: var(--gold); }
+.ks-call-peek:disabled { cursor: default; opacity: 0.75; }
+
+.ks-call-narr { flex: none; width: 100%; max-width: 480px; text-align: center; font-size: 16px; font-style: italic; line-height: 1.35; color: rgba(247, 242, 232, 0.88); text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6); opacity: 0; transition: opacity 0.3s; }
+.ks-call-narr--on { opacity: 1; margin-top: 8px; }
+
+/* ---------- ringing: decline and answer ---------- */
+.ks-call-answer { flex: none; display: none; justify-content: space-between; width: 100%; max-width: 330px; margin-top: auto; padding: 0 6px; box-sizing: border-box; }
+.ks-call--ring .ks-call-answer { display: flex; }
+.ks-call-answer button { display: grid; justify-items: center; gap: 3px; padding: 0; border: 0; background: none; }
+.ks-call-answer span { width: 76px; height: 76px; display: grid; place-items: center; border-radius: 50%; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35); }
+.ks-call-answer svg { width: 34px; height: 34px; fill: #fff; }
+.ks-call-answer b { margin-top: 5px; font-size: 16px; font-weight: 600; line-height: 1.2; }
+.ks-call-answer i { font-style: normal; font-size: 13px; color: rgba(247, 242, 232, 0.7); }
+.ks-call-no span { background: #ff3b30; }
+.ks-call-no svg, .ks-call-hang svg { transform: rotate(135deg); }
+.ks-call-yes span { background: #34c759; animation: ks-call-nudge 1.7s ease-in-out infinite; }
+@keyframes ks-call-nudge { 0%, 55%, 100% { transform: none; } 65% { transform: translateY(-9px) rotate(-14deg); } 75% { transform: translateY(0) rotate(12deg); } 85% { transform: translateY(-4px) rotate(-7deg); } }
+
+/* ---------- on the line: mute, keypad, speaker, hang up ---------- */
+.ks-call-ctl { flex: none; display: none; flex-direction: column; align-items: center; gap: 18px; width: 100%; max-width: 340px; margin-top: 14px; }
+.ks-call--live .ks-call-ctl { display: flex; }
+.ks-call-keys { width: 100%; display: flex; justify-content: space-around; }
+.ks-call-key { display: grid; justify-items: center; gap: 6px; padding: 0; border: 0; background: none; }
+.ks-call-key span { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, 0.17); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: background 0.15s; }
+.ks-call-key svg { width: 28px; height: 28px; fill: var(--paper); color: var(--paper); }
+.ks-call-key[aria-pressed=true] span { background: var(--paper); }
+.ks-call-key[aria-pressed=true] svg { fill: var(--ink); color: var(--ink); }
+.ks-call-key i { font-style: normal; font-size: 13px; color: rgba(247, 242, 232, 0.85); }
+.ks-call-hang { position: relative; width: 72px; height: 72px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; background: #ff3b30; box-shadow: 0 10px 28px rgba(255, 59, 48, 0.35); transition: box-shadow 0.2s; }
+.ks-call-hang svg { width: 34px; height: 34px; fill: #fff; }
+/* the controls come back gently after your turn, and the red button wants a second tap */
+.ks-call--live:not(.ks-call--turn) .ks-call-ctl { animation: ks-call-ctl-in 0.4s ease-out both; }
+@keyframes ks-call-ctl-in { from { opacity: 0; } }
+.ks-call-hang-tip { position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%); white-space: nowrap; padding: 6px 12px; border-radius: 99px; background: rgba(0, 0, 0, 0.7); color: #fff; font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.ks-call-armed { box-shadow: 0 0 0 8px rgba(255, 59, 48, 0.35), 0 10px 28px rgba(255, 59, 48, 0.35); }
+.ks-call-armed .ks-call-hang-tip { opacity: 1; }
+
+/* the keypad takes the photo's place, as it does on a real phone */
+.ks-call-pad { display: none; }
+.ks-call--pad .ks-call-pad { flex: 1 1 auto; display: grid; grid-template-columns: repeat(3, 66px); grid-auto-rows: 66px; gap: 12px 24px; justify-content: center; align-content: end; }
+.ks-call--pad .ks-call-face, .ks-call--pad .ks-call-wave, .ks-call--pad .ks-call-subs { display: none; }
+.ks-call-pad button { border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.17); font-size: 30px; font-weight: 400; }
+.ks-call-pad button:active { background: rgba(255, 255, 255, 0.4); }
+.ks-call-pad-num { grid-column: 1 / -1; min-height: 36px; text-align: center; font-size: 30px; letter-spacing: 2px; font-variant-numeric: tabular-nums; }
+
+/* ---------- your line: the photo steps back, the panel comes up low ---------- */
+.ks-call--turn .ks-call-face { width: 76px; height: 76px; margin: 14px 0 6px; }
+.ks-call--turn .ks-call-photo { font-size: 40px; }
+.ks-call--turn .ks-call-name { font-size: 28px; }
+.ks-call--turn .ks-call-sub, .ks-call--turn .ks-call-ctl { display: none; }
+
+.ks-call .ks-ask--call { left: 0; right: 0; bottom: 0; max-height: 70%; padding: 12px var(--safe-r) calc(14px + var(--safe-b)) var(--safe-l); gap: 8px; border: 0; border-radius: 26px 26px 0 0; background: linear-gradient(180deg, rgba(16, 14, 22, 0.8), rgba(10, 9, 14, 0.96) 45%); box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35); }
+.ks-ask--call .ks-ask-label { color: #34c759; }
+.ks-ask--call .ks-ask-mission { font-size: 16px; font-weight: 600; color: rgba(247, 242, 232, 0.82); text-align: center; }
+.ks-ask--call .ks-ask-cue { font-size: 24px; font-weight: 800; line-height: 1.15; color: var(--paper); }
+.ks-ask--call.ks-timeout .ks-ask-mission { color: var(--red); font-size: 20px; }
+.ks-ask--call .ks-ask-alts, .ks-ask--call .ks-ask-tools { justify-content: center; }
+.ks-ask--call .ks-ask-help, .ks-ask--call .ks-ask-live { text-align: center; }
+.ks-ask--call .ks-mic { --mic: 92px; --orb: #34c759; --orb-2: #69b7ff; --orb-3: #35d49c; }
+.ks-ask--call .ks-mic svg { padding: 24px; box-shadow: 0 10px 30px rgba(52, 199, 89, 0.4); }
+.ks-ask--call.ks-listening .ks-mic svg { animation: ks-call-mic 1.1s infinite; }
+@keyframes ks-call-mic { 0% { box-shadow: 0 0 0 0 rgba(52, 199, 89, 0.6); } 100% { box-shadow: 0 0 0 24px rgba(52, 199, 89, 0); } }
+.ks-ask--call .ks-ask-tools { gap: 4px; }
+.ks-ask--call .ks-modes { margin-left: 0; }
+.ks-ask--call .ks-mode { width: 30px; padding: 6px 7px; }
+.ks-ask--call .ks-tool { padding: 5px 8px; border-color: rgba(255, 255, 255, 0.14); }
+.ks-ask--call .ks-win { justify-items: center; text-align: center; }
+.ks-ask--call .ks-next { justify-self: center; }
+.ks-ask--call .ks-ask-clock[hidden] { display: none; }
+/* tiles spell the answer out: on a call they wait for a peek */
+.ks-call:not(.ks-call--peeked) .ks-ask--call .ks-mode[data-m=tiles] { display: none; }
+/* a peek on a short screen puts the caller's last line in the panel too */
+.ks-call-help-line { text-align: left; padding: 6px 10px; margin-bottom: 6px; border-radius: 12px; background: rgba(255, 255, 255, 0.07); }
+.ks-call-help-line .ks-zh { font-size: 20px; }
+/* the caller's patience, just above the panel: it runs down only while you're silent */
+.ks-call-wait { position: absolute; z-index: 21; left: 18px; right: 30px; bottom: calc(var(--ks-call-panel, 260px) + 10px); display: none; align-items: center; gap: 12px; pointer-events: none; }
+.ks-call--turn:not(.ks-call--relaxed) .ks-call-wait { display: flex; }
+.ks-call-wait > span { flex: none; font-size: 12px; font-weight: 700; letter-spacing: 0.03em; color: rgba(247, 242, 232, 0.78); text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); }
+.ks-call-wait-bar { position: relative; flex: 1; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.16); }
+.ks-call-wait-bar i { position: absolute; inset: 0; border-radius: 4px; transform-origin: left; transform: scaleX(var(--left, 1)); background: var(--paper); transition: transform 0.1s linear, background 0.3s; }
+.ks-call-wait-bar b { position: absolute; top: 50%; left: calc(var(--left, 1) * 100%); transform: translate(-50%, -50%); font-size: 22px; line-height: 1; filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6)); transition: left 0.1s linear; }
+.ks-call--impatient .ks-call-wait-bar i { background: var(--gold); }
+.ks-call--hurry .ks-call-wait-bar i { background: var(--red); }
+.ks-call--impatient .ks-call-wait-bar b { animation: ks-call-fume 0.45s ease-in-out infinite alternate; }
+@keyframes ks-call-fume { from { transform: translate(-50%, -50%) rotate(-12deg); } to { transform: translate(-50%, -50%) rotate(12deg) scale(1.12); } }
+/* half their patience gone: the caller's photo gets cross too */
+.ks-call--impatient .ks-call-photo { animation: ks-shake 0.4s 1; box-shadow: 0 0 0 4px rgba(255, 77, 94, 0.55), 0 14px 44px rgba(0, 0, 0, 0.35); }
+
+/* ---------- missed: a voice message, then they call back ---------- */
+.ks-call-vm { flex: none; width: 100%; max-width: 440px; box-sizing: border-box; margin-top: auto; padding: 12px 16px; border-radius: 20px; background: rgba(16, 14, 22, 0.86); border: 1px solid rgba(255, 255, 255, 0.08); animation: ks-up 0.3s; }
+.ks-call-vm .ks-zh { font-size: 21px; }
+.ks-call-vm-h { font-size: 13px; color: var(--mute); }
+.ks-call-vm-h b { color: var(--paper); }
+
+/* ---------- call ended ---------- */
+.ks-call--over .ks-call-face { width: 84px; height: 84px; margin: 14px 0 0; }
+.ks-call--over .ks-call-photo { font-size: 44px; filter: grayscale(0.7); }
+.ks-call--over .ks-call-sub { display: none; }
+.ks-call-over-sheet { position: absolute; z-index: 10; left: var(--safe-l); right: var(--safe-r); bottom: calc(12px + var(--safe-b)); max-height: calc(100% - 268px - var(--safe-t)); overflow: hidden; box-sizing: border-box; display: flex; flex-direction: column; padding: 16px 16px 12px; border-radius: 24px; background: rgba(16, 14, 22, 0.92); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 -6px 40px rgba(0, 0, 0, 0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); animation: ks-up 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2); }
+.ks-call-over-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.ks-call-over-head b { font-size: 19px; }
+.ks-call-over-head span { font-size: 14px; color: var(--mute); font-variant-numeric: tabular-nums; }
+.ks-call-won .ks-call-over-head b { color: var(--jade); }
+.ks-call-over-cap .ks-zh { font-size: 21px; }
+.ks-call-over-cap .ks-en { font-size: 15px; color: var(--paper); opacity: 0.85; }
+.ks-call-over-score { display: flex; align-items: center; gap: 12px; }
+.ks-call-peeks { font-size: 14px; color: var(--mute); }
+.ks-call-said { display: grid; gap: 6px; }
+.ks-call-said-h { font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute); }
+.ks-call-said-row { display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 10px; padding: 4px 10px 4px 6px; border-radius: 14px; background: rgba(255, 255, 255, 0.05); }
+.ks-call-play { width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: var(--ink-3); font-size: 16px; }
+.ks-call-said-zh .ks-zh { font-size: 21px; }
+.ks-call-said-zh small { display: block; font-size: 13px; color: var(--mute); }
+.ks-call-said-en { display: block; font-size: 14px; line-height: 1.3; color: rgba(247, 242, 232, 0.75); margin-bottom: 2px; }
+.ks-call-said-st { font-size: 13px; color: var(--gold); letter-spacing: 1px; white-space: nowrap; }
+.ks-call-skipped { opacity: 0.6; }
+.ks-call-skipped .ks-call-said-st { color: var(--mute); letter-spacing: 0; }
+.ks-call-typeback { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border-radius: 14px; background: rgba(105, 183, 255, 0.1); border: 1px solid rgba(105, 183, 255, 0.25); }
+.ks-call-typeback[hidden] { display: none; }
+.ks-call-typeback b { display: block; font-size: 15px; }
+.ks-call-typeback span { font-size: 14px; color: rgba(247, 242, 232, 0.8); }
+.ks-call-typeback .ks-btn { flex: none; padding: 9px 14px; }
+/* The sheet never scrolls, so a swipe on it moves the feed (as the other formats' end lists): on a short phone the
+   replies give way first (call.js keeps the rows that fit), and the whole call, behind its toggle, has every line.
+   Opened, the whole call takes the sheet while you read it, and only its own list scrolls. */
+.ks-call-over-body { flex: 1 1 auto; min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 12px; padding-bottom: 4px; }
+.ks-call-over-body > * { flex: none; }
+.ks-call-over-body > .ks-call-said { flex: 0 1 auto; min-height: 0; overflow: hidden; align-content: start; }
+.ks-call-over-body:has(.ks-call-tx[open]) > :is(.ks-call-over-cap, .ks-call-over-score, .ks-call-typeback, .ks-call-said) { display: none; }
+.ks-call-over-more { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent); }
+/* typing a line back from memory: the lines that would give it away are out of sight */
+.ks-call-typing .ks-call-said, .ks-call-typing .ks-call-tx, .ks-call-typing .ks-call-over-cap, .ks-call-typing .ks-call-over-score, .ks-call-typing .ks-call-over-btns { display: none; }
+.ks-call-over-sheet.ks-call-typing { bottom: calc(var(--ks-call-panel, 240px) + 8px); animation: none; }
+.ks-call-tx summary { display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 700; color: var(--sky); }
+.ks-call-tx summary::-webkit-details-marker { display: none; }
+.ks-call-tx summary > span::before { content: '▸ '; }
+.ks-call-tx[open] summary > span::before { content: '▾ '; }
+.ks-call-tx-in { position: relative; display: grid; gap: 6px; margin-top: 10px; max-height: 34vh; overflow-y: auto; overscroll-behavior: auto; }
+.ks-call-tx-row { display: grid; grid-template-columns: 26px 1fr 36px; gap: 8px; align-items: center; padding: 2px 4px; border-radius: 10px; }
+.ks-call-tx-who { font-size: 18px; text-align: center; }
+.ks-call-tx-row .ks-zh { font-size: 20px; }
+.ks-call-tx-you .ks-call-tx-who { font-size: 14px; font-weight: 800; color: #7fe39b; }
+.ks-call-tx-flag { box-shadow: inset 3px 0 0 var(--gold); }
+.ks-call-tx-tag { display: inline-block; margin-top: 2px; padding: 1px 6px; border-radius: 6px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); background: var(--gold); }
+.ks-call-tx-now { background: rgba(105, 183, 255, 0.14); }
+/* hearing the call again: no subtitles, as on the phone */
+.ks-call-tx-blind .ks-zh, .ks-call-tx-blind .ks-en { filter: blur(7px); }
+.ks-call-over-btns { flex: none; display: flex; justify-content: flex-end; gap: 10px; padding-top: 10px; }
+
+/* ---------- the feed's caption and rail belong to the ringing screen; the call itself is full screen ---------- */
+.ks-call .ks-cap, .ks-call .ks-rail { transition: opacity 0.2s; }
+.ks-call:not(.ks-call--ring) .ks-cap, .ks-call:not(.ks-call--ring) .ks-rail { opacity: 0; pointer-events: none; }
+.ks-call .ks-rail { bottom: auto; top: calc(var(--safe-t) + 34%); }
+.ks-call .ks-cap { right: var(--safe-r); }
+
+/* ---------- short phones ---------- */
+/* Safari's toolbars leave ~660 px: during your turn the photo and waveform give their room to the subtitles */
+@media (max-height: 760px) {
+  .ks-call--turn .ks-call-face, .ks-call--turn .ks-call-wave { display: none; }
+  .ks-call--turn .ks-call-lines { min-height: 64px; }
+}
+/* an SE in Safari (~550 px): the caller's name steps aside too, and the mic shrinks a little */
+@media (max-height: 600px) {
+  .ks-call--turn .ks-call-name, .ks-call--turn .ks-call-sub { display: none; }
+  .ks-call--turn .ks-call-phone { padding-top: calc(48px + var(--safe-t)); }
+  .ks-ask--call .ks-mic { --mic: 72px; }
+  .ks-ask--call .ks-mic svg { padding: 18px; }
+  .ks-call-over-body { gap: 8px; }
+}
+@media (max-height: 700px) {
+  .ks-call-phone { padding-top: calc(54px + var(--safe-t)); }
+  .ks-call-name { font-size: 34px; }
+  .ks-call-face { width: 112px; height: 112px; margin: 18px 0 8px; }
+  .ks-call-photo { font-size: 58px; }
+  .ks-call-key span { width: 56px; height: 56px; }
+  .ks-call-hang { width: 62px; height: 62px; }
+  .ks-call-ctl { gap: 12px; }
+  .ks-call--turn .ks-call-face { width: 60px; height: 60px; margin: 8px 0 4px; }
+  .ks-call--turn .ks-call-photo { font-size: 32px; }
+  .ks-call--turn .ks-call-name { font-size: 24px; }
+  .ks-call--over .ks-call-face { display: none; }
+  .ks-call-over-sheet { max-height: calc(100% - 150px - var(--safe-t)); }
+}
+/* once it's over, the number steps aside for the end sheet, so the whole call's toggle stays on it; and the sheet
+   drops its small print (the type-back's how-to, each reply's gloss) before it drops a reply worth another listen */
+@media (max-height: 700px) {
+  .ks-call--over .ks-call-name { display: none; }
+  .ks-call--over .ks-call-over-sheet { max-height: calc(100% - 96px - var(--safe-t)); }
+}
+@media (max-height: 760px) {
+  .ks-call-typeback > div > span:not([lang]) { display: none; }
+  .ks-call-said .ks-call-said-en { display: none; }
+}
+
+/* the pixel art (art.js): the caller's portrait as the contact photo, their place softly behind the call */
+.ks-call-place { position: absolute; inset: -12px; background-size: cover; background-position: center 30%; image-rendering: crisp-edges; image-rendering: pixelated; filter: blur(3px) saturate(1.1); opacity: 0.6; }
+.ks-call-photo-art { padding: 0; overflow: hidden; }
+.ks-call-also .ks-face { width: 100%; height: 100%; }
+.ks-call-av { display: inline-block; width: 1.4em; height: 1.4em; vertical-align: -0.35em; }
+.ks-call-wait-bar b .ks-face { width: 1.3em; height: 1.3em; }

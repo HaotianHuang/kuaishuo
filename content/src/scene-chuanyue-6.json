@@ -1,0 +1,148 @@
+{
+  "id": "chuanyue-6",
+  "format": "scene",
+  "title": "博物馆",
+  "title_en": "The Museum",
+  "level": 0,
+  "listen": 0,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "chuanyue", "ep": 6, "next": "Season one is over. The bronze mirror is back in its case. The moon is full again next month." },
+  "tags": ["穿越", "博物馆", "阿满"],
+  "setting": "西安, 2026. The same museum hall where you fell asleep. A new exhibit, and a card you can't stop reading.",
+  "stage": "🏛️",
+  "bg": ["#14141a", "#8a7a5a"],
+  "cast": {
+    "jiangjie": { "name": "讲解员", "en": "a guide at the museum", "emoji": "🎫", "voice": "f-mid", "speed": 0.85 },
+    "aje": { "name": "阿杰", "en": "home, in his hoodie", "emoji": "📱", "voice": "m-young", "speed": 0.85 }
+  },
+  "steps": [
+    { "narr": "2026. The museum hall, a week later. The bronze mirror is back in its case." },
+    { "when": { "chuanyue.ep5": "me" }, "narr": "阿杰 never came through. You waited by the mirror every evening, until closing.",
+      "else": [
+        { "narr": "阿杰 is beside you in his hoodie, eating the last of his 胡饼." },
+        { "who": "aje", "zh": "还是热的。", "en": "Still warm." }
+      ] },
+    { "narr": "A new case. Inside: a wooden 胡饼 mould, worn smooth, and a little clay figure of a woman at an oven.", "prop": "🫓" },
+    { "who": "jiangjie", "zh": "新来的展品。", "en": "A new exhibit.", "fx": "enter" },
+    { "say": {
+      "id": "who",
+      "en": "Ask the guide: who's this?",
+      "cue": "Who?",
+      "answers": ["这是谁？"],
+      "gloss": "Who's this?",
+      "need": [["是谁"]],
+      "tip": "这是谁？ = who is this?",
+      "ok": [
+        { "who": "jiangjie", "zh": "卖胡饼的。", "en": "A 胡饼 seller." },
+        { "who": "jiangjie", "zh": "在西市，卖了五十年。", "en": "In the west market, for fifty years." },
+        { "who": "jiangjie", "zh": "她叫阿满。", "en": "Her name was 阿满.", "hold": 2 }
+      ],
+      "fail": [ { "who": "jiangjie", "zh": "什么？", "en": "Sorry?" } ],
+      "levels": {
+        "1": {
+          "answers": ["请问，这是谁？"],
+          "need": [["请问"]],
+          "gloss": "Excuse me, who's this?",
+          "status": "live" },
+        "2": {
+          "answers": ["请问，这个人是谁？"],
+          "need": [["这个人"]],
+          "gloss": "Excuse me, who is this person?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Fifty years. She had a whole life. The card says so.", "zh": "西市胡饼铺，五十年。", "hold": 1 },
+    { "say": {
+      "id": "react",
+      "en": "React, before you can stop yourself.",
+      "cue": "It's her!",
+      "answers": ["是阿满！"],
+      "gloss": "It's 阿满!",
+      "need": [["阿满"]],
+      "tip": "是…… = it's ...: 是阿满 = it's 阿满!",
+      "ok": [ { "who": "jiangjie", "zh": "你说什么？", "en": "What did you say?" } ],
+      "fail": [ { "who": "jiangjie", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["真的是阿满！"],
+          "need": [["真的"]],
+          "gloss": "It really is 阿满!",
+          "status": "live" },
+        "2": {
+          "answers": ["真的是她，是阿满！"],
+          "need": [["是她"]],
+          "gloss": "It really is her. It's 阿满!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Beside the mould: a piece of carved jade, oddly flat and rectangular. Its card says only:", "zh": "用途不明", "prop": "📱" },
+    { "who": "jiangjie", "zh": "用途不明。", "en": "Use unknown." },
+    { "who": "jiangjie", "zh": "很奇怪吧？", "en": "Strange, isn't it?" },
+    { "when": { "chuanyue.ep5": "me" }, "narr": "A jade phone case. 阿杰's. He stayed after all.", "hold": 2,
+      "else": [ { "who": "aje", "zh": "那是我做的！", "en": "I made that!", "fx": "laugh" } ] },
+    { "who": "jiangjie", "zh": "你认识她？", "en": "You knew her?" },
+    { "say": {
+      "id": "tell",
+      "en": "Tell the guide you knew her, or keep it to yourself.",
+      "cue": "Tell, or keep it?",
+      "answers": ["我认识她。"],
+      "gloss": "I knew her.",
+      "need": [["认识她"]],
+      "tip": "认识 rènshi = know (a person).",
+      "sets": { "chuanyue.end": "told" },
+      "ok": [
+        { "who": "jiangjie", "zh": "……真的？", "en": "...Really?" },
+        { "who": "jiangjie", "zh": "那你说说她。", "en": "Then tell me about her." },
+        { "narr": "So you tell her: the oven, the coin, the basket she packed so slowly. The guide writes it all down." }
+      ],
+      "alts": [
+        { "en": "Or: keep it to yourself", "answers": ["没什么。"], "need": [["没什么"]], "gloss": "Nothing.",
+          "sets": { "chuanyue.end": "kept" },
+          "then": [ { "narr": "You keep it to yourself. Some things are just yours." } ] }
+      ],
+      "fail": [ { "who": "jiangjie", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我以前认识她。"],
+          "need": [["以前"]],
+          "gloss": "I knew her, once.",
+          "alts": [ { "of": 0, "answers": ["没什么，没事。"], "need": [["没事"]], "gloss": "Nothing. It's fine." } ],
+          "status": "live" },
+        "2": {
+          "answers": ["我以前认识她，很久了。"],
+          "need": [["很久"]],
+          "gloss": "I knew her, a long time ago.",
+          "alts": [ { "of": 0, "answers": ["没什么，没事，想起朋友。"], "need": [["朋友"]], "gloss": "Nothing. It's fine. Just thinking of a friend." } ],
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "thanks",
+      "en": "Thank the guide.",
+      "cue": "Thank her.",
+      "answers": ["谢谢！"],
+      "gloss": "Thank you!",
+      "need": [["谢谢"]],
+      "tip": "谢谢 xièxie = thank you.",
+      "ok": [ { "who": "jiangjie", "zh": "不客气。", "en": "You're welcome." } ],
+      "fail": [ { "who": "jiangjie", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["谢谢您！"],
+          "need": [["谢谢您"]],
+          "gloss": "Thank you!",
+          "status": "live" },
+        "2": {
+          "answers": ["谢谢您，讲得真好！"],
+          "need": [["真好"]],
+          "gloss": "Thank you. You told it so well!",
+          "status": "live" }
+      }
+    } },
+    { "when": { "chuanyue.end": "told" }, "end": "win", "en": "Next month the card has a new line: 据说，她的胡饼最好吃。 They say her 胡饼 were the best. Season one ends here. 🫓",
+      "else": [ { "end": "win", "en": "On the way out you buy a 胡饼 from a street stall. It isn't as good. Season one ends here. 🫓" } ] }
+  ]
+}

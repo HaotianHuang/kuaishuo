@@ -1,0 +1,201 @@
+{
+  "id": "fake-ghosts-4",
+  "format": "chase",
+  "title": "骑手",
+  "title_en": "The Headless Rider",
+  "level": 2,
+  "listen": 2,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "fake-ghosts", "ep": 4, "next": "In the oldest photo, the club's first president is holding 包子. The same cat." },
+  "tags": ["假鬼社", "无头骑手", "共享单车"],
+  "setting": "The university campus, Chengdu, 11:40 pm. Someone has seen a headless rider by the lake.",
+  "stage": "🛵",
+  "bg": ["#070d18", "#2c3f66"],
+  "cast": {
+    "le": { "name": "阿乐", "en": "the club's loudest member", "emoji": "🙋", "voice": "m-young" },
+    "yu": { "name": "小雨", "en": "has read everything", "emoji": "🤓", "voice": "f-young" },
+    "guo": { "name": "果果", "en": "films it all", "emoji": "📹", "voice": "f-young" },
+    "zhong": { "name": "小钟", "en": "revising for 考研, even now", "emoji": "📖", "voice": "f-young" },
+    "laoban": { "name": "烧烤摊老板", "en": "the late-night barbecue stall", "emoji": "🍢", "voice": "m-mid" },
+    "qishou": { "name": "骑手", "en": "a shape in a black hood, head down", "emoji": "🛵", "voice": "m-young" }
+  },
+  "chase": {
+    "name": "骑手", "en": "the rider, pulling away towards the lake", "emoji": "🛵",
+    "start": 20, "close": 1, "gain": 9, "loss": 5, "max": 25,
+    "caught": [
+      { "narr": "The rider reaches the lake path, and the dark takes it." },
+      { "who": "le", "zh": "……明天再追？", "en": "...Chase it again tomorrow?" },
+      { "end": "lose", "en": "Gone. Just tyre tracks, and the lake. Run that back. 🛵" }
+    ]
+  },
+  "steps": [
+    { "when": { "fake-ghosts.library": "help" }, "who": "zhong", "zh": "我也去！'追'，动词！", "en": "I'm coming too! 'Chase': a verb!", "fx": "enter", "prop": "📖",
+      "else": [
+        { "narr": "白老师 has lent the club the library's big torch.", "prop": "🔦" },
+        { "who": "le", "zh": "有光，我就不怕！", "en": "With a light, I'm not scared!" }
+      ] },
+    { "narr": "11:40 pm. By the canteen: a shape on an e-bike. Black, hunched over, and no head." },
+    { "sfx": "whoosh" },
+    { "who": "le", "zh": "无头骑手！", "en": "A headless rider!", "fx": "faint" },
+    { "who": "yu", "zh": "追！", "en": "After it!" },
+    { "narr": "Four shared bikes. Scan, unlock, go.", "prop": "🚲" },
+    { "say": {
+      "id": "stop",
+      "obstacle": "🛵",
+      "en": "Shout at it to stop.",
+      "answers": ["站住！别跑！", "喂，站住！别跑！"],
+      "gloss": "Stop! Don't run!",
+      "need": [["站住"], ["别跑"]],
+      "time": 7,
+      "tip": "站住 zhànzhù = stop (where you are)! 别跑 = don't run.",
+      "ok": [ { "narr": "It hears you. It goes faster." } ],
+      "fail": [ { "who": "le", "zh": "它跑了！", "en": "It's getting away!" } ],
+      "levels": {
+        "1": {
+          "answers": ["站住！", "站住站住！"],
+          "need": [["站住"]],
+          "gloss": "Stop!",
+          "status": "live" },
+        "3": {
+          "answers": ["前面的，站住！别跑了！", "前面那个，站住！别跑了！"],
+          "need": [["前面"], ["站住"]],
+          "gloss": "You, up ahead! Stop! Stop running!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "阿乐 is looking at the rider, not the road. A speed bump." },
+    { "say": {
+      "id": "careful",
+      "obstacle": "⚠️",
+      "en": "Warn 阿乐!",
+      "answers": ["阿乐，小心！", "小心！阿乐！"],
+      "gloss": "阿乐, look out!",
+      "need": [["阿乐"], ["小心"]],
+      "time": 6,
+      "tip": "小心 xiǎoxīn = careful, look out!",
+      "ok": [
+        { "who": "le", "zh": "哇——！", "en": "Waaah!", "fx": "shake" },
+        { "who": "le", "zh": "我没事……你们先追！", "en": "I'm fine... you lot go on!" }
+      ],
+      "fail": [
+        { "sfx": "crash" },
+        { "who": "le", "zh": "我没事……你们先追！", "en": "I'm fine... you lot go on!" }
+      ],
+      "levels": {
+        "1": {
+          "answers": ["小心！", "小心小心！"],
+          "need": [["小心"]],
+          "gloss": "Look out!",
+          "status": "live" },
+        "3": {
+          "answers": ["阿乐，小心前面！有减速带！", "阿乐小心，前面有减速带！"],
+          "need": [["减速带"], ["小心"]],
+          "gloss": "阿乐, look out ahead! Speed bump!",
+          "tip": "减速带 jiǎnsùdài = speed bump.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The night library has just closed. A hundred students, coming down the steps." },
+    { "say": {
+      "id": "through",
+      "obstacle": "🎒",
+      "en": "Get through the crowd.",
+      "answers": ["同学们，借过一下！", "同学，借过借过！"],
+      "gloss": "Excuse me, everyone, coming through!",
+      "need": [["同学"], ["借过"]],
+      "key": { "借过": "excuse me (let me past)" },
+      "time": 7,
+      "tip": "同学 tóngxué = classmate: what students call each other.",
+      "ok": [ { "narr": "The crowd parts. Somebody cheers." } ],
+      "fail": [ { "who": "yu", "zh": "过不去！", "en": "We can't get through!" } ],
+      "levels": {
+        "1": {
+          "answers": ["借过！", "借过借过！"],
+          "need": [["借过"]],
+          "gloss": "Coming through!",
+          "status": "live" },
+        "3": {
+          "answers": ["不好意思，同学们，借过一下！", "不好意思同学们，借过一下！"],
+          "need": [["不好意思"], ["借过"]],
+          "gloss": "Sorry, everyone, coming through!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "A corner. The rider is gone. Smoke from a barbecue stall." },
+    { "say": {
+      "id": "seen",
+      "obstacle": "🍢",
+      "en": "Ask the stall owner if he saw someone on a bike.",
+      "answers": ["看见一个骑车的吗？", "您看见一个骑车的吗？"],
+      "gloss": "Did you see someone on a bike?",
+      "need": [["看见"], ["骑车"]],
+      "time": 8,
+      "tip": "看见 kànjiàn = see. 骑车的 = someone riding a bike.",
+      "ok": [ { "who": "laoban", "zh": "湖边！往湖边去了！", "en": "The lake! Went towards the lake!" } ],
+      "fail": [ { "who": "laoban", "zh": "要几串？", "en": "How many skewers?" } ],
+      "levels": {
+        "1": {
+          "answers": ["看见了吗？", "您看见了吗？"],
+          "need": [["看见"]],
+          "gloss": "Did you see?",
+          "status": "live" },
+        "3": {
+          "answers": ["看见骑车的往哪儿去了吗？", "您看见骑车的往哪儿去了吗？"],
+          "need": [["往哪儿"], ["骑车"]],
+          "gloss": "Did you see which way the rider went?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The lake. The rider has stopped under a lamp, head down, hood up." },
+    { "narr": "Not headless: a courier in a black hood, reading a phone." },
+    { "who": "qishou", "zh": "你们是假鬼社的？", "en": "You lot the 假鬼社?", "fx": "enter" },
+    { "who": "qishou", "zh": "这个，给你们的。", "en": "This is for you.", "fx": "give", "prop": "📦" },
+    { "who": "qishou", "zh": "寄件人说，晚上送。", "en": "The sender said: deliver at night." },
+    { "narr": "On the label:", "zh": "寄件人：第一届社长", "prop": "📦" },
+    { "who": "guo", "zh": "第一届社长？！", "en": "The first president?!" },
+    { "say": {
+      "id": "open",
+      "obstacle": "📦",
+      "en": "Open it now, or take it to 阿乐 first.",
+      "answers": ["我们打开看看吧！", "现在打开看看！"],
+      "gloss": "Let's open it and see!",
+      "need": [["打开看看"]],
+      "time": 9,
+      "tip": "打开看看 = open it and see: a verb, then 看看 for a look.",
+      "sets": { "fake-ghosts.rider": "open" },
+      "ok": [
+        { "narr": "Photos. Dozens. The club room, twenty years ago: the same sign, the same broken chair." },
+        { "who": "yu", "zh": "都是二十年前的……", "en": "They're all from twenty years ago..." }
+      ],
+      "alts": [
+        { "en": "Or: take it to 阿乐 first", "answers": ["先拿给阿乐看吧。", "先给阿乐看。"], "need": [["给阿乐看"]], "gloss": "Let's show 阿乐 first.",
+          "sets": { "fake-ghosts.rider": "wait" },
+          "then": [
+            { "narr": "Back at the club room, 阿乐, one knee grazed, opens it with shaking hands." },
+            { "who": "le", "zh": "……这是我们的社。二十年前。", "en": "...This is our club. Twenty years ago." }
+          ] }
+      ],
+      "fail": [ { "who": "guo", "zh": "怎么办？", "en": "What do we do?" } ],
+      "levels": {
+        "1": {
+          "answers": ["打开看看！", "打开吧！"],
+          "need": [["打开"]],
+          "gloss": "Open it!",
+          "alts": [ { "of": 0, "answers": ["先给阿乐。"], "need": [["阿乐"]], "gloss": "阿乐 first." } ],
+          "status": "live" },
+        "3": {
+          "answers": ["等不及了，现在就打开看看！"],
+          "need": [["等不及"], ["打开看看"]],
+          "gloss": "I can't wait. Let's open it right now!",
+          "alts": [ { "of": 0, "answers": ["这是大家的，先拿给阿乐看。"], "need": [["大家的"], ["给阿乐看"]], "gloss": "It's everyone's. Show 阿乐 first." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "Midnight by the lake. The courier rides off, head down, reading the next address.", "finale": true, "prop": "🛵" },
+    { "when": { "fake-ghosts.rider": "open" }, "end": "win", "en": "By the lake, under one lamp, the three of you go through twenty years of 假鬼社. 📸",
+      "else": [ { "end": "win", "en": "阿乐 pins the first photo over the club's door. Nobody says a word. 📸" } ] }
+  ]
+}

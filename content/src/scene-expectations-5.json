@@ -1,0 +1,159 @@
+{
+  "id": "expectations-5",
+  "format": "scene",
+  "title": "风雨夜",
+  "title_en": "The Storm",
+  "level": 3,
+  "listen": 3,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "expectations", "ep": 5, "next": "A message from 何小姐: 来吧。最后一次。" },
+  "tags": ["远大前程", "老马", "风雨夜"],
+  "setting": "Your flat in 深圳, your twenty-first birthday, midnight. A typhoon over the city. 小柏 is away.",
+  "stage": "⛈️",
+  "bg": ["#0a0e14", "#2a3a4a"],
+  "cast": {
+    "stranger": { "name": "老马", "en": "older, tanned, in a good coat soaked through", "emoji": "🧔", "voice": "m-old" }
+  },
+  "steps": [
+    { "narr": "Your twenty-first birthday. A typhoon over 深圳. Rain like gravel on the windows. Midnight." },
+    { "when": { "expectations.ep4": "proud" }, "narr": "On your shelf: 舅舅's photo, in a frame from the night market.", "prop": "🖼️",
+      "else": [ { "narr": "Your shelf is bare. Books, and nothing from home." } ] },
+    { "sfx": "knock" },
+    { "narr": "At the door: a man in his fifties, tanned dark, a good coat soaked through. He looks at you as if he's waited years for this." },
+    { "who": "stranger", "zh": "……长这么大了。", "en": "...Look how you've grown.", "pace": "slow", "hold": 1 },
+    { "say": {
+      "id": "who",
+      "en": "Ask him, politely: and you are...?",
+      "cue": "Who?",
+      "answers": ["请问，您是……？", "对不起，您是……？"],
+      "gloss": "Excuse me... you are?",
+      "need": [["您是"], ["请问", "对不起"]],
+      "tip": "您是……？ = and you are...? Leave it hanging: they fill in the rest.",
+      "ok": [
+        { "who": "stranger", "zh": "我姓马。叫我老马。", "en": "The name's 马. Call me 老马." },
+        { "who": "stranger", "zh": "雨大，让我进去坐坐？", "en": "It's pouring. Let me in for a minute?", "fx": "enter" }
+      ],
+      "fail": [ { "who": "stranger", "zh": "……你不认得我了。", "en": "...You don't recognise me." } ],
+      "levels": {
+        "2": {
+          "answers": ["您是……？", "您是谁？"],
+          "need": [["您是"]],
+          "gloss": "You are...?",
+          "status": "live" },
+        "4": {
+          "answers": ["这么晚了，请问您是……？"],
+          "need": [["这么晚"], ["您是"]],
+          "gloss": "At this hour... excuse me, you are?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "He sits on the edge of a chair, dripping. When he crosses his legs, you see it: round one ankle, an old scar, the width of a chain.", "hold": 2 },
+    { "when": { "expectations.ep4": "proud" }, "narr": "He picks up 舅舅's photo from the shelf, and holds it a long time.",
+      "else": [ { "narr": "His eyes go to your bare shelf, and stay there. You notice him noticing." } ] },
+    { "say": {
+      "id": "know",
+      "en": "Recognise him: it's you, the man from the mudflats.",
+      "cue": "It's you.",
+      "answers": ["是你……泥滩上的人。", "是你！泥滩上那个人！"],
+      "gloss": "It's you... the man on the mudflats.",
+      "need": [["是你"], ["泥滩"]],
+      "key": { "泥滩": "mudflats" },
+      "tip": "泥滩 nítān = mudflats: 泥 mud, 滩 a shore.",
+      "ok": [ { "who": "stranger", "zh": "你记得。", "en": "You remember.", "pace": "slow", "hold": 2 } ],
+      "fail": [ { "who": "stranger", "zh": "那年，泥滩上。不记得了？", "en": "That year, on the mudflats. Don't you remember?" } ],
+      "levels": {
+        "2": {
+          "answers": ["是你……", "是你！"],
+          "need": [["是你"]],
+          "gloss": "It's you...",
+          "status": "live" },
+        "4": {
+          "answers": ["是你……那年在泥滩上的人。"],
+          "need": [["那年"], ["泥滩"]],
+          "gloss": "It's you... the man on the mudflats, that year.",
+          "status": "live" }
+      }
+    } },
+    { "who": "stranger", "zh": "这些年，我在外国跑船。挣了钱。", "en": "All these years I've worked the ships, abroad. I made money." },
+    { "who": "stranger", "zh": "你读书的钱，房子的钱……", "en": "The money for your studies, for this flat...", "pace": "slow", "hold": 1 },
+    { "who": "stranger", "zh": "都是我。", "en": "All of it was me.", "pace": "slow", "hold": 2 },
+    { "narr": "Not 何小姐. It was never 何小姐.", "hold": 2 },
+    { "when": { "expectations.ep1": "pliers" }, "who": "stranger", "zh": "那天，你给了我钳子。", "en": "That day, you gave me the pliers.", "pace": "slow",
+      "else": [ { "who": "stranger", "zh": "那天，你给了我吃的。", "en": "That day, you gave me food.", "pace": "slow" } ] },
+    { "who": "stranger", "zh": "我说过，我会记住你的。", "en": "I told you I'd remember you.", "pace": "slow", "hold": 2 },
+    { "say": {
+      "id": "why",
+      "en": "Ask him: but why me?",
+      "cue": "Why?",
+      "answers": ["为什么是我？", "可是，为什么是我？"],
+      "gloss": "Why me?",
+      "need": [["为什么"], ["是我"]],
+      "tip": "为什么是我？ = why me?",
+      "ok": [
+        { "who": "stranger", "zh": "那天，全世界都在找我。", "en": "That day, the whole world was hunting me.", "pace": "slow" },
+        { "who": "stranger", "zh": "只有一个孩子，回来了。", "en": "And one child came back.", "pace": "slow", "hold": 2 },
+        { "who": "stranger", "zh": "我想让你，过另一种生活。", "en": "I wanted you to have a different life.", "pace": "slow", "hold": 1 }
+      ],
+      "fail": [ { "who": "stranger", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "2": {
+          "answers": ["为什么？", "为什么是我？"],
+          "need": [["为什么"]],
+          "gloss": "Why?",
+          "status": "live" },
+        "4": {
+          "answers": ["那么多人，为什么偏偏是我？"],
+          "need": [["偏偏"], ["为什么"]],
+          "gloss": "Of all the people in the world, why me?",
+          "tip": "偏偏 piānpiān = of all things, out of everyone.",
+          "status": "live" }
+      }
+    } },
+    { "who": "stranger", "zh": "可是那件旧案子，还没完。", "en": "But that old case isn't closed.", "pace": "slow" },
+    { "who": "stranger", "zh": "要是在这儿有人认出我……", "en": "If anyone here recognises me...", "pace": "slow", "hold": 2 },
+    { "say": {
+      "id": "decide",
+      "en": "Hide him here for now, or send him away, for his own safety.",
+      "cue": "Hide, or go?",
+      "answers": ["您先住这儿。", "老马，您先住这儿吧。"],
+      "gloss": "Stay here for now.",
+      "need": [["先住"], ["这儿"]],
+      "tip": "先 xiān = first, for now: 您先住这儿 = stay here for the time being.",
+      "sets": { "expectations.ep5": "hide" },
+      "ok": [
+        { "who": "stranger", "zh": "……好。", "en": "...All right.", "pace": "slow", "hold": 2 },
+        { "narr": "He falls asleep in the armchair in his wet coat, like a man who hasn't slept in years." }
+      ],
+      "alts": [
+        { "en": "Or: send him away, for his safety", "answers": ["您快走吧，这里不安全。", "快走吧，这儿不安全。"], "need": [["快走"], ["不安全"]], "gloss": "Go, quickly. It isn't safe here.",
+          "key": { "不安全": "not safe" },
+          "sets": { "expectations.ep5": "away" },
+          "then": [
+            { "who": "stranger", "zh": "你说得对。", "en": "You're right.", "pace": "slow" },
+            { "who": "stranger", "zh": "我走。可是，我还会来看你。", "en": "I'll go. But I'll come and see you again.", "pace": "slow", "hold": 1 },
+            { "narr": "He goes back out into the rain. He doesn't take an umbrella." }
+          ] }
+      ],
+      "fail": [ { "who": "stranger", "zh": "我该怎么办？", "en": "What should I do?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["住这儿吧。", "您先住这儿。"],
+          "need": [["住这儿"]],
+          "gloss": "Stay here.",
+          "alts": [ { "of": 0, "answers": ["快走吧！"], "need": [["快走"]], "gloss": "Go, quickly!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["外面雨大，您先住这儿吧。"],
+          "need": [["雨大"], ["先住"]],
+          "gloss": "It's pouring out there. Stay here for now.",
+          "alts": [ { "of": 0, "answers": ["您快走吧，这里不安全，保重。"], "need": [["保重"], ["不安全"]], "gloss": "Go, quickly. It isn't safe here. Take care of yourself." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "expectations.ep5": "hide" }, "end": "win", "en": "Dawn. The typhoon has passed. In your armchair, the man who paid for everything, snoring. ⛈️",
+      "else": [ { "end": "win", "en": "Dawn. The typhoon has passed. On the table, a wet envelope with a phone number in it, and nothing else. ⛈️" } ] }
+  ]
+}

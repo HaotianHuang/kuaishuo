@@ -1,0 +1,167 @@
+{
+  "id": "last-order-3",
+  "format": "scene",
+  "title": "车顶",
+  "title_en": "The Car Roof",
+  "level": 1,
+  "listen": 1,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "last-order", "ep": 3, "next": "By morning, the riders' group has a new name: 最后一单." },
+  "tags": ["台风", "救人", "骑手"],
+  "setting": "4 am, the road under the bridge. The typhoon's water is still rising.",
+  "stage": "🌀",
+  "bg": ["#06131f", "#1f3a52"],
+  "cast": {
+    "chezhu": { "name": "车主", "en": "a father on his car roof", "emoji": "👨", "voice": "m-mid" },
+    "xiaonan": { "name": "小男孩", "en": "his son, four", "emoji": "👦", "voice": "kid" },
+    "qishou": { "name": "骑手", "en": "another rider", "emoji": "🛵", "voice": "m-young" },
+    "xiaohe": { "name": "小何", "en": "the night nurse", "emoji": "👩‍⚕️", "voice": "f-young" }
+  },
+  "steps": [
+    { "narr": "4 am. The road under the bridge is under water. Your bike won't go any further." },
+    { "sfx": "splash" },
+    { "narr": "A car, roof-deep. On the roof: a man, and a small boy." },
+    { "who": "xiaonan", "zh": "爸爸！水！", "en": "Daddy! The water!", "fx": "shake" },
+    { "who": "chezhu", "zh": "别怕！", "en": "Don't be scared!" },
+    { "say": {
+      "id": "still",
+      "en": "Shout to them: don't move!",
+      "cue": "Don't move!",
+      "answers": ["别动！", "别动！别动！", "不要动！"],
+      "gloss": "Don't move!",
+      "need": [["别动", "不要动"]],
+      "tip": "别动 bié dòng = don't move.",
+      "ok": [ { "who": "chezhu", "zh": "好！", "en": "OK!" } ],
+      "fail": [ { "who": "chezhu", "zh": "什么？", "en": "What?" } ],
+      "levels": {
+        "0": {
+          "answers": ["别动！"],
+          "gloss": "Don't move!",
+          "status": "live" },
+        "2": {
+          "answers": ["别动！我来想办法！", "别动，我想办法！"],
+          "need": [["别动"], ["办法"]],
+          "gloss": "Don't move! I'll find a way!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "You can't swim. The water is at the car's windows." },
+    { "say": {
+      "id": "help",
+      "en": "Shout for help.",
+      "cue": "Help!",
+      "answers": ["快来人！", "来人啊！", "快来人啊！"],
+      "gloss": "Somebody, help!",
+      "need": [["来人"]],
+      "tip": "快来人 = somebody come, quick: the cry for help.",
+      "ok": [ { "narr": "Nobody. The rain swallows it." } ],
+      "fail": [ { "narr": "The rain swallows it." } ],
+      "levels": {
+        "0": {
+          "answers": ["来人！", "快来人！"],
+          "gloss": "Help!",
+          "status": "live" },
+        "2": {
+          "answers": ["快来人！这儿有人！", "快来人啊，这里有人！"],
+          "need": [["来人"], ["有人"]],
+          "gloss": "Help! There are people here!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "With wet thumbs, you type into the riders' group:", "zh": "桥下，车顶上有孩子，快来！", "prop": "📱" },
+    { "narr": "Five minutes. Then headlights. Ten bikes. Thirty. Riders, with ropes and torches.", "hold": 1 },
+    { "sfx": "honk" },
+    { "who": "qishou", "zh": "大家，拿绳子！", "en": "Everyone, ropes!", "fx": "enter" },
+    { "who": "qishou", "zh": "谁下去？孩子不敢动。", "en": "Who's going in? The boy won't move." },
+    { "say": {
+      "id": "who",
+      "en": "Go in on the rope yourself, or hold the rope for the others.",
+      "cue": "Go in, or hold?",
+      "answers": ["我去！", "我下去！"],
+      "gloss": "I'll go!",
+      "need": [["我去", "我下去"]],
+      "tip": "我去 = I'll go. 下去 = go down (into the water).",
+      "sets": { "last-order.ep3": "in" },
+      "ok": [ { "narr": "Rope round your waist. Water to your chest. Thirty hands on the other end." } ],
+      "alts": [
+        { "en": "Or: hold the rope", "answers": ["我拉绳子！", "我来拉！"], "need": [["拉绳子", "我来拉"]], "gloss": "I'll hold the rope!",
+          "key": { "拉绳子": "hold the rope" },
+          "sets": { "last-order.ep3": "rope" },
+          "then": [ { "narr": "A rider who can swim goes in. You hold the rope with twenty others, heels in the mud." } ] }
+      ],
+      "fail": [ { "who": "qishou", "zh": "谁下去？", "en": "Who's going in?" } ],
+      "levels": {
+        "0": {
+          "answers": ["我去！"],
+          "gloss": "Me!",
+          "alts": [ { "of": 0, "answers": ["我拉！", "我来拉！"], "need": [["我拉", "拉绳子", "我来拉"]], "gloss": "I'll pull!" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["我不会游泳，可我去！", "绳子绑我身上，我去！"],
+          "need": [["我去"], ["游泳", "绳子"]],
+          "gloss": "I can't swim, but I'll go!",
+          "alts": [ { "of": 0, "answers": ["我拉绳子，你们放心！", "我们拉绳子，放心！"], "need": [["拉绳子"], ["放心"]], "gloss": "I've got the rope. Don't worry!" } ],
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaonan", "zh": "我怕！", "en": "I'm scared!" },
+    { "say": {
+      "id": "hold",
+      "en": "Tell the boy: grab hold!",
+      "cue": "Grab it!",
+      "answers": ["抓住！", "抓住绳子！", "快抓住！"],
+      "gloss": "Grab hold!",
+      "need": [["抓住"]],
+      "tip": "抓住 zhuāzhù = grab and hold on.",
+      "ok": [ { "narr": "Small hands. Then the father. Then everyone, out." } ],
+      "fail": [ { "who": "xiaonan", "zh": "我怕！", "en": "I'm scared!" } ],
+      "levels": {
+        "0": {
+          "answers": ["抓住！"],
+          "gloss": "Grab it!",
+          "status": "live" },
+        "2": {
+          "answers": ["抓住绳子，别松手！", "抓住，千万别松手！"],
+          "need": [["抓住"], ["别松手"]],
+          "gloss": "Grab the rope, don't let go!",
+          "tip": "松手 sōngshǒu = let go.",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaonan", "zh": "爸爸……", "en": "Daddy...", "fx": "cry" },
+    { "say": {
+      "id": "safe",
+      "en": "Reassure him: it's all right now.",
+      "cue": "Safe now.",
+      "answers": ["没事了！", "没事了，没事了。"],
+      "gloss": "It's all right now!",
+      "need": [["没事了"]],
+      "tip": "没事了 = it's all right now: 了 says something has changed.",
+      "ok": [
+        { "who": "xiaonan", "zh": "……嗯。", "en": "...Mm." },
+        { "who": "xiaonan", "zh": "我饿了。", "en": "I'm hungry." }
+      ],
+      "fail": [ { "who": "xiaonan", "zh": "爸爸……", "en": "Daddy..." } ],
+      "levels": {
+        "0": {
+          "answers": ["没事！", "没事了！"],
+          "need": [["没事"]],
+          "gloss": "OK now!",
+          "status": "live" },
+        "2": {
+          "answers": ["没事了，你很勇敢！", "没事了，你真勇敢！"],
+          "need": [["没事了"], ["勇敢"]],
+          "gloss": "You're safe. You were very brave!",
+          "status": "live" }
+      }
+    } },
+    { "when": { "last-order.ep2": "another" }, "who": "xiaohe", "zh": "我带了毯子，病房的。", "en": "I brought blankets. From the ward.", "fx": "enter", "prop": "🧣",
+      "else": [ { "narr": "Someone hands round hot tea: 小何's tip, spent on the whole night shift.", "prop": "🍵" } ] },
+    { "who": "chezhu", "zh": "谢谢……谢谢你们。", "en": "Thank you... thank you, all of you." },
+    { "when": { "last-order.ep3": "in" }, "end": "win", "en": "Dawn. Soaked to the chest, on the kerb. Someone shows you the riders' group: it has a new name. 🛵",
+      "else": [ { "end": "win", "en": "Dawn. Thirty riders on the kerb, sharing one blanket. Your hands still have the rope's shape. 🛵" } ] }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "id": "wrong-number",
+  "format": "call",
+  "title": "打错了",
+  "title_en": "Wrong Number",
+  "level": 0,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 3,
+  "status": "live",
+  "tags": ["打错电话", "奶奶", "吃了吗"],
+  "write": ["打错", "再见"],
+  "setting": "London, Sunday, 10 am. A number from China, where it's dinner time.",
+  "stage": "🥟",
+  "bg": ["#2b1408", "#a0522d"],
+  "cast": {
+    "granny": { "name": "奶奶", "en": "a grandma in Harbin, calling her grandchild", "emoji": "👵", "voice": "f-old", "phone": true, "speed": 0.85 },
+    "xiaobao": { "name": "小宝", "en": "her grandchild, in the next room", "emoji": "🧒", "voice": "kid", "phone": true, "speed": 0.85 }
+  },
+  "call": {
+    "caller": "granny",
+    "photo": "👤",
+    "number": "+86 136 0000 4517",
+    "label": { "zh": "黑龙江 哈尔滨" },
+    "clock": "10:02",
+    "patience": 10,
+    "silence": [
+      { "who": "granny", "zh": "喂？还在吗？", "en": "Hello? Are you still there?" },
+      { "who": "granny", "zh": "孩子，听得见吗？", "en": "Can you hear me, dear?" }
+    ],
+    "hangup": [
+      { "who": "granny", "zh": "没声了，奶奶挂了啊。", "en": "It's gone quiet. Grandma's hanging up, then." },
+      { "end": "lose", "en": "She hung up. Ten minutes later she rings again, to check you've eaten." }
+    ],
+    "missed": [
+      { "who": "granny", "zh": "小宝，接电话呀！", "en": "Xiaobao, pick up!" }
+    ]
+  },
+  "steps": [
+    { "say": {
+      "id": "hello",
+      "en": "An unknown number from China. Pick up: say hello.",
+      "cue": "Pick up!",
+      "answers": ["喂？", "喂，您好？", "喂，你好？", "您好？"],
+      "gloss": "Hello?",
+      "need": [["喂", "您好", "你好"]],
+      "tip": "喂 wéi = hello, but only on the phone.",
+      "silence": [
+        { "who": "granny", "zh": "喂？有人吗？", "en": "Hello? Anyone there?" },
+        { "who": "granny", "zh": "小宝？是你吗？", "en": "Xiaobao? Is that you?" }
+      ],
+      "fail": [ { "who": "granny", "zh": "喂？听得见吗？", "en": "Hello? Can you hear me?" } ],
+      "levels": {
+        "1": { "answers": ["喂，您好？", "喂，你好？", "您好，哪位？", "喂，您好，哪位？"], "need": [["您好", "你好"]],
+               "en": "An unknown number from China. Pick up: say hello, politely.", "gloss": "Hello? (politely)",
+               "tip": "喂，您好 = hello, on the phone: 您 is the polite 'you', for someone you don't know.", "status": "live" }
+      }
+    } },
+    { "who": "granny", "zh": "小宝啊，是奶奶！", "en": "Xiaobao! It's Grandma!", "peek": "free" },
+    { "who": "granny", "zh": "包了饺子，快回来吃！", "en": "I've made dumplings. Come home and eat!" },
+    { "say": {
+      "id": "notme",
+      "en": "She thinks you're her grandchild, 小宝. You're not: tell her.",
+      "cue": "Not her grandkid!",
+      "answers": ["不是不是！", "我不是小宝！", "不是！", "我不是！"],
+      "gloss": "No, no!",
+      "need": [["不是"]],
+      "tip": "不是不是 = no, no: said twice, it's a quick, friendly 'you've got it wrong'.",
+      "silence": [
+        { "who": "granny", "zh": "小宝？听见没？", "en": "Xiaobao? Did you hear me?" },
+        { "who": "granny", "zh": "不说话？那快回来啊！", "en": "Nothing to say? Then hurry home!" }
+      ],
+      "hangup": [
+        { "who": "granny", "zh": "奶奶等你啊！", "en": "Grandma's waiting for you!" },
+        { "end": "lose", "en": "She hung up happy. In Harbin, a plate of dumplings is waiting for a grandchild who isn't you." }
+      ],
+      "ok": [ { "who": "granny", "zh": "别闹了，饺子下锅了！", "en": "Stop fooling around! The dumplings are in the pot!", "fx": "laugh" } ],
+      "fail": [ { "who": "granny", "zh": "啊？你说什么？", "en": "Eh? What's that?" } ],
+      "levels": {
+        "1": { "answers": ["我不是小宝。", "我不是小宝，您打错了。", "不好意思，我不是小宝。", "奶奶，我不是小宝。"], "need": [["小宝"]],
+               "gloss": "I'm not Xiaobao.", "tip": "我不是… = I'm not…: 不是 before a name says who you aren't.", "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "wrong",
+      "en": "She thinks you're joking. Tell her it's a wrong number.",
+      "cue": "Tell her what happened.",
+      "answers": ["打错了！", "您打错了！", "打错电话了！", "你打错了。"],
+      "gloss": "Wrong number!",
+      "need": [["打错"]],
+      "tip": "打错了 = wrong number (打 = dial, 错 = wrong).",
+      "ok": [ { "who": "granny", "zh": "哎呀，打错了！", "en": "Oh dear, a wrong number!", "fx": "laugh" } ],
+      "fail": [ { "who": "granny", "zh": "啊？那你是谁呀？", "en": "Eh? Then who are you?" } ],
+      "levels": {
+        "1": { "answers": ["您打错了。", "您打错电话了。", "奶奶，您打错了。", "不好意思，您打错了。"], "need": [["您打错", "你打错"]],
+               "gloss": "You've got the wrong number.", "tip": "您打错了 = you've got the wrong number, with 您, the polite 'you', for someone older.", "status": "live" }
+      }
+    } },
+    { "who": "granny", "zh": "那……孩子，你吃饭了吗？", "en": "Well... have you eaten, dear?" },
+    { "say": {
+      "id": "ate",
+      "en": "A stranger's grandma wants to know if you've eaten. Tell her you have.",
+      "cue": "Reassure her.",
+      "answers": ["吃了！", "吃了吃了！", "吃过了！", "我吃了。"],
+      "gloss": "I've eaten!",
+      "need": [["吃了", "吃过", "吃完", "吃好", "吃饱"]],
+      "not": [{ "heard": ["吃了吗", "吃饭了吗"], "note": "That's her question back. Answer it: 吃了！ (I have)." }],
+      "tip": "吃了吗 (have you eaten?) is how grandmas say 'I care about you'. The answer is 吃了！",
+      "fail": [ { "who": "granny", "zh": "啊？吃了没有？", "en": "Eh? Have you eaten or not?" } ],
+      "levels": {
+        "1": { "answers": ["吃过了，谢谢！", "吃过了，谢谢奶奶！", "早吃过了，谢谢您！", "吃好了，谢谢！"], "need": [["吃过", "吃好", "吃饱"]],
+               "en": "A stranger's grandma wants to know if you've eaten. Tell her you have, and thank her.",
+               "gloss": "I've eaten, thanks!", "tip": "吃过了 = I've (already) eaten: 过 says it's done.", "status": "live" }
+      }
+    } },
+    { "who": "xiaobao", "zh": "奶奶！我在这儿！", "en": "Grandma! I'm here!" },
+    { "who": "granny", "zh": "哎呀，小宝在家呢！", "en": "Oh my! Xiaobao was home all along!", "fx": "laugh" },
+    { "who": "granny", "zh": "那你也多吃点啊！", "en": "Well, you eat plenty too, dear!" },
+    { "say": {
+      "id": "bye",
+      "en": "She's found 小宝. Say goodbye to her.",
+      "cue": "Sign off warmly.",
+      "answers": ["奶奶，再见！", "奶奶再见！", "再见！", "拜拜，奶奶！"],
+      "gloss": "Bye, Grandma!",
+      "need": [["再见", "拜拜", "保重"]],
+      "tip": "奶奶 nǎinai = Grandma: what you call any grandmother, yours or not.",
+      "ok": [ { "who": "granny", "zh": "再见啊，孩子！", "en": "Bye-bye, dear!" } ],
+      "fail": [ { "who": "granny", "zh": "什么？大点声！", "en": "What? A bit louder!" } ],
+      "levels": {
+        "1": { "answers": ["您慢慢吃，再见！", "奶奶慢慢吃，再见！", "您慢吃，再见！", "您也多吃点，再见！"], "need": [["慢慢吃", "慢吃", "多吃"]],
+               "en": "She's found 小宝. Say goodbye, and leave her to her dumplings.",
+               "gloss": "Enjoy your dinner! Bye!", "tip": "您慢慢吃 = take your time, enjoy your meal: what you say to anyone sitting down to eat. 您 is the polite 'you'.", "status": "live" }
+      }
+    } },
+    { "end": "win", "en": "Wrong number, right grandma. In Harbin, 小宝 gets the dumplings. In London, you suddenly want some.", "zh": "打错一个电话，多了一个奶奶。" }
+  ]
+}

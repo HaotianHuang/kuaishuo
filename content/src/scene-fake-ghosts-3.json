@@ -1,0 +1,194 @@
+{
+  "id": "fake-ghosts-3",
+  "format": "scene",
+  "title": "闭馆",
+  "title_en": "After Closing",
+  "level": 2,
+  "listen": 2,
+  "topics": ["work"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "fake-ghosts", "ep": 3, "next": "This note is signed: 第一届社长. The club's first president." },
+  "tags": ["假鬼社", "图书馆", "考研"],
+  "setting": "The university library, Chengdu, 11:50 pm. The note said: this time it's real.",
+  "stage": "📚",
+  "bg": ["#0c1420", "#3b4a6b"],
+  "cast": {
+    "le": { "name": "阿乐", "en": "the club's loudest member", "emoji": "🙋", "voice": "m-young" },
+    "yu": { "name": "小雨", "en": "has read everything", "emoji": "🤓", "voice": "f-young" },
+    "guo": { "name": "果果", "en": "films it all", "emoji": "📹", "voice": "f-young" },
+    "baozi": { "name": "包子", "en": "the club's cat, still sore", "emoji": "🐱", "voice": "kid" },
+    "bai": { "name": "白老师", "en": "the librarian", "emoji": "📚", "voice": "f-mid" },
+    "lu": { "name": "老鲁", "en": "the night guard", "emoji": "🔦", "voice": "m-old" },
+    "zhong": { "name": "小钟", "en": "a student cramming for 考研", "emoji": "📖", "voice": "f-young" }
+  },
+  "steps": [
+    { "when": { "fake-ghosts.ktv": "song" }, "narr": "On 果果's phone: 邓阿姨's song, from the wedding. 包子 purrs at it.", "prop": "🎤",
+      "else": [ { "narr": "A photo from 何经理: a new sign on room 8.", "zh": "八号包厢，三点以后，有人唱歌，请勿打扰。", "prop": "🎤" } ] },
+    { "narr": "The university library, ten to midnight. On the way in, you pass the reading room: one student, eyes shut, lips moving." },
+    { "who": "le", "zh": "我不怕。我只是……站在后面。", "en": "I'm not scared. I'm just... standing at the back." },
+    { "sfx": "door" },
+    { "narr": "Behind you, the doors lock." },
+    { "who": "le", "zh": "门锁了！", "en": "The door's locked!", "fx": "faint" },
+    { "narr": "From the stacks, in the dark: whispering." },
+    { "say": {
+      "id": "who",
+      "en": "Call into the dark: who's there?",
+      "cue": "Who's there?",
+      "answers": ["谁在那儿？", "谁在那里？", "是谁在那儿？"],
+      "gloss": "Who's there?",
+      "need": [["谁在那"]],
+      "tip": "谁在那儿？ = who's there? 那儿 nàr = there.",
+      "ok": [ { "who": "lu", "zh": "我！保安，老鲁！", "en": "Me! Security. 老鲁!", "fx": "enter", "prop": "🔦" } ],
+      "fail": [ { "who": "le", "zh": "鬼啊！", "en": "Ghost!" } ],
+      "levels": {
+        "1": {
+          "answers": ["谁？", "谁在那儿？"],
+          "need": [["谁"]],
+          "gloss": "Who?",
+          "status": "live" },
+        "3": {
+          "answers": ["谁在那儿？我们不是坏人！", "谁在那儿？别怕，我们不是坏人。"],
+          "need": [["谁在那"], ["不是坏人"]],
+          "gloss": "Who's there? We're not up to anything!",
+          "status": "live" }
+      }
+    } },
+    { "who": "lu", "zh": "白老师十点就走了。门是我锁的。", "en": "白老师 left at ten. I locked the doors." },
+    { "narr": "The whispering again. Listen:", "zh": "白日依山尽，黄河入海流……" },
+    { "who": "yu", "zh": "这是古诗！", "en": "That's a classical poem!" },
+    { "sfx": "door" },
+    { "who": "bai", "zh": "怎么这么吵？我回来拿伞。", "en": "What's all this noise? I came back for my umbrella.", "fx": "enter" },
+    { "narr": "In the reading room: the student, asleep now on a pile of books. Her sleeve has ink on it." },
+    { "who": "zhong", "zh": "我……我在复习。", "en": "I'm... revising.", "fx": "enter" },
+    { "say": {
+      "id": "when",
+      "en": "Ask her what time she came in.",
+      "cue": "Since when?",
+      "answers": ["你几点来的？", "你是几点来的？", "几点来的？"],
+      "gloss": "What time did you get here?",
+      "need": [["几点来"]],
+      "tip": "几点来的？ = what time did you come? 的 at the end asks about a past moment.",
+      "ok": [
+        { "who": "zhong", "zh": "早上七点。", "en": "Seven this morning." },
+        { "who": "zhong", "zh": "我……每天都是。", "en": "I... always do." }
+      ],
+      "fail": [ { "who": "zhong", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["几点来的？", "你几点来的？"],
+          "need": [["几点"]],
+          "gloss": "What time?",
+          "status": "live" },
+        "3": {
+          "answers": ["你几点来的？一直没走吗？", "你几点来的？是不是一直没走？"],
+          "need": [["几点来"], ["没走"]],
+          "gloss": "What time did you come? Have you been here all along?",
+          "status": "live" }
+      }
+    } },
+    { "who": "yu", "zh": "怎么抓？", "en": "How do we catch it?" },
+    { "say": {
+      "id": "trap",
+      "en": "Set the trap: put the moved books back, and see who takes them.",
+      "cue": "Set the trap.",
+      "answers": ["把书放回去，看谁来拿！", "书放回去，我们等着。"],
+      "gloss": "Put the books back, and see who comes for them!",
+      "need": [["放回去"]],
+      "key": { "放回去": "put back" },
+      "tip": "放回去 = put back (where it came from).",
+      "ok": [ { "narr": "Midnight. The whispering starts. A hand reaches for the books: a sleeve, with ink on it." } ],
+      "fail": [ { "who": "le", "zh": "放哪儿？", "en": "Put what where?" } ],
+      "levels": {
+        "1": {
+          "answers": ["放回去！", "书放回去。"],
+          "gloss": "Put them back!",
+          "status": "live" },
+        "3": {
+          "answers": ["把书都放回去，看谁半夜来拿。", "书都放回去，看半夜谁来拿。"],
+          "need": [["放回去"], ["半夜"]],
+          "gloss": "Put all the books back, and see who comes for them at midnight.",
+          "status": "live" }
+      }
+    } },
+    { "who": "le", "zh": "鬼是谁？", "en": "So who's the ghost?" },
+    { "say": {
+      "id": "accuse",
+      "en": "Name the whisperer.",
+      "cue": "Who is it?",
+      "answers": ["是小钟！", "鬼就是小钟！", "念诗的是小钟！"],
+      "gloss": "It's 小钟!",
+      "need": [["小钟"]],
+      "not": [
+        { "heard": ["白老师"], "note": "She left at ten and came back for an umbrella. Whose lips were moving in the reading room?" },
+        { "heard": ["老鲁"], "note": "He has the keys, but who has ink on her sleeve?" }
+      ],
+      "tip": "念诗 niàn shī = recite poems.",
+      "fail": [ { "who": "le", "zh": "谁？", "en": "Who?" } ],
+      "miss": [
+        { "narr": "Everyone looks where you're pointing: at 包子. A third time." },
+        { "narr": "包子 turns its back on you, walks to the door, and sits facing the wall.", "hold": 2 },
+        { "who": "guo", "zh": "包子说，它要退社。", "en": "包子 says it's leaving the club." },
+        { "who": "yu", "zh": "是小钟吧？", "en": "It's 小钟, surely?" }
+      ],
+      "levels": {
+        "1": {
+          "answers": ["小钟！", "是小钟！"],
+          "gloss": "小钟!",
+          "status": "live" },
+        "3": {
+          "answers": ["是小钟！她背的是古诗！", "念古诗的就是小钟！"],
+          "need": [["小钟"], ["古诗"]],
+          "gloss": "It's 小钟! She's reciting poems!",
+          "status": "live" }
+      }
+    } },
+    { "who": "zhong", "zh": "对不起……", "en": "I'm sorry..." },
+    { "who": "zhong", "zh": "宿舍太吵了。我怕考不上。", "en": "The dorm's too loud. I'm scared I'll fail." },
+    { "who": "zhong", "zh": "考研，还有二十天。", "en": "The postgrad exam is in twenty days." },
+    { "who": "zhong", "zh": "我也收到一张纸条。", "en": "I got a note too." },
+    { "narr": "On it:", "zh": "假鬼社的人会来帮你。", "prop": "📝" },
+    { "say": {
+      "id": "help",
+      "en": "Stay and help her revise, or tell the librarian.",
+      "cue": "Help, or tell?",
+      "answers": ["我们陪你复习吧。", "我们陪你一起复习！"],
+      "gloss": "We'll revise with you.",
+      "need": [["陪你"], ["复习"]],
+      "key": { "陪你": "keep you company" },
+      "tip": "复习 fùxí = revise, review (for an exam).",
+      "sets": { "fake-ghosts.library": "help" },
+      "ok": [
+        { "who": "zhong", "zh": "……真的？", "en": "...Really?" },
+        { "narr": "阿乐 quizzes her on 古诗 until three. He gets most of them wrong." }
+      ],
+      "alts": [
+        { "en": "Or: tell 白老师", "answers": ["告诉白老师吧。", "还是告诉白老师吧。"], "need": [["告诉白老师"]], "gloss": "Let's tell 白老师.",
+          "sets": { "fake-ghosts.library": "tell" },
+          "then": [
+            { "who": "bai", "zh": "……你每天都在这儿？", "en": "...You're here every day?" },
+            { "who": "bai", "zh": "以后，阅览室给你留一个位子。", "en": "From now on, there's a desk in the reading room for you." }
+          ] }
+      ],
+      "fail": [ { "who": "zhong", "zh": "你们……会帮我吗？", "en": "Will you... help me?" } ],
+      "levels": {
+        "1": {
+          "answers": ["陪你复习！", "我们陪你。"],
+          "need": [["陪你"]],
+          "gloss": "We'll stay with you!",
+          "alts": [ { "of": 0, "answers": ["告诉白老师。"], "need": [["白老师"]], "gloss": "Tell 白老师." } ],
+          "status": "live" },
+        "3": {
+          "answers": ["别怕，我们陪你复习到考试。", "别怕，考试前我们都陪你复习。"],
+          "need": [["别怕"], ["陪你复习"]],
+          "gloss": "Don't be scared. We'll revise with you till the exam.",
+          "alts": [ { "of": 0, "answers": ["这事得告诉白老师，她会帮你。"], "need": [["告诉白老师"], ["帮你"]], "gloss": "We should tell 白老师. She'll help you." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "Back at the club: a third note. This one is signed.", "zh": "第一届社长", "prop": "📝" },
+    { "when": { "fake-ghosts.library": "help" }, "end": "win", "en": "At 3 am, 小钟 recites the whole poem without looking. 阿乐 gets one line right. 📚",
+      "else": [ { "end": "win", "en": "By morning, a desk in the reading room has a card on it: 小钟. 📚" } ] }
+  ]
+}

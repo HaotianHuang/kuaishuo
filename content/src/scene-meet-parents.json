@@ -1,0 +1,153 @@
+{
+  "id": "meet-parents",
+  "format": "scene",
+  "title": "见家长",
+  "title_en": "Meeting the Parents",
+  "level": 4,
+  "topics": ["family", "dating", "food"],
+  "audience": "heritage",
+  "hook": 3,
+  "status": "live",
+  "tags": ["见家长", "饭桌", "客套话"],
+  "write": ["好吃", "心意"],
+  "setting": "Shenyang, your partner's parents' flat, Saturday dinner.",
+  "stage": "🏠",
+  "bg": ["#3a2412", "#9a5b2a"],
+  "cast": {
+    "mum": { "name": "阿姨", "en": "your partner's mum", "emoji": "👩", "voice": "f-mid" },
+    "dad": { "name": "叔叔", "en": "your partner's dad", "emoji": "👨", "voice": "m-mid" },
+    "xiaoyu": { "name": "小雨", "en": "your partner", "emoji": "🧑", "voice": "m-young" }
+  },
+  "steps": [
+    { "narr": "Your partner's parents' door. Gift in hand, palms sweating. 😬", "zh": "你提着礼物站在对象家门口，手心全是汗。" },
+    { "who": "xiaoyu", "zh": "记住，我妈说啥你都说好。", "en": "Remember: whatever my mum says, you say yes." },
+    { "who": "mum", "zh": "哎呀，来啦！快进来快进来！", "en": "Oh, you're here! Come in, come in!", "fx": "enter", "arrive": "dad" },
+    { "say": {
+      "id": "gift",
+      "en": "Greet them both, and hand over the gift: just a little something.",
+      "answers": ["叔叔阿姨好！一点儿小心意。", "阿姨好，叔叔好！这是一点儿心意。", "叔叔阿姨好，一点小礼物。", "叔叔阿姨好，这是我的一点心意。"],
+      "gloss": "Hello, Uncle and Auntie! Just a little something.",
+      "need": [["叔叔", "阿姨"], ["心意", "礼物"]],
+      "tip": "一点儿小心意 = just a little something: how every gift is handed over. A partner's (or friend's) parents are 叔叔 and 阿姨.",
+      "mistakes": [ { "heard": ["爸爸妈妈", "爸妈好"], "note": "Too soon! Until the wedding, they're 叔叔 and 阿姨." } ],
+      "ok": [ { "who": "mum", "zh": "来就来呗，还带什么东西！", "en": "You didn't have to bring anything!", "fx": "laugh", "prop": "🎁" } ],
+      "fail": [ { "who": "xiaoyu", "zh": "快叫人啊！", "en": "Say hello to them!" } ],
+      "cue": "Hello, and the gift.",
+      "miss": [ { "who": "xiaoyu", "zh": "爸，妈，这是我们给你们带的。", "en": "Mum, Dad, we brought you this.", "fx": "give", "prop": "🎁" } ],
+      "levels": {
+        "5": { "en": "Greet them both and hand over the gift, as modestly as you can.", "answers": ["叔叔阿姨好！一点儿小心意，您二老别嫌弃。", "叔叔阿姨好，第一次来，一点心意，不成敬意。", "阿姨好，叔叔好！一点儿心意，请您收下。", "叔叔阿姨好，一点小礼物，希望您别嫌弃。"], "gloss": "Hello, Uncle and Auntie! Just a little something. I hope you won't mind how small it is.", "need": [["叔叔", "阿姨"], ["心意", "礼物"], ["嫌弃", "不成敬意", "收下"]],
+               "tip": "您二老别嫌弃 = I hope you two won't mind how small it is: the modest way to hand elders any gift. 您二老 nín èrlǎo = the two of you, with respect.", "key": { "嫌弃": "to turn your nose up at" }, "status": "live" }
+      }
+    } },
+    { "who": "mum", "zh": "来，坐！尝尝我做的菜，合不合口味？", "en": "Come, sit! Try my cooking. Is it to your taste?" },
+    { "say": {
+      "id": "praise",
+      "en": "Praise her cooking to the skies: better than a restaurant's.",
+      "answers": ["太好吃了！比饭店的还好吃！", "阿姨，您这手艺太好了！", "比饭店做得还好吃！", "阿姨您这手艺，绝了！"],
+      "gloss": "It's delicious! Even better than a restaurant's!",
+      "need": [["好吃", "手艺"]],
+      "tip": "比饭店的还好吃 = even better than a restaurant's: 比 A 还 B (never 很 after 比). 手艺 shǒuyì = a cook's skill. 绝了 = unbeatable.",
+      "mistakes": [ { "heard": ["比饭店很好吃"], "note": "No 很 in a 比 comparison: 比饭店的还好吃, or 比饭店好吃多了." } ],
+      "ok": [ { "who": "mum", "zh": "哪儿啊，随便做的！多吃点儿！", "en": "Oh, go on, I just threw it together! Eat up!", "fx": "laugh" } ],
+      "fail": [ { "who": "mum", "zh": "不好吃啊？", "en": "You don't like it?", "fx": "cry" } ],
+      "cue": "Love the food!",
+      "miss": [ { "who": "mum", "zh": "不说话？那就是不好吃。", "en": "Nothing to say? So it's not good.", "fx": "cry" } ],
+      "levels": {
+        "5": { "en": "Praise her cooking to the skies, and say how lucky you are to be eating it.", "answers": ["阿姨，您这手艺真是绝了，我今天有口福了！", "太好吃了！比饭店的还好吃，今天真有口福！", "阿姨您这手艺，饭店都比不上，我真有口福！", "阿姨，您做的菜太好吃了，我今天有口福了！"], "gloss": "Auntie, your cooking is out of this world. What a treat for me today!", "need": [["好吃", "手艺"], ["口福"]],
+               "tip": "有口福 yǒu kǒufú = lucky enough to eat food this good: a guest's thank-you that's praise as well. 绝了 = unbeatable.", "key": { "手艺": "cooking (a cook's skill)", "口福": "the luck of eating well" }, "status": "live" }
+      }
+    } },
+    { "who": "dad", "zh": "听说你在上海工作？一个月挣多少啊？", "en": "I hear you work in Shanghai? What do you make a month?", "fx": "squint" },
+    { "say": {
+      "id": "salary",
+      "en": "Deflect, modestly: you make enough to get by.",
+      "answers": ["不多，混口饭吃。", "还行吧，够花。", "嗨，够养活自己。", "不多不多，够用就行。"],
+      "gloss": "Not much. Enough to get by.",
+      "need": [["混口饭", "够花", "够用", "养活"]],
+      "tip": "混口饭吃 hùn kǒu fàn chī = just scraping a living: the humble answer to any salary question. 够花 = enough to live on.",
+      "alts": [
+        { "en": "Or: change the subject: ask about his fishing", "answers": ["叔叔，听说您钓鱼特别厉害？", "叔叔，您最近还钓鱼吗？", "听说叔叔是钓鱼高手？"], "gloss": "Uncle, I hear you're a brilliant fisherman?", "need": [["钓鱼"]],
+          "then": [
+            { "who": "dad", "zh": "哟，这你都知道？我跟你说，上礼拜……", "en": "Oh, you've heard? Let me tell you, last week...", "fx": "laugh" },
+            { "narr": "Twenty minutes and one eight-kilo carp later, nobody remembers the salary question. 🎣", "zh": "二十分钟后，谁也不记得工资的事了。" }
+          ] }
+      ],
+      "ok": [ { "who": "dad", "zh": "哈哈，谦虚！这孩子实在。", "en": "Haha, modest! Down to earth, this one.", "fx": "laugh" } ],
+      "fail": [ { "who": "dad", "zh": "嗯？多少？", "en": "Hm? How much?", "fx": "squint" } ],
+      "cue": "Dodge it.",
+      "miss": [ { "who": "dad", "zh": "不说？那就是没多少。", "en": "Not saying? Can't be much, then.", "fx": "squint" } ],
+      "levels": {
+        "5": { "en": "Deflect, as modestly as you can: just enough to get by, and you've a lot to learn from him.", "answers": ["不多不多，刚够养活自己，还得跟叔叔多学习。", "不多，也就够花，还得跟您多学习。", "混口饭吃而已，以后还得跟叔叔多请教。", "嗨，够用就行，还要跟叔叔好好学习。"], "gloss": "Not much at all, just enough to support myself. I've still a lot to learn from you, Uncle.", "need": [["混口饭", "够花", "够用", "养活"], ["学习", "请教"]],
+               "not": [{ "heard": ["不够"], "note": "不够 says it isn't enough. The modest answer is 刚够: just enough." }],
+               "tip": "还得跟叔叔多学习 = I've a lot to learn from you: the humble turn that hands an elder the floor. 刚够养活自己 = just enough to support myself.", "status": "live" }
+      }
+    } },
+    { "who": "mum", "zh": "才吃两碗？再来一碗！", "en": "Only two bowls? Have another!", "fx": "give", "prop": "🍚" },
+    { "say": {
+      "id": "thirdbowl",
+      "en": "Accept the third bowl graciously: in that case, you won't stand on ceremony.",
+      "answers": ["那我就不客气了！", "好，那我再来一碗！", "阿姨做的，我必须再来一碗！", "那我就不客气了，再来半碗！"],
+      "gloss": "Well then, I won't stand on ceremony!",
+      "need": [["不客气", "再来"]],
+      "tip": "那我就不客气了 = then I won't stand on ceremony: how you accept anything offered twice. 再来一碗 = one more bowl.",
+      "mistakes": [
+        { "heard": ["在来一碗"], "typed": true, "note": "One more is 再 zài (again), not 在 zài (at). They sound the same; the keyboard offers both." },
+        { "heard": ["不用谢"], "note": "不用谢 answers a thank-you. To accept food, say 那我就不客气了." }
+      ],
+      "alts": [
+        { "en": "Or: politely refuse: you really can't eat another bite", "answers": ["阿姨，我实在吃不下了。", "我真吃不下了，谢谢阿姨！", "我已经吃饱了！"], "gloss": "Auntie, I honestly can't eat any more.", "need": [["吃不下", "吃饱"]],
+          "then": [
+            { "who": "mum", "zh": "吃不下？是不是不好吃啊？", "en": "Can't manage it? Is it not nice?", "fx": "cry" },
+            { "who": "xiaoyu", "zh": "快吃！", "en": "Just eat it!" },
+            { "narr": "You eat the third bowl. Of course you do.", "zh": "你还是把第三碗吃完了。" }
+          ] }
+      ],
+      "ok": [ { "who": "mum", "zh": "这就对了！就跟在自己家一样，别客气！", "en": "That's the spirit! Make yourself at home!", "fx": "laugh" } ],
+      "fail": [ { "who": "mum", "zh": "怎么，吃不下啦？", "en": "What, full already?", "fx": "cry" } ],
+      "cue": "A third bowl!",
+      "miss": [
+        { "who": "mum", "zh": "不吃？嫌我做得不好吃！", "en": "Not eating? So you think my cooking's bad!", "fx": "cry" },
+        { "end": "lose", "en": "Dinner ends early. Three years later, Auntie still brings it up.", "zh": "三年后，阿姨还在说这件事。" }
+      ],
+      "levels": {
+        "5": { "en": "Accept the third bowl as graciously as you can: you'll do as you're told.", "answers": ["阿姨，那我就恭敬不如从命，再来一碗！", "恭敬不如从命，那我就再来一碗！", "阿姨，盛情难却，那我就不客气了！", "盛情难却，那我再来一碗！"], "gloss": "Auntie, I'd better do as you say: one more bowl!", "need": [["不客气", "再来"], ["从命", "盛情难却"]],
+               "tip": "恭敬不如从命 gōngjìng bùrú cóngmìng = better to obey than to stand on ceremony: how you finally say yes to an insistent host. 盛情难却 = such kindness is hard to refuse.", "key": { "恭敬不如从命": "I'll do as you say (accepting politely)" },
+               "alts": [{ "of": 0, "answers": ["阿姨，我实在吃不下了，您的心意我领了。", "谢谢阿姨，心意我领了，真吃不下了。", "我真的吃饱了，阿姨的心意我领了！"], "gloss": "Auntie, I honestly can't eat any more. Thank you for the thought, though.", "need": [["吃不下", "吃饱"], ["心意", "心领", "好意"]] }], "status": "live" }
+      }
+    } },
+    { "who": "dad", "zh": "好！那你们俩……", "en": "Good! So, you two..." },
+    { "sfx": "heartbeat" },
+    { "who": "dad", "zh": "打算什么时候结婚啊？", "en": "...when are you getting married?", "fx": "squint" },
+    { "who": "xiaoyu", "zh": "爸！！", "en": "DAD!!", "fx": "faint" },
+    { "say": {
+      "id": "notyet",
+      "en": "Far too soon. Say so with the idiom: not even the first stroke of the 八 is written yet.",
+      "time": 12,
+      "answers": ["叔叔，八字还没一撇呢！", "八字还没一撇呢！", "这个……还早呢，叔叔。", "还早还早！"],
+      "gloss": "Uncle, we're nowhere near that yet!",
+      "need": [["没一撇", "还早", "早着呢"]],
+      "not": [ { "heard": ["已经有一撇"], "note": "已经有一撇 says it's already under way. Far too soon is 八字还没一撇呢." } ],
+      "tip": "八字还没一撇 = 'not even the first stroke of 八 is down': far too early to talk about it. 还早呢 = early days yet.",
+      "mistakes": [ { "heard": ["一笔"], "note": "The saying uses 一撇 piě, the falling stroke that starts 八, not 一笔." } ],
+      "alts": [
+        { "en": "Or: pass the question to your partner", "answers": ["这事儿您问小雨吧！", "叔叔，您问小雨吧！"], "gloss": "You'll have to ask Xiaoyu about that!", "need": [["问小雨", "问他"]],
+          "then": [
+            { "who": "xiaoyu", "zh": "啊？问我？", "en": "Huh? Me?", "fx": "shake" },
+            { "who": "mum", "zh": "对，就问你！说！", "en": "Yes, you! Out with it!", "fx": "laugh" }
+          ] }
+      ],
+      "ok": [ { "who": "dad", "zh": "哈哈哈！好，有文化！来，喝一个！", "en": "Hahaha! Listen to you, quoting sayings! Come on, drink up!", "fx": "laugh" }, { "sfx": "ding" } ],
+      "fail": [ { "who": "dad", "zh": "嗯？什么时候？", "en": "Hm? When?", "fx": "squint" } ],
+      "cue": "Way too soon!",
+      "miss": [ { "who": "dad", "zh": "不说话就是默认了！下个月就办！", "en": "Silence means yes! Wedding next month!", "fx": "laugh" } ],
+      "levels": {
+        "3": { "en": "Far too soon. Tell him it's early days: let things take their course.", "answers": ["叔叔，还早呢，顺其自然吧！", "还早还早，顺其自然吧！", "这个还早呢，叔叔。", "还早着呢，不着急！"], "gloss": "Uncle, it's early days. We'll let things take their course!", "need": [["没一撇", "还早", "早着呢"]],
+               "tip": "还早呢 = it's early days yet. 顺其自然 shùn qí zìrán = let nature take its course: a gentle way to close any 'when'.", "status": "live" },
+        "5": { "en": "Far too soon. Say so with the idiom, and promise he'll be the first to know.", "answers": ["叔叔，八字还没一撇呢，有消息一定先告诉您！", "八字还没一撇呢，到时候一定第一个告诉您！", "叔叔，还早着呢，有好消息一定先跟您说！", "这个还早，真有那天，一定先告诉您二老。"], "gloss": "Uncle, we're nowhere near that yet. When there's news, you'll be the first to hear!", "need": [["没一撇", "还早", "早着呢"], ["告诉", "跟您说", "通知"]],
+               "tip": "有消息一定先告诉您 = when there's news, you'll hear it first: a promise that closes the subject warmly. 八字还没一撇 = not one stroke of 八 yet.", "key": { "说了不算": "it's not my call" },
+               "alts": [{ "of": 0, "answers": ["叔叔，这事儿我说了不算，您还是问小雨吧！", "这事儿我做不了主，您问小雨吧！", "叔叔，我说了不算，您得问小雨！"], "gloss": "Uncle, that's not my call. You'd better ask Xiaoyu!", "need": [["问小雨", "问他"], ["说了不算", "做不了主"]] }], "status": "live" }
+      }
+    } },
+    { "end": "win", "en": "At the door, Auntie presses a red envelope into your hand: ¥10,001, 'one in ten thousand'. You're in.", "zh": "临走时，阿姨塞给你一个红包：一万零一，万里挑一。", "prop": "🧧" }
+  ]
+}

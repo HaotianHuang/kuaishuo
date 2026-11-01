@@ -1,0 +1,671 @@
+{
+  "id": "dont-answer-4",
+  "format": "chase",
+  "title": "楼梯",
+  "title_en": "The Stairs",
+  "level": 2,
+  "listen": 2,
+  "topics": [
+    "home"
+  ],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": {
+    "id": "dont-answer",
+    "ep": 4,
+    "next": "There's a light on in 804. You're standing outside it."
+  },
+  "tags": [
+    "停电",
+    "楼梯",
+    "快跑"
+  ],
+  "setting": "The stairwell, from the tenth floor down, 3:40 am. The power has just gone.",
+  "stage": "🪜",
+  "bg": [
+    "#020308",
+    "#1a2236"
+  ],
+  "cast": {
+    "zheng": {
+      "name": "小郑",
+      "en": "1101: a student, brave about everything except the dark",
+      "emoji": "🧑‍🎓",
+      "voice": "m-young"
+    },
+    "sun": {
+      "name": "孙奶奶",
+      "en": "an old woman with a lantern",
+      "emoji": "👵",
+      "voice": "f-old"
+    },
+    "wuye": {
+      "name": "物业",
+      "en": "the property office's night man",
+      "emoji": "🧑‍💼",
+      "voice": "m-mid"
+    }
+  },
+  "chase": {
+    "name": "黑暗",
+    "en": "the dark",
+    "emoji": "🌑",
+    "start": 20,
+    "close": 1,
+    "gain": 9,
+    "loss": 5,
+    "max": 25,
+    "caught": [
+      {
+        "narr": "The dark closes over you. Then: light."
+      },
+      {
+        "who": "wuye",
+        "zh": "醒醒，八零四！",
+        "en": "Wake up, 804!"
+      },
+      {
+        "end": "lose",
+        "en": "You wake on your own sofa in 804, every light on. 物业 carried you up. 🛋️ Run that back."
+      }
+    ]
+  },
+  "steps": [
+    {
+      "narr": "The power's gone, and the lift with it. Ten floors to run.",
+      "zh": "停电了，快下楼！"
+    },
+    {
+      "sfx": "heartbeat"
+    },
+    {
+      "who": "zheng",
+      "zh": "八零四？快跑！",
+      "en": "804? Run!",
+      "fx": "run"
+    },
+    {
+      "say": {
+        "id": "wait",
+        "obstacle": "🔦",
+        "en": "Shout: wait for me!",
+        "answers": [
+          "小郑，等等我！",
+          "等等我，小郑！",
+          "小郑，等我一下！"
+        ],
+        "gloss": "Xiao Zheng, wait for me!",
+        "need": [
+          [
+            "等等我",
+            "等我"
+          ]
+        ],
+        "time": 8,
+        "tip": "等等我 děngdeng wǒ = wait for me: the doubled 等等 says 'just a moment'.",
+        "ok": [
+          {
+            "who": "zheng",
+            "zh": "快！跟上！",
+            "en": "Quick! Keep up!"
+          }
+        ],
+        "fail": [
+          {
+            "who": "zheng",
+            "zh": "啊？谁？",
+            "en": "Huh? Who's there?"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "等等我！",
+              "等我！",
+              "等等！"
+            ],
+            "need": [
+              [
+                "等等",
+                "等我"
+              ]
+            ],
+            "gloss": "Wait for me!",
+            "status": "live"
+          },
+          "3": {
+            "answers": [
+              "小郑，等等我，别丢下我！",
+              "等等我，别把我丢下！",
+              "小郑等我，别扔下我！"
+            ],
+            "need": [
+              [
+                "等等我",
+                "等我"
+              ],
+              [
+                "别丢",
+                "别扔",
+                "别把我丢"
+              ]
+            ],
+            "gloss": "Wait for me, don't leave me behind!",
+            "tip": "丢下 diūxià = leave behind: 别丢下我 = don't leave me.",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "narr": "Seventh floor. He stops to look back up the stairs."
+    },
+    {
+      "say": {
+        "id": "go",
+        "obstacle": "🪜",
+        "en": "Tell him: don't stop, run!",
+        "answers": [
+          "别停，快跑！",
+          "别回头，快跑！",
+          "快跑，别停下！"
+        ],
+        "gloss": "Don't stop, run!",
+        "need": [
+          [
+            "别停",
+            "别回头"
+          ],
+          [
+            "快跑",
+            "跑"
+          ]
+        ],
+        "not": [
+          {
+            "heard": [
+              "停下来",
+              "等一下"
+            ],
+            "note": "That tells him to stop! Don't stop is 别停 bié tíng."
+          }
+        ],
+        "time": 8,
+        "tip": "别停 bié tíng = don't stop. 别回头 = don't look back. 快跑 = run!",
+        "ok": [
+          {
+            "who": "zheng",
+            "zh": "跑！",
+            "en": "Running!",
+            "fx": "run"
+          }
+        ],
+        "fail": [
+          {
+            "who": "zheng",
+            "zh": "它下来了……",
+            "en": "It's coming down..."
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "快跑！",
+              "别停！",
+              "快跑快跑！"
+            ],
+            "need": [
+              [
+                "快跑",
+                "别停",
+                "别回头",
+                "跑就是"
+              ]
+            ],
+            "gloss": "Run!",
+            "status": "live"
+          },
+          "3": {
+            "answers": [
+              "别回头看了，跑就是了！",
+              "别回头，跑就是了！",
+              "别停下来，跑就是了！"
+            ],
+            "need": [
+              [
+                "别回头",
+                "别停"
+              ],
+              [
+                "跑就是了",
+                "就是了"
+              ]
+            ],
+            "gloss": "Don't look back, just run!",
+            "tip": "……就是了 = just do it, no more thinking: 跑就是了 = just run.",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "narr": "Fifth. Then a landing that isn't there in daylight: 4."
+    },
+    {
+      "when": {
+        "dont-answer.chat": "asked"
+      },
+      "who": "sun",
+      "zh": "谢谢你问我。",
+      "en": "Thank you for asking me.",
+      "else": [
+        {
+          "when": {
+            "dont-answer.chat": "left"
+          },
+          "sfx": "message",
+          "else": [
+            {
+              "sfx": "buzz"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "who": "zheng",
+      "zh": "这……这是几楼？",
+      "en": "Wh... what floor is this?",
+      "fx": "shake"
+    },
+    {
+      "say": {
+        "id": "never",
+        "obstacle": "🚪",
+        "en": "Never mind where. Keep going!",
+        "answers": [
+          "别管了，快走！",
+          "不管了，快走！",
+          "别管几楼，快走！"
+        ],
+        "gloss": "Never mind, keep going!",
+        "need": [
+          [
+            "别管",
+            "不管",
+            "管它"
+          ],
+          [
+            "快走",
+            "走",
+            "快跑",
+            "下去"
+          ]
+        ],
+        "key": {
+          "别管": "never mind"
+        },
+        "time": 8,
+        "tip": "别管了 bié guǎn le = never mind it, leave it. 快走 = go, quick.",
+        "ok": [
+          {
+            "narr": "You don't look at the door. You go past."
+          }
+        ],
+        "fail": [
+          {
+            "who": "zheng",
+            "zh": "门开着……",
+            "en": "The door's open..."
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "别管了！",
+              "快走！",
+              "不管了！"
+            ],
+            "need": [
+              [
+                "别管",
+                "不管",
+                "快走",
+                "管它"
+              ]
+            ],
+            "gloss": "Never mind!",
+            "status": "live"
+          },
+          "3": {
+            "answers": [
+              "别管几楼了，先下去再说！",
+              "管它几楼，先下去再说！",
+              "不管了，先下去再说！"
+            ],
+            "need": [
+              [
+                "别管",
+                "不管",
+                "管它"
+              ],
+              [
+                "再说"
+              ]
+            ],
+            "gloss": "Forget what floor it is. Get down first!",
+            "tip": "先……再说 = first..., then we'll see: 先下去再说 = let's get down first.",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "narr": "Third floor. The dark is a landing behind you."
+    },
+    {
+      "say": {
+        "id": "go2",
+        "again": "go",
+        "obstacle": "🪜",
+        "en": "Don't stop: nearly there!",
+        "answers": [
+          "别停，马上就到了！",
+          "快跑，马上到了！",
+          "别停下，快到了！"
+        ],
+        "gloss": "Don't stop, we're nearly there!",
+        "need": [
+          [
+            "别停",
+            "快跑",
+            "坚持"
+          ],
+          [
+            "马上",
+            "快到",
+            "就到"
+          ]
+        ],
+        "time": 7,
+        "tip": "马上就到了 mǎshàng jiù dào le = we're nearly there: 马上 = any moment now.",
+        "ok": [
+          {
+            "who": "zheng",
+            "zh": "我跑不动了……",
+            "en": "I can't run any more..."
+          }
+        ],
+        "fail": [
+          {
+            "who": "zheng",
+            "zh": "我跑不动了……",
+            "en": "I can't run any more..."
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "别停！快到了！",
+              "快跑！快到了！"
+            ],
+            "need": [
+              [
+                "别停",
+                "快跑",
+                "马上",
+                "就到"
+              ]
+            ],
+            "gloss": "Nearly there!",
+            "status": "live"
+          },
+          "3": {
+            "answers": [
+              "再坚持一下，马上就到了！",
+              "坚持住，马上就到一楼了！",
+              "别停，再坚持一下，快到了！"
+            ],
+            "need": [
+              [
+                "坚持"
+              ],
+              [
+                "马上",
+                "快到"
+              ]
+            ],
+            "gloss": "Hold on a bit longer, we're nearly there!",
+            "tip": "坚持 jiānchí = keep going, hold on: 再坚持一下 = just a little longer.",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "say": {
+        "id": "take",
+        "obstacle": "🧑‍🎓",
+        "en": "Take him with you, or tell him to hide.",
+        "answers": [
+          "跟我走，别怕！",
+          "拉着我，跟我走！",
+          "别怕，跟我走！"
+        ],
+        "gloss": "Come with me, don't be scared!",
+        "need": [
+          [
+            "跟我走"
+          ]
+        ],
+        "time": 9,
+        "tip": "跟我走 gēn wǒ zǒu = come with me. 别怕 = don't be scared.",
+        "sets": {
+          "dont-answer.stairs": "together"
+        },
+        "ok": [
+          {
+            "narr": "You grab his sleeve. Two floors, together."
+          }
+        ],
+        "alts": [
+          {
+            "en": "Or: tell him to hide",
+            "answers": [
+              "你先藏起来！",
+              "快藏起来！",
+              "藏起来，别出声！"
+            ],
+            "need": [
+              [
+                "藏"
+              ]
+            ],
+            "gloss": "Hide!",
+            "sets": {
+              "dont-answer.stairs": "hid"
+            },
+            "then": [
+              {
+                "narr": "He ducks into the third-floor corridor. You run on alone."
+              }
+            ]
+          }
+        ],
+        "fail": [
+          {
+            "who": "zheng",
+            "zh": "怎么办？",
+            "en": "What do we do?"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "跟我走！",
+              "走！跟我走！"
+            ],
+            "gloss": "Come with me!",
+            "alts": [
+              {
+                "of": 0,
+                "answers": [
+                  "藏起来！",
+                  "快藏起来！"
+                ],
+                "need": [
+                  [
+                    "藏"
+                  ]
+                ],
+                "gloss": "Hide!"
+              }
+            ],
+            "status": "live"
+          },
+          "3": {
+            "answers": [
+              "别怕，抓紧我，跟我走！",
+              "抓紧我的手，跟我走！",
+              "别怕，抓住我，跟我走！"
+            ],
+            "need": [
+              [
+                "抓紧",
+                "抓住"
+              ],
+              [
+                "跟我走"
+              ]
+            ],
+            "gloss": "Don't be scared. Hold on to me and come!",
+            "alts": [
+              {
+                "of": 0,
+                "answers": [
+                  "你先藏起来，千万别出声！",
+                  "快藏起来，千万别出声！"
+                ],
+                "need": [
+                  [
+                    "藏"
+                  ],
+                  [
+                    "别出声"
+                  ]
+                ],
+                "gloss": "Hide, and don't make a sound!"
+              }
+            ],
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "narr": "The ground floor. The stairwell door won't move."
+    },
+    {
+      "say": {
+        "id": "open",
+        "obstacle": "🚪",
+        "en": "Bang on the door: open up!",
+        "gain": 12,
+        "answers": [
+          "开门！外面有人吗？",
+          "快开门！有人吗？",
+          "有人吗？快开门！"
+        ],
+        "gloss": "Open up! Is anyone out there?",
+        "need": [
+          [
+            "开门",
+            "开一下门"
+          ],
+          [
+            "有人"
+          ]
+        ],
+        "time": 8,
+        "tip": "开门 kāi mén = open the door. 有人吗？ = anyone there?",
+        "ok": [
+          {
+            "sfx": "door"
+          }
+        ],
+        "fail": [
+          {
+            "sfx": "knock"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "开门！",
+              "快开门！",
+              "开门开门！"
+            ],
+            "need": [
+              [
+                "开门",
+                "开一下门"
+              ]
+            ],
+            "gloss": "Open up!",
+            "status": "live"
+          },
+          "3": {
+            "answers": [
+              "外面有人吗？快帮我开一下门！",
+              "有人吗？麻烦帮我开一下门！",
+              "外面有人吗？帮帮忙，开一下门！"
+            ],
+            "need": [
+              [
+                "有人"
+              ],
+              [
+                "开一下门",
+                "帮我开"
+              ]
+            ],
+            "gloss": "Is anyone out there? Please, open the door!",
+            "tip": "帮我开一下门 = would you open the door for me: 帮 bāng + 一下 is how you ask a stranger.",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "narr": "Fog. At the gate, an old woman with a lantern.",
+      "finale": true,
+      "prop": "🏮"
+    },
+    {
+      "who": "sun",
+      "zh": "跑什么？",
+      "en": "What are you running for?"
+    },
+    {
+      "when": {
+        "dont-answer.stairs": "together"
+      },
+      "who": "zheng",
+      "zh": "她……她是谁？",
+      "en": "Wh... who is she?",
+      "else": [
+        {
+          "narr": "Up on the third floor, a torch blinks at you from a window."
+        }
+      ]
+    },
+    {
+      "narr": "Behind you, the building's lights come back on, floor by floor."
+    },
+    {
+      "end": "win",
+      "en": "Rule three said don't run. You ran, and nothing caught you."
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "id": "carol-4",
+  "format": "scene",
+  "title": "拜年",
+  "title_en": "New Year's Morning",
+  "level": 3,
+  "listen": 3,
+  "topics": ["celebrations"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "carol", "ep": 4, "next": "Season over. 新年快乐." },
+  "tags": ["春节颂歌", "拜年", "红包"],
+  "setting": "11:40 pm, 除夕. Your desk. Twenty minutes to midnight, and it isn't too late.",
+  "stage": "🧧",
+  "bg": ["#2a0a0a", "#e0402a"],
+  "cast": {
+    "xiaoge": { "name": "小葛", "en": "your assistant, at home with flour on her hands", "emoji": "👩‍💼", "voice": "f-young" },
+    "didi": { "name": "弟弟", "en": "小葛's little brother", "emoji": "👦", "voice": "kid" },
+    "liecheyuan": { "name": "列车员", "en": "the guard on the last train", "emoji": "🚄", "voice": "m-young" },
+    "laoma": { "name": "老妈", "en": "your mother", "emoji": "👩", "voice": "f-mid" },
+    "laoba": { "name": "老爸", "en": "your father", "emoji": "👨", "voice": "m-mid" }
+  },
+  "steps": [
+    { "narr": "11:40 pm. Your desk. The lamp is on, the lift is quiet, and on the window, fireworks. It isn't too late." },
+    { "narr": "11:55. A door you saw only tonight, in a dream that wasn't. You knock, with a red envelope in your pocket.", "prop": "🧧" },
+    { "who": "xiaoge", "zh": "老板？！您怎么来了？", "en": "Boss?! What are you doing here?", "fx": "enter" },
+    { "say": {
+      "id": "greet",
+      "en": "Wish her a happy New Year.",
+      "cue": "Happy New Year!",
+      "answers": ["小葛，新年快乐！", "新年快乐，小葛！"],
+      "gloss": "Happy New Year, 小葛!",
+      "need": [["新年快乐"], ["小葛"]],
+      "tip": "新年快乐 xīnnián kuàilè = Happy New Year.",
+      "ok": [ { "who": "didi", "zh": "新年快乐！", "en": "Happy New Year!", "fx": "laugh" } ],
+      "fail": [ { "who": "xiaoge", "zh": "您……没事吧？", "en": "Are you... all right?" } ],
+      "levels": {
+        "2": {
+          "answers": ["新年快乐！"],
+          "need": [["新年快乐"]],
+          "gloss": "Happy New Year!",
+          "status": "live" },
+        "4": {
+          "answers": ["小葛，新年快乐！打扰你们了。"],
+          "need": [["打扰"], ["新年快乐"], ["小葛"]],
+          "gloss": "Happy New Year, 小葛! Sorry to barge in.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "give",
+      "en": "Give her the red envelope: this is for you.",
+      "cue": "Give it.",
+      "answers": ["这个给你，辛苦了。", "这个给你，拿着。"],
+      "gloss": "This is for you. Thank you for all your work.",
+      "need": [["这个给你"], ["辛苦了", "拿着"]],
+      "key": { "辛苦了": "thanks for your hard work" },
+      "tip": "这个给你 = this is for you. Give and take a 红包 with both hands.",
+      "ok": [
+        { "narr": "Inside the 红包: a bonus, and a note in your handwriting. Three days' extra holiday." },
+        { "who": "xiaoge", "zh": "谢谢老板！", "en": "Thank you, boss!", "fx": "laugh" }
+      ],
+      "fail": [ { "who": "xiaoge", "zh": "这是……？", "en": "What's this...?" } ],
+      "levels": {
+        "2": {
+          "answers": ["这个给你。", "给你！"],
+          "need": [["给你"]],
+          "gloss": "This is for you.",
+          "status": "live" },
+        "4": {
+          "answers": ["这个给你，这一年你辛苦了。"],
+          "need": [["这一年"], ["辛苦了"], ["这个给你"]],
+          "gloss": "This is for you. You've worked so hard this year.",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "whoosh" },
+    { "narr": "Midnight. Every firework in the city goes up at once. 弟弟 leans on his crutch and cheers the loudest." },
+    { "narr": "12:20 am. The last train out of the city, nearly empty." },
+    { "when": { "carol.ep3": "home" }, "narr": "You call home from the train. It's picked up before the first ring has finished.",
+      "else": [ { "narr": "老妈 has stayed on the phone the whole way. So far she's said very little, and laughed twice." } ] },
+    { "who": "liecheyuan", "zh": "新年好！回家过年？", "en": "Happy New Year! Going home for the holiday?" },
+    { "say": {
+      "id": "fa",
+      "en": "Greet the guard back, and wish him prosperity.",
+      "cue": "Greet him back.",
+      "answers": ["新年好，恭喜发财！", "恭喜发财，新年好！"],
+      "gloss": "Happy New Year! May you prosper!",
+      "need": [["恭喜发财"], ["新年好"]],
+      "tip": "恭喜发财 gōngxǐ fācái = may you prosper: the cheerful New Year greeting.",
+      "ok": [ { "who": "liecheyuan", "zh": "恭喜发财！回家好啊。", "en": "And you! Home's the place to be." } ],
+      "fail": [ { "who": "liecheyuan", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "2": {
+          "answers": ["恭喜发财！"],
+          "need": [["恭喜发财"]],
+          "gloss": "May you prosper!",
+          "status": "live" },
+        "4": {
+          "answers": ["新年好！过年还上班，恭喜发财！"],
+          "need": [["上班"], ["新年好"], ["恭喜发财"]],
+          "gloss": "Happy New Year! Working on New Year's: may you prosper!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Dawn. The first morning of the year. Your parents' door. Before you can knock, it opens." },
+    { "who": "laoma", "zh": "我就知道。", "en": "I knew it.", "pace": "slow", "hold": 1 },
+    { "narr": "Behind her, on the table: three bowls. Three pairs of chopsticks.", "hold": 1 },
+    { "who": "laoba", "zh": "碗，一直摆着。", "en": "The bowl's been there all along.", "pace": "slow" },
+    { "say": {
+      "id": "sorry",
+      "en": "Apologise: sorry, I'm back so late.",
+      "cue": "Sorry.",
+      "answers": ["对不起，我回来晚了。"],
+      "gloss": "I'm sorry. I'm back so late.",
+      "need": [["对不起"], ["回来晚了"]],
+      "tip": "回来晚了 = came back late: 晚 + 了.",
+      "ok": [ { "who": "laoma", "zh": "不晚。不晚。", "en": "Not late. Not late.", "pace": "slow" } ],
+      "fail": [ { "who": "laoma", "zh": "快进来。", "en": "Come in, quick." } ],
+      "levels": {
+        "2": {
+          "answers": ["对不起！", "对不起，我晚了。"],
+          "need": [["对不起"]],
+          "gloss": "I'm sorry!",
+          "status": "live" },
+        "4": {
+          "answers": ["爸妈，对不起，我回来晚了。"],
+          "need": [["爸妈"], ["对不起"], ["回来晚了"]],
+          "gloss": "Mum, Dad, I'm sorry. I'm back so late.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "health",
+      "en": "Wish them good health for the year.",
+      "cue": "Good health!",
+      "answers": ["祝你们身体健康！", "祝爸妈身体健康！"],
+      "gloss": "Wishing you both good health!",
+      "need": [["身体健康"], ["祝"]],
+      "tip": "身体健康 = good health: the 拜年 wish for parents and grandparents.",
+      "ok": [
+        { "who": "laoba", "zh": "好，好！", "en": "Good, good!", "fx": "laugh" },
+        { "who": "laoma", "zh": "快进来，饺子要凉了。", "en": "Come in, the dumplings are getting cold." }
+      ],
+      "fail": [ { "who": "laoba", "zh": "说什么呢？", "en": "What's that?" } ],
+      "levels": {
+        "2": {
+          "answers": ["身体健康！"],
+          "need": [["身体健康"]],
+          "gloss": "Good health!",
+          "status": "live" },
+        "4": {
+          "answers": ["祝你们身体健康，万事如意！"],
+          "need": [["万事如意"], ["身体健康"], ["祝"]],
+          "gloss": "Wishing you good health, and everything you hope for!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The table. 老爸 drops a dumpling into your bowl, not at all secretly. You bite into a coin." },
+    { "who": "laoba", "zh": "回来就好。", "en": "You're home. That's what matters.", "pace": "slow", "hold": 1 },
+    { "say": {
+      "id": "back",
+      "en": "Tell them you're home, or promise: every year from now on.",
+      "cue": "Home, or every year?",
+      "answers": ["我回来了。", "爸，妈，我回来了。"],
+      "gloss": "I'm home.",
+      "need": [["我回来了"]],
+      "tip": "我回来了 = I'm back: what you say coming through the door.",
+      "sets": { "carol.end": "back" },
+      "ok": [
+        { "who": "laoma", "zh": "嗯。回来了。", "en": "Mm. You're home.", "pace": "slow" },
+        { "narr": "She says it again, quietly, to herself, as if checking it's true." }
+      ],
+      "alts": [
+        { "en": "Or: every year from now on", "answers": ["以后每年我都回来。", "以后每年都回来。"], "need": [["每年"], ["都回来"]], "gloss": "From now on, I'll come home every year.",
+          "sets": { "carol.end": "every" },
+          "then": [
+            { "who": "laoba", "zh": "我记住了。", "en": "I'll hold you to that." },
+            { "who": "laoma", "zh": "我也记住了。", "en": "So will I.", "fx": "laugh" }
+          ] }
+      ],
+      "fail": [ { "who": "laoma", "zh": "吃吧，吃吧。", "en": "Eat, eat." } ],
+      "levels": {
+        "2": {
+          "answers": ["我回来了！"],
+          "need": [["回来了"]],
+          "gloss": "I'm home!",
+          "alts": [ { "of": 0, "answers": ["每年都回来！"], "need": [["每年"]], "gloss": "Every year!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["我回来了，这次多住几天。"],
+          "need": [["多住几天"], ["我回来了"]],
+          "gloss": "I'm home. And this time I'm staying a few days.",
+          "alts": [ { "of": 0, "answers": ["我保证，以后每年我都回来。"], "need": [["保证"], ["每年"], ["都回来"]], "gloss": "I promise: from now on, I'll come home every year." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "carol.end": "back" }, "end": "win", "en": "New Year's morning. Three bowls, a coin in yours, and nowhere else you need to be. Season over. 新年快乐. 🧧",
+      "else": [ { "end": "win", "en": "New Year's morning. 老爸 circles next year's 除夕 on the calendar, in red, twice. Season over. 新年快乐. 🧧" } ] }
+  ]
+}

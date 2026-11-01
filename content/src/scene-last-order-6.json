@@ -1,0 +1,148 @@
+{
+  "id": "last-order-6",
+  "format": "scene",
+  "title": "你的单",
+  "title_en": "Your Order",
+  "level": 1,
+  "listen": 1,
+  "topics": ["food"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "last-order", "ep": 6, "next": "Season one is over. The app has one more order for you: anywhere you want to go." },
+  "tags": ["最后一单", "陈爷爷", "你的单"],
+  "setting": "Your flat, a cool evening. The typhoon season is over. Your first night off in weeks, and nothing in the fridge.",
+  "stage": "🥡",
+  "bg": ["#1a1410", "#8a6a3a"],
+  "cast": {
+    "chen": { "name": "陈爷爷", "en": "seventh floor, no lift, with a walking stick now", "emoji": "👴", "voice": "m-old" },
+    "duoduo": { "name": "朵朵", "en": "his granddaughter, staying for a while", "emoji": "🧳", "voice": "f-young" }
+  },
+  "steps": [
+    { "narr": "The typhoon season is over. Your first night off in weeks. Nothing in the fridge, and no plan." },
+    { "sfx": "knock" },
+    { "say": {
+      "id": "who",
+      "en": "Call through the door: who is it?",
+      "cue": "Who's there?",
+      "answers": ["谁呀？", "是谁呀？"],
+      "gloss": "Who is it?",
+      "need": [["谁呀"]],
+      "tip": "谁呀 shéi ya = who is it? 呀 makes it friendly.",
+      "ok": [ { "who": "chen", "zh": "外卖到了！", "en": "Your delivery's here!", "hold": 1 } ],
+      "fail": [ { "sfx": "knock" } ],
+      "levels": {
+        "0": {
+          "answers": ["谁？"],
+          "need": [["谁"]],
+          "gloss": "Who?",
+          "status": "live" },
+        "2": {
+          "answers": ["来了，来了！谁呀？"],
+          "need": [["来了"]],
+          "gloss": "Coming, coming! Who is it?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "You open the door. 陈爷爷, with a new walking stick and an old smile. Beside him, 朵朵, holding a delivery bag." },
+    { "when": { "last-order.ep5": "straight" }, "narr": "朵朵 carried the bag up the stairs so 爷爷 wouldn't have to. He carried the stick.",
+      "else": [ { "narr": "The bag is warm, and you can smell it already. Congee, of course." } ] },
+    { "who": "chen", "zh": "你的外卖。", "en": "Your delivery." },
+    { "who": "duoduo", "zh": "这次，你是客人。", "en": "This time, you're the customer." },
+    { "say": {
+      "id": "thanks",
+      "en": "Thank them: thank you!",
+      "cue": "Thank him.",
+      "answers": ["谢谢您！", "太谢谢您了！"],
+      "gloss": "Thank you!",
+      "need": [["谢谢您"]],
+      "tip": "您 nín: the polite you, for 陈爷爷.",
+      "ok": [ { "who": "chen", "zh": "谢什么！", "en": "What for!", "fx": "laugh" } ],
+      "fail": [ { "who": "duoduo", "zh": "拿着呀！", "en": "Take it!" } ],
+      "levels": {
+        "0": {
+          "answers": ["谢谢！"],
+          "need": [["谢谢"]],
+          "gloss": "Thank you!",
+          "status": "live" },
+        "2": {
+          "answers": ["谢谢您，陈爷爷！"],
+          "need": [["陈爷爷"]],
+          "gloss": "Thank you, 陈爷爷!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "They're still standing in the corridor. 陈爷爷 leans on his stick." },
+    { "say": {
+      "id": "come",
+      "en": "Invite them in: come in, sit down!",
+      "cue": "Come in!",
+      "answers": ["进来坐！", "快进来坐！"],
+      "gloss": "Come in and sit down!",
+      "need": [["进来坐"]],
+      "tip": "进来 = come in. 坐 = sit. Chinese just puts them in order.",
+      "ok": [
+        { "narr": "陈爷爷 takes your only armchair. 朵朵 takes the floor, and looks completely at home." },
+        { "who": "chen", "zh": "你每天上七楼。", "en": "You climbed seven floors every day." },
+        { "who": "chen", "zh": "今天，换我们了。", "en": "Today, it's our turn.", "pace": "slow", "hold": 1 }
+      ],
+      "fail": [ { "who": "chen", "zh": "我们走了？", "en": "Shall we go?" } ],
+      "levels": {
+        "0": {
+          "answers": ["进来！"],
+          "need": [["进来"]],
+          "gloss": "Come in!",
+          "status": "live" },
+        "2": {
+          "answers": ["快进来坐吧，外面冷！"],
+          "need": [["外面冷"]],
+          "gloss": "Come in and sit down, it's cold out!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Your phone buzzes: the order. Under who paid, not one name.", "zh": "陈爷爷、朵朵、刘奶奶、小何，还有骑手群的一半人。", "prop": "📱", "hold": 2 },
+    { "who": "duoduo", "zh": "大家一起点的。", "en": "Everyone ordered it together." },
+    { "who": "chen", "zh": "你送了一个夏天。", "en": "You delivered all summer.", "pace": "slow" },
+    { "narr": "The bag is heavy. Far too much for one person." },
+    { "say": {
+      "id": "eat",
+      "en": "Eat it together now, or save half for the riders on tomorrow's shift.",
+      "cue": "Together, or half?",
+      "answers": ["一起吃吧！", "我们一起吃吧！"],
+      "gloss": "Let's eat together!",
+      "need": [["一起吃"]],
+      "tip": "一起 yìqǐ = together. ……吧 makes it an invitation.",
+      "sets": { "last-order.end": "together" },
+      "ok": [
+        { "who": "duoduo", "zh": "好呀！", "en": "Yes!", "fx": "laugh" },
+        { "narr": "Three bowls, two chairs, one floor cushion. 陈爷爷 tells the story of the typhoon, and gets it all wrong, and nobody minds." }
+      ],
+      "alts": [
+        { "en": "Or: save half for tomorrow", "answers": ["留一半给大家。", "留一半吧。"], "need": [["留一半"]], "gloss": "Save half for everyone.",
+          "key": { "一半": "half" },
+          "sets": { "last-order.end": "share" },
+          "then": [
+            { "who": "chen", "zh": "好孩子。", "en": "Good kid.", "pace": "slow" },
+            { "narr": "Half goes in the fridge, with a note in your handwriting for the riders' group." }
+          ] }
+      ],
+      "fail": [ { "who": "duoduo", "zh": "吃吗？", "en": "Shall we eat?" } ],
+      "levels": {
+        "0": {
+          "answers": ["一起吃！"],
+          "need": [["一起"]],
+          "gloss": "Together!",
+          "alts": [ { "of": 0, "answers": ["留一半！"], "need": [["一半"]], "gloss": "Save half!" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["坐下，我们一起吃吧！"],
+          "need": [["坐下"]],
+          "gloss": "Sit down, let's eat together!",
+          "alts": [ { "of": 0, "answers": ["留一半，明天带给大家。"], "need": [["明天"]], "gloss": "Save half, and take it to everyone tomorrow." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "last-order.end": "together" }, "end": "win", "en": "Dinner for three in a flat built for one. For once, nobody has to go anywhere. Season one ends here. 🥡",
+      "else": [ { "end": "win", "en": "Tomorrow at the depot: half a dinner, and half the riders' group asking who ordered it. Season one ends here. 🥡" } ] }
+  ]
+}

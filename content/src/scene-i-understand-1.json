@@ -1,0 +1,128 @@
+{
+  "id": "i-understand-1",
+  "format": "scene",
+  "title": "百分之十",
+  "title_en": "Ten Percent",
+  "level": 2,
+  "listen": 4,
+  "topics": ["work"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "i-understand", "ep": 1, "next": "The real owner wants to see you, at the tea farm, alone." },
+  "tags": ["谈判", "茶叶", "听得懂"],
+  "setting": "A meeting room at a tea company, Hangzhou, 9 am. The contract was agreed by email.",
+  "stage": "🍵",
+  "bg": ["#0f2a1e", "#3f7a55"],
+  "cast": {
+    "chen": { "name": "陈总", "en": "the director: warm, and testing you", "emoji": "👩‍💼", "voice": "f-mid", "speed": 1.05 },
+    "zhou": { "name": "小周", "en": "the interpreter", "emoji": "🧑‍💻", "voice": "m-young", "speed": 1.05 }
+  },
+  "steps": [
+    { "narr": "Hangzhou. Your firm sent you to sign. They think you speak no Chinese." },
+    { "who": "chen", "zh": "欢迎欢迎！路上辛苦了！", "en": "Welcome, welcome! You must be tired from the trip!", "pace": "slow" },
+    { "say": {
+      "id": "greet",
+      "en": "Say it was no trouble, and thank her.",
+      "cue": "Be gracious.",
+      "answers": ["不辛苦，谢谢陈总。", "不辛苦，谢谢您！", "还好，不辛苦。"],
+      "gloss": "Not at all. Thank you, Director Chen.",
+      "need": [["不辛苦"]],
+      "key": { "不辛苦": "it was no trouble" },
+      "tip": "辛苦了 is what hosts say to a traveller; 不辛苦 is the gracious reply.",
+      "ok": [ { "who": "chen", "zh": "坐，坐。", "en": "Sit, sit.", "pace": "slow" } ],
+      "fail": [ { "who": "chen", "zh": "路上辛苦了！", "en": "Tiring trip?", "pace": "slow" } ],
+      "levels": {
+        "1": {
+          "answers": ["不辛苦！", "不辛苦，谢谢！"],
+          "gloss": "No trouble at all!",
+          "status": "live" },
+        "3": {
+          "answers": ["不辛苦，陈总太客气了。", "一点儿都不辛苦，陈总太客气了。"],
+          "need": [["不辛苦"], ["客气"]],
+          "gloss": "Not at all. You're too kind, Director Chen.",
+          "tip": "太客气了 = you're too kind: the polite way to accept a welcome.",
+          "status": "live" }
+      }
+    } },
+    { "who": "chen", "zh": "中文还行嘛。价格加百分之十，讲快点，听不出来的。", "en": "Their Chinese is all right. Put ten percent on the price. Talk fast, they won't catch it.", "pace": "fast" },
+    { "who": "zhou", "zh": "陈总说今年茶叶贵，价格要小小调整一下。", "en": "Ms Chen says tea is dear this year, so the price needs a small adjustment.", "pace": "fast" },
+    { "say": {
+      "id": "catch",
+      "en": "Show them you caught it: ten percent?",
+      "cue": "You heard that.",
+      "answers": ["调整多少？百分之十吗？", "是加百分之十吗？", "百分之十吗？"],
+      "gloss": "Adjust by how much? Ten percent?",
+      "need": [["百分之十"]],
+      "not": [ { "heard": ["百分之五"], "note": "She said 百分之十, ten percent: listen to her aside again." } ],
+      "tip": "百分之十 bǎi fēn zhī shí = ten percent: out of a hundred, ten.",
+      "ok": [
+        { "narr": "陈总 and 小周 exchange a look.", "hold": 1 },
+        { "who": "chen", "zh": "哎呀，听得这么清楚！", "en": "Goodness, you heard every word!", "fx": "laugh" },
+        { "who": "chen", "zh": "那……百分之五？", "en": "Then... five percent?" }
+      ],
+      "fail": [ { "who": "zhou", "zh": "陈总说，价格要小小调整一下。", "en": "Ms Chen says the price needs a small adjustment.", "pace": "fast" } ],
+      "miss": [
+        { "narr": "You nod. 小周 slides the new price across the table." },
+        { "end": "lose", "en": "You signed for ten percent more. 小周 looks almost sorry. Run that back." }
+      ],
+      "levels": {
+        "1": {
+          "answers": ["百分之十？", "加百分之十？"],
+          "gloss": "Ten percent?",
+          "status": "live" },
+        "3": {
+          "answers": ["陈总刚才说的是百分之十吧？", "陈总刚才说的，是加百分之十吧？"],
+          "need": [["百分之十"], ["刚才"]],
+          "gloss": "What Director Chen just said was ten percent, wasn't it?",
+          "tip": "刚才 gāngcái = just now. ……吧？ asks for agreement: you already know.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "price",
+      "en": "Hold the agreed price, or trade the five percent for something.",
+      "cue": "Hold firm, or trade?",
+      "answers": ["说好的价格，不能变。", "说好的价格，不能改。"],
+      "gloss": "The price we agreed can't change.",
+      "need": [["说好"], ["不能变", "不能改", "不变"]],
+      "key": { "说好的": "agreed (on)" },
+      "tip": "说好的 = what we agreed: 说好的价格 = the agreed price.",
+      "sets": { "i-understand.price": "held" },
+      "ok": [ { "narr": "陈总 puts the pen down, slowly. And smiles." } ],
+      "alts": [
+        { "en": "Or: five percent, for an early shipment", "answers": ["百分之五，要早发货。", "百分之五可以，早点发货。"], "need": [["百分之五"], ["发货"]], "gloss": "Five percent, if you ship early.",
+          "key": { "发货": "ship (the goods)" },
+          "sets": { "i-understand.price": "traded" },
+          "then": [ { "who": "chen", "zh": "好，月底发货。", "en": "Done. It ships at the end of the month." } ] },
+        { "secret": true, "en": "Tell her you understand, fast or not", "answers": ["讲快点我也听得懂。", "讲得再快，我也听得懂。"], "need": [["听得懂"]], "gloss": "Talk as fast as you like. I understand.",
+          "sets": { "i-understand.price": "heard" },
+          "then": [
+            { "who": "chen", "zh": "好！我就喜欢听得懂的。", "en": "Good! I like someone who understands.", "fx": "laugh" },
+            { "who": "chen", "zh": "签字的人，要看得懂。上次那个……算了。", "en": "Whoever signs should understand it. Last time, that... never mind." },
+            { "narr": "In the lift, 小周 slips you a note.", "zh": "陈总不是老板。", "prop": "📝" },
+            { "end": "win", "en": "She laughed, and never mentioned the price again. 🍵" }
+          ] }
+      ],
+      "fail": [ { "who": "chen", "zh": "那……百分之五？", "en": "Then... five percent?" } ],
+      "levels": {
+        "1": {
+          "answers": ["价格不能变。", "不能变！"],
+          "need": [["不能变", "不能改", "不变"]],
+          "gloss": "The price can't change.",
+          "alts": [ { "of": 0, "answers": ["百分之五，早发货。"], "need": [["百分之五"]], "gloss": "Five percent, ship early." }, { "of": 1 } ],
+          "status": "live" },
+        "3": {
+          "answers": ["说好的价格，一分都不能变。", "说好的价格，一分钱都不能变。"],
+          "need": [["说好"], ["一分"]],
+          "gloss": "The agreed price doesn't move by a cent.",
+          "alts": [ { "of": 0, "answers": ["百分之五可以，但要提前发货。"], "need": [["百分之五"], ["提前"]], "gloss": "Five percent is fine, but you ship early." }, { "of": 1 } ],
+          "status": "live" }
+      }
+    } },
+    { "who": "chen", "zh": "签字的人，要看得懂。上次那个……算了。", "en": "Whoever signs should understand it. Last time, that... never mind." },
+    { "narr": "In the lift, 小周 slips you a note.", "zh": "陈总不是老板。", "prop": "📝" },
+    { "when": { "i-understand.price": "held" }, "end": "win", "en": "The old price, signed. And a note: she's not the boss. 🍵",
+      "else": [ { "end": "win", "en": "Five percent, shipped early. And a note: she's not the boss. 🍵" } ] }
+  ]
+}

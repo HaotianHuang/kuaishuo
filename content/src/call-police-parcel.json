@@ -1,0 +1,148 @@
+{
+  "id": "police-parcel",
+  "format": "call",
+  "title": "警察来电",
+  "title_en": "The Police Are Calling",
+  "level": 3,
+  "topics": ["shopping"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "tags": ["诈骗", "报警", "接电话"],
+  "write": ["骗子", "警号", "报警"],
+  "setting": "Your sofa, a quiet Tuesday afternoon. A number you've never seen.",
+  "stage": "🚨",
+  "bg": ["#170c24", "#6b1d3a"],
+  "cast": {
+    "wang": { "name": "王警官", "en": "\"Officer\" Wang", "emoji": "👮", "voice": "m-mid", "phone": true }
+  },
+  "call": {
+    "caller": "wang",
+    "photo": "👤",
+    "number": "+00 852 0110 2333",
+    "label": { "zh": "境外来电" },
+    "clock": "15:40",
+    "patience": 6,
+    "silence": [
+      { "who": "wang", "zh": "喂？喂？听得到吗？", "en": "Hello? Hello? Can you hear me?" },
+      { "who": "wang", "zh": "怎么不说话？这事很严重的！", "en": "Why aren't you saying anything? This is serious!" }
+    ],
+    "hangup": [
+      { "who": "wang", "zh": "不配合是吧？那你就等着收传票吧！", "en": "Not cooperating? Then expect a court summons!", "fx": "angry" },
+      { "end": "lose", "en": "He hung up. Silence works on scammers too, but you came here to talk." }
+    ]
+  },
+  "steps": [
+    { "who": "wang", "zh": "喂，你好，我是市公安局的王警官。", "en": "Hello. This is Officer Wang, from the city Public Security Bureau.", "peek": "free" },
+    { "who": "wang", "zh": "请问是机主本人吗？", "en": "Am I speaking to the owner of this phone?" },
+    { "say": {
+      "id": "me",
+      "en": "Say yes, it's you, and tell him to go ahead.",
+      "cue": "Say it's you.",
+      "answers": ["是我，您说。", "对，是我，什么事？", "我就是，您说。", "是我，有什么事吗？", "对，您说。"],
+      "gloss": "Speaking. Go ahead.",
+      "need": [["是我", "我就是", "是的", "对的", "没错", "本人", "您说"]],
+      "not": [{ "heard": ["不是我"], "note": "不是我 says it ISN'T you. It is: 是我，您说。" }],
+      "time": 10,
+      "tip": "您说 nín shuō = go ahead, I'm listening (literally 'you say'). 本人 běnrén = the person themself.",
+      "ok": [ { "who": "wang", "zh": "你听我说，有个以你名义寄出的包裹，被海关扣了。", "en": "Listen. A parcel sent in your name has been seized by customs.", "pace": "fast" } ],
+      "fail": [ { "who": "wang", "zh": "到底是不是本人？", "en": "Is this you or not?" } ],
+      "levels": {
+        "4": { "en": "Say yes, it's you, and ask what the police could possibly want with you.",
+               "answers": ["是我本人。警察找我能有什么事？", "我就是。公安局找我有什么事？", "是我，您说。警察找我干什么？", "对，是我本人，你们找我什么事？"],
+               "gloss": "Speaking. What could the police possibly want with me?", "need": [["是我", "我就是", "是的", "对的", "没错", "本人", "您说"], ["找我"]],
+               "tip": "本人 běnrén = the person themself (it's me, formally). 能有什么事？ = what could it possibly be? (I've done nothing.)", "key": { "找我": "want (to see) me" }, "status": "live" }
+      }
+    } },
+    { "who": "wang", "zh": "里面查出五十本假护照，还有一只活鹅。", "en": "Inside: fifty fake passports. And a live goose.", "pace": "fast" },
+    { "say": {
+      "id": "again",
+      "en": "Stall: say you didn't catch that, and ask him to repeat it.",
+      "cue": "Buy yourself some time.",
+      "answers": ["不好意思，您能再说一遍吗？", "您说什么？我没听清。", "啊？您再说一遍？", "您说慢点，我没听懂。"],
+      "gloss": "Sorry, could you say that again?",
+      "need": [["再说一遍", "再说一次", "没听清", "听不清", "没听懂", "慢点", "慢一点"]],
+      "time": 10,
+      "tip": "您能再说一遍吗 = could you say that again? 没听清 = didn't catch it. The oldest way to buy time on the phone.",
+      "ok": [
+        { "who": "wang", "zh": "我说，你的包裹里有假护照！还有一只鹅！活的！", "en": "I SAID, your parcel had fake passports in it! And a goose! A live one!", "fx": "angry" },
+        { "who": "wang", "zh": "就是说，你现在涉嫌走私，懂吗？", "en": "In other words, you're now a smuggling suspect. Understand?" }
+      ],
+      "fail": [ { "who": "wang", "zh": "你别打岔，听我说完！", "en": "Don't interrupt. Let me finish!" } ],
+      "levels": {
+        "2": { "answers": ["您能再说一遍吗？", "我没听清，再说一遍？", "啊？您说什么？我没听清。", "您说慢点！"], "gloss": "Could you say that again?", "status": "live" },
+        "4": { "en": "Stall: echo the passports and the goose in disbelief, and ask him to say it again.",
+               "answers": ["啊？什么护照什么鹅的？您再说一遍。", "什么假护照？还有鹅？您再说一次？", "等等，什么护照什么鹅？我没听懂。", "您说慢点，护照和鹅是怎么回事？"],
+               "gloss": "Huh? Passports? A goose? Say that again.", "need": [["再说一遍", "再说一次", "没听清", "听不清", "没听懂", "慢点", "慢一点"], ["护照", "鹅"]],
+               "tip": "什么护照什么鹅的？ = passports? geese? what is all this? (什么 before each thing echoes it in disbelief).", "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "badge",
+      "en": "Test him: ask for his badge number.",
+      "cue": "Test him.",
+      "answers": ["您的警号是多少？", "您警号多少？", "您是哪个派出所的？", "您叫什么名字？警号多少？"],
+      "gloss": "What's your badge number?",
+      "need": [["警号", "派出所", "警察局"]],
+      "time": 10,
+      "tip": "警号 jǐnghào = badge number. 哪个派出所 = which police station? A real officer just tells you.",
+      "mistakes": [
+        { "heard": ["察号"], "note": "A badge number is 警号 jǐnghào, not 警察号." },
+        { "heard": ["工号", "号码"], "note": "An officer's number is his 警号 jǐnghào, his badge number: 您的警号是多少？" }
+      ],
+      "alts": [
+        { "en": "Claim the goose is yours", "answers": ["那只鹅是我的！", "鹅是我的，它叫大白。"], "gloss": "That goose is mine!", "need": [["鹅是我", "我的鹅", "只鹅"]],
+          "then": [ { "who": "wang", "zh": "啊？你承认了？那问题就更大了！", "en": "What? You admit it? Then this is even more serious!" } ] }
+      ],
+      "ok": [ { "who": "wang", "zh": "我的警号是……这个不重要！", "en": "My badge number is... that's not important!", "fx": "angry" } ],
+      "fail": [ { "who": "wang", "zh": "你问这么多干什么？", "en": "Why are you asking so many questions?" } ],
+      "levels": {
+        "4": { "en": "Test him: if he's the police, then what's his badge number?",
+               "answers": ["您不是警察吗？那您的警号是多少？", "你不是警察吗？警号多少？", "您说您是警察，那警号是多少？", "既然您是警察，那您是哪个派出所的？"],
+               "gloss": "Aren't you the police? Then what's your badge number?", "need": [["警号", "派出所", "警察局"], ["警察"]],
+               "alts": [{ "of": 0, "answers": ["那只鹅是我的！我都找它好几天了！", "鹅是我的！它叫大白，我找了它好几天！", "那只鹅是我的，可护照不是我的！"], "gloss": "That goose is mine! I've been looking for it for days!" }],
+               "tip": "您不是警察吗？ = aren't you the police? A rhetorical 不是……吗: then prove it. 既然……那…… = since …, then ….", "status": "live" }
+      }
+    } },
+    { "who": "wang", "zh": "你现在马上把钱转到安全账户，配合调查。", "en": "Now move your money into a safe account, right away, so we can investigate.", "pace": "fast" },
+    { "say": {
+      "id": "callout",
+      "en": "He wants your money in a 'safe account'. Call it: he's a scammer.",
+      "cue": "Your move.",
+      "answers": ["你是骗子吧？", "你就是个骗子吧？", "警察哪有安全账户？你是骗子！", "骗子吧你？"],
+      "gloss": "You're a scammer, aren't you?",
+      "need": [["骗子", "诈骗"]],
+      "not": [{ "heard": ["我是骗子"], "note": "我是骗子 says YOU are the scammer. Call him one: 你是骗子吧？" }],
+      "time": 10,
+      "tip": "……吧？ turns a guess into a challenge: 你是骗子吧 = you're a scammer, aren't you? Real police never have a 'safe account' (安全账户).",
+      "ok": [ { "who": "wang", "zh": "你怎么说话呢？我是警察！", "en": "How dare you talk to me like that? I AM the police!", "fx": "angry" } ],
+      "fail": [ { "who": "wang", "zh": "少废话，赶紧转账！", "en": "Enough talk. Make the transfer!" } ],
+      "levels": {
+        "4": { "en": "He wants your money in a 'safe account'. Throw it back at him: a 'safe account'? Isn't that just fraud?",
+               "answers": ["转到安全账户？你这不就是诈骗吗！", "警察哪有什么安全账户？你是骗子吧！", "安全账户？这不就是诈骗吗？", "让我往安全账户转钱？你是骗子吧！"],
+               "gloss": "Move it to a 'safe account'? Isn't that just fraud?", "need": [["骗子", "诈骗"], ["安全账户", "账户"]],
+               "tip": "这不就是诈骗吗？ = isn't this just fraud? (a rhetorical 不是……吗). 安全账户 = the 'safe account' every scam like this asks for.",
+               "key": { "安全账户": "'safe account' (a scam's tell)" }, "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "police",
+      "en": "Tell him you're calling the police. The real ones.",
+      "cue": "Threaten him back.",
+      "answers": ["那我要报警了！", "那我现在就报警。", "行，那我打幺幺零问问。", "我这就打幺幺零！"],
+      "gloss": "Then I'm calling the police!",
+      "need": [["报警", "幺幺零", "一一零"]],
+      "time": 10,
+      "tip": "报警 bàojǐng = call the police. Read out on the phone, 1 is 幺 yāo, so 110 is 幺幺零.",
+      "ok": [ { "who": "wang", "zh": "你……你等着！", "en": "You... you just wait!" } ],
+      "fail": [ { "who": "wang", "zh": "你想清楚了再说话！", "en": "Think very carefully before you speak!" } ],
+      "levels": {
+        "4": { "en": "Tell him you've nothing to fear: you're calling the police. The real ones.",
+               "answers": ["身正不怕影子斜，我这就报警！", "行，我这就报警，让真警察跟你聊聊！", "吓唬谁呢？我现在就打幺幺零！", "我身正不怕影子斜，这就打幺幺零！"],
+               "gloss": "A clear conscience fears nothing. I'm calling the police right now!", "need": [["报警", "幺幺零", "一一零"], ["不怕", "真警察", "吓唬"]],
+               "tip": "身正不怕影子斜 = stand up straight and a crooked shadow can't touch you: a clear conscience fears nothing. 这就 = right now.", "status": "live" }
+      }
+    } },
+    { "end": "win", "en": "He hung up. Ten seconds later your phone rings again: 96110, the real anti-fraud police, checking you're all right.", "zh": "十秒后，手机又响了：九六幺幺零，反诈专线。" }
+  ]
+}

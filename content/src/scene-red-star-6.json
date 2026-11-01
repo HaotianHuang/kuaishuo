@@ -1,0 +1,156 @@
+{
+  "id": "red-star-6",
+  "format": "scene",
+  "title": "八点",
+  "title_en": "Eight O'Clock",
+  "level": 2,
+  "listen": 2,
+  "topics": ["dating"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "red-star", "ep": 6, "next": "Season one is over. Next year, on this date, your phone will ring, and you'll know who it is." },
+  "tags": ["打错了", "红星饭店", "八点四十"],
+  "setting": "红星饭店, open for one night only. Saturday, 7:58 pm. The table for two at eight.",
+  "stage": "🏮",
+  "bg": ["#2a0d14", "#c23a3a"],
+  "cast": {
+    "cheng": { "name": "程远", "en": "across the table from you", "emoji": "👤", "voice": "m-young" },
+    "hongjie": { "name": "红姐", "en": "cooking, for one night only", "emoji": "👩‍🍳", "voice": "f-old" }
+  },
+  "steps": [
+    { "narr": "红星饭店, for one night. Red lanterns, eight tables, and one of them laid. 7:58." },
+    { "who": "hongjie", "zh": "两位，吃什么？", "en": "What'll it be, you two?", "fx": "enter" },
+    { "say": {
+      "id": "order",
+      "en": "Ask 红姐 for her signature dish.",
+      "cue": "Order.",
+      "answers": ["红姐，来个拿手菜！", "红姐，上您的拿手菜！"],
+      "gloss": "红姐, your best dish, please!",
+      "need": [["红姐"], ["拿手菜"]],
+      "key": { "拿手菜": "signature dish" },
+      "tip": "拿手 náshǒu = good at, expert: 拿手菜 = the dish you do best.",
+      "ok": [ { "who": "hongjie", "zh": "好嘞！红烧肉，十年没做了。", "en": "Coming up! Braised pork. I haven't made it in ten years." } ],
+      "fail": [ { "who": "hongjie", "zh": "想吃什么？", "en": "What do you fancy?" } ],
+      "levels": {
+        "1": {
+          "answers": ["拿手菜！", "来个拿手菜！"],
+          "need": [["拿手菜"]],
+          "gloss": "Your best dish!",
+          "status": "live" },
+        "3": {
+          "answers": ["红姐，把您的拿手菜都端上来！"],
+          "need": [["都端上来"], ["拿手菜"]],
+          "gloss": "红姐, bring out all your best dishes!",
+          "status": "live" }
+      }
+    } },
+    { "when": { "red-star.ep5": "two" }, "narr": "Just the two of you, by the window. 红姐 peeks out of the kitchen, and pretends not to.",
+      "else": [
+        { "who": "hongjie", "zh": "我也坐一会儿。", "en": "I'll sit with you a minute.", "fx": "enter" },
+        { "who": "hongjie", "zh": "十年前那天，下着雨。", "en": "That night ten years ago, it was raining.", "pace": "slow" },
+        { "who": "hongjie", "zh": "八点四十，那个人进来，问八点那桌的人呢。", "en": "At twenty to nine, they came in and asked where the table at eight had gone.", "pace": "slow" },
+        { "who": "hongjie", "zh": "我说：刚走。", "en": "I said: just left.", "hold": 2 }
+      ] },
+    { "narr": "Two glasses. 红姐's own plum wine.", "prop": "🍷" },
+    { "say": {
+      "id": "toast",
+      "en": "Raise a toast: to ten years!",
+      "cue": "Toast.",
+      "answers": ["敬这十年，干杯！", "为这十年干杯！"],
+      "gloss": "To these ten years! Cheers!",
+      "need": [["这十年"], ["干杯"]],
+      "tip": "敬 jìng = drink to: 敬这十年 = to these ten years. 为……干杯 says it too.",
+      "ok": [
+        { "who": "cheng", "zh": "这十年……干杯。", "en": "These ten years... cheers.", "fx": "laugh" },
+        { "sfx": "ding" }
+      ],
+      "fail": [ { "who": "cheng", "zh": "敬什么？", "en": "To what?" } ],
+      "levels": {
+        "1": {
+          "answers": ["干杯！", "敬这十年！"],
+          "need": [["干杯", "这十年"]],
+          "gloss": "To ten years!",
+          "status": "live" },
+        "3": {
+          "answers": ["这一杯，敬这十年，干杯！"],
+          "need": [["这一杯"], ["这十年"]],
+          "gloss": "This glass is to ten years. Cheers!",
+          "status": "live" }
+      }
+    } },
+    { "who": "cheng", "zh": "你呢？今天……你怎么想？", "en": "And you? Tonight... how do you feel?" },
+    { "say": {
+      "id": "feel",
+      "en": "Say how you feel: you're glad to be here.",
+      "cue": "Say it.",
+      "answers": ["我很高兴今天在这儿。", "今天在这儿，我很高兴。"],
+      "gloss": "I'm really glad to be here tonight.",
+      "need": [["很高兴"], ["在这儿"]],
+      "tip": "高兴 gāoxìng = glad, happy.",
+      "ok": [ { "who": "cheng", "zh": "我也是。", "en": "So am I.", "hold": 1 } ],
+      "fail": [ { "who": "cheng", "zh": "你说呀。", "en": "Go on, say it." } ],
+      "levels": {
+        "1": {
+          "answers": ["我很高兴！", "我很高兴。"],
+          "need": [["高兴"]],
+          "gloss": "I'm glad!",
+          "status": "live" },
+        "3": {
+          "answers": ["能跟你一起在这儿，我很高兴。"],
+          "need": [["跟你一起"], ["很高兴"]],
+          "gloss": "Being here with you makes me really happy.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "8:39. 程远 keeps looking at the clock over the door.", "prop": "🕗" },
+    { "narr": "8:40.", "hold": 3 },
+    { "narr": "程远 puts the phone face down on the table.", "prop": "📱" },
+    { "who": "cheng", "zh": "十年前，我在这儿等。", "en": "Ten years ago, I waited here.", "pace": "slow", "hold": 1 },
+    { "who": "cheng", "zh": "今天，我不想再等了。", "en": "Tonight, I don't want to wait any more.", "pace": "slow", "hold": 2 },
+    { "who": "cheng", "zh": "下次……你来订位子，好吗？", "en": "Next time... will you book the table?", "pace": "slow" },
+    { "say": {
+      "id": "next",
+      "en": "Say yes, you'll book it, or that you'd like to take it slowly.",
+      "cue": "Book it, or slowly?",
+      "answers": ["好，我来订。", "好啊，我来订位子。"],
+      "gloss": "Yes. I'll book it.",
+      "need": [["我来订"]],
+      "tip": "订 dìng = book, reserve: 订位子 = book a table.",
+      "sets": { "red-star.ep6": "book" },
+      "ok": [ { "who": "cheng", "zh": "……好。", "en": "...Good.", "fx": "laugh", "hold": 1 } ],
+      "alts": [
+        { "en": "Or: take it slowly", "answers": ["我们……慢慢来。", "我们慢慢来，好吗？"], "need": [["慢慢来"]], "gloss": "Let's... take it slowly.",
+          "key": { "慢慢来": "take it slowly" },
+          "sets": { "red-star.ep6": "slow" },
+          "then": [ { "who": "cheng", "zh": "好。慢慢来。", "en": "All right. Slowly.", "hold": 1 } ] },
+        { "secret": true, "when": { "red-star.ep4": "together" }, "en": "Tell them you already booked", "answers": ["我早就订好了。", "我早就订好了，明年今天。"], "need": [["早就订好"]], "gloss": "I booked it ages ago.",
+          "sets": { "red-star.ep6": "booked" },
+          "then": [
+            { "who": "cheng", "zh": "……什么？", "en": "...What?", "hold": 1 },
+            { "narr": "红姐 comes out of the kitchen with the old booking book, and opens it at next year." },
+            { "who": "hongjie", "zh": "明年今天，八点，两个人。早就订了。", "en": "Next year, this date, eight o'clock, two people. Booked weeks ago." },
+            { "narr": "程远 laughs, and then can't stop crying, and then laughs again.", "hold": 2 },
+            { "end": "win", "en": "Next year's table at eight is already yours. Nobody has to wait for anyone. 🏮" }
+          ] }
+      ],
+      "fail": [ { "who": "cheng", "zh": "好吗？", "en": "Will you?" } ],
+      "levels": {
+        "1": {
+          "answers": ["好，我订！", "我来订！"],
+          "need": [["我订", "我来订"]],
+          "gloss": "Yes, I'll book!",
+          "alts": [ { "of": 0, "answers": ["慢慢来。"], "need": [["慢慢来"]], "gloss": "Slowly." } ],
+          "status": "live" },
+        "3": {
+          "answers": ["好，下次我来订，八点那桌。"],
+          "need": [["下次"], ["我来订"]],
+          "gloss": "Yes. Next time I'll book: the table at eight.",
+          "alts": [ { "of": 0, "answers": ["不急，我们慢慢来，好吗？"], "need": [["不急"], ["慢慢来"]], "gloss": "No hurry. Let's take it slowly, shall we?" } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "red-star.ep6": "book" }, "end": "win", "en": "Midnight. 红姐 waves you off from the door, the booking book under her arm. Season one ends here. 🏮",
+      "else": [ { "end": "win", "en": "You walk home slowly. Neither of you mentions next year. Both of you are thinking about it. Season one ends here. 🏮" } ] }
+  ]
+}

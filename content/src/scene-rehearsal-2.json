@@ -1,0 +1,156 @@
+{
+  "id": "rehearsal-2",
+  "format": "scene",
+  "title": "见家长",
+  "title_en": "Meeting the Parents",
+  "level": 2,
+  "listen": 2,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "rehearsal", "ep": 2, "next": "林老师 has built 老黄's son's flat. 老黄 has to knock." },
+  "tags": ["彩排", "辞职", "结婚"],
+  "setting": "彩排工作室, 10 am. On Sunday you tell your parents you've quit your job.",
+  "stage": "🎬",
+  "bg": ["#1d1d22", "#5b5a66"],
+  "cast": {
+    "lin": { "name": "林老师", "en": "runs the studio; has never smiled", "emoji": "🧑‍🏫", "voice": "m-mid" },
+    "feng": { "name": "冯阿姨", "en": "your old landlord", "emoji": "👩‍🦳", "voice": "f-old" },
+    "laohuang": { "name": "老黄", "en": "an actor: plays your mother, in an apron", "emoji": "🧔", "voice": "m-old" }
+  },
+  "steps": [
+    { "when": { "rehearsal.deposit": "straight" }, "who": "feng", "zh": "早！我现在是林老师的助理。", "en": "Morning! I'm 林老师's assistant now.", "fx": "enter", "prop": "📋",
+      "else": [ { "who": "feng", "zh": "押金的事，下午接着练。茶在保温杯里。", "en": "The deposit: we carry on this afternoon. The tea's in a flask.", "fx": "enter", "prop": "🫖" } ] },
+    { "narr": "A warehouse. Inside it, your parents' living room, full size. Your father is a cardboard cutout." },
+    { "who": "lin", "zh": "周日晚饭。你要说：你辞职了。", "en": "Sunday dinner. You have to say it: you've quit your job." },
+    { "who": "lin", "zh": "你妈妈，由老黄演。", "en": "Your mother will be played by 老黄." },
+    { "who": "laohuang", "zh": "回来啦？瘦了！多吃点！", "en": "You're home! You've lost weight! Eat!", "fx": "enter", "prop": "🍲" },
+    { "who": "lin", "zh": "开始。", "en": "Begin." },
+    { "say": {
+      "id": "quit",
+      "en": "Tell her: you've quit your job.",
+      "cue": "Say it.",
+      "answers": ["妈，我辞职了。", "我辞职了。", "妈，我把工作辞了。"],
+      "gloss": "Mum, I've quit my job.",
+      "need": [["辞职", "辞了"]],
+      "tip": "辞职 cízhí = quit (a job). 把工作辞了 says the same, with the job up front.",
+      "ok": [
+        { "who": "laohuang", "zh": "辞职？！", "en": "Quit?!", "fx": "shake" },
+        { "who": "laohuang", "zh": "那你吃什么？喝什么？", "en": "Then what will you eat? What will you drink?" }
+      ],
+      "fail": [ { "who": "laohuang", "zh": "说什么呢？多吃点！", "en": "What's that? Eat up!" } ],
+      "levels": {
+        "1": {
+          "answers": ["我辞职了。", "辞职了。"],
+          "gloss": "I quit.",
+          "status": "live" },
+        "3": {
+          "answers": ["妈，跟您说件事，我辞职了。", "妈，有件事跟您说，我把工作辞了。"],
+          "need": [["跟您说"], ["辞职", "辞了"]],
+          "gloss": "Mum, there's something I need to tell you. I've quit.",
+          "tip": "跟您说件事 = I need to tell you something: the warning before the news.",
+          "status": "live" }
+      }
+    } },
+    { "who": "lin", "zh": "她慌了。让她放心。", "en": "She's panicking. Reassure her." },
+    { "say": {
+      "id": "plan",
+      "en": "Reassure her: you have a plan.",
+      "cue": "You have a plan.",
+      "answers": ["别担心，我有计划。", "我有计划的。", "放心，我有计划。"],
+      "gloss": "Don't worry, I have a plan.",
+      "need": [["计划"]],
+      "tip": "计划 jìhuà = a plan. 放心 = don't worry (put your heart down).",
+      "ok": [
+        { "who": "laohuang", "zh": "计划？好。", "en": "A plan? Fine." },
+        { "who": "laohuang", "zh": "那你什么时候结婚？", "en": "So when are you getting married?", "fx": "squint" }
+      ],
+      "fail": [ { "who": "laohuang", "zh": "那你吃什么？", "en": "Then what will you eat?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我有计划！", "有计划。"],
+          "gloss": "I have a plan!",
+          "status": "live" },
+        "3": {
+          "answers": ["您别担心，我早就有计划了。", "您放心，我都计划好了。"],
+          "need": [["早就", "计划好"], ["计划"]],
+          "gloss": "Don't you worry. I planned it all long ago.",
+          "status": "live" }
+      }
+    } },
+    { "who": "lin", "zh": "经典问题。躲开它。", "en": "The classic. Dodge it." },
+    { "say": {
+      "id": "dodge",
+      "en": "Dodge it: we'll see when the time comes.",
+      "cue": "Not now.",
+      "answers": ["到时候再说吧。", "这个以后再说吧。", "到时候再说！"],
+      "gloss": "We'll see when the time comes.",
+      "need": [["再说吧", "以后再说", "时候再说"]],
+      "not": [ { "heard": ["说什么"], "note": "Don't play dumb: put it off, 到时候再说吧." } ],
+      "key": { "再说": "talk about it later" },
+      "tip": "到时候再说 = cross that bridge when we get there: the dodge for every family question.",
+      "ok": [
+        { "who": "lin", "zh": "很好。", "en": "Good." },
+        { "narr": "林老师 does not smile." }
+      ],
+      "fail": [ { "who": "laohuang", "zh": "什么时候结婚？", "en": "When are you getting married?" } ],
+      "levels": {
+        "1": {
+          "answers": ["再说吧。", "以后再说。"],
+          "gloss": "Later.",
+          "status": "live" },
+        "3": {
+          "answers": ["妈，这事不急，到时候再说吧。", "这个不急，到时候再说吧。"],
+          "need": [["不急"], ["再说"]],
+          "gloss": "Mum, there's no rush. We'll see when the time comes.",
+          "status": "live" }
+      }
+    } },
+    { "who": "laohuang", "zh": "等一下。", "en": "Hold on.", "prop": "" },
+    { "narr": "老黄 takes off the apron." },
+    { "who": "laohuang", "zh": "我年轻的时候，也辞过职。跟你一样大。", "en": "When I was young, I quit my job too. Your age." },
+    { "who": "laohuang", "zh": "我儿子，到现在没跟我说过话。", "en": "My son hasn't spoken to me since.", "hold": 2 },
+    { "who": "laohuang", "zh": "林老师，能不能……也练练我的？", "en": "林老师, could we... rehearse mine too?" },
+    { "who": "lin", "zh": "你决定。", "en": "Your call." },
+    { "say": {
+      "id": "whose",
+      "en": "Rehearse his, or keep to yours.",
+      "cue": "His, or yours?",
+      "answers": ["我们先帮您练吧。", "先帮您练吧。", "我们帮你练吧。"],
+      "gloss": "Let's rehearse yours first.",
+      "need": [["帮您", "帮你"]],
+      "key": { "帮您": "for you" },
+      "tip": "帮您练 = help you rehearse: 帮 + you + the verb.",
+      "sets": { "rehearsal.ep2": "his" },
+      "ok": [
+        { "who": "laohuang", "zh": "……谢谢。", "en": "...Thank you.", "hold": 1 },
+        { "who": "lin", "zh": "好。从敲门开始。", "en": "Good. From the knock." }
+      ],
+      "alts": [
+        { "en": "Or: keep to yours", "answers": ["继续练我的。", "我们继续吧。", "还是继续练我的吧。"], "need": [["继续"]], "gloss": "Let's carry on with mine.",
+          "sets": { "rehearsal.ep2": "mine" },
+          "then": [
+            { "narr": "老黄 ties the apron back on." },
+            { "who": "laohuang", "zh": "……好。来，多吃点！", "en": "...Right. Come on, eat up!", "prop": "🍲" }
+          ] }
+      ],
+      "fail": [ { "who": "lin", "zh": "你决定。", "en": "Your call." } ],
+      "levels": {
+        "1": {
+          "answers": ["帮您练！", "帮您。"],
+          "gloss": "Yours!",
+          "alts": [ { "of": 0, "answers": ["继续！", "继续练。"], "need": [["继续"]], "gloss": "Carry on!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["我的不急，我们先帮您练吧。", "我的不急，先帮您练您的。"],
+          "need": [["不急"], ["帮您", "帮你"]],
+          "gloss": "Mine can wait. Let's do yours first.",
+          "alts": [ { "of": 0, "answers": ["您先别急，还是继续练我的吧。"], "need": [["还是"], ["继续"]], "gloss": "Hold on. Let's carry on with mine, after all." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "rehearsal.ep2": "his" }, "end": "win", "en": "That night 林老师 starts building a new room: a small flat, with a door. 🚪",
+      "else": [ { "end": "win", "en": "Sunday. You say it. Your mother only asks if you've eaten. 老黄 would be proud. 🍲" } ] }
+  ]
+}

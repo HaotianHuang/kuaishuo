@@ -1,0 +1,167 @@
+{
+  "id": "last-order-1",
+  "format": "scene",
+  "title": "七楼",
+  "title_en": "Seventh Floor",
+  "level": 1,
+  "listen": 1,
+  "topics": ["food"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "last-order", "ep": 1, "next": "Tomorrow the typhoon lands. Your first order is to a hospital." },
+  "tags": ["外卖", "台风", "陪伴"],
+  "setting": "An old block by the sea, 11 pm. A typhoon warning. Your last order before the app shuts.",
+  "stage": "🌀",
+  "bg": ["#06131f", "#2a4a63"],
+  "cast": {
+    "chen": { "name": "陈爷爷", "en": "an old man, alone on the seventh floor", "emoji": "👴", "voice": "m-old" }
+  },
+  "steps": [
+    { "narr": "Typhoon warning. Last order: congee, seventh floor, no lift.", "prop": "🥣" },
+    { "sfx": "knock" },
+    { "say": {
+      "id": "here",
+      "en": "Call through the door: your delivery's here.",
+      "cue": "Delivery!",
+      "answers": ["外卖到了！", "您好，外卖到了！", "您的外卖！"],
+      "gloss": "Your delivery's here!",
+      "need": [["外卖"]],
+      "tip": "外卖 wàimài = a delivery (of food). ……到了 = ... is here.",
+      "ok": [ { "sfx": "door" }, { "who": "chen", "zh": "谁啊？我没点外卖。", "en": "Who's that? I didn't order anything.", "fx": "enter" } ],
+      "fail": [ { "who": "chen", "zh": "谁啊？", "en": "Who's there?" } ],
+      "levels": {
+        "0": {
+          "answers": ["外卖！", "外卖到了！"],
+          "gloss": "Delivery!",
+          "status": "live" },
+        "2": {
+          "answers": ["陈爷爷，您的外卖到了！", "您好，陈爷爷，外卖到了！"],
+          "need": [["爷爷"], ["外卖"]],
+          "gloss": "Mr Chen, your delivery's here!",
+          "tip": "爷爷 yéye = grandpa: what you call any old man, politely.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "who",
+      "en": "Tell him his granddaughter ordered it.",
+      "cue": "Who ordered it?",
+      "answers": ["您孙女点的。", "是您孙女点的。", "您孙女给您点的。"],
+      "gloss": "Your granddaughter ordered it.",
+      "need": [["孙女"]],
+      "tip": "孙女 sūnnǚ = granddaughter. 点 diǎn = order (food).",
+      "ok": [
+        { "who": "chen", "zh": "她呀……", "en": "Her...", "hold": 1 },
+        { "who": "chen", "zh": "风大，你快回去吧。", "en": "It's windy. Get yourself home." }
+      ],
+      "fail": [ { "who": "chen", "zh": "我没点外卖。", "en": "I didn't order anything." } ],
+      "levels": {
+        "0": {
+          "answers": ["孙女点的。", "您孙女。"],
+          "gloss": "Your granddaughter.",
+          "status": "live" },
+        "2": {
+          "answers": ["是您孙女从国外点的。", "您孙女在国外给您点的。"],
+          "need": [["孙女"], ["国外"]],
+          "gloss": "Your granddaughter ordered it, from abroad.",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "buzz" },
+    { "narr": "The lights go out. The whole stairwell." },
+    { "who": "chen", "zh": "……停电了。", "en": "...Power's out." },
+    { "who": "chen", "zh": "没事，没事。", "en": "It's fine. It's fine." },
+    { "narr": "You check the order again. The note says:", "zh": "他不会说他害怕。", "hold": 1 },
+    { "say": {
+      "id": "okay",
+      "en": "Ask if he's all right.",
+      "cue": "Is he all right?",
+      "answers": ["爷爷，您还好吗？", "您还好吗？", "您没事吧？"],
+      "gloss": "Are you all right?",
+      "need": [["还好吗", "没事吧"]],
+      "tip": "您还好吗？ = are you all right? 您 nín, the polite you, for an older person.",
+      "ok": [ { "who": "chen", "zh": "……有点黑。", "en": "...It's a bit dark." } ],
+      "fail": [ { "who": "chen", "zh": "没事，没事。", "en": "It's fine. It's fine." } ],
+      "levels": {
+        "0": {
+          "answers": ["还好吗？", "没事吧？"],
+          "gloss": "All right?",
+          "status": "live" },
+        "2": {
+          "answers": ["爷爷，您一个人还好吗？", "爷爷，您一个人没事吧？"],
+          "need": [["一个人"], ["还好吗", "没事吧"]],
+          "gloss": "Are you all right on your own?",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "help",
+      "en": "Offer to help.",
+      "cue": "Help him.",
+      "answers": ["我帮您。", "我来帮您。", "我帮您吧。"],
+      "gloss": "Let me help.",
+      "need": [["帮您", "帮你"]],
+      "tip": "帮 bāng = help: 我帮您 = let me help you.",
+      "ok": [
+        { "narr": "Your phone torch. His own torch, in the kitchen drawer. The congee, still warm.", "prop": "🔦" },
+        { "who": "chen", "zh": "你也喝一点？", "en": "Have some yourself?" }
+      ],
+      "fail": [ { "who": "chen", "zh": "有点黑。", "en": "It's a bit dark." } ],
+      "levels": {
+        "0": {
+          "answers": ["我帮您。", "帮您。"],
+          "gloss": "I'll help.",
+          "status": "live" },
+        "2": {
+          "answers": ["我用手机帮您照着。", "我拿手机帮您照着。"],
+          "need": [["帮您", "帮你"], ["照"]],
+          "gloss": "I'll light the way with my phone.",
+          "tip": "照 zhào = shine a light on: 帮您照着.",
+          "status": "live" }
+      }
+    } },
+    { "who": "chen", "zh": "你忙你的去吧。", "en": "Off you go. You're busy." },
+    { "say": {
+      "id": "stay",
+      "en": "Stay with him a while, or call his granddaughter for him.",
+      "cue": "Stay, or call her?",
+      "answers": ["我陪您一会儿。", "我陪您坐一会儿。", "不忙，我陪您。"],
+      "gloss": "I'll stay with you a bit.",
+      "need": [["陪您", "陪你"]],
+      "key": { "陪您": "keep you company" },
+      "tip": "陪 péi = keep someone company: 我陪您一会儿.",
+      "sets": { "last-order.ep1": "stay" },
+      "ok": [
+        { "who": "chen", "zh": "……好。", "en": "...All right.", "hold": 1 },
+        { "who": "chen", "zh": "她小时候，最爱喝粥。", "en": "When she was little, congee was her favourite." }
+      ],
+      "alts": [
+        { "en": "Or: call his granddaughter", "answers": ["我帮您打电话。", "我帮您给她打电话。"], "need": [["打电话", "打个电话"]], "gloss": "I'll call her for you.",
+          "sets": { "last-order.ep1": "call" },
+          "then": [
+            { "narr": "You call the number on the order. He holds the phone in both hands." },
+            { "who": "chen", "zh": "喂？……爷爷不怕。", "en": "Hello? ...Grandpa's not scared." }
+          ] }
+      ],
+      "fail": [ { "who": "chen", "zh": "你忙你的去吧。", "en": "Off you go. You're busy." } ],
+      "levels": {
+        "0": {
+          "answers": ["陪您。", "我陪您。"],
+          "gloss": "I'll stay.",
+          "alts": [ { "of": 0, "answers": ["打电话？", "打给她？"], "need": [["打电话", "打给"]], "gloss": "Call her?" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["我不急，陪您坐一会儿。", "不急，我陪您坐一会儿。"],
+          "need": [["陪您", "陪你"], ["不急"]],
+          "gloss": "I'm in no hurry. I'll sit with you a while.",
+          "alts": [ { "of": 0, "answers": ["我帮您给孙女打个电话吧。"], "need": [["孙女"], ["打个电话", "打电话"]], "gloss": "Let me call your granddaughter for you." } ],
+          "status": "live" }
+      }
+    } },
+    { "sfx": "message" },
+    { "narr": "The app pings. Five stars, and one line from abroad.", "zh": "谢谢你陪我爷爷。" },
+    { "when": { "last-order.ep1": "stay" }, "end": "win", "en": "The lights come back at one. You're still there, on his sofa, with an empty bowl. 🥣",
+      "else": [ { "end": "win", "en": "The call runs forty minutes. You let yourself out while he's laughing. 🥣" } ] }
+  ]
+}

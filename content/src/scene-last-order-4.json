@@ -1,0 +1,152 @@
+{
+  "id": "last-order-4",
+  "format": "scene",
+  "title": "脚步声",
+  "title_en": "Footsteps",
+  "level": 1,
+  "listen": 1,
+  "topics": ["health"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "last-order", "ep": 4, "next": "The riders' group has a new pinned message: 刘奶奶's door, every evening." },
+  "tags": ["最后一单", "刘奶奶", "脚步声"],
+  "setting": "Two days after the typhoon. An old block with no lift, fifth floor. The order: one small bottle of soy sauce.",
+  "stage": "🛵",
+  "bg": ["#1a1a24", "#5a6a7a"],
+  "cast": {
+    "liu": { "name": "刘奶奶", "en": "blind, fifth floor, sharp as a tack", "emoji": "👵", "voice": "f-old" }
+  },
+  "steps": [
+    { "narr": "Two days after the typhoon. Five flights of stairs, no lift. One small bottle of soy sauce.", "prop": "🍶" },
+    { "narr": "Before you can knock, the door opens." },
+    { "who": "liu", "zh": "新来的？脚步声不一样。", "en": "New, are you? Your footsteps are different." },
+    { "when": { "last-order.ep3": "in" }, "who": "liu", "zh": "收音机里说，桥下有个骑手下了水。是你吧？", "en": "The radio said a rider went into the water under the bridge. That was you, wasn't it?",
+      "else": [ { "who": "liu", "zh": "收音机里，有个拉绳子的说话。声音很稳。是你吧？", "en": "On the radio, one of the ones holding the rope spoke. A steady voice. That was you, wasn't it?" } ] },
+    { "say": {
+      "id": "here",
+      "en": "Announce it: your delivery's here!",
+      "cue": "Delivery!",
+      "answers": ["外卖到了！", "您的外卖到了！"],
+      "gloss": "Your delivery's here!",
+      "need": [["外卖"]],
+      "key": { "外卖": "takeaway, a delivery" },
+      "tip": "外卖 wàimài = takeaway, a delivery. 到了 = it's arrived.",
+      "ok": [
+        { "who": "liu", "zh": "酱油。一小瓶。", "en": "Soy sauce. A little bottle." },
+        { "who": "liu", "zh": "进来吧。", "en": "Come in." }
+      ],
+      "fail": [ { "who": "liu", "zh": "谁呀？", "en": "Who is it?" } ],
+      "levels": {
+        "0": {
+          "answers": ["外卖到了！"],
+          "need": [["到了"]],
+          "gloss": "Delivery!",
+          "status": "live" },
+        "2": {
+          "answers": ["刘奶奶，您的外卖到了！"],
+          "need": [["刘奶奶"]],
+          "gloss": "刘奶奶, your delivery's here!",
+          "status": "live" }
+      }
+    } },
+    { "who": "liu", "zh": "还有一样：药。", "en": "And one more thing: medicine." },
+    { "narr": "On the table: a new box of tablets from the clinic.", "prop": "💊" },
+    { "who": "liu", "zh": "我看不见字。你念给我听。", "en": "I can't see the writing. Read it to me." },
+    { "narr": "The label:", "zh": "一天两次，一次一片。" },
+    { "say": {
+      "id": "read",
+      "en": "Read the label aloud.",
+      "cue": "Read it.",
+      "answers": ["一天两次。", "一天吃两次。"],
+      "gloss": "Twice a day.",
+      "need": [["一天"]],
+      "tip": "次 cì = times: 一天两次 = twice a day. 片 piàn = a tablet.",
+      "ok": [
+        { "who": "liu", "zh": "一天两次，一次一片。", "en": "Twice a day, one tablet at a time.", "pace": "slow" },
+        { "who": "liu", "zh": "记住了。", "en": "Got it." }
+      ],
+      "fail": [ { "who": "liu", "zh": "写的什么？", "en": "What does it say?" } ],
+      "levels": {
+        "0": {
+          "answers": ["一天两次。"],
+          "need": [["两次"]],
+          "gloss": "Twice a day.",
+          "status": "live" },
+        "2": {
+          "answers": ["一天两次，一次一片。"],
+          "need": [["一片"]],
+          "gloss": "Twice a day, one tablet each time.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "help",
+      "en": "Offer to put things away for her.",
+      "cue": "Help.",
+      "answers": ["我帮您放好。", "我帮您放好吧。"],
+      "gloss": "Let me put these away for you.",
+      "need": [["放好"]],
+      "tip": "帮您 = for you (helping). 放好 = put away properly.",
+      "ok": [
+        { "narr": "You put the tablets by the kettle, and the soy sauce by the stove." },
+        { "who": "liu", "zh": "左边是药，右边是酱油。别弄错了。", "en": "Medicine on the left, soy sauce on the right. Don't mix them up.", "fx": "laugh" }
+      ],
+      "fail": [ { "who": "liu", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "0": {
+          "answers": ["我帮您！"],
+          "need": [["帮您"]],
+          "gloss": "Let me help!",
+          "status": "live" },
+        "2": {
+          "answers": ["我帮您放好，放在桌上。"],
+          "need": [["桌上"]],
+          "gloss": "I'll put them away for you, on the table.",
+          "status": "live" }
+      }
+    } },
+    { "who": "liu", "zh": "我每天点一样小东西。", "en": "Every day I order one small thing." },
+    { "who": "liu", "zh": "一瓶酱油，一包盐。", "en": "A bottle of soy sauce. A bag of salt." },
+    { "who": "liu", "zh": "这样，每天就有人敲门。", "en": "That way, someone knocks every day.", "pace": "slow", "hold": 1 },
+    { "who": "liu", "zh": "跟我说一句话。", "en": "And says something to me.", "pace": "slow", "hold": 2 },
+    { "who": "liu", "zh": "我不是可怜。我是聪明。", "en": "I'm not pitiful. I'm clever.", "fx": "laugh" },
+    { "say": {
+      "id": "promise",
+      "en": "Promise to come tomorrow, or get the riders to take turns.",
+      "cue": "You, or a rota?",
+      "answers": ["明天我还来。"],
+      "gloss": "I'll come again tomorrow.",
+      "need": [["还来"]],
+      "tip": "还来 = come again. 明天 = tomorrow.",
+      "sets": { "last-order.ep4": "me" },
+      "ok": [ { "who": "liu", "zh": "……好。我听你的脚步。", "en": "...Good. I'll listen out for your footsteps.", "hold": 1 } ],
+      "alts": [
+        { "en": "Or: the riders take turns", "answers": ["大家轮流来。", "让大家轮流来。"], "need": [["大家"]], "gloss": "We'll all take turns.",
+          "key": { "轮流": "take turns" },
+          "sets": { "last-order.ep4": "rota" },
+          "then": [
+            { "who": "liu", "zh": "那么多人？", "en": "All of you?" },
+            { "who": "liu", "zh": "那我要多点几样了。", "en": "Then I'd better order a few more things.", "fx": "laugh" }
+          ] }
+      ],
+      "fail": [ { "who": "liu", "zh": "你说什么？", "en": "What's that?" } ],
+      "levels": {
+        "0": {
+          "answers": ["明天来！"],
+          "need": [["明天"]],
+          "gloss": "Tomorrow!",
+          "alts": [ { "of": 0, "answers": ["轮流来！"], "need": [["轮流"]], "gloss": "Take turns!" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["明天我还来，后天也来。"],
+          "need": [["后天"]],
+          "gloss": "I'll come tomorrow, and the day after.",
+          "alts": [ { "of": 0, "answers": ["我让大家每天轮流来看您。"], "need": [["每天"]], "gloss": "I'll get everyone to take turns, every day." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "last-order.ep4": "me" }, "end": "win", "en": "Down five flights. Halfway, you notice you're stepping more loudly than usual, so she'll know it's you. 🛵",
+      "else": [ { "end": "win", "en": "In the riders' group: thirty thumbs-up in a minute. 🛵" } ] }
+  ]
+}

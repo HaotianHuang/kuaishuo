@@ -1,0 +1,157 @@
+{
+  "id": "red-star-5",
+  "format": "call",
+  "title": "一晚",
+  "title_en": "One Night Only",
+  "level": 2,
+  "listen": 2,
+  "topics": ["dating"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "red-star", "ep": 5, "next": "Eight o'clock. 红星饭店, for one night only." },
+  "tags": ["打错了", "红姐", "最后一晚"],
+  "setting": "The train home from 成都, 6:40 pm. 程远's phone is ringing: an unknown number.",
+  "stage": "🚄",
+  "bg": ["#2a0d14", "#a3283a"],
+  "cast": {
+    "hongjie": { "name": "红姐", "en": "红星饭店's old owner", "emoji": "👩‍🍳", "voice": "f-old", "phone": true },
+    "cheng": { "name": "程远", "en": "beside you on the train", "emoji": "👤", "voice": "m-young" }
+  },
+  "call": {
+    "caller": "hongjie", "photo": "❓", "number": "135 0000 2088", "label": { "zh": "未知号码" }, "clock": "18:40", "patience": 8,
+    "silence": [
+      { "who": "hongjie", "zh": "喂？听得见吗？", "en": "Hello? Can you hear me?" },
+      { "who": "hongjie", "zh": "是程远的电话吗？", "en": "Is this 程远's phone?" }
+    ],
+    "hangup": [
+      { "who": "hongjie", "zh": "……打扰了。", "en": "...Sorry to have bothered you." },
+      { "end": "lose", "en": "The line goes dead. Somewhere, a stall closes for the last time. Run that back." }
+    ],
+    "missed": [ { "who": "hongjie", "zh": "我是红姐。请回个电话。", "en": "It's 红姐. Please call me back." } ]
+  },
+  "steps": [
+    { "say": {
+      "id": "hello",
+      "en": "Answer politely: ask who's calling.",
+      "cue": "Answer it.",
+      "answers": ["喂，您好，请问您是？", "您好，请问您是？"],
+      "gloss": "Hello. May I ask who's calling?",
+      "need": [["您好"], ["您是"]],
+      "tip": "请问您是？ = and you are? The polite way to ask who's calling.",
+      "ok": [ { "who": "hongjie", "zh": "我是红姐。红星饭店的。", "en": "It's 红姐. From 红星饭店." } ],
+      "fail": [ { "who": "hongjie", "zh": "喂？", "en": "Hello?" } ],
+      "levels": {
+        "1": {
+          "answers": ["喂，您好！", "您好！"],
+          "need": [["您好"]],
+          "gloss": "Hello!",
+          "status": "live" },
+        "3": {
+          "answers": ["喂，您好，请问您是哪位？", "您好，请问您是哪位？"],
+          "need": [["哪位"], ["您好"]],
+          "gloss": "Hello. May I ask who's speaking?",
+          "tip": "哪位 nǎ wèi = who (politely).",
+          "status": "live" }
+      }
+    } },
+    { "when": { "red-star.ep4": "friends" }, "narr": "程远 is still asleep on your shoulder. You keep your voice down.",
+      "else": [ { "narr": "程远 is holding your other hand, and doesn't let go." } ] },
+    { "who": "hongjie", "zh": "饭店关了十年。现在我摆个小摊。", "en": "The restaurant's been shut ten years. These days I run a little stall." },
+    { "who": "hongjie", "zh": "下个月，摊子也不开了。", "en": "Next month, the stall's closing too." },
+    { "who": "hongjie", "zh": "我想再做一次红星饭店的菜。", "en": "I want to cook a Red Star dinner one more time." },
+    { "say": {
+      "id": "note",
+      "en": "Take a message: go on, you'll write it down.",
+      "cue": "Take a message.",
+      "answers": ["您说，我记一下。", "好，您说，我记一下。"],
+      "gloss": "Go ahead. I'll write it down.",
+      "need": [["记一下"]],
+      "key": { "记一下": "note it down" },
+      "tip": "记 jì = note down: 我记一下 = let me write that down.",
+      "ok": [
+        { "narr": "You find a pen. The back of a train ticket.", "prop": "🎫" },
+        { "who": "hongjie", "zh": "一桌，两个人。", "en": "One table. Two people." }
+      ],
+      "fail": [ { "who": "hongjie", "zh": "你在听吗？", "en": "Are you listening?" } ],
+      "levels": {
+        "1": {
+          "answers": ["您说。", "好，您说。"],
+          "need": [["您说"]],
+          "gloss": "Go ahead.",
+          "status": "live" },
+        "3": {
+          "answers": ["您说，我拿笔记一下。", "好，您说，我拿笔记一下。"],
+          "need": [["拿笔"], ["记一下"]],
+          "gloss": "Go ahead, I'll get a pen and write it down.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "when",
+      "en": "Ask which day, and what time.",
+      "cue": "When?",
+      "answers": ["哪天？几点？", "是哪天？几点？"],
+      "gloss": "Which day? What time?",
+      "need": [["哪天"], ["几点"]],
+      "tip": "哪天 nǎ tiān = which day. 几点 jǐ diǎn = what time.",
+      "ok": [
+        { "who": "hongjie", "zh": "这个星期六。晚上八点。", "en": "This Saturday. Eight in the evening." },
+        { "who": "hongjie", "zh": "八点那桌。", "en": "The table at eight.", "hold": 1 }
+      ],
+      "fail": [ { "who": "hongjie", "zh": "你们有空吗？", "en": "Are you free?" } ],
+      "levels": {
+        "1": {
+          "answers": ["几点？", "几点呢？"],
+          "need": [["几点"]],
+          "gloss": "What time?",
+          "status": "live" },
+        "3": {
+          "answers": ["是哪天？晚上几点开始？", "哪天呢？晚上几点开始？"],
+          "need": [["哪天"], ["几点开始"]],
+          "gloss": "Which day is it? What time does it start?",
+          "status": "live" }
+      }
+    } },
+    { "who": "hongjie", "zh": "你的号码，以前是饭店的。", "en": "Your number used to be the restaurant's.", "pace": "slow" },
+    { "who": "hongjie", "zh": "我知道每年有人打。", "en": "I knew someone called it every year.", "pace": "slow", "hold": 1 },
+    { "who": "hongjie", "zh": "我一直希望，有一天，有个好人接。", "en": "I always hoped that one day, someone kind would answer.", "pace": "slow", "hold": 2 },
+    { "say": {
+      "id": "yes",
+      "en": "Accept for 程远: a table for two, or ask 红姐 to sit with you.",
+      "cue": "Two, or three?",
+      "answers": ["我们两个会来的。", "红姐，我们两个会来的。"],
+      "gloss": "The two of us will be there.",
+      "need": [["我们两个"], ["会来"]],
+      "tip": "会……的 = will (for sure): 我们会来的.",
+      "sets": { "red-star.ep5": "two" },
+      "ok": [ { "who": "hongjie", "zh": "好。八点那桌，给你们留着。", "en": "Good. The table at eight is yours." } ],
+      "alts": [
+        { "en": "Or: ask her to join you", "answers": ["红姐，您也一起坐吧。", "您也一起坐吧。"], "need": [["一起坐"]], "gloss": "红姐, sit with us too.",
+          "key": { "一起坐": "sit together" },
+          "sets": { "red-star.ep5": "three" },
+          "then": [
+            { "who": "hongjie", "zh": "……我？", "en": "...Me?", "hold": 1 },
+            { "who": "hongjie", "zh": "好。那我做三个人的。", "en": "All right. Then I'll cook for three.", "fx": "laugh" }
+          ] }
+      ],
+      "fail": [ { "who": "hongjie", "zh": "你们来吗？", "en": "Will you come?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我们会来！", "我们会来的。"],
+          "need": [["会来"]],
+          "gloss": "We'll come!",
+          "alts": [ { "of": 0, "answers": ["您也坐！", "您也一起坐！"], "need": [["您也"]], "gloss": "You sit too!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["我们两个会来的，八点准时到。"],
+          "need": [["准时"], ["我们两个"]],
+          "gloss": "The two of us will be there, at eight on the dot.",
+          "alts": [ { "of": 0, "answers": ["红姐，那天您也一起坐吧。"], "need": [["那天"], ["一起坐"]], "gloss": "红姐, that night, you sit with us too." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "red-star.ep5": "two" }, "end": "win", "en": "You hang up. 程远, awake now, reads the back of the ticket: 星期六，八点，两个人。 🍽️",
+      "else": [ { "end": "win", "en": "You hang up. On the back of the ticket: 星期六，八点，三个人。 🍽️" } ] }
+  ]
+}

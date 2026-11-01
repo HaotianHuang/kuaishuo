@@ -1,0 +1,157 @@
+{
+  "id": "expectations-2",
+  "format": "scene",
+  "title": "何小姐",
+  "title_en": "Miss He",
+  "level": 3,
+  "listen": 3,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "expectations", "ep": 2, "next": "Every Saturday for six years. Then the lawyer from 深圳 calls." },
+  "tags": ["远大前程", "何小姐", "九点一刻"],
+  "setting": "The old villa on the hill above the village, Saturday, 2 pm. A rich woman has asked for a child to keep her company.",
+  "stage": "🕰️",
+  "bg": ["#1f1712", "#7a6248"],
+  "cast": {
+    "jiuma": { "name": "舅妈", "en": "your aunt", "emoji": "👩", "voice": "f-mid" },
+    "he": { "name": "何小姐", "en": "the woman in the villa", "emoji": "👰", "voice": "f-old", "speed": 0.9 },
+    "xiaoxue": { "name": "小雪", "en": "何小姐's ward, twelve", "emoji": "👧", "voice": "kid" }
+  },
+  "steps": [
+    { "when": { "expectations.ep1": "pliers" }, "narr": "Some nights you still dream of the chain on the mudflats.",
+      "else": [ { "narr": "Some nights you wonder if he's still alive." } ] },
+    { "who": "jiuma", "zh": "何小姐要一个孩子去陪她。你去。", "en": "Miss He wants a child to keep her company. You're going." },
+    { "who": "jiuma", "zh": "说话要有礼貌！", "en": "Mind your manners!" },
+    { "narr": "The villa on the hill. Every clock in the house says 9:15.", "prop": "🕰️" },
+    { "narr": "She is wearing a wedding dress, yellow with age. On the long table, a cake under dust." },
+    { "who": "he", "zh": "过来。让我看看。", "en": "Come here. Let me look at you.", "pace": "slow" },
+    { "say": {
+      "id": "greet",
+      "en": "Greet her formally.",
+      "cue": "Mind your manners.",
+      "answers": ["何小姐好，打扰您了。", "何小姐您好，打扰了。"],
+      "gloss": "Good afternoon, Miss He. I'm sorry to intrude.",
+      "need": [["何小姐"], ["打扰"]],
+      "tip": "小姐 xiǎojiě = Miss: old-fashioned, and here exactly right.",
+      "ok": [ { "who": "he", "zh": "嗯。有礼貌。", "en": "Hm. Polite.", "pace": "slow" } ],
+      "fail": [ { "who": "he", "zh": "不会说话？", "en": "Can't you speak?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["何小姐好！", "何小姐，您好。"],
+          "need": [["何小姐"]],
+          "gloss": "Good afternoon, Miss He!",
+          "status": "live" },
+        "4": {
+          "answers": ["何小姐好，冒昧打扰，请多关照。", "何小姐您好，冒昧打扰了，请多关照。"],
+          "need": [["冒昧"], ["关照"]],
+          "gloss": "Good afternoon, Miss He. Forgive the intrusion. I hope you'll be patient with me.",
+          "tip": "冒昧 màomèi = presumptuous: 冒昧打扰, the formal sorry-to-intrude.",
+          "status": "live" }
+      }
+    } },
+    { "who": "he", "zh": "你会下棋吗？", "en": "Do you play chess?", "pace": "slow", "prop": "♟️" },
+    { "say": {
+      "id": "chess",
+      "en": "A little, and not well.",
+      "cue": "A little.",
+      "answers": ["会一点，下得不太好。", "会一点，不过下得不太好。"],
+      "gloss": "A little. Not very well.",
+      "need": [["会一点"], ["不太好", "不好"]],
+      "tip": "下棋 xiàqí = play chess. 下得不太好 = don't play very well.",
+      "ok": [
+        { "who": "he", "zh": "小雪，跟这个孩子下。", "en": "小雪. Play this child.", "pace": "slow" },
+        { "who": "xiaoxue", "zh": "跟这个乡下孩子？", "en": "With this village kid?", "fx": "enter" }
+      ],
+      "fail": [ { "who": "he", "zh": "会不会？", "en": "Do you or don't you?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["会一点。", "会一点儿。"],
+          "need": [["会一点"]],
+          "gloss": "A little.",
+          "status": "live" },
+        "4": {
+          "answers": ["会一点，下得不好，您多包涵。", "会一点，下得不好，请您多包涵。"],
+          "need": [["包涵"], ["会一点"]],
+          "gloss": "A little, and badly. Please forgive me in advance.",
+          "tip": "包涵 bāohán = bear with, forgive.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "You play. You lose. 小雪 doesn't look up once." },
+    { "who": "xiaoxue", "zh": "你的手真脏。", "en": "Your hands are filthy." },
+    { "who": "xiaoxue", "zh": "你连'将军'都不会说。", "en": "You can't even say 'check'.", "fx": "laugh" },
+    { "narr": "何小姐 watches, and smiles." },
+    { "say": {
+      "id": "stand",
+      "en": "Stand up for yourself: you didn't come here to be laughed at.",
+      "cue": "Stand up for yourself.",
+      "answers": ["我不是来让你笑的。", "我又不是来让你笑的。"],
+      "gloss": "I didn't come here for you to laugh at.",
+      "need": [["不是来"], ["让你笑"]],
+      "tip": "我不是来……的 = I didn't come to ...",
+      "ok": [
+        { "narr": "小雪 looks at you for the first time.", "hold": 1 },
+        { "who": "he", "zh": "好。有骨气。", "en": "Good. There's some backbone.", "pace": "slow" }
+      ],
+      "fail": [ { "who": "xiaoxue", "zh": "乡下孩子。", "en": "Village kid.", "fx": "laugh" } ],
+      "levels": {
+        "2": {
+          "answers": ["别笑我！", "你别笑我。"],
+          "need": [["别笑", "不是来"]],
+          "gloss": "Don't laugh at me!",
+          "status": "live" },
+        "4": {
+          "answers": ["我来下棋，不是来让你笑话的。", "我是来下棋的，不是来让你笑话的。"],
+          "need": [["笑话"], ["不是来"]],
+          "gloss": "I came to play chess, not to be laughed at.",
+          "tip": "笑话 xiàohua = laugh at, make fun of.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "小雪 goes. 何小姐 beckons you closer." },
+    { "who": "he", "zh": "她会让你难过的。", "en": "She'll break your heart, you know.", "pace": "slow", "hold": 1 },
+    { "who": "he", "zh": "是我教她的。", "en": "I taught her to.", "pace": "slow", "hold": 2 },
+    { "who": "he", "zh": "下个星期，你还来吗？", "en": "Next week. Will you come again?", "pace": "slow" },
+    { "say": {
+      "id": "again",
+      "en": "Say you'll come back next week, or that you won't come again.",
+      "cue": "Again, or never?",
+      "answers": ["我下周还来。", "下周我还来。"],
+      "gloss": "I'll come again next week.",
+      "need": [["下周"], ["还来"]],
+      "tip": "还来 = come again: 还 = still, once more.",
+      "sets": { "expectations.ep2": "return" },
+      "ok": [
+        { "who": "he", "zh": "……好。", "en": "...Good.", "pace": "slow" },
+        { "narr": "At the gate, 小雪 pushes something into your hand without a word: a chess piece. The general." }
+      ],
+      "alts": [
+        { "en": "Or: you won't come again", "answers": ["我不来了。", "我不想来了。"], "need": [["不来了", "不想来"]], "gloss": "I won't come again.",
+          "sets": { "expectations.ep2": "refuse" },
+          "then": [
+            { "who": "he", "zh": "……也好。", "en": "...Perhaps that's best.", "pace": "slow" },
+            { "narr": "At the gate, you look back. 小雪 is watching from an upstairs window." }
+          ] }
+      ],
+      "fail": [ { "who": "he", "zh": "你还来吗？", "en": "Will you come again?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["我还来。", "还来！"],
+          "need": [["还来"]],
+          "gloss": "I'll come.",
+          "alts": [ { "of": 0, "answers": ["不来了。"], "need": [["不来了", "不想来"]], "gloss": "No more." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["下周还来，再跟小雪下一盘。", "下周我还来，再跟小雪下一盘。"],
+          "need": [["下一盘"], ["还来"]],
+          "gloss": "I'll come next week, and play 小雪 again.",
+          "alts": [ { "of": 0, "answers": ["谢谢何小姐，我以后不来了。"], "need": [["以后"], ["不来了"]], "gloss": "Thank you, Miss He. I won't be coming again." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "expectations.ep2": "return" }, "end": "win", "en": "Every Saturday after that, the clocks still say 9:15, and you lose at chess a little less. ♟️",
+      "else": [ { "end": "win", "en": "You never go back. But every evening at 9:15, you look at the clock. 🕰️" } ] }
+  ]
+}

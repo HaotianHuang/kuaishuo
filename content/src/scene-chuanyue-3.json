@@ -1,0 +1,154 @@
+{
+  "id": "chuanyue-3",
+  "format": "scene",
+  "title": "阿杰",
+  "title_en": "The Other Traveller",
+  "level": 0,
+  "listen": 0,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "chuanyue", "ep": 3, "next": "The way back opens at the next full moon. That's in three days." },
+  "tags": ["穿越", "东市", "阿杰"],
+  "setting": "长安's east market. A stall selling phone cases carved from jade.",
+  "stage": "📱",
+  "bg": ["#2a1a0a", "#b08a3a"],
+  "cast": {
+    "aje": { "name": "阿杰", "en": "sells jade phone cases; from 2026", "emoji": "📱", "voice": "m-young", "speed": 0.85 }
+  },
+  "steps": [
+    { "when": { "chuanyue.ep2": "now" }, "narr": "You got here in the dark, past the guards. One stall still has a light on.", "prop": "🏮",
+      "else": [ { "narr": "Dawn. The east market opens. One stall smells of fresh 胡饼.", "prop": "🫓" } ] },
+    { "narr": "Jade phone cases, in neat rows. The seller has a hoodie on under his robe." },
+    { "when": { "chuanyue.ep2": "now" }, "who": "aje", "zh": "你也犯宵禁？", "en": "You broke curfew too?", "fx": "laugh",
+      "else": [ { "who": "aje", "zh": "吃胡饼吗？", "en": "Want a 胡饼?" } ] },
+    { "say": {
+      "id": "hello",
+      "en": "Say hello.",
+      "cue": "Hello!",
+      "answers": ["你好！"],
+      "gloss": "Hello!",
+      "need": [["你好"]],
+      "tip": "你好 nǐ hǎo = hello.",
+      "ok": [
+        { "narr": "He's staring at your trainers." },
+        { "who": "aje", "zh": "你的鞋……", "en": "Your shoes...", "hold": 1 },
+        { "who": "aje", "zh": "二零二六年？", "en": "2026?" }
+      ],
+      "fail": [ { "who": "aje", "zh": "要买吗？", "en": "Buying?" } ],
+      "levels": {
+        "1": {
+          "answers": ["你好，老板！", "老板，你好！"],
+          "need": [["老板"]],
+          "gloss": "Hello, boss!",
+          "tip": "老板 lǎobǎn = boss: what you call anyone running a stall.",
+          "status": "live" },
+        "2": {
+          "answers": ["老板你好，我也是穿越的。"],
+          "need": [["穿越"]],
+          "gloss": "Hello, boss. I'm a time traveller too.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "who",
+      "en": "Ask him: who are you?",
+      "cue": "Who?",
+      "answers": ["你是谁？"],
+      "gloss": "Who are you?",
+      "need": [["是谁"]],
+      "tip": "谁 shéi = who.",
+      "ok": [
+        { "who": "aje", "zh": "我叫阿杰。", "en": "I'm 阿杰." },
+        { "who": "aje", "zh": "从二零二六来。", "en": "From 2026." },
+        { "who": "aje", "zh": "来了一年了。", "en": "I've been here a year." },
+        { "who": "aje", "zh": "生意很好！", "en": "Business is great!", "fx": "laugh" },
+        { "narr": "He has sold four hundred jade phone cases to people with no phones." }
+      ],
+      "fail": [ { "who": "aje", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["请问，你是谁？"],
+          "need": [["请问"]],
+          "gloss": "Who are you?",
+          "status": "live" },
+        "2": {
+          "answers": ["请问你是谁？从哪儿来的？"],
+          "need": [["哪儿来"]],
+          "gloss": "Who are you? Where are you from?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "His note said 别相信…… You ask him what came next." },
+    { "who": "aje", "zh": "别相信巡夜的。", "en": "Don't trust the night guards." },
+    { "say": {
+      "id": "home",
+      "en": "Ask him: how do you get home?",
+      "cue": "Home?",
+      "answers": ["怎么回家？"],
+      "gloss": "How do we get home?",
+      "need": [["回家"]],
+      "tip": "怎么 zěnme = how. 回家 huí jiā = go home.",
+      "ok": [
+        { "who": "aje", "zh": "我知道路。", "en": "I know the way." },
+        { "who": "aje", "zh": "月圆的时候。", "en": "When the moon is full.", "hold": 1 },
+        { "who": "aje", "zh": "可是我不回去。", "en": "But I'm not going back.", "hold": 2 },
+        { "who": "aje", "zh": "我在这儿很开心。", "en": "I'm happy here." },
+        { "who": "aje", "zh": "那边没人等我。", "en": "Nobody's waiting for me there.", "hold": 1 }
+      ],
+      "fail": [ { "who": "aje", "zh": "什么？", "en": "What?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我怎么回家？"],
+          "need": [["我怎么"]],
+          "gloss": "How do I get home?",
+          "status": "live" },
+        "2": {
+          "answers": ["我怎么回家？你知道吗？"],
+          "need": [["你知道"], ["回家"]],
+          "gloss": "How do we get home? Do you know?",
+          "status": "live" }
+      }
+    } },
+    { "who": "aje", "zh": "你呢？", "en": "And you?" },
+    { "say": {
+      "id": "decide",
+      "en": "Go home when you can, or stay a few days.",
+      "cue": "Home, or stay?",
+      "answers": ["我要回家。"],
+      "gloss": "I want to go home.",
+      "need": [["要回家"]],
+      "not": [ { "heard": ["不回"], "note": "不回家 is not going home. Which do you want?" } ],
+      "tip": "要 yào = want to, will.",
+      "sets": { "chuanyue.ep3": "home" },
+      "ok": [
+        { "who": "aje", "zh": "好。三天后。", "en": "All right. Three days from now." },
+        { "who": "aje", "zh": "我送你。", "en": "I'll see you off." }
+      ],
+      "alts": [
+        { "en": "Or: stay a few days", "answers": ["我留几天。", "留几天。"], "need": [["留几天"]], "gloss": "I'll stay a few days.",
+          "key": { "留几天": "stay a few days" },
+          "sets": { "chuanyue.ep3": "stay" },
+          "then": [ { "who": "aje", "zh": "好！我带你玩。", "en": "Great! I'll show you around.", "fx": "laugh" } ] }
+      ],
+      "fail": [ { "who": "aje", "zh": "回家？留下？", "en": "Home? Or stay?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我要回家了。"],
+          "need": [["回家了"]],
+          "gloss": "I want to go home.",
+          "alts": [ { "of": 0, "answers": ["我留几天。"], "need": [["几天"]], "gloss": "I'll stay a few days." } ],
+          "status": "live" },
+        "2": {
+          "answers": ["我要回家了，有人等我。"],
+          "need": [["有人等"]],
+          "gloss": "I want to go home. Someone's waiting for me.",
+          "alts": [ { "of": 0, "answers": ["我先留几天，看看长安。"], "need": [["看看"]], "gloss": "I'll stay a few days first, and see 长安." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "chuanyue.ep3": "home" }, "end": "win", "en": "Three days to the full moon. 阿杰 marks them on a jade tile. 🌕",
+      "else": [ { "end": "win", "en": "阿杰 gives you a jade phone case. You have a phone again, sort of. 🌕" } ] }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "id": "chuanyue-1",
+  "format": "scene",
+  "title": "长安",
+  "title_en": "Chang'an",
+  "level": 0,
+  "listen": 0,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "chuanyue", "ep": 1, "next": "The other coin is dated 2026. Someone got here before you." },
+  "tags": ["穿越", "长安", "宵禁"],
+  "setting": "A 西安 museum, the Tang hall, 4 pm. You close your eyes, just for a moment.",
+  "stage": "🏮",
+  "bg": ["#2b1606", "#b8742e"],
+  "cast": {
+    "daniang": { "name": "大娘", "en": "a market woman with a basket of dates", "emoji": "👵", "voice": "f-old", "speed": 0.85 },
+    "aman": { "name": "阿满", "en": "sells 胡饼 by a clay oven", "emoji": "🫓", "voice": "f-young", "speed": 0.85 }
+  },
+  "steps": [
+    { "narr": "A museum. The Tang hall. You close your eyes, just for a moment." },
+    { "narr": "You open them. Dust. Camels. A market, shouting." },
+    { "narr": "Your phone: no signal.", "prop": "📵" },
+    { "who": "daniang", "zh": "你是谁？", "en": "Who are you?", "fx": "squint" },
+    { "say": {
+      "id": "hi",
+      "en": "Say hello.",
+      "cue": "Say hi.",
+      "answers": ["你好！", "您好！"],
+      "gloss": "Hello!",
+      "need": [["你好", "您好"]],
+      "tip": "你好 nǐ hǎo = hello. It works in every century, apparently.",
+      "ok": [ { "who": "daniang", "zh": "你穿的是什么？", "en": "What are you wearing?" } ],
+      "fail": [ { "who": "daniang", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["大娘，你好！", "大娘，您好！"],
+          "need": [["大娘"]],
+          "gloss": "Hello, Auntie!",
+          "tip": "大娘 dàniáng = auntie: what you call an older woman you don't know.",
+          "status": "live" },
+        "2": {
+          "answers": ["大娘您好，打扰一下。", "大娘您好，打扰了。"],
+          "need": [["大娘"], ["打扰"]],
+          "gloss": "Hello, Auntie. Sorry to bother you.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "where",
+      "en": "Ask where this is.",
+      "cue": "Where?",
+      "answers": ["这是哪儿？", "哪儿？"],
+      "gloss": "Where is this?",
+      "need": [["哪儿", "哪里"]],
+      "tip": "哪儿 nǎr = where. 这是哪儿？ = where am I?",
+      "ok": [
+        { "who": "daniang", "zh": "长安，西市。", "en": "Chang'an. The west market." },
+        { "narr": "长安. The Tang capital. More than a thousand years ago." }
+      ],
+      "fail": [ { "who": "daniang", "zh": "你说什么？", "en": "What did you say?" } ],
+      "levels": {
+        "1": {
+          "answers": ["请问这是哪儿？", "请问，这是哪里？"],
+          "need": [["请问"]],
+          "gloss": "Excuse me, where is this?",
+          "status": "live" },
+        "2": {
+          "answers": ["请问大娘，这里是哪儿？", "大娘，请问这是哪里？"],
+          "need": [["请问"], ["大娘"]],
+          "gloss": "Excuse me, Auntie: where is this?",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "drum" },
+    { "who": "daniang", "zh": "天黑了，要宵禁了！", "en": "It's nearly dark. Curfew!" },
+    { "narr": "The dusk drums. When they stop, the gates shut, and nobody may be in the street." },
+    { "say": {
+      "id": "help",
+      "en": "Ask her for help.",
+      "cue": "Help!",
+      "answers": ["请帮帮我！", "请帮我！"],
+      "gloss": "Please help me!",
+      "need": [["帮我"]],
+      "tip": "请 qǐng = please. 帮帮我 = help me (a little): doubling softens it.",
+      "ok": [ { "who": "daniang", "zh": "去找阿满。卖饼的。", "en": "Go to 阿满. Sells flatbread." } ],
+      "fail": [ { "who": "daniang", "zh": "天黑了，快走！", "en": "It's dark. Hurry!" } ],
+      "levels": {
+        "1": {
+          "answers": ["大娘，请帮帮我！", "请您帮帮我！"],
+          "need": [["大娘", "您"]],
+          "gloss": "Auntie, please help me!",
+          "status": "live" },
+        "2": {
+          "answers": ["我没地方住，请您帮帮我！", "我没地方去，请您帮帮我。"],
+          "need": [["没地方"], ["帮帮我"]],
+          "gloss": "I've nowhere to stay. Please help me!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "A stall. A clay oven. The smell of 胡饼, warm flatbread." },
+    { "who": "aman", "zh": "要饼吗？热的！", "en": "Bread? It's hot!", "fx": "give", "prop": "🫓" },
+    { "say": {
+      "id": "buy",
+      "en": "Ask how much.",
+      "cue": "How much?",
+      "answers": ["多少钱？", "饼多少钱？"],
+      "gloss": "How much?",
+      "need": [["多少钱"]],
+      "tip": "多少钱 duōshao qián = how much (money)?",
+      "ok": [
+        { "narr": "You hold out the only coin you have: a souvenir from the museum shop.", "prop": "🪙" },
+        { "who": "aman", "zh": "……这个钱。", "en": "...This coin.", "hold": 1 },
+        { "who": "aman", "zh": "我也有一个。", "en": "I have one too." },
+        { "who": "aman", "zh": "去年，一个人给我的。", "en": "Last year. Someone gave it to me." },
+        { "who": "aman", "zh": "他穿得跟你一样。", "en": "He dressed just like you." }
+      ],
+      "fail": [ { "who": "aman", "zh": "要饼吗？", "en": "Bread?" } ],
+      "levels": {
+        "1": {
+          "answers": ["这个饼多少钱？", "饼多少钱一个？"],
+          "need": [["这个饼", "饼多少"]],
+          "gloss": "How much is this bread?",
+          "status": "live" },
+        "2": {
+          "answers": ["我只有这个，饼多少钱？", "一个饼多少钱？我只有这个。"],
+          "need": [["只有这个"], ["多少钱"]],
+          "gloss": "I've only got this. How much for the bread?",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "drum" },
+    { "narr": "The drums are slowing. 阿满 is looking at you." },
+    { "say": {
+      "id": "next",
+      "en": "Ask to stay here tonight, or ask where that man is.",
+      "cue": "Stay, or find him?",
+      "answers": ["我能住吗？", "住这儿？"],
+      "gloss": "Can I stay?",
+      "need": [["住这儿", "能住"]],
+      "key": { "住这儿": "stay here" },
+      "tip": "住 zhù = stay, live (somewhere): 我能住这儿吗？",
+      "sets": { "chuanyue.ep1": "stay" },
+      "ok": [ { "who": "aman", "zh": "……住吧。", "en": "...Stay." } ],
+      "alts": [
+        { "en": "Or: where is he?", "answers": ["他在哪儿？", "他呢？"], "need": [["他在哪", "他呢"]], "gloss": "Where is he?",
+          "sets": { "chuanyue.ep1": "seek" },
+          "then": [
+            { "who": "aman", "zh": "我不知道。", "en": "I don't know." },
+            { "who": "aman", "zh": "他留下这个。", "en": "He left this.", "prop": "🪙" },
+            { "narr": "A coin, just like yours. On it, a date." }
+          ] }
+      ],
+      "fail": [ { "who": "aman", "zh": "你要什么？", "en": "What do you want?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我能住这儿吗？", "我可以住这儿吗？"],
+          "need": [["住这儿"]],
+          "gloss": "Can I stay here?",
+          "alts": [ { "of": 0, "answers": ["他在哪儿？他是谁？", "他在哪儿？我想见他。"], "need": [["他在哪"]], "gloss": "Where is he? Who is he?" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["今晚我能住这儿吗？", "今晚能让我住这儿吗？"],
+          "need": [["今晚"], ["住这儿"]],
+          "gloss": "Could I stay here tonight?",
+          "alts": [ { "of": 0, "answers": ["他在哪儿？带我去找他！", "他在哪儿？我要找他。"], "need": [["他在哪"], ["找他"]], "gloss": "Where is he? Take me to him!" } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "chuanyue.ep1": "stay" }, "end": "win", "en": "The drums stop. The gates shut. You fall asleep by a warm oven, in 长安. 🏮",
+      "else": [ { "end": "win", "en": "By lamplight, you turn the second coin over, and read the date twice. 🪙" } ] }
+  ]
+}

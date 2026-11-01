@@ -1,0 +1,166 @@
+{
+  "id": "rehearsal-4",
+  "format": "scene",
+  "title": "两个房间",
+  "title_en": "Two Rooms",
+  "level": 2,
+  "listen": 2,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "rehearsal", "ep": 4, "next": "老黄 and his son have booked a joint rehearsal: you, telling your parents you quit." },
+  "tags": ["彩排", "父子", "一面墙"],
+  "setting": "彩排工作室, 9 pm. Two rooms, one plywood wall, and you in the doorway between.",
+  "stage": "🧱",
+  "bg": ["#1c1a14", "#8a7a52"],
+  "cast": {
+    "lin": { "name": "林老师", "en": "runs the studio; has never smiled", "emoji": "🧑‍🏫", "voice": "m-mid" },
+    "laohuang": { "name": "老黄", "en": "an actor, here as himself tonight", "emoji": "🧔", "voice": "m-old" },
+    "xiaohuang": { "name": "小黄", "en": "老黄's son, thirty, arms folded", "emoji": "🙎", "voice": "m-young" }
+  },
+  "steps": [
+    { "when": { "rehearsal.ep3": "told" }, "who": "laohuang", "zh": "我知道，他就在隔壁。", "en": "I know. He's right next door.",
+      "else": [
+        { "narr": "Only you and 林老师 know who's in the other room." },
+        { "who": "laohuang", "zh": "隔壁是谁？", "en": "Who's next door?" },
+        { "who": "lin", "zh": "客户。", "en": "A client." }
+      ] },
+    { "who": "lin", "zh": "两个房间。一面墙。", "en": "Two rooms. One wall." },
+    { "who": "lin", "zh": "你在中间。传话。", "en": "You're in the middle. You carry the lines." },
+    { "narr": "Room A: 老黄, in his best shirt. Room B: 小黄, arms folded. The wall between them is plywood, and thin." },
+    { "who": "laohuang", "zh": "你告诉他，我很想他。", "en": "Tell him I miss him." },
+    { "narr": "You walk round to room B." },
+    { "say": {
+      "id": "relay",
+      "en": "Pass it on: he says he misses him.",
+      "cue": "Pass it on.",
+      "answers": ["他说他很想你。", "他说，他很想你。"],
+      "gloss": "He says he misses you.",
+      "need": [["很想你"]],
+      "tip": "想 xiǎng = miss (someone). 他说…… = he says ...",
+      "ok": [
+        { "who": "xiaohuang", "zh": "想我？", "en": "Misses me?" },
+        { "who": "xiaohuang", "zh": "想我，二十年不回来？", "en": "Misses me, and stays away twenty years?", "pace": "fast" },
+        { "who": "xiaohuang", "zh": "你告诉他：我不需要他！", "en": "You tell him: I don't need him!", "pace": "fast" }
+      ],
+      "fail": [ { "who": "xiaohuang", "zh": "他说什么？", "en": "What did he say?" } ],
+      "levels": {
+        "1": {
+          "answers": ["他想你。", "他很想你。"],
+          "need": [["想你"]],
+          "gloss": "He misses you.",
+          "status": "live" },
+        "3": {
+          "answers": ["你爸让我告诉你，他很想你。", "你爸让我告诉你：他很想你。"],
+          "need": [["告诉你"], ["很想你"]],
+          "gloss": "Your dad asked me to tell you: he misses you.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Through the plywood, room A heard every word." },
+    { "who": "laohuang", "zh": "……他说，不需要我。", "en": "...He says he doesn't need me.", "pace": "slow" },
+    { "narr": "You walk back round to room A." },
+    { "say": {
+      "id": "soften",
+      "en": "Soften it: that's not what he meant.",
+      "cue": "Soften it.",
+      "answers": ["他不是这个意思。", "他真的不是这个意思。"],
+      "gloss": "That's not what he meant.",
+      "need": [["不是这个意思"]],
+      "tip": "不是这个意思 = that's not what (he) meant.",
+      "ok": [
+        { "who": "laohuang", "zh": "……真的吗？", "en": "...Really?" },
+        { "who": "xiaohuang", "zh": "我听得见！", "en": "I can hear you!", "fx": "shake" },
+        { "who": "lin", "zh": "继续。", "en": "Go on." }
+      ],
+      "fail": [ { "who": "laohuang", "zh": "他不需要我。", "en": "He doesn't need me." } ],
+      "levels": {
+        "1": {
+          "answers": ["不是这个意思。", "他不是这个意思。"],
+          "need": [["不是这个意思"]],
+          "gloss": "That's not what he meant.",
+          "status": "live" },
+        "3": {
+          "answers": ["他不是这个意思，是气话。", "他不是这个意思，那是气话。"],
+          "need": [["不是这个意思"], ["气话"]],
+          "gloss": "That's not what he meant. He said it in anger.",
+          "tip": "气话 qìhuà = words said in anger.",
+          "status": "live" }
+      }
+    } },
+    { "who": "laohuang", "zh": "你告诉他……", "en": "Tell him...", "pace": "slow", "hold": 1 },
+    { "who": "laohuang", "zh": "对不起。", "en": "I'm sorry.", "pace": "slow" },
+    { "narr": "Round to room B, for the last time." },
+    { "say": {
+      "id": "sorry",
+      "en": "Deliver it: he says he's sorry.",
+      "cue": "Deliver it.",
+      "answers": ["他说……对不起。", "他说，对不起。"],
+      "gloss": "He says... he's sorry.",
+      "need": [["他说"], ["对不起"]],
+      "tip": "对不起 duìbuqǐ = I'm sorry.",
+      "ok": [
+        { "who": "xiaohuang", "zh": "……", "en": "...", "hold": 2 },
+        { "who": "xiaohuang", "zh": "他自己不会说吗？", "en": "Can't he say it himself?" }
+      ],
+      "fail": [ { "who": "xiaohuang", "zh": "他又说什么了？", "en": "What's he saying now?" } ],
+      "levels": {
+        "1": {
+          "answers": ["他说对不起。", "他说，对不起。"],
+          "need": [["对不起"]],
+          "gloss": "He says sorry.",
+          "status": "live" },
+        "3": {
+          "answers": ["他说对不起，他想亲口说。", "他说对不起。他想亲口跟你说。"],
+          "need": [["亲口"], ["对不起"]],
+          "gloss": "He says sorry. He wants to say it to your face.",
+          "tip": "亲口 qīnkǒu = in person, with one's own mouth.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "林老师 walks to the wall. Puts one hand on it." },
+    { "who": "lin", "zh": "这面墙，是租的。", "en": "This wall is rented." },
+    { "sfx": "crash" },
+    { "narr": "The wall comes down. 老黄 and 小黄, face to face, three metres apart." },
+    { "who": "xiaohuang", "zh": "……爸。", "en": "...Dad.", "hold": 1 },
+    { "who": "laohuang", "zh": "对不起。", "en": "I'm sorry.", "pace": "slow" },
+    { "who": "lin", "zh": "你可以走了。或者留下。", "en": "You may go. Or stay." },
+    { "say": {
+      "id": "leave",
+      "en": "Leave them to it, or stay on as referee.",
+      "cue": "Go, or stay?",
+      "answers": ["我先走了。", "那我先走了。"],
+      "gloss": "I'll be going, then.",
+      "need": [["先走"]],
+      "tip": "我先走了 = I'll go first: the polite way out of a room.",
+      "sets": { "rehearsal.ep4": "left" },
+      "ok": [ { "narr": "You close the door behind you. Through it: two voices, quiet. Then one of them laughs." } ],
+      "alts": [
+        { "en": "Or: stay as referee", "answers": ["我留下来。", "我还是留下来吧。"], "need": [["留下来"]], "gloss": "I'll stay.",
+          "sets": { "rehearsal.ep4": "stayed" },
+          "then": [
+            { "who": "lin", "zh": "裁判，另外收费。", "en": "Referees are charged separately." },
+            { "narr": "Every few minutes, one of them glances at you, to check it's their turn." }
+          ] }
+      ],
+      "fail": [ { "who": "lin", "zh": "走，还是留？", "en": "Going, or staying?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我走了。", "我先走了。"],
+          "need": [["走了"]],
+          "gloss": "I'm off.",
+          "alts": [ { "of": 0, "answers": ["我留下。", "我留下来。"], "need": [["留下"]], "gloss": "I'll stay." } ],
+          "status": "live" },
+        "3": {
+          "answers": ["你们慢慢聊，我先走了。", "你们慢慢聊吧，我先走了。"],
+          "need": [["慢慢聊"], ["先走"]],
+          "gloss": "Take your time, you two. I'll be off.",
+          "alts": [ { "of": 0, "answers": ["我留下来，当个裁判。"], "need": [["裁判"], ["留下来"]], "gloss": "I'll stay, as referee." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "rehearsal.ep4": "left" }, "end": "win", "en": "In the corridor, 林老师 hands you an invoice. For the wall. 🧱",
+      "else": [ { "end": "win", "en": "Two hours. You call time twice. By the end, nobody needs a relay. 🧱" } ] }
+  ]
+}

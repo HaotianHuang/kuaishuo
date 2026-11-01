@@ -1,0 +1,127 @@
+{
+  "id": "courier-crabs",
+  "format": "call",
+  "title": "快递找不到你",
+  "title_en": "The Courier Can't Find You",
+  "level": 1,
+  "topics": ["shopping", "food"],
+  "audience": "new",
+  "hook": 3,
+  "status": "live",
+  "tags": ["快递", "收快递", "接电话"],
+  "write": ["快递柜", "门口"],
+  "setting": "Saturday, 10 am, sixth floor, still in pyjamas. A parcel from home is on its way.",
+  "stage": "📦",
+  "bg": ["#2b1704", "#b0601a"],
+  "cast": {
+    "courier": { "is": "kuaidi", "name": "快递小哥", "en": "the courier, on a scooter", "emoji": "🛵", "voice": "m-young", "phone": true }
+  },
+  "call": {
+    "caller": "courier",
+    "photo": "📦",
+    "number": "170 0000 3721",
+    "label": { "zh": "快递外卖" },
+    "clock": "10:06",
+    "patience": 4,
+    "silence": [
+      { "who": "courier", "zh": "喂？喂？听得到吗？", "en": "Hello? Hello? Can you hear me?" },
+      { "who": "courier", "zh": "喂？人呢？说话呀！", "en": "Hello? Anyone there? Say something!" }
+    ],
+    "hangup": [
+      { "who": "courier", "zh": "没人是吧？那我给你退回去了啊。", "en": "Nobody there? Then I'm sending it back." },
+      { "end": "lose", "en": "He sent it back. Somewhere, a box of live crabs is riding back to the depot." }
+    ]
+  },
+  "steps": [
+    { "say": {
+      "id": "hello",
+      "en": "Pick up: say hello.",
+      "cue": "Pick up!",
+      "answers": ["喂，您好。", "喂？", "喂，你好，哪位？", "您好，哪位？"],
+      "gloss": "Hello?",
+      "need": [["喂", "您好", "你好"]],
+      "time": 8,
+      "tip": "喂 = hello, but only on the phone, and usually with a rising tone: wéi? Add 您好 for a stranger, or 哪位 for 'who's calling?'.",
+      "silence": [
+        { "who": "courier", "zh": "喂？喂？", "en": "Hello? Hello?" },
+        { "who": "courier", "zh": "接了怎么不说话呀？", "en": "You picked up. Why aren't you saying anything?" }
+      ],
+      "fail": [ { "who": "courier", "zh": "喂？你好？", "en": "Hello? Hello?" } ]
+    } },
+    { "who": "courier", "zh": "喂，你好，快递！你这个地址我找不着啊！", "en": "Hi, courier here! I can't find your address!", "signal": "bad" },
+    { "say": {
+      "id": "again",
+      "en": "The line keeps cutting out. Tell him you can't hear him well.",
+      "cue": "Bad line!",
+      "answers": ["我听不太清楚，您再说一遍？", "听不清，您再说一遍。", "喂？信号不好，听不清。", "您说什么？听不清楚。", "您能再说一遍吗？"],
+      "gloss": "I can't quite hear you. Could you say that again?",
+      "need": [["听不清", "听不太清", "没听清", "再说一遍", "再说一次"]],
+      "time": 10,
+      "tip": "我听不太清楚 = I can't quite hear you; 听不清 is the blunt version. 再说一遍 = say it again.",
+      "ok": [
+        { "who": "courier", "zh": "我说，七号楼在哪儿啊？", "en": "I said, where's Building Seven?" },
+        { "who": "courier", "zh": "我在你们小区门口，转了三圈了！", "en": "I'm at your front gate. I've been round three times!" }
+      ],
+      "fail": [ { "who": "courier", "zh": "啊？你说啥？我这边车太多了！", "en": "What? There's too much traffic here!" } ],
+      "levels": { "0": { "answers": ["再说一遍？", "听不清！", "没听清！"], "gloss": "Say it again?", "tip": "再说一遍 = say it once more.", "status": "live" } }
+    } },
+    { "sfx": "honk" },
+    { "who": "courier", "zh": "我赶时间啊，后面还有八十个件呢。", "en": "I'm in a hurry. I've got eighty more parcels after yours.", "pace": "fast" },
+    { "who": "courier", "zh": "要不，我先给你退回去？", "en": "How about I just send it back?" },
+    { "say": {
+      "id": "locker",
+      "en": "He's about to send it back. Tell him to put it in the parcel locker.",
+      "cue": "Save your parcel!",
+      "answers": ["别别别，放快递柜吧！", "别退！放快递柜里吧。", "那你放快递柜吧。", "别退，放丰巢吧！"],
+      "gloss": "No no no, put it in the parcel locker!",
+      "need": [["递柜", "柜子", "丰巢"]],
+      "time": 10,
+      "tip": "快递柜 = parcel locker: you get a pick-up code by text. 别别别 = no no no, three times for urgency.",
+      "ok": [ { "who": "courier", "zh": "快递柜满了！而且你这个……好像在动啊。", "en": "The lockers are full! And yours... seems to be moving." } ],
+      "fail": [ { "who": "courier", "zh": "啥？放哪儿？", "en": "What? Put it where?" } ],
+      "levels": { "0": { "answers": ["放快递柜！", "放柜子里！", "放快递柜吧！"], "gloss": "Put it in the parcel locker!", "status": "live" } }
+    } },
+    { "who": "courier", "zh": "是螃蟹吧？刚爬出来一只！", "en": "It's crabs, isn't it? One just climbed out!" },
+    { "say": {
+      "id": "door",
+      "en": "The lockers are full. Tell him to just leave it at the gate, then.",
+      "cue": "Where can he leave it?",
+      "answers": ["那放门口就行。", "你放门口吧。", "就放在门口吧。"],
+      "gloss": "Then just leave it at the gate.",
+      "need": [["放门口", "放在门口"]],
+      "time": 10,
+      "tip": "放门口就行 = just leave it at the door (or the gate). ……就行 = '…will do': the easy-going 'that's fine'.",
+      "alts": [
+        { "en": "Ask him to leave it with the guard", "answers": ["放门卫那儿吧。", "交给门卫吧。", "放保安那儿吧。"], "gloss": "Leave it with the guard, then.", "need": [["门卫", "保安"]],
+          "then": [ { "who": "courier", "zh": "门卫大爷说了，活的不收。", "en": "The guard says he doesn't take anything alive." } ] }
+      ],
+      "ok": [ { "who": "courier", "zh": "门口？行吧……", "en": "The gate? Fine..." } ],
+      "fail": [ { "who": "courier", "zh": "到底放哪儿啊？", "en": "So where do I put it?" } ],
+      "levels": { "0": { "answers": ["放门口！", "放门口吧！", "放在门口！"], "gloss": "Leave it at the gate!", "alts": [{ "of": 0, "answers": ["放门卫！", "给保安！", "放门卫那儿！"], "gloss": "Leave it with the guard!" }], "status": "live" } }
+    } },
+    { "who": "courier", "zh": "哎，有只猫一直盯着你这箱螃蟹。", "en": "Hey, there's a cat that's been eyeing your crabs this whole time." },
+    { "who": "courier", "zh": "它过来了！它过来了！", "en": "It's coming! It's coming!", "pace": "fast" },
+    { "say": {
+      "id": "down",
+      "en": "A cat is closing in. Tell him you're coming right down.",
+      "cue": "Go!",
+      "answers": ["我马上下来！", "等我一下，我马上下去！", "我这就下来！", "别走，我现在就下来！"],
+      "gloss": "I'll be right down!",
+      "need": [["下来", "下去", "马上到"]],
+      "time": 8,
+      "tip": "我马上下来 = I'll be right down. You say 下来, 'come down', because he's the one waiting downstairs.",
+      "silence": [
+        { "who": "courier", "zh": "你到底下不下来？", "en": "Are you coming down or not?" },
+        { "who": "courier", "zh": "猫扑过来了！快点！", "en": "The cat's pouncing! Hurry!" }
+      ],
+      "hangup": [
+        { "who": "courier", "zh": "不等了，我还有八十个件呢！", "en": "I can't wait. I've got eighty more!" },
+        { "end": "lose", "en": "He left the box at the gate. The cat is having a very good Saturday." }
+      ],
+      "ok": [ { "who": "courier", "zh": "快点啊！我帮你看着！去去去！", "en": "Hurry! I'll guard it! Shoo! Shoo!" } ],
+      "fail": [ { "who": "courier", "zh": "啊？你下不下来？", "en": "What? Are you coming down or not?" } ],
+      "levels": { "0": { "answers": ["马上下来！", "我下来了！", "马上到！"], "gloss": "I'm coming down!", "status": "live" } }
+    } },
+    { "end": "win", "en": "You fly down six floors in slippers. Final score: you seven crabs, the cat one.", "zh": "你穿着拖鞋，从六楼一路冲了下去。" }
+  ]
+}

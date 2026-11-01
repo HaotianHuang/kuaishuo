@@ -1,0 +1,418 @@
+{
+  "_": "The world bible (docs/v2/world.md): the places, the cast that recurs, who's who, and how each character feels about you at each step, -2 to 4, for the contacts page. A story's cast entry is one of these people when its key is in its thread's cast or it says \"is\": \"<id>\". `tts` is the character's voice everywhere (the build uses it); `en` is who they are to a heritage player, `en_new` to a newcomer, who meets the 老家 family through 小李. CONTENT.md, The world, has the rules.",
+  "places": {
+    "shanghai": {
+      "name": "上海",
+      "en": "Where you've moved for a job.",
+      "spots": [
+        "The flat: sixth floor, rented from 王叔 and 王阿姨, shared with 大刘 and 煤球 the black cat. The ceiling leaks; the courier can never find it.",
+        "The compound: the square where 张阿姨's dancers start at 7 pm sharp, 李奶奶's bench, the gate and its guard.",
+        "The office: 王总's team (you, 小李), 张总 upstairs; the lifts, the pantry, the delivery shelf.",
+        "The city: the metro, the night market, the hotpot place 大刘 swears by."
+      ]
+    },
+    "laojia": {
+      "name": "老家",
+      "en": "The family town, never named: ordinary and modern.",
+      "spots": [
+        "A small airport and a high-speed rail station, a new mall, a night market.",
+        "奶奶's courtyard, in an old lane where everyone knows everyone (王大爷 lives across it).",
+        "大姑's phone shop in town; 三叔's fish tanks; the family group, 相亲相爱一家人, 23 members in four time zones."
+      ]
+    },
+    "abroad": {
+      "name": "家",
+      "en": "Where you grew up: the player's own (Toronto, Sydney, London, Vancouver…), so a story for everyone never names it. 妈妈 and 爸爸 live there; 小凯 studies in Sydney.",
+      "spots": []
+    },
+    "trips": {
+      "name": "路上",
+      "en": "Everywhere else: the stories set in Chongqing, Xi'an, Beijing, Emei, Hangzhou, Tianjin, Chengdu or the Shenzhen head office are trips (weekends, work, holidays). Nobody who recurs lives there.",
+      "spots": []
+    }
+  },
+  "who": [
+    "Four 王s, all different people. 王叔 and 王阿姨 are one couple, your landlords (landlord-leak, rent-rise). 王总 is your manager, no relation (王阿姨 has asked). 王大爷 lives across 奶奶's lane (back-home-cute); farm-goose's 王大爷 is someone else, in a village in the northeast. 王警官 (police-parcel) is nobody: it's the name a scammer gives. 王师傅 (driver-chat) is a driver you'll never see again. New stories add no more 王s.",
+    "王总 and 张总: 王总 is your manager (office-boss). 张总, late-boss's \"your boss\", is the founder and 王总's boss: the one who messages at 11 pm. In office-boss the team was still at the Shenzhen head office; it has moved to Shanghai since.",
+    "大刘 is your flatmate (flat-flood), not the neighbour downstairs: the flat is his and yours, and 煤球 the cat's.",
+    "妈 in mum-calling is 妈妈 in family-group. She lives where you grew up and calls from there. 爸爸 is never heard yet (the quiet one): when he speaks, he joins the cast here.",
+    "小林 (airport-esim) is your friend from home who came to Shanghai two years before you: airport-esim is the night you landed.",
+    "小鹿 (first-date) is The Slow Burn. meet-parents' 小雨 is someone else, in a story outside the world (like the trips): The Slow Burn meets 小鹿's parents in its own episode, if the player takes it there.",
+    "new-year-dodge is New Year at 奶奶's: the Back Home family, both sides. Its 大姑 and 二姨 have other voices than Back Home's (its 大姑 sounds like 奶奶, its 二姨 like 妈妈), so it isn't linked to the world yet. Re-voicing the two (one audio pack, no line changes) is the owner's call; 三舅, 表姐 and 小侄子 are here with the voices they have there.",
+    "Two tellings of one family. A heritage player's family is theirs: 回老家 is going home. A newcomer meets the same family through 小李 from the office, whose family it is (his dad is the son who, in the heritage telling, is your dad): 小李 takes you home for New Year, and 奶奶 decides you're hers now. A thread's audience decides which telling a player gets; nobody gets both.",
+    "Strangers stay strangers: waiters, guards, drivers, the 大爷 at the jianbing stall, the 奶奶 on a wrong number. Only the cast below recurs.",
+    "Voices: every character keeps one voice (`tts`) everywhere. The build's role pools are small (three f-mid voices), so some characters share one: 王阿姨, 王总, 大姑 and 三姨 (zf_036); 妈妈 and 张阿姨 (zf_047); 外婆 and 李奶奶 (zf_094); 小鹿 and 表姐 (zf_001); 王叔 and 大舅 (zm_029); 三叔 and 三舅 (zm_009); 小李, 表哥 and 小凯 (zm_053); 大刘 and 快递小哥 (zm_057). validate.mjs keeps two who share a voice out of one story; more voices picked by ear would let them meet."
+  ],
+  "cast": {
+    "wangshu": {
+      "name": "王叔", "emoji": "👴", "voice": "m-old", "tts": "zm_029", "home": "shanghai",
+      "en": "your landlord, 王阿姨's husband: retired, happiest at the mahjong table",
+      "en_new": "your landlord, 王阿姨's husband: retired, happiest at the mahjong table",
+      "feel": {
+        "-2": "Checks the water meter himself now, just in case.",
+        "-1": "Calls you \"the tenant\" to his mahjong friends.",
+        "0": "Answers on the third ring, from the mahjong table.",
+        "1": "Fixed the tap the same day. Left his game to do it.",
+        "2": "Tells his mahjong table his tenant's a good one.",
+        "3": "Drops off dumplings whenever 王阿姨 makes too many (always).",
+        "4": "Wants you at his son's wedding, at the family table."
+      }
+    },
+    "wangayi": {
+      "name": "王阿姨", "aka": ["房东王阿姨"], "emoji": "👩‍🦳", "voice": "f-mid", "tts": "zf_036", "home": "shanghai",
+      "en": "your landlady, 王叔's wife: keeps the accounts, messages only when something's up",
+      "en_new": "your landlady, 王叔's wife: keeps the accounts, messages only when something's up",
+      "feel": {
+        "-2": "Messages in full sentences, with full stops. Never a good sign.",
+        "-1": "Reminds you the rent is due. Twice.",
+        "0": "Messages only when something's up.",
+        "1": "Sends a 👍 when the rent comes in.",
+        "2": "Forwards you a recipe, and \"wear a scarf\".",
+        "3": "Asks you to help her nephew with his English. Pays in braised pork.",
+        "4": "Says she'll never put the rent up on you. (She means it, this year.)"
+      }
+    },
+    "daliu": {
+      "name": "大刘", "emoji": "🧔", "voice": "m-young", "tts": "zm_057", "home": "shanghai",
+      "en": "your flatmate: hotpot, video games, forgets his keys",
+      "en_new": "your flatmate: hotpot, video games, forgets his keys",
+      "feel": {
+        "-2": "Labels his food in the fridge now.",
+        "-1": "Polite. Too polite. Leaves notes instead of talking.",
+        "0": "Hotpot, video games, and 煤球's favourite person.",
+        "1": "Saves you the last of the hotpot.",
+        "2": "Feeds 煤球 when you're late, and doesn't mention it.",
+        "3": "Has your spare key, and your back with the landlords.",
+        "4": "Says you're the best flatmate he's ever had. 煤球 agrees."
+      }
+    },
+    "kuaidi": {
+      "name": "快递小哥", "emoji": "🛵", "voice": "m-young", "tts": "zm_057", "home": "shanghai",
+      "en": "the courier, on a scooter: always finds you at the worst moment",
+      "en_new": "the courier, on a scooter: always finds you at the worst moment",
+      "feel": {
+        "-2": "Leaves your parcels at the gate without a call.",
+        "-1": "Sighs when he sees your address.",
+        "0": "Somehow always there at the worst moment.",
+        "1": "Calls you \"Sixth Floor\" and waves.",
+        "2": "Carries your parcels up himself, all six floors.",
+        "3": "Spots you in the street. Has a parcel for you, of course.",
+        "4": "Would find you on the moon. With a parcel. On time."
+      }
+    },
+    "xiaolin": {
+      "name": "小林", "emoji": "👩", "voice": "f-young", "tts": "zf_042", "home": "shanghai",
+      "en": "your friend from home, in Shanghai two years before you",
+      "en_new": "your friend from home, in Shanghai two years before you",
+      "feel": {
+        "-2": "Busy lately. Replies with stickers.",
+        "-1": "Still your friend; a bit hurt you forgot.",
+        "0": "Knows Shanghai. Knows you.",
+        "1": "Sends you the good dumpling places.",
+        "2": "Your emergency contact, and your first call.",
+        "3": "Keeps your spare key and your secrets.",
+        "4": "Calls you family. Her mum does too."
+      }
+    },
+    "zhangayi": {
+      "name": "张阿姨", "emoji": "👩", "voice": "f-mid", "tts": "zf_047", "home": "shanghai",
+      "en": "the neighbour who leads the square dance, in charge of the speaker",
+      "en_new": "the neighbour who leads the square dance, in charge of the speaker",
+      "feel": {
+        "-2": "Turns the music up when you walk past.",
+        "-1": "Still hopes you'll come to practice. Says so, loudly.",
+        "0": "Starts the music at 7 pm sharp.",
+        "1": "Keeps you a spot in the back row.",
+        "2": "Tells the whole compound you've got rhythm.",
+        "3": "Has moved you to the front row for the Mid-Autumn show.",
+        "4": "Says the team isn't the team without you."
+      }
+    },
+    "linainai": {
+      "name": "李奶奶", "emoji": "👵", "voice": "f-old", "tts": "zf_094", "home": "shanghai",
+      "en": "a granny from the dance team, always on the same bench",
+      "en_new": "a granny from the dance team, always on the same bench",
+      "feel": {
+        "-2": "Watches you from her bench, saying nothing.",
+        "-1": "Thinks you work too late. Tells the bench.",
+        "0": "Always on the same bench.",
+        "1": "Gives you a mandarin when you pass.",
+        "2": "Saves you a mandarin, and a seat.",
+        "3": "Is knitting you a scarf you didn't ask for.",
+        "4": "Introduces you as her grandchild. You've stopped correcting her."
+      }
+    },
+    "wangzong": {
+      "name": "王总", "emoji": "👩‍💼", "voice": "f-mid", "tts": "zf_036", "home": "shanghai",
+      "en": "your manager: brisk, fair, remembers every promise",
+      "en_new": "your manager: brisk, fair, remembers every promise",
+      "feel": {
+        "-2": "Asks for everything in writing now.",
+        "-1": "Double-checks your numbers. In the meeting.",
+        "0": "Brisk, fair, remembers every promise.",
+        "1": "Nods at your ideas in meetings.",
+        "2": "Gives you the interesting projects first.",
+        "3": "Puts your name on the slide, not hers.",
+        "4": "Has put you forward for the promotion."
+      }
+    },
+    "zhangzong": {
+      "name": "张总", "emoji": "👨‍💼", "voice": "m-mid", "tts": "zm_015", "home": "shanghai",
+      "en": "the founder, 王总's boss: messages anyone at 11 pm",
+      "en_new": "the founder, 王总's boss: messages anyone at 11 pm",
+      "feel": {
+        "-2": "Knows your face. Not sure from where.",
+        "-1": "Copies 王总 in on everything he asks you.",
+        "0": "Messages anyone, at 11 pm.",
+        "1": "Remembers your name at the lift.",
+        "2": "Messages you first at 11 pm. (An honour, apparently.)",
+        "3": "Wants you at the client dinner.",
+        "4": "Calls you \"the future of this company\", in front of everyone."
+      }
+    },
+    "xiaoli": {
+      "name": "小李", "emoji": "🧑‍💻", "voice": "m-young", "tts": "zm_053", "home": "shanghai",
+      "en": "your colleague at the next desk: instant noodles and all the gossip",
+      "en_new": "your colleague at the next desk: instant noodles, all the gossip, and a family in 老家",
+      "feel": {
+        "-2": "Eats his noodles at his desk, alone.",
+        "-1": "Doesn't save you a seat at lunch any more.",
+        "0": "Instant noodles, and all the gossip.",
+        "1": "Shares the gossip, and his chilli oil.",
+        "2": "Covers for you when 王总 asks where you are.",
+        "3": "Your lunch, your KTV partner, your alibi.",
+        "4": "Wants to take you home for New Year."
+      }
+    },
+    "xiaolu": {
+      "name": "小鹿", "emoji": "🦌", "voice": "f-young", "tts": "zf_001", "home": "shanghai",
+      "en": "your match from a dating app: funny, direct, a little shy at first",
+      "en_new": "your match from a dating app: funny, direct, a little shy at first",
+      "feel": {
+        "-2": "Friendly, from a distance.",
+        "-1": "Replies, slowly. Worth winning back.",
+        "0": "Funny, direct, a little shy at first.",
+        "1": "Sends you songs. Asks about your day.",
+        "2": "Saves you the last bite. Says it's an accident.",
+        "3": "Tells you things nobody else knows.",
+        "4": "Can't imagine a week without you."
+      }
+    },
+    "nainai": {
+      "name": "奶奶", "emoji": "👵", "voice": "f-old", "tts": "zf_079", "home": "laojia",
+      "en": "your dad's mum, turning eighty: feeds everyone, cries easily (happily)",
+      "en_new": "小李's grandma, turning eighty, who has decided you're hers now",
+      "feel": {
+        "-2": "Worried you're not eating. Has told the whole lane.",
+        "-1": "Thinks you're too thin, and don't call enough.",
+        "0": "Feeds everyone. Cries easily (happily).",
+        "1": "Saving you dumplings in the freezer.",
+        "2": "Tells the whole lane your Chinese is getting good.",
+        "3": "Sends a voice note every morning: 吃了吗？",
+        "4": "Calls you her 宝贝. The sausages are already in the post."
+      }
+    },
+    "dagu": {
+      "name": "大姑", "emoji": "👩‍💼", "voice": "f-mid", "tts": "zf_036", "home": "laojia",
+      "en": "your dad's eldest sister: runs the phone shop in town, wants the facts",
+      "en_new": "小李's aunt, his dad's eldest sister: runs the phone shop in town, wants the facts",
+      "feel": {
+        "-2": "Very curious about you. Asks your mum, not you.",
+        "-1": "Still wants the facts: the pay, the flat, the 对象.",
+        "0": "Wants the facts.",
+        "1": "Fixed your phone screen for free. Told everyone.",
+        "2": "Shows customers your photo: \"Works in Shanghai!\"",
+        "3": "Takes your side at dinner. Against 二姨, of all people.",
+        "4": "Says you're the family's pride. Nearly had a banner made."
+      }
+    },
+    "biaoge": {
+      "name": "表哥", "emoji": "🧑", "voice": "m-young", "tts": "zm_053", "home": "laojia",
+      "en": "your cousin, 大姑's son: drives a van, never stops talking",
+      "en_new": "小李's cousin, 大姑's son: drives a van, never stops talking",
+      "feel": {
+        "-2": "Still talks non-stop, just not to you.",
+        "-1": "Teases you a bit harder than usual.",
+        "0": "Never stops talking.",
+        "1": "Picks you up from anywhere, any time.",
+        "2": "Lets you choose the music in the van.",
+        "3": "Tells you the family gossip first.",
+        "4": "Calls you his best mate. Wants you at his wedding."
+      }
+    },
+    "dabo": {
+      "name": "大伯", "emoji": "👨‍🦳", "voice": "m-old", "tts": "zm_014", "home": "laojia",
+      "en": "your dad's eldest brother: few words, several phones (all cracked)",
+      "en_new": "小李's uncle, his dad's eldest brother: few words, several phones (all cracked)",
+      "feel": {
+        "-2": "Nods at you. Says nothing. (He's like that.)",
+        "-1": "Asks about your job, then about your pay.",
+        "0": "Few words, several phones.",
+        "1": "Pours your tea first.",
+        "2": "Asks you to fix his phone. All three of them.",
+        "3": "Told your dad you've done well. To his face.",
+        "4": "Gives you his own seat at the table."
+      }
+    },
+    "sanshu": {
+      "name": "三叔", "emoji": "🧔", "voice": "m-mid", "tts": "zm_009", "home": "laojia",
+      "en": "your dad's younger brother: keeps fish, talks fish",
+      "en_new": "小李's uncle, his dad's younger brother: keeps fish, talks fish",
+      "feel": {
+        "-2": "Shows you his fish, but not the good ones.",
+        "-1": "Thinks Shanghai has made you soft.",
+        "0": "Keeps fish. Talks fish.",
+        "1": "Lets you feed the fish.",
+        "2": "Has named a fish after you.",
+        "3": "Takes you fishing at dawn and says nothing, which is how you know.",
+        "4": "The fish named after you is the biggest one."
+      }
+    },
+    "doudou": {
+      "name": "豆豆", "emoji": "🧒", "voice": "kid", "tts": "zf_092", "home": "laojia",
+      "en": "your little cousin, 三叔's, six: a chopstick expert",
+      "en_new": "小李's little cousin, 三叔's, six: a chopstick expert",
+      "feel": {
+        "-2": "Hides behind 三叔 when you come in.",
+        "-1": "Watches you from under the table.",
+        "0": "Six. A chopstick expert.",
+        "1": "Shows you every drawing.",
+        "2": "Saves you a seat at the kids' table.",
+        "3": "Teaches you words, very slowly, as if you were the six-year-old.",
+        "4": "Has drawn you into the family picture, bigger than everyone."
+      }
+    },
+    "wangdaye": {
+      "name": "王大爷", "emoji": "👴", "voice": "m-old", "tts": "zm_098", "home": "laojia",
+      "en": "奶奶's neighbour across the lane: here for the food, and the show",
+      "en_new": "奶奶's neighbour across the lane: here for the food, and the show",
+      "feel": {
+        "-2": "Has found someone else to tell his stories to.",
+        "-1": "Thinks city people talk too fast.",
+        "0": "Here for the food, and the show.",
+        "1": "Waves his fan at you from his doorway.",
+        "2": "Tells you the lane's history. All of it.",
+        "3": "Brings you his best melons.",
+        "4": "Says you're the lane's own. The lane agrees."
+      }
+    },
+    "mama": {
+      "name": "妈妈", "aka": ["妈"], "emoji": "👩", "voice": "f-mid", "tts": "zf_047", "home": "abroad",
+      "en": "your mum, where you grew up: calls on Sundays, and whenever it's cold",
+      "feel": {
+        "-2": "Worried. Has called your flatmate to check on you.",
+        "-1": "Sighs on the phone: \"Are you eating properly?\"",
+        "0": "Calls on Sundays. And when it's cold. And when she has a feeling.",
+        "1": "Sends you photos of what she's cooking.",
+        "2": "Has stopped asking about a 对象. (For a week.)",
+        "3": "Tells the group chat she's proud of you.",
+        "4": "Is coming to visit, with a suitcase of food."
+      }
+    },
+    "waipo": {
+      "name": "外婆", "emoji": "👵", "voice": "f-old", "tts": "zf_094", "home": "laojia",
+      "en": "your mum's mum: sends 60-second voice notes",
+      "feel": {
+        "-2": "Sends her voice notes to the group, not to you.",
+        "-1": "Asks your mum if you're cross with her.",
+        "0": "Sends 60-second voice notes.",
+        "1": "Her voice notes to you end with a sticker now.",
+        "2": "Sends voice notes just for you.",
+        "3": "Tells everyone you're the one who always replies.",
+        "4": "Saves her best stories for you. They're three minutes long now."
+      }
+    },
+    "eryi": {
+      "name": "二姨", "emoji": "👩‍🦱", "voice": "f-mid", "tts": "zf_023", "home": "laojia",
+      "en": "your mum's second sister: the family matchmaker, says what she sees",
+      "en_new": "小李's aunt on his mum's side: the family matchmaker, says what she sees",
+      "feel": {
+        "-2": "Has stopped matchmaking you. For now. (She's thinking.)",
+        "-1": "Thinks you're too picky. Says so kindly, and loudly.",
+        "0": "The family matchmaker. Says what she sees.",
+        "1": "Has a \"nice young person\" for you. Several.",
+        "2": "Asks what you're looking for, and takes notes.",
+        "3": "Has stopped matchmaking you, because you asked. (Mostly.)",
+        "4": "On your side in everything, even against the family."
+      }
+    },
+    "sanyi": {
+      "name": "三姨", "emoji": "💁‍♀️", "voice": "f-mid", "tts": "zf_036", "home": "laojia",
+      "en": "your mum's third sister: forwards health tips at 6 am",
+      "feel": {
+        "-2": "Sends you articles about sleep, without a word.",
+        "-1": "Worries that you drink cold water.",
+        "0": "Forwards health tips at 6 am.",
+        "1": "Sends you a soup for \"city stress\".",
+        "2": "Posts you herbal tea, with instructions.",
+        "3": "Asks you before she forwards anything.",
+        "4": "Says you're the only one who really listens."
+      }
+    },
+    "dajiu": {
+      "name": "大舅", "emoji": "👨‍🦳", "voice": "m-old", "tts": "zm_029", "home": "laojia",
+      "en": "your mum's eldest brother: an opinion on everything, in the group chat",
+      "feel": {
+        "-2": "Likes your posts. Never comments.",
+        "-1": "Asks in the group why you never come home.",
+        "0": "An opinion on everything, in the group chat.",
+        "1": "Sends you a 👍 and a red packet.",
+        "2": "Asks your advice on his new phone.",
+        "3": "Toasts you at every family dinner.",
+        "4": "Says you're the one who'll keep this family together."
+      }
+    },
+    "sanjiu": {
+      "name": "三舅", "emoji": "👨", "voice": "m-mid", "tts": "zm_009", "home": "laojia",
+      "en": "your mum's third brother: asks what everyone else is thinking",
+      "feel": {
+        "-2": "Still asks about your pay, just more politely.",
+        "-1": "Asks about your pay at dinner.",
+        "0": "Asks what everyone else is thinking.",
+        "1": "Pours you a drink and lets you off the questions.",
+        "2": "Tells everyone to leave you alone. Then asks one more.",
+        "3": "Takes your side at New Year.",
+        "4": "Says you're his favourite. Tells you not to tell."
+      }
+    },
+    "biaojie": {
+      "name": "表姐", "emoji": "👩‍🦱", "voice": "f-young", "tts": "zf_001", "home": "laojia",
+      "en": "your older cousin, 二姨's daughter: survived every New Year question before you",
+      "feel": {
+        "-2": "Busy with a six-year-old. Replies next week.",
+        "-1": "Thinks you could visit more.",
+        "0": "Survived every New Year question before you.",
+        "1": "Warns you which relatives are coming.",
+        "2": "Rescues you from 二姨 at dinner.",
+        "3": "Tells you the family secrets first.",
+        "4": "Calls you her little sibling, and means it."
+      }
+    },
+    "xiaozhizi": {
+      "name": "小侄子", "emoji": "🧒", "voice": "kid", "tts": "zf_072", "home": "laojia",
+      "en": "表姐's son, six: asks everything twice",
+      "feel": {
+        "-2": "Hides your shoes. (He hides everyone's.)",
+        "-1": "Asks why you talk funny.",
+        "0": "Six. Asks everything twice.",
+        "1": "Shows you all his toys.",
+        "2": "Saves you the last 糖葫芦.",
+        "3": "Wants you, only you, for the bedtime story.",
+        "4": "Says he's going to be just like you."
+      }
+    },
+    "xiaokai": {
+      "name": "小凯", "emoji": "🧑", "voice": "m-young", "tts": "zm_053", "home": "abroad",
+      "en": "your younger cousin, 大舅's son, studying in Sydney: the group chat's meme supply",
+      "feel": {
+        "-2": "Leaves you on read.",
+        "-1": "Sends you memes, nothing else.",
+        "0": "The group chat's meme supply.",
+        "1": "Asks you about jobs in Shanghai.",
+        "2": "Sends you the funny voice notes first.",
+        "3": "Asks you before he asks his parents.",
+        "4": "Wants to move to Shanghai, to be near you."
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "id": "landlord-leak",
+  "format": "call",
+  "title": "天花板在下雨",
+  "title_en": "It's Raining Indoors",
+  "level": 3,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "tags": ["租房", "漏水", "房东"],
+  "write": ["漏水", "天花板"],
+  "setting": "Your rented flat, 11 pm. Water is pouring through the ceiling. The landlord is calling.",
+  "stage": "💧",
+  "bg": ["#06202e", "#1d6a85"],
+  "cast": {
+    "wang": { "is": "wangshu", "name": "王叔", "en": "your landlord, Uncle Wang, at his mahjong table", "emoji": "👴", "voice": "m-old", "phone": true },
+    "aunty": { "name": "牌友", "en": "one of his mahjong partners", "emoji": "👵", "voice": "f-old", "phone": true }
+  },
+  "call": {
+    "caller": "wang",
+    "name": { "zh": "房东王叔" },
+    "photo": "🀄",
+    "number": "137 0000 5821",
+    "label": { "zh": "北京" },
+    "clock": "23:04",
+    "patience": 6,
+    "silence": [
+      { "who": "wang", "zh": "喂？喂？听得到吗？", "en": "Hello? Hello? Can you hear me?" },
+      { "who": "wang", "zh": "喂？这信号怎么回事？", "en": "Hello? What's wrong with this line?" }
+    ],
+    "hangup": [
+      { "who": "wang", "zh": "算了，房租的事我发微信跟你说。", "en": "Never mind, I'll message you about the rent." },
+      { "end": "lose", "en": "He hung up. The water didn't." }
+    ]
+  },
+  "steps": [
+    { "sfx": "splash" },
+    { "who": "wang", "zh": "喂，是我，老王啊。", "en": "Hello, it's me, Old Wang.", "peek": "free" },
+    { "who": "wang", "zh": "那个，跟你说个事儿。下个月房租呢，得涨一点……", "en": "So, there's something I need to tell you. Next month the rent has to go up a little...", "pace": "fast" },
+    { "say": {
+      "id": "interrupt",
+      "en": "He's raising the rent while your ceiling pours. Cut him off: tell him to hear you out first.",
+      "cue": "Interrupt him.",
+      "answers": ["王叔，您先听我说！", "等一下，您先听我说！", "王叔王叔，先别说这个！", "您先等等，出事了！", "王叔，出事了！"],
+      "gloss": "Uncle Wang, hear me out first!",
+      "need": [["听我说", "等一下", "等等", "别说", "停一下", "出事了"]],
+      "time": 8,
+      "tip": "您先听我说 = hear me out first: firm, but 您 keeps it polite. 出事了 = something's happened.",
+      "silence": [
+        { "who": "wang", "zh": "也没涨多少，就涨五百块。", "en": "It's not much. Only five hundred more." },
+        { "who": "wang", "zh": "你那边怎么哗哗的？下雨了？", "en": "What's that gushing noise at your end? Is it raining?" }
+      ],
+      "hangup": [
+        { "who": "wang", "zh": "行，那就这么定了啊。挂了。", "en": "Right, that's settled, then. Bye." },
+        { "end": "lose", "en": "He hung up. Your rent just went up five hundred, and the water's still coming." }
+      ],
+      "ok": [ { "who": "wang", "zh": "怎么了？出什么事了？", "en": "What is it? What's happened?" } ],
+      "fail": [ { "who": "wang", "zh": "你别急，我还没说完呢。", "en": "Hang on, I haven't finished." } ],
+      "levels": {
+        "2": { "en": "He's raising the rent while your ceiling pours. Cut him off: wait, something's happened!",
+               "answers": ["等等！出事了！", "等一下，出事了！", "王叔，等一下！", "停一下，出事了！"], "gloss": "Wait! Something's happened!",
+               "tip": "等等 = wait! 出事了 = something's happened (something's gone wrong).", "status": "live" },
+        "4": { "en": "He's raising the rent while your ceiling pours. Cut him off: he should hear you out first, the rent can wait.",
+               "answers": ["王叔，您先听我说，房租先放一放！", "等一下王叔，房租先放一放，出事了！", "您先听我说，房租的事回头再说！", "王叔，房租回头再说，您先听我说！"],
+               "gloss": "Uncle Wang, hear me out first. The rent can wait!", "need": [["听我说", "等一下", "等等", "别说", "停一下", "出事了"], ["放一放", "回头再说", "等会儿再说", "以后再说"]],
+               "time": 10,
+               "tip": "房租先放一放 = let's put the rent aside for now (放一放 = set it aside a while). 回头再说 = we'll talk about it later.", "key": { "放一放": "set (it) aside for now" }, "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "leak",
+      "en": "Tell him the ceiling's leaking.",
+      "cue": "Say what's wrong.",
+      "answers": ["天花板漏水了！", "家里漏水了，水从天花板往下流！", "我这儿天花板在漏水！", "屋里漏水了！"],
+      "gloss": "The ceiling's leaking!",
+      "need": [["漏水", "漏了", "在漏"]],
+      "time": 10,
+      "tip": "漏水 lòushuǐ = leak. 天花板 = ceiling. The 了 says it's new: it's leaking now.",
+      "mistakes": [ { "heard": ["流水"], "note": "流水 liúshuǐ is running water. A leak is 漏水 lòushuǐ." } ],
+      "ok": [ { "who": "wang", "zh": "漏水？漏得厉害吗？", "en": "A leak? How bad is it?" } ],
+      "fail": [ { "who": "wang", "zh": "啥？你说慢点。", "en": "What? Slow down." } ],
+      "levels": {
+        "4": { "en": "Tell him the ceiling's leaking, and if it isn't fixed now, the place will flood.",
+               "answers": ["天花板漏水了，再不修就要淹了！", "王叔，天花板漏水了，房子都要淹了！", "家里漏水了，再不管就要淹了！", "天花板在漏水，屋里快淹了！"],
+               "gloss": "The ceiling's leaking! If it isn't fixed now, the place will flood!", "need": [["漏水", "漏了", "在漏"], ["淹了", "要淹"]],
+               "tip": "再不……就要……了 = if not … now, then … (a warning that gets people moving). 淹 yān = flood.", "key": { "淹了": "flooded" }, "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "bad",
+      "en": "He asks how bad it is. Tell him it's like rain in here.",
+      "cue": "Answer him.",
+      "answers": ["特别厉害，跟下雨一样！", "很厉害，像下雨似的！", "水越来越大了！", "可厉害了，跟下雨一样。"],
+      "gloss": "Really bad. It's like rain in here!",
+      "need": [["厉害", "下雨", "越来越大", "很大", "特别大"]],
+      "time": 10,
+      "tip": "跟……一样 = just like... 厉害 here means severe, not impressive. 越来越大 = bigger and bigger.",
+      "ok": [
+        { "who": "wang", "zh": "好好好，你别急！先拿个盆接着！", "en": "OK, OK, don't panic! Put a basin under it!" },
+        { "who": "wang", "zh": "你等一下，我问问楼上。", "en": "Hold on, I'll ask upstairs." }
+      ],
+      "fail": [ { "who": "wang", "zh": "到底厉不厉害？", "en": "So is it bad or not?" } ],
+      "levels": {
+        "2": { "answers": ["像下雨一样！", "很厉害！", "水很大！", "特别厉害！"], "gloss": "It's like rain in here!", "tip": "像……一样 = just like …: 像下雨一样 = like rain.", "status": "live" },
+        "4": { "en": "He asks how bad it is. Tell him: so bad you could keep fish in here.",
+               "answers": ["可厉害了，屋里都能养鱼了！", "特别厉害，跟下雨一样，都能养鱼了！", "很厉害，水大得都能游泳了！", "跟下雨似的，屋里都能养鱼了！"],
+               "gloss": "Really bad! You could keep fish in here!", "need": [["厉害", "下雨", "越来越大", "很大", "特别大"], ["养鱼", "游泳"]],
+               "tip": "都能养鱼了 = you could keep fish in here (都……了 = it's got so bad that even …): a joke that says how bad it is.", "key": { "养鱼": "keep fish" }, "status": "live" }
+      }
+    } },
+    { "narr": "He puts the phone down. Mahjong tiles clatter. Your basin is filling up." },
+    { "who": "aunty", "zh": "老王，到你了！碰不碰？", "en": "Old Wang, your turn! Pong or not?" },
+    { "who": "wang", "zh": "碰什么碰！房子都要淹了！", "en": "Forget pong! The flat's about to flood!", "fx": "angry" },
+    { "who": "wang", "zh": "喂？我问了，楼上的鱼缸破了。", "en": "Hello? I've asked. The fish tank upstairs has burst." },
+    { "sfx": "splash" },
+    { "narr": "Plop. Something orange is swimming in your basin." },
+    { "say": {
+      "id": "fish",
+      "en": "Tell him there's a goldfish in your basin.",
+      "cue": "What's in the basin?",
+      "answers": ["盆里有条金鱼！", "掉下来一条金鱼！", "我盆里多了一条鱼！", "有条金鱼掉下来了！"],
+      "gloss": "There's a goldfish in my basin!",
+      "need": [["金鱼", "条鱼", "有鱼"]],
+      "time": 10,
+      "tip": "条 is the measure word for long, wriggly things: 一条鱼, 一条河, 一条裤子. 盆 pén = basin.",
+      "mistakes": [ { "heard": ["只鱼"], "note": "Fish take 条, the measure word for long, wriggly things: 一条鱼." } ],
+      "ok": [
+        { "who": "wang", "zh": "金鱼？还活着吗？", "en": "A goldfish? Is it alive?" },
+        { "who": "wang", "zh": "那是楼上老李的宝贝，你先帮他养着！", "en": "That's Old Li's pride and joy! Look after it for him!" }
+      ],
+      "fail": [ { "who": "wang", "zh": "什么东西掉下来了？", "en": "What fell? What is it?" } ],
+      "levels": {
+        "4": { "en": "No wonder! Tell him there's a goldfish in your basin now.",
+               "answers": ["难怪！我盆里多了一条金鱼！", "怪不得，盆里掉下来一条金鱼！", "难怪呢，我盆里有条金鱼！", "怪不得！有条金鱼掉我盆里了！"],
+               "gloss": "No wonder! There's a goldfish in my basin now!", "need": [["金鱼", "条鱼", "有鱼"], ["难怪", "怪不得"]],
+               "tip": "难怪 = no wonder: it ties what he just said (the tank burst) to what you see. 多了一条金鱼 = there's a goldfish that wasn't there before.", "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "rent",
+      "en": "Now's your moment. Ask him: so, is the rent still going up?",
+      "cue": "Now's your chance.",
+      "answers": ["那房租还涨吗？", "王叔，那房租还涨不涨了？", "都这样了，房租就别涨了吧？", "房租的事，是不是先别提了？"],
+      "gloss": "So is the rent still going up?",
+      "need": [["房租", "租金"]],
+      "time": 10,
+      "tip": "还……吗 = still…? 房租还涨吗 = is the rent still going up? Half of bargaining is timing.",
+      "ok": [ { "who": "wang", "zh": "房租的事……下个月再说，下个月再说。", "en": "The rent... we'll talk about it next month. Next month." } ],
+      "fail": [ { "who": "wang", "zh": "你说什么？我这边太吵了。", "en": "What? It's too noisy here." } ],
+      "levels": {
+        "4": { "en": "Now's your moment. Use the saying for one disaster on top of another (a leaking roof, a night of rain), and ask: is the rent still going up?",
+               "answers": ["唉，屋漏偏逢连夜雨，房租还涨吗？", "屋漏偏逢连夜雨，房租还涨吗？", "王叔，屋漏偏逢连夜雨，房租就别涨了吧？", "真是屋漏偏逢连夜雨，房租还涨啊？", "屋漏偏逢连夜雨啊，那房租还涨吗？"],
+               "gloss": "When it rains, it pours. Is the rent still going up?", "need": [["房租", "租金"], ["屋漏偏逢连夜雨", "屋漏", "连夜雨"]],
+               "tip": "屋漏偏逢连夜雨 = a leaking roof meets a night of rain: one misfortune on top of another (and here, a real leak). Sighed (唉，…), it's a lament, not a lecture.", "status": "live" }
+      }
+    } },
+    { "end": "win", "en": "At midnight, Old Li comes down for his goldfish, with a bag of oranges to say sorry. The rent rise is never mentioned again.", "zh": "半夜，楼上老李提着一袋橘子，下来接他的金鱼。" }
+  ]
+}

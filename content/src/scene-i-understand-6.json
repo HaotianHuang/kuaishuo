@@ -1,0 +1,167 @@
+{
+  "id": "i-understand-6",
+  "format": "scene",
+  "title": "签字",
+  "title_en": "The Signing",
+  "level": 3,
+  "listen": 4,
+  "topics": ["work"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "i-understand", "ep": 6, "next": "Season one is over. 陈奶奶 has sent you a box of the first spring tea." },
+  "tags": ["签字", "第七条", "听得懂"],
+  "setting": "The signing room at 陈氏茶业, Hangzhou, 10 am. A long table, two pens, and 高总.",
+  "stage": "🖋️",
+  "bg": ["#1a120a", "#7a5a2a"],
+  "cast": {
+    "chen": { "name": "陈总", "en": "the director", "emoji": "👩‍💼", "voice": "f-mid" },
+    "zhou": { "name": "小周", "en": "the interpreter", "emoji": "🧑‍💻", "voice": "m-young" },
+    "chennainai": { "name": "陈奶奶", "en": "the tea farm's real owner", "emoji": "👵", "voice": "f-old" },
+    "gaozong": { "name": "高总", "en": "陈总's old business partner, smiling", "emoji": "🕴️", "voice": "m-mid", "speed": 1.2 }
+  },
+  "steps": [
+    { "when": { "i-understand.ep5": "now" }, "narr": "Already at the table, in her straw hat: 陈奶奶. 高总's smile slips, just for a second.",
+      "else": [ { "narr": "At the door: 小周, pale. 陈总 looks at him for a long moment, then nods him in." } ] },
+    { "who": "zhou", "zh": "陈总，对不起。", "en": "陈总, I'm sorry.", "pace": "slow" },
+    { "who": "chen", "zh": "……坐。", "en": "...Sit down.", "hold": 1 },
+    { "narr": "10 am. A long table, two pens, and a contract with seven clauses.", "prop": "📄" },
+    { "who": "gaozong", "zh": "各位好，各位好！", "en": "Good morning, everyone, good morning!", "fx": "enter" },
+    { "narr": "高总 leans to his assistant and talks fast, as if you weren't there." },
+    { "who": "gaozong", "zh": "他们看不懂第七条，交不了货，茶园就是我们的。", "en": "They won't follow clause seven. They can't deliver, and the farm is ours.", "pace": "fast" },
+    { "say": {
+      "id": "catch",
+      "en": "Tell 陈总 quietly: clause seven is a problem.",
+      "cue": "You caught it.",
+      "answers": ["陈总，第七条有问题。", "陈总，这个第七条有问题。"],
+      "gloss": "陈总, clause seven's a problem.",
+      "need": [["第七条"], ["有问题"]],
+      "key": { "第七条": "clause seven" },
+      "tip": "第七条 dì qī tiáo = clause seven: 第 makes an ordinal, 条 counts clauses.",
+      "ok": [
+        { "narr": "陈总 turns to the last page, and reads it twice.", "zh": "第七条：如果交不了货，茶园归乙方。" },
+        { "who": "chen", "zh": "……乙方是谁？", "en": "...And who is the other party?" },
+        { "who": "gaozong", "zh": "我们的朋友嘛。", "en": "Friends of ours, of course.", "fx": "laugh" }
+      ],
+      "fail": [ { "who": "gaozong", "zh": "来，签字吧。", "en": "Come on, let's sign.", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["第七条有问题。", "第七条，有问题。"],
+          "need": [["有问题"]],
+          "gloss": "Clause seven's a problem.",
+          "status": "live" },
+        "4": {
+          "answers": ["陈总，借一步，第七条有问题。"],
+          "need": [["借一步"], ["有问题"]],
+          "gloss": "陈总, a word: clause seven's a problem.",
+          "tip": "借一步: the word in private from the dinner.",
+          "status": "live" }
+      }
+    } },
+    { "who": "gaozong", "zh": "这是标准合同嘛，大家都签的。", "en": "It's a standard contract. Everyone signs it.", "pace": "fast" },
+    { "say": {
+      "id": "change",
+      "en": "Speak up to the table: clause seven has to change.",
+      "cue": "Speak up.",
+      "answers": ["第七条，我们得改一下。", "这个第七条，我们得改一下。"],
+      "gloss": "Clause seven: we need to change it.",
+      "need": [["第七条"], ["改一下"]],
+      "tip": "得 děi = have to: 我们得改一下.",
+      "ok": [
+        { "narr": "The room goes quiet." },
+        { "who": "gaozong", "zh": "……您听得懂？", "en": "...You understand?", "hold": 1 }
+      ],
+      "fail": [ { "who": "gaozong", "zh": "没问题，签吧！", "en": "No problem. Sign!", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["第七条要改。", "第七条得改。"],
+          "need": [["要改", "得改"]],
+          "gloss": "Clause seven has to change.",
+          "status": "live" },
+        "4": {
+          "answers": ["不好意思，第七条我们得改一下。"],
+          "need": [["不好意思"], ["第七条"]],
+          "gloss": "Forgive me: clause seven, we need to change it.",
+          "status": "live" }
+      }
+    } },
+    { "who": "chen", "zh": "很多年前，有个外国客人，签了一份他看不懂的合同。", "en": "Years ago, a foreign buyer signed a contract they couldn't read.", "pace": "slow" },
+    { "who": "chen", "zh": "交不了货，他走了。茶园差一点就没了。", "en": "They couldn't deliver, and walked away. We very nearly lost the farm.", "pace": "slow", "hold": 2 },
+    { "who": "chen", "zh": "所以我一直在试：你们到底听不听得懂。", "en": "So I've always tested people: do you really understand?", "pace": "slow" },
+    { "who": "chen", "zh": "我不是不相信你。我是怕。", "en": "It wasn't that I didn't trust you. I was afraid.", "pace": "slow", "hold": 2 },
+    { "who": "gaozong", "zh": "签不签？", "en": "Signing or not?", "pace": "fast" },
+    { "say": {
+      "id": "decide",
+      "en": "Sign with clause seven struck out, or refuse while 高总 is in the room.",
+      "cue": "Sign, or not?",
+      "answers": ["把第七条删了，我们就签。", "第七条删了，我们就签。"],
+      "gloss": "Strike clause seven, and we'll sign.",
+      "need": [["删了"], ["就签"]],
+      "key": { "删了": "struck out" },
+      "tip": "删 shān = delete, strike out. ……就…… = then, and only then.",
+      "sets": { "i-understand.ep6": "sign" },
+      "ok": [
+        { "who": "chen", "zh": "删。", "en": "Strike it.", "hold": 1 },
+        { "narr": "One line through clause seven. Two signatures." }
+      ],
+      "alts": [
+        { "en": "Or: not with 高总 here", "answers": ["高总在，我不签。", "高总在这儿，我不签。"], "need": [["高总在"], ["不签"]], "gloss": "With 高总 here, I'm not signing.",
+          "sets": { "i-understand.ep6": "refuse" },
+          "then": [
+            { "who": "gaozong", "zh": "……好，好。", "en": "...Fine. Fine.", "fx": "leave" },
+            { "who": "chen", "zh": "下个月，重新写。", "en": "Next month, we write it again from scratch." }
+          ] },
+        { "secret": true, "en": "Tell them: the deal can fail, the friendship stays", "answers": ["买卖不成仁义在。", "签不签，买卖不成仁义在。"], "need": [["仁义在"]], "gloss": "Deal or no deal, the goodwill stays.",
+          "sets": { "i-understand.ep6": "proverb" },
+          "then": [
+            { "who": "chennainai", "zh": "哈哈！说得好！", "en": "Ha! Well said!", "fx": "laugh" },
+            { "who": "chennainai", "zh": "茶园是我的。我来签。", "en": "The farm is mine. I'll sign." },
+            { "narr": "陈奶奶 strikes out clause seven herself, and signs as the owner. 高总 picks up his pen, and puts it down again.", "hold": 2 },
+            { "end": "win", "en": "Signed by the owner herself, with your proverb in the minutes. 陈奶奶 pours the first cup for you. Season one ends here. 🍵" }
+          ] }
+      ],
+      "fail": [ { "who": "gaozong", "zh": "签不签？", "en": "Signing or not?", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["第七条删了，就签。", "删了第七条，就签。"],
+          "need": [["删了"]],
+          "gloss": "Strike clause seven, then we sign.",
+          "alts": [ { "of": 0, "answers": ["高总在，不签。"], "need": [["不签"]], "gloss": "Not with 高总 here." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["把第七条删了，我们马上就签。"],
+          "need": [["马上"], ["删了"]],
+          "gloss": "Strike clause seven, and we'll sign right away.",
+          "alts": [ { "of": 0, "answers": ["只要高总在场，我就不签。"], "need": [["只要"], ["不签"]], "gloss": "As long as 高总 is in the room, I won't sign." } ],
+          "status": "live" }
+      }
+    } },
+    { "who": "chennainai", "zh": "来，喝茶。", "en": "Come. Tea.", "prop": "🍵" },
+    { "say": {
+      "id": "toast",
+      "en": "Raise your cup to the table, properly.",
+      "cue": "Toast.",
+      "answers": ["我以茶代酒，敬大家一杯。", "以茶代酒，敬大家一杯。"],
+      "gloss": "Tea in place of wine: a toast to you all.",
+      "need": [["以茶代酒"], ["敬大家"]],
+      "tip": "以茶代酒: from the dinner in episode 3, and right for a morning toast.",
+      "ok": [ { "who": "chennainai", "zh": "听得懂的孩子。", "en": "The one who understands.", "fx": "laugh" } ],
+      "fail": [ { "who": "chen", "zh": "说两句吧。", "en": "Say a few words." } ],
+      "levels": {
+        "2": {
+          "answers": ["我敬大家！", "敬大家一杯！"],
+          "need": [["敬大家"]],
+          "gloss": "To you all!",
+          "status": "live" },
+        "4": {
+          "answers": ["承蒙关照，我以茶代酒，敬大家一杯。"],
+          "need": [["承蒙关照"], ["以茶代酒"]],
+          "gloss": "Thank you for all your kindness. Tea in place of wine: to you all.",
+          "tip": "承蒙关照 = thank you for looking after me: the formal thanks.",
+          "status": "live" }
+      }
+    } },
+    { "when": { "i-understand.ep6": "sign" }, "end": "win", "en": "Signed, without clause seven. 高总 leaves before the tea is poured. Season one ends here. 🍵",
+      "else": [ { "end": "win", "en": "No signature today. 陈总 tears up the contract and pours the tea herself. Season one ends here. 🍵" } ] }
+  ]
+}

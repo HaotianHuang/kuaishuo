@@ -1,0 +1,88 @@
+{
+  "id": "one-hour",
+  "title": "一小时",
+  "title_en": "One Hour",
+  "eps": 6,
+  "audience": "all",
+  "levels": [
+    1,
+    3
+  ],
+  "genre": "adventure",
+  "home": {
+    "name": "重庆",
+    "en": "Chongqing on your best friend's wedding day: hills, stairs, a light rail through the flats"
+  },
+  "cast": {
+    "shifu": {
+      "name": "师傅",
+      "en": "a taxi driver who knows every shortcut",
+      "emoji": "🚕",
+      "voice": "m-mid",
+      "tts": "zm_015"
+    },
+    "ayi": {
+      "name": "阿姨",
+      "en": "a passer-by with a shopping trolley",
+      "emoji": "👵",
+      "voice": "f-old",
+      "tts": "zf_079"
+    },
+    "fuwuyuan": {
+      "name": "服务员",
+      "en": "a hot-pot waiter on a packed street",
+      "emoji": "🍲",
+      "voice": "f-mid",
+      "tts": "zf_023"
+    },
+    "baoan": {
+      "name": "保安",
+      "en": "the wedding venue's guard",
+      "emoji": "💂",
+      "voice": "m-old",
+      "tts": "zm_098"
+    },
+    "siji": {
+      "name": "婚车师傅",
+      "en": "the wedding car's driver",
+      "emoji": "🚗",
+      "voice": "m-young",
+      "tts": "zm_057"
+    },
+    "gongzuo": {
+      "name": "工作人员",
+      "en": "the cable car attendant",
+      "emoji": "🎫",
+      "voice": "m-old",
+      "tts": "zm_029"
+    },
+    "qiantai": {
+      "name": "前台",
+      "en": "the other hotel's front desk",
+      "emoji": "💁",
+      "voice": "f-young",
+      "tts": "zf_071"
+    },
+    "songnai": {
+      "name": "宋奶奶",
+      "en": "the 新人's grandmother: in red, and the life of every party",
+      "emoji": "👵",
+      "voice": "f-old",
+      "tts": "zf_046"
+    },
+    "xingli": {
+      "name": "行李员",
+      "en": "the airport baggage office clerk",
+      "emoji": "🧳",
+      "voice": "f-mid",
+      "tts": "zf_036"
+    },
+    "chengke": {
+      "name": "乘客",
+      "en": "a passenger on the packed light rail",
+      "emoji": "🚇",
+      "voice": "m-young",
+      "tts": "zm_012"
+    }
+  }
+}

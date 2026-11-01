@@ -1,0 +1,77 @@
+{
+  "id": "expectations",
+  "title": "远大前程",
+  "title_en": "Great Expectations",
+  "eps": 6,
+  "audience": "all",
+  "levels": [
+    2,
+    4
+  ],
+  "genre": "classic",
+  "home": {
+    "name": "珠江口",
+    "en": "a fishing village on the Pearl River delta, 1998, and the mudflats at dusk; retold from Dickens"
+  },
+  "cast": {
+    "stranger": {
+      "name": "陌生人",
+      "en": "a man with a chain on his ankle: desperate, not a monster",
+      "emoji": "🧔",
+      "voice": "m-old",
+      "tts": "zm_033",
+      "aka": [
+        "老马"
+      ]
+    },
+    "jiujiu": {
+      "name": "舅舅",
+      "en": "your uncle, a fisherman: quiet, on your side",
+      "emoji": "👨",
+      "voice": "m-mid",
+      "tts": "zm_013"
+    },
+    "jiuma": {
+      "name": "舅妈",
+      "en": "your aunt: strict, never cruel",
+      "emoji": "👩",
+      "voice": "f-mid",
+      "tts": "zf_047"
+    },
+    "he": {
+      "name": "何小姐",
+      "en": "a rich recluse: every clock in her house stopped at 9:15 on her wedding day",
+      "emoji": "👰",
+      "voice": "f-old",
+      "tts": "zf_099"
+    },
+    "xiaoxue": {
+      "name": "小雪",
+      "en": "何小姐's ward, twelve: cold from the first look",
+      "emoji": "👧",
+      "voice": "kid",
+      "tts": "zf_085"
+    },
+    "jia": {
+      "name": "贾律师",
+      "en": "a lawyer from 深圳: precise, and cold",
+      "emoji": "💼",
+      "voice": "m-mid",
+      "tts": "zm_009"
+    },
+    "xiaobai": {
+      "name": "小柏",
+      "en": "your flatmate in 深圳: kind",
+      "emoji": "🧑",
+      "voice": "m-young",
+      "tts": "zm_057"
+    },
+    "xue": {
+      "name": "小雪",
+      "en": "小雪, grown up and back from abroad",
+      "emoji": "👩",
+      "voice": "f-young",
+      "tts": "zf_071"
+    }
+  }
+}

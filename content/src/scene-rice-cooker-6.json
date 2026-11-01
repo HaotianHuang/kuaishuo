@@ -1,0 +1,510 @@
+{
+  "id": "rice-cooker-6",
+  "format": "scene",
+  "title": "长寿面",
+  "title_en": "Birthday Noodles",
+  "level": 0,
+  "listen": 0,
+  "topics": [
+    "celebrations"
+  ],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": {
+    "id": "rice-cooker",
+    "ep": 6,
+    "next": "Season one is over. 小饭 has updated itself. It now has opinions about your love life."
+  },
+  "tags": [
+    "电饭煲",
+    "生日",
+    "长寿面"
+  ],
+  "setting": "Your flat, Thursday, 7 pm. Your birthday. Something is steaming in the kitchen.",
+  "stage": "🍜",
+  "bg": [
+    "#2a1a0b",
+    "#e07030"
+  ],
+  "cast": {
+    "xiaofan": {
+      "name": "小饭",
+      "en": "your smart rice cooker",
+      "emoji": "🍚",
+      "voice": "kid",
+      "speed": 0.85
+    },
+    "bingbing": {
+      "name": "冰冰",
+      "en": "the fridge",
+      "emoji": "🧊",
+      "voice": "f-young",
+      "speed": 0.85
+    },
+    "saosao": {
+      "name": "扫扫",
+      "en": "the robot vacuum",
+      "emoji": "🤖",
+      "voice": "m-young",
+      "speed": 0.85
+    },
+    "laoma": {
+      "name": "老妈",
+      "en": "your mum, in person for once",
+      "emoji": "👩",
+      "voice": "f-mid",
+      "speed": 0.85
+    }
+  },
+  "steps": [
+    {
+      "when": {
+        "rice-cooker.ep5": "secret"
+      },
+      "narr": "You walk in and act surprised. Very, very badly.",
+      "else": [
+        {
+          "narr": "You're in on it. And you've got a surprise of your own for mum, in your pocket."
+        }
+      ]
+    },
+    {
+      "when": {
+        "rice-cooker.ep5": "secret"
+      },
+      "who": "xiaofan",
+      "zh": "你知道！",
+      "en": "You knew!",
+      "else": [
+        {
+          "who": "xiaofan",
+          "zh": "好好演！",
+          "en": "Act natural!"
+        }
+      ]
+    },
+    {
+      "who": "xiaofan",
+      "zh": "生日快乐！",
+      "en": "Happy birthday!",
+      "fx": "jump"
+    },
+    {
+      "say": {
+        "id": "thanks",
+        "en": "Thank 小饭.",
+        "cue": "Thanks!",
+        "answers": [
+          "谢谢！",
+          "谢谢小饭！"
+        ],
+        "gloss": "Thank you!",
+        "need": [
+          [
+            "谢谢"
+          ]
+        ],
+        "tip": "谢谢 xièxie = thank you.",
+        "ok": [
+          {
+            "who": "xiaofan",
+            "zh": "我煮了长寿面！",
+            "en": "I made longevity noodles!"
+          }
+        ],
+        "fail": [
+          {
+            "who": "xiaofan",
+            "zh": "生日快乐！",
+            "en": "Happy birthday!"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "谢谢你，小饭！"
+            ],
+            "need": [
+              [
+                "谢谢你"
+              ]
+            ],
+            "gloss": "Thank you, 小饭!",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "谢谢你，小饭，我好开心！"
+            ],
+            "need": [
+              [
+                "开心"
+              ]
+            ],
+            "gloss": "Thank you, 小饭. I'm so happy!",
+            "status": "live"
+          }
+        },
+        "not": [
+          {
+            "heard": [
+              "不好开心",
+              "不开心"
+            ],
+            "note": "It's your birthday: 我好开心."
+          }
+        ]
+      }
+    },
+    {
+      "narr": "Noodles. From a rice cooker."
+    },
+    {
+      "who": "xiaofan",
+      "zh": "我是智能多功能锅！",
+      "en": "I am a SMART MULTI-COOKER!"
+    },
+    {
+      "sfx": "knock"
+    },
+    {
+      "who": "laoma",
+      "zh": "生日快乐！",
+      "en": "Happy birthday!",
+      "fx": "enter"
+    },
+    {
+      "narr": "Mum, with a bag of peach buns. Behind her, the fridge hums a note. The vacuum beeps. They all sing.",
+      "prop": "🍑"
+    },
+    {
+      "who": "bingbing",
+      "zh": "祝你生日快乐！",
+      "en": "Happy birthday to you!"
+    },
+    {
+      "who": "saosao",
+      "zh": "祝你生日快乐！",
+      "en": "Happy birthday to you!"
+    },
+    {
+      "sfx": "cheer"
+    },
+    {
+      "who": "xiaofan",
+      "zh": "吃面！别咬断！",
+      "en": "Eat! Don't bite them through!"
+    },
+    {
+      "say": {
+        "id": "taste",
+        "en": "Taste the noodles: delicious!",
+        "cue": "How is it?",
+        "answers": [
+          "好吃！",
+          "真好吃！"
+        ],
+        "gloss": "Delicious!",
+        "need": [
+          [
+            "好吃"
+          ]
+        ],
+        "tip": "长寿面 = long-life noodles: one long noodle, for a long life. Don't bite it through.",
+        "ok": [
+          {
+            "who": "laoma",
+            "zh": "当然好吃。",
+            "en": "Of course it is.",
+            "fx": "laugh"
+          }
+        ],
+        "fail": [
+          {
+            "who": "xiaofan",
+            "zh": "好吃吗？",
+            "en": "Is it good?"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "太好吃了！"
+            ],
+            "need": [
+              [
+                "太好吃"
+              ]
+            ],
+            "gloss": "So good!",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "太好吃了，跟妈做的一样！"
+            ],
+            "need": [
+              [
+                "一样"
+              ]
+            ],
+            "gloss": "So good! Just like mum's!",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "who": "xiaofan",
+      "zh": "孩子，多穿点！",
+      "en": "Child, wrap up warm!"
+    },
+    {
+      "who": "laoma",
+      "zh": "孩子，多穿点！",
+      "en": "Child, wrap up warm!",
+      "hold": 1
+    },
+    {
+      "narr": "The same words. The same moment. The same voice, very nearly."
+    },
+    {
+      "narr": "On 小饭's settings screen, one line, switched on.",
+      "zh": "妈妈模式：开",
+      "prop": "⚙️",
+      "hold": 1
+    },
+    {
+      "who": "laoma",
+      "zh": "我设的。",
+      "en": "I set it up.",
+      "pace": "slow"
+    },
+    {
+      "who": "laoma",
+      "zh": "我的语音，都给它了。",
+      "en": "I gave it all my voice notes.",
+      "pace": "slow"
+    },
+    {
+      "who": "laoma",
+      "zh": "你不常打电话。",
+      "en": "You don't call much.",
+      "pace": "slow"
+    },
+    {
+      "who": "laoma",
+      "zh": "它替我说。",
+      "en": "So it says things for me.",
+      "pace": "slow",
+      "hold": 2
+    },
+    {
+      "say": {
+        "id": "you",
+        "en": "React: so it was you!",
+        "cue": "It was you!",
+        "answers": [
+          "原来是你！"
+        ],
+        "gloss": "So it was you!",
+        "need": [
+          [
+            "原来"
+          ]
+        ],
+        "tip": "原来 yuánlái = so that's how it was: the penny dropping.",
+        "ok": [
+          {
+            "who": "laoma",
+            "zh": "生气了？",
+            "en": "Are you cross?",
+            "pace": "slow"
+          }
+        ],
+        "fail": [
+          {
+            "who": "laoma",
+            "zh": "是我。",
+            "en": "It was me.",
+            "pace": "slow"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "原来是你呀，妈！"
+            ],
+            "need": [
+              [
+                "原来是你"
+              ]
+            ],
+            "gloss": "So it was you, mum!",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "妈，原来是你！难怪！"
+            ],
+            "need": [
+              [
+                "难怪"
+              ]
+            ],
+            "gloss": "Mum, it was you! No wonder!",
+            "tip": "难怪 nánguài = no wonder.",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "who": "xiaofan",
+      "zh": "关掉吗？",
+      "en": "Turn it off?",
+      "pace": "slow"
+    },
+    {
+      "say": {
+        "id": "mode",
+        "en": "Turn mum mode off, or keep it.",
+        "cue": "Off, or keep?",
+        "answers": [
+          "关掉吧。",
+          "关了吧。"
+        ],
+        "gloss": "Turn it off.",
+        "need": [
+          [
+            "关掉",
+            "关了"
+          ]
+        ],
+        "tip": "关 guān = switch off. 关掉 = switch it right off.",
+        "sets": {
+          "rice-cooker.end": "off"
+        },
+        "ok": [
+          {
+            "narr": "小饭 beeps. Mum squeezes your hand."
+          },
+          {
+            "who": "laoma",
+            "zh": "那你多打电话。",
+            "en": "Then you call more."
+          }
+        ],
+        "alts": [
+          {
+            "en": "Or: keep it",
+            "answers": [
+              "留着！",
+              "留着吧！"
+            ],
+            "need": [
+              [
+                "留着"
+              ]
+            ],
+            "gloss": "Keep it!",
+            "key": {
+              "留着": "keep it"
+            },
+            "sets": {
+              "rice-cooker.end": "keep"
+            },
+            "then": [
+              {
+                "who": "laoma",
+                "zh": "那它天天说你！",
+                "en": "Then it'll nag you every day!",
+                "fx": "laugh"
+              },
+              {
+                "who": "xiaofan",
+                "zh": "孩子，多穿点！",
+                "en": "Child, wrap up warm!"
+              }
+            ]
+          }
+        ],
+        "fail": [
+          {
+            "who": "xiaofan",
+            "zh": "关吗？",
+            "en": "Off?"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "妈，关掉吧。"
+            ],
+            "need": [
+              [
+                "关掉吧"
+              ]
+            ],
+            "gloss": "Mum, turn it off.",
+            "alts": [
+              {
+                "of": 0,
+                "answers": [
+                  "留着吧，挺好！"
+                ],
+                "need": [
+                  [
+                    "挺好"
+                  ]
+                ],
+                "gloss": "Keep it. It's nice!"
+              }
+            ],
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "关掉吧，我会多打电话。"
+            ],
+            "need": [
+              [
+                "打电话"
+              ]
+            ],
+            "gloss": "Turn it off. I'll call more.",
+            "alts": [
+              {
+                "of": 0,
+                "answers": [
+                  "留着吧，挺好，像你在家。"
+                ],
+                "need": [
+                  [
+                    "在家"
+                  ]
+                ],
+                "gloss": "Keep it. It's nice: like you're here."
+              }
+            ],
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "when": {
+        "rice-cooker.end": "off"
+      },
+      "end": "win",
+      "en": "Birthday night. Mum on the sofa, 小饭 on standby, and a new alarm on your phone: call mum, Sundays. Season one ends here. 🍜",
+      "else": [
+        {
+          "end": "win",
+          "en": "Birthday night. Two voices tell you to wear a jumper: one from the sofa, one from the kitchen. Season one ends here. 🍜"
+        }
+      ]
+    }
+  ]
+}

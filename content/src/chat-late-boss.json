@@ -1,0 +1,156 @@
+{
+  "id": "late-boss",
+  "format": "chat",
+  "title": "老板：在吗？",
+  "title_en": "Your Boss, 11 pm: You There?",
+  "level": 3,
+  "topics": ["work"],
+  "audience": "new",
+  "hook": 3,
+  "status": "live",
+  "tags": ["上班", "老板", "加班"],
+  "write": ["收到", "休息"],
+  "setting": "Tuesday, 11:04 pm. You're in bed, nearly asleep.",
+  "stage": "💼",
+  "bg": ["#101828", "#334a7a"],
+  "chat": { "with": "zhang", "giveup": [
+    { "who": "zhang", "zh": "算了。", "en": "Never mind." },
+    { "who": "zhang", "zh": "明天一早，来我办公室一趟。", "en": "First thing tomorrow, come to my office." },
+    { "end": "lose", "en": "You left your boss on read at midnight. Tomorrow starts in his office.", "zh": "明天一早，办公室见。" }
+  ] },
+  "cast": {
+    "zhang": { "is": "zhangzong", "name": "张总", "en": "your boss", "emoji": "👨‍💼", "voice": "m-mid" }
+  },
+  "steps": [
+    { "narr": "Tuesday, 11:04 pm. You're nearly asleep when your phone lights up.", "zh": "晚上十一点，你刚要睡着，手机亮了。" },
+    { "sfx": "buzz" },
+    { "who": "zhang", "zh": "在吗？", "en": "You there?", "clock": "23:04", "typing": 1.5 },
+    { "say": {
+      "id": "here",
+      "en": "Reply politely: yes, you're here. Go ahead.",
+      "cue": "Yes, boss?",
+      "reply": "type",
+      "answers": ["在的，您说。", "在的，张总您说。", "我在，您说。", "在，您请讲。"],
+      "gloss": "Yes, I'm here. Go ahead.",
+      "need": [["在"], ["您说", "你说", "请讲"]],
+      "time": 20,
+      "tip": "在的 is the polite 'yes, I'm here' (a bare 在 sounds curt). 您说 = go ahead, I'm listening.",
+      "decoys": ["再", "得"],
+      "mistakes": [ { "heard": ["再的"], "typed": true, "note": "再 (again) sounds just like 在 (here). 'I'm here' is 在." } ],
+      "ok": [
+        { "who": "zhang", "zh": "明天的会提前到早上八点", "en": "Tomorrow's meeting has moved up to 8 am.", "typing": 2.5 },
+        { "who": "zhang", "zh": "方案你再改一下，七点半前发我", "en": "Revise the proposal and send it to me before 7:30.", "typing": 3 }
+      ],
+      "fail": [ { "who": "zhang", "zh": "睡了？", "en": "Asleep?", "typing": 1 } ],
+      "levels": {
+        "4": { "en": "Reply politely: yes, you're here. Ask if he's still busy this late, then let him go ahead.",
+               "answers": ["在的张总，这么晚还在忙啊？您说。", "在的，这么晚了您还在忙？您说。", "我在，张总这么晚还没睡啊？您请讲。", "在的在的，您这么晚还在忙啊，您说！"],
+               "gloss": "Yes, Boss Zhang. Still busy this late? Go ahead.", "need": [["在"], ["您说", "你说", "请讲"], ["这么晚", "还在忙"]], "time": 25,
+               "tip": "这么晚还在忙啊？ = still busy this late? A little care before 您说 softens an 11 pm reply.", "key": { "这么晚": "this late" }, "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "gotit",
+      "en": "Got it: say you'll send it before half past seven.",
+      "cue": "Got it, boss.",
+      "reply": "type",
+      "answers": ["收到，七点半前发您。", "好的，七点半之前发给您。", "收到！明早七点半前发您。", "没问题，七点半前给您。"],
+      "gloss": "Got it. I'll send it before 7:30.",
+      "need": [["收到", "好的", "没问题"], ["七点"], ["点半"]],
+      "time": 22,
+      "tip": "收到 = got it, the standard reply to a boss. 发您 = send (it) to you. 前 or 之前 = before.",
+      "decoys": ["手", "道"],
+      "ok": [ { "who": "zhang", "zh": "好", "en": "Good.", "typing": 1 } ],
+      "fail": [ { "who": "zhang", "zh": "收到没有？", "en": "Did you get that?", "typing": 1 } ],
+      "levels": {
+        "2": { "en": "Got it: say you'll fix it right away.", "answers": ["收到，马上改。", "好的，马上改！", "收到，七点半前发您。", "没问题，这就改。"], "gloss": "Got it. I'll fix it right away.",
+               "need": [["收到", "好的", "没问题"], ["马上", "七点", "这就", "现在"]],
+               "tip": "收到 = got it, the standard reply to a boss. 马上 = right away. 改 = revise, fix.", "status": "live" },
+        "4": { "en": "Got it: promise it'll be with him before half past seven.",
+               "answers": ["收到，您放心，七点半前保证发您。", "好的，七点半前一定发给您，您放心！", "收到！保证七点半之前发您。", "没问题，您放心，七点半前给您。"],
+               "gloss": "Got it. Don't worry, you'll have it before 7:30, I promise.", "need": [["收到", "好的", "没问题"], ["七点"], ["点半"], ["保证", "放心", "一定"]], "time": 26,
+               "tip": "您放心 = rest assured. 保证 = I promise (guaranteed): a deadline said with a promise.", "status": "live" }
+      }
+    } },
+    { "who": "zhang", "zh": "老婆，我今晚又得加班，你先睡吧", "tail": "🌙", "en": "Honey, I'm working late again tonight. Don't wait up.", "typing": 3, "recall": 2.5 },
+    { "narr": "Your boss unsent a message.", "zh": "张总撤回了一条消息", "kind": "system" },
+    { "who": "zhang", "zh": "刚才那条发错了", "en": "That last one was sent by mistake.", "typing": 3 },
+    { "who": "zhang", "zh": "你没看到吧？", "en": "You didn't see it, did you?", "typing": 1.5 },
+    { "say": {
+      "id": "sawnothing",
+      "en": "Reassure him: you didn't see a thing. Nothing at all.",
+      "cue": "You saw nothing.",
+      "reply": "type",
+      "answers": ["没看到，什么都没看到！", "什么都没看到！", "没有没有，我啥也没看见。", "我什么也没看见。"],
+      "gloss": "Didn't see it. Didn't see a thing!",
+      "need": [["没看"]],
+      "time": 18,
+      "tip": "什么都没…… = didn't … anything at all. 啥也没看见 is the casual northern way to say it.",
+      "alts": [
+        { "en": "Claim you've just woken up",
+          "answers": ["啊？我刚才睡着了。", "啊？我刚睡着了。", "刚才睡着了，怎么了？"],
+          "gloss": "Huh? I was asleep just now.",
+          "need": [["睡着"]],
+          "then": [
+            { "who": "zhang", "zh": "你一秒钟前还在回我消息", "en": "You were replying to me one second ago.", "typing": 2 },
+            { "who": "zhang", "kind": "sticker", "art": "🙂", "zh": "呵呵", "en": "Heh." }
+          ] }
+      ],
+      "ok": [ { "who": "zhang", "zh": "很好", "tail": "👍", "en": "Good.", "typing": 1.5 } ],
+      "fail": [ { "who": "zhang", "zh": "你看到了？？", "en": "You SAW it??", "typing": 0.8 } ],
+      "levels": {
+        "2": { "answers": ["没看到啊，怎么了？", "没看到，没看到！", "我没看见！", "什么都没看到！"], "gloss": "Didn't see it. What's up?",
+               "tip": "没看到 = didn't see (it). 怎么了？ = what's up? (All innocence.)", "status": "live" },
+        "4": { "en": "Reassure him: you didn't see a thing, and anyway, your lips are sealed.",
+               "answers": ["您放心，我什么都没看到，嘴很严的！", "您放心，什么都没看到，我嘴严得很。", "没看到没看到，我嘴巴很紧的！", "什么都没看到，我也不会乱说的。"],
+               "gloss": "Don't worry, I didn't see a thing. And my lips are sealed!", "need": [["没看"], ["嘴很严", "嘴严", "嘴巴很紧", "嘴巴紧", "不会乱说", "不会说出去"]], "time": 24,
+               "alts": [{ "of": 0, "answers": ["啊？我刚睡醒，您发什么了？", "不好意思，我刚才睡着了，怎么了？", "啊？刚才睡着了，您说什么了？"], "gloss": "Huh? I've only just woken up. What did you send?", "need": [["睡着", "睡醒"]] }],
+               "tip": "嘴严 = tight-lipped, good at keeping secrets. 什么都没…… = not … anything at all.", "key": { "嘴很严": "tight-lipped (keeps secrets)" }, "status": "live" }
+      }
+    } },
+    { "who": "zhang", "zh": "早点休息吧", "en": "Get some rest.", "typing": 2 },
+    { "say": {
+      "id": "rest",
+      "en": "Wish him good night, politely: he should get some rest too.",
+      "cue": "Good night, boss.",
+      "reply": "type",
+      "answers": ["好的，您也早点休息！", "您也早点休息，辛苦了！", "好的，张总晚安！", "您也是，早点睡！"],
+      "gloss": "OK, you get some rest too!",
+      "need": [["休息", "晚安", "早点睡"]],
+      "time": 18,
+      "tip": "早点休息 = get some rest (literally, rest a bit early), the polite good night. 辛苦了 = thanks for all your hard work.",
+      "fail": [ { "who": "zhang", "zh": "嗯？", "en": "Hm?", "typing": 1 } ],
+      "levels": {
+        "4": { "en": "Wish him good night, politely: he should rest too. His health comes first.",
+               "answers": ["好的，您也早点休息，身体要紧！", "您也早点休息，别太累了，身体要紧。", "好的张总，早点休息，注意身体！", "您也早点睡，别太累了！"],
+               "gloss": "OK, you get some rest too. Your health comes first!", "need": [["休息", "晚安", "早点睡"], ["身体", "别太累", "太累"]], "time": 24,
+               "tip": "身体要紧 = your health comes first (要紧 = what matters most): the caring good night to someone senior.", "status": "live" }
+      }
+    } },
+    { "who": "zhang", "zh": "对了", "en": "Oh, one more thing.", "clock": "23:58", "typing": 2 },
+    { "who": "zhang", "zh": "明天的会取消了", "en": "Tomorrow's meeting is cancelled.", "typing": 2 },
+    { "say": {
+      "id": "deadpan",
+      "en": "Reply like a professional. Calmly.",
+      "cue": "Stay professional.",
+      "reply": "type",
+      "answers": ["好的，收到。", "收到。", "收到，谢谢张总。", "好的，明白。"],
+      "gloss": "OK, noted.",
+      "need": [["收到", "好的", "明白"]],
+      "time": 20,
+      "tip": "收到 again: the word every office worker can type in their sleep. 明白 = understood.",
+      "ok": [
+        { "who": "zhang", "zh": "不过方案还是要发我", "en": "But still send me the proposal.", "typing": 2.5 },
+        { "who": "zhang", "zh": "七点半前", "en": "Before 7:30.", "typing": 1 }
+      ],
+      "fail": [ { "who": "zhang", "zh": "收到没有？", "en": "Did you get that?", "typing": 1 } ],
+      "levels": {
+        "4": { "en": "Reply like a professional. Then try your luck: so the proposal can wait, right?",
+               "answers": ["收到。那方案是不是就不用发了？", "收到。那方案还要发您吗？", "明白，那方案是不是不用交了？", "好的收到，方案还照常发您吗？"],
+               "gloss": "Noted. So I don't need to send the proposal now, right?", "need": [["收到", "好的", "明白"], ["方案"]], "time": 25,
+               "tip": "是不是就不用……了？ = so I don't have to … any more, right? (hoping). 方案 = the proposal.", "status": "live" }
+      }
+    } },
+    { "end": "win", "en": "The meeting is off. The deadline isn't. Welcome to office life.", "zh": "会取消了，方案还得交。" }
+  ]
+}

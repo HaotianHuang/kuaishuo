@@ -1,0 +1,133 @@
+{
+  "id": "liaozhai-couplet",
+  "format": "scene",
+  "title": "狐联",
+  "title_en": "The Fox's Couplet",
+  "level": 5,
+  "listen": 5,
+  "topics": ["celebrations"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "liaozhai", "ep": 3, "next": "The sisters never visited again. You've been practising couplets ever since." },
+  "tags": ["聊斋", "狐联", "对联"],
+  "setting": "元宵 night, long ago. The whole town is out guessing lantern riddles. You've stayed in your study with your books.",
+  "stage": "🏮",
+  "bg": ["#1a0a10", "#c0503a"],
+  "cast": {
+    "dajie": { "name": "大姐", "en": "the elder fox sister: sets riddles, never loses", "emoji": "🏮", "voice": "f-young" },
+    "xiaomei": { "name": "小妹", "en": "the younger fox sister: laughs at everything, kindly", "emoji": "🪭", "voice": "f-young" }
+  },
+  "steps": [
+    { "narr": "元宵 night. Lanterns in every street, and riddles hung from every lantern. You stay in your study, reading." },
+    { "sfx": "knock" },
+    { "narr": "Two young women at your door, each with a lantern. Their shadows on the wall have pointed ears.", "hold": 1 },
+    { "who": "dajie", "zh": "外面都在猜灯谜，您怎么一个人在读书？", "en": "Everyone's out guessing lantern riddles. Why are you here reading on your own?" },
+    { "say": {
+      "id": "sit",
+      "en": "Receive them formally: please be seated, and forgive your humble rooms.",
+      "cue": "Receive them.",
+      "answers": ["二位请坐，寒舍简陋，见笑了。"],
+      "gloss": "Please, both of you, sit. My poor rooms are very plain: forgive me.",
+      "need": [["二位请坐"], ["寒舍"], ["见笑"]],
+      "key": { "寒舍": "my humble home" },
+      "tip": "寒舍 hánshè = 'my cold house': the modest word for your own home. 见笑了 = you'll laugh at me (forgive me).",
+      "ok": [ { "who": "xiaomei", "zh": "好一个有礼的读书人。", "en": "What a well-mannered scholar.", "fx": "laugh" } ],
+      "fail": [ { "who": "xiaomei", "zh": "不请我们坐吗？", "en": "Won't you ask us to sit?" } ],
+      "levels": {
+        "4": {
+          "answers": ["二位请坐，见笑了。"],
+          "need": [["二位请坐"], ["见笑"]],
+          "gloss": "Please, both of you, sit. Forgive the place.",
+          "status": "live" }
+      }
+    } },
+    { "who": "dajie", "zh": "我们不白坐。出个对子，您对上了，我们就走。", "en": "We don't sit for nothing. I'll give you half a couplet. Match it, and we'll go." },
+    { "who": "xiaomei", "zh": "对不上，我们就不走。", "en": "Don't, and we won't.", "fx": "laugh" },
+    { "narr": "She dips a brush, and writes the first line in one stroke of the wrist.", "zh": "戊戌同体，腹中只欠一点。", "prop": "📜" },
+    { "who": "dajie", "zh": "戊戌同体，腹中只欠一点。请对下联。", "en": "戊 and 戌 share one body; only the belly lacks a stroke. Your line, please.", "pace": "slow" },
+    { "say": {
+      "id": "try",
+      "en": "Try an answer of your own: 甲 and 由 share a body too, but one stroke pokes out at the top.",
+      "cue": "Try.",
+      "answers": ["甲由同体，头上多出一竖。"],
+      "gloss": "甲 and 由 share one body; up top, one stroke sticks out.",
+      "need": [["甲由"], ["头上"], ["一竖"]],
+      "tip": "Her riddle: 戊 and 戌 look alike, but 戌 has one more stroke inside, 'in the belly'. Yours: 甲 and 由 look alike, but 由's middle stroke pokes out at the top. 竖 shù = a vertical stroke.",
+      "ok": [
+        { "who": "dajie", "zh": "有意思！", "en": "Clever!", "fx": "laugh" },
+        { "who": "xiaomei", "zh": "可惜，不工整。", "en": "Shame it isn't a strict match." }
+      ],
+      "fail": [ { "who": "xiaomei", "zh": "想好了吗？", "en": "Ready yet?" } ],
+      "levels": {
+        "4": {
+          "answers": ["甲由同体。", "甲由同体，头上一竖。"],
+          "need": [["甲由同体"]],
+          "gloss": "甲 and 由 share one body.",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaomei", "zh": "上联讲肚子，下联也得讲身上。还得一样长。", "en": "The first line's about the belly; yours must be about the body too. And just as long." },
+    { "say": {
+      "id": "concede",
+      "en": "Concede gracefully: you can't match it, and you admire it.",
+      "cue": "Concede.",
+      "answers": ["学生才疏学浅，对不上，佩服佩服。"],
+      "gloss": "My learning is thin. I can't match it. I'm full of admiration.",
+      "need": [["才疏学浅"], ["对不上"], ["佩服佩服"]],
+      "tip": "才疏学浅 = little talent, shallow learning: the scholar's modest shrug. 佩服佩服 = I admire it, said twice.",
+      "ok": [
+        { "who": "dajie", "zh": "那我替您对。", "en": "Then I'll match it for you." },
+        { "narr": "She writes the second line beside the first.", "zh": "己巳连踪，足下何不双挑。", "prop": "📜" },
+        { "who": "dajie", "zh": "己巳连踪，足下何不双挑。", "en": "己 and 巳 walk in step; at the foot, why not both flick up?", "pace": "slow" }
+      ],
+      "fail": [ { "who": "dajie", "zh": "对不上，就认输。", "en": "If you can't match it, admit it." } ],
+      "levels": {
+        "4": {
+          "answers": ["学生对不上，佩服佩服。"],
+          "need": [["对不上"], ["佩服"]],
+          "gloss": "I can't match it. I'm full of admiration.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "戊 and 戌 share a body; 戌 has one stroke more in the belly. 己 and 巳 walk side by side; at the foot, both strokes flick upward, 双挑. And 足下, 'at the foot', is also an old polite word for 'you'.", "hold": 2 },
+    { "who": "xiaomei", "zh": "姐姐太难为人了！换个容易的。", "en": "Sister, that's too hard on anyone! Give an easier one.", "fx": "laugh" },
+    { "who": "dajie", "zh": "好。天增岁月人增寿。", "en": "Very well. 'Heaven adds months and years; people add long life.'", "pace": "slow" },
+    { "say": {
+      "id": "match",
+      "en": "Concede with grace, or match the easier line.",
+      "cue": "Concede, or match?",
+      "answers": ["二位才高八斗，学生甘拜下风。"],
+      "gloss": "You two have talent to spare. I bow to you.",
+      "need": [["才高八斗"], ["甘拜下风"]],
+      "tip": "甘拜下风 = gladly bow from downwind: I admit you're better.",
+      "sets": { "liaozhai.couplet": "concede" },
+      "ok": [
+        { "who": "dajie", "zh": "知道自己对不上，也是学问。", "en": "Knowing what you can't match is learning too." },
+        { "who": "xiaomei", "zh": "好，我们走了！", "en": "All right, we'll go!", "fx": "leave" }
+      ],
+      "alts": [
+        { "en": "Or: match it: spring fills heaven and earth, and luck fills the door", "answers": ["春满乾坤福满门，请二位指教。"], "need": [["指教"], ["春满乾坤"], ["福满门"]], "gloss": "'Spring fills heaven and earth; luck fills the house.' Your verdict?",
+          "key": { "乾坤": "heaven and earth" },
+          "sets": { "liaozhai.couplet": "match" },
+          "then": [
+            { "who": "xiaomei", "zh": "对上了！", "en": "A match!", "fx": "laugh" },
+            { "who": "dajie", "zh": "这是门上贴的。算您会找。", "en": "That one's pasted on every door in town. Still, credit for finding it." }
+          ] }
+      ],
+      "fail": [ { "who": "dajie", "zh": "天增岁月人增寿。", "en": "Heaven adds months and years; people add long life.", "pace": "slow" } ],
+      "levels": {
+        "4": {
+          "answers": ["我甘拜下风。", "学生甘拜下风。"],
+          "need": [["甘拜下风"]],
+          "gloss": "I bow to you.",
+          "alts": [ { "of": 0, "answers": ["春满乾坤福满门。"], "need": [["福满门"]], "gloss": "'Spring fills heaven and earth; luck fills the house.'",
+            "tip": "增 pairs with 满, 岁月 with 乾坤, 人 with 福, 寿 with 门: the 春联 on half the doors in China." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "They're gone, lanterns and all. On your desk, a sheet of red paper, with the couplet in a hand you've never seen." },
+    { "when": { "liaozhai.couplet": "concede" }, "end": "win", "en": "The sisters never visited again. You've been practising couplets ever since. 🏮",
+      "else": [ { "end": "win", "en": "The sisters never visited again. You pasted their red paper on your door, and you've been practising couplets ever since. 🏮" } ] }
+  ]
+}

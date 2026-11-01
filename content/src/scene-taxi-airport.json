@@ -1,0 +1,148 @@
+{
+  "id": "taxi-airport",
+  "format": "scene",
+  "title": "赶飞机",
+  "title_en": "Forty Minutes to Boarding",
+  "level": 2,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "tags": ["打车", "赶飞机", "北京"],
+  "write": ["机场", "高速", "来不及"],
+  "setting": "Beijing, the Third Ring Road, 7:20 am.",
+  "stage": "🚕",
+  "bg": ["#1c1f26", "#8a6212"],
+  "cast": {
+    "driver": { "name": "师傅", "en": "a Beijing cabbie with a jar of tea", "emoji": "🧓", "voice": "m-old" },
+    "nav": { "name": "导航", "en": "the sat-nav", "emoji": "📱", "voice": "f-mid", "phone": true }
+  },
+  "steps": [
+    { "narr": "Your flight boards at eight. It's 7:20. You leap into a taxi. ⏱️", "zh": "早上七点二十，八点就要登机了，你刚跳上出租车。" },
+    { "who": "driver", "zh": "早啊！去哪儿您？", "en": "Morning! Where to?" },
+    { "say": {
+      "id": "where",
+      "en": "Tell him: Capital Airport, you've got a flight to catch!",
+      "answers": ["师傅，去首都机场！我赶飞机！", "去首都机场，我赶飞机。", "师傅，机场，快！", "去机场，三号航站楼！"],
+      "gloss": "Capital Airport, please! I've got a flight to catch!",
+      "need": [["机场"]],
+      "tip": "师傅 shīfu: what you call any driver. 赶飞机 gǎn fēijī = to rush for a flight.",
+      "mistakes": [ { "heard": ["司机"], "note": "司机 is the job title. To his face, a driver is 师傅." } ],
+      "ok": [ { "who": "driver", "zh": "赶飞机啊？几点的？", "en": "Got a flight, eh? What time?" } ],
+      "fail": [ { "who": "driver", "zh": "您说去哪儿？", "en": "Where did you say?", "fx": "squint" } ],
+      "cue": "You've a flight!",
+      "miss": [ { "who": "driver", "zh": "不说话？看您这箱子，去机场吧？", "en": "Not talking? With that suitcase, it's the airport, right?", "fx": "squint" } ],
+      "levels": {
+        "1": { "en": "Tell him where: the airport!", "answers": ["师傅，去机场！", "去首都机场！", "去机场，快！", "师傅，机场！"], "gloss": "To the airport, please!", "need": [["机场"]],
+               "tip": "去 + a place = (take me) to…: all a taxi needs to hear. 师傅 shīfu: what you call any driver.", "status": "live" },
+        "3": { "en": "Tell him: Capital Airport, and ask him nicely to hurry.", "answers": ["师傅，去首都机场，麻烦快点儿！", "师傅，首都机场，我赶时间！", "去机场，麻烦您开快点儿！", "师傅，去机场，能快点儿吗？"], "gloss": "Capital Airport, please, and would you mind hurrying?", "need": [["机场"], ["快", "赶时间", "着急", "急着"]],
+               "tip": "麻烦 máfan + a request = would you mind…: the soft way to ask anyone for anything. 快点儿 = a bit faster; 赶时间 = I'm in a hurry.", "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "late",
+      "en": "Boarding's at eight. Tell him you're nearly out of time!",
+      "answers": ["八点登机，快来不及了！", "八点的飞机，要来不及了！", "八点登机，我怕赶不上！", "师傅快点儿，来不及了！"],
+      "gloss": "Boarding's at eight, I'm almost out of time!",
+      "need": [["不及", "赶不"]],
+      "tip": "来不及了 láibují le = there's no time left. The hopeful version: 来得及 = there's still time.",
+      "mistakes": [
+        { "heard": ["迟到"], "note": "迟到 is late for class or work. For a flight: 来不及了, or 赶不上飞机." },
+        { "heard": ["来得及", "赶得上"], "note": "来得及 and 赶得上 mean there's still time. Out of time is 来不及, or 赶不上." }
+      ],
+      "ok": [
+        { "sfx": "honk" },
+        { "who": "nav", "zh": "前方道路拥堵，预计还需四十分钟。", "en": "Heavy traffic ahead. Forty minutes to your destination." }
+      ],
+      "fail": [ { "who": "driver", "zh": "几点的？您别急，慢慢说。", "en": "What time? Don't panic, take it slow." } ],
+      "cue": "Boarding at eight!",
+      "miss": [ { "who": "driver", "zh": "不着急是吧？那我慢慢开。", "en": "No rush, then? I'll take it easy.", "fx": "laugh" } ],
+      "levels": {
+        "1": { "answers": ["八点！来不及了！", "来不及了！", "快来不及了！", "我赶不上了！"], "gloss": "Eight! There's no time!", "need": [["不及", "赶不"]], "status": "live" },
+        "3": { "en": "Boarding's at eight. Tell him one more jam and you've had it!", "answers": ["八点登机，再堵就来不及了！", "再堵下去，就赶不上飞机了！", "八点的飞机，再堵车就来不及了！", "师傅，再堵就真来不及了！"], "gloss": "Boarding's at eight. Any more traffic and I've had it!", "need": [["不及", "赶不"], ["堵"]],
+               "tip": "再…就… = any more…and…: 再堵就来不及了 = one more jam and I'm out of time. 堵 dǔ = jammed; 堵车 = a traffic jam.", "key": { "堵": "jammed (traffic)" }, "status": "live" }
+      }
+    } },
+    { "who": "driver", "zh": "急也没用！我跟您说，我开了三十年出租……", "en": "No use panicking! Let me tell you, I've been driving a cab for thirty years...", "fx": "laugh" },
+    { "say": {
+      "id": "highway",
+      "en": "Cut in: ask him to take the expressway!",
+      "time": 12,
+      "answers": ["师傅，咱们走高速吧！", "走机场高速吧！", "师傅，能走高速吗？", "咱走高速，快点儿！"],
+      "gloss": "Let's take the expressway!",
+      "need": [["高速"]],
+      "tip": "走 zǒu = take (a route): 走高速 = take the expressway. 咱们 zánmen is a 'we' that includes him: friendly.",
+      "mistakes": [ { "heard": ["公路", "快的路"], "note": "The expressway is 高速 gāosù (short for 高速公路), and you take it with 走: 走高速." } ],
+      "alts": [
+        { "en": "Or: tell him to cut through the back streets", "answers": ["抄近道吧，走小路！", "师傅，走小路！", "咱们抄近道吧！", "师傅，抄近路吧！"], "gloss": "Take a shortcut, use the back streets!", "need": [["小路", "近道", "近路"]],
+          "then": [
+            { "who": "driver", "zh": "抄近道？您胆儿够大的！坐稳了！", "en": "Back streets? You've got nerve! Hold on tight!", "fx": "laugh" },
+            { "sfx": "whoosh" },
+            { "narr": "He swings into a lane barely wider than the taxi. A man on a tricycle flattens himself against a wall.", "zh": "车拐进一条窄路，骑三轮的大爷赶紧贴墙站好。" }
+          ] }
+      ],
+      "ok": [
+        { "who": "driver", "zh": "好嘞，上高速！您坐稳了！", "en": "Right you are, expressway it is! Hold on tight!" },
+        { "sfx": "whoosh" }
+      ],
+      "fail": [ { "who": "driver", "zh": "……那会儿四环外头还是庄稼地呢……", "en": "...back then, past the Fourth Ring it was all cornfields..." } ],
+      "cue": "Faster route!",
+      "miss": [
+        { "who": "driver", "zh": "……后来啊，三环也开始堵了……", "en": "...and then the Third Ring started jamming too..." },
+        { "end": "lose", "en": "Forty minutes of Beijing traffic history later, your gate has closed. ✈️", "zh": "北京交通史讲完了，登机口也关了。" }
+      ],
+      "levels": {
+        "1": { "answers": ["咱们走高速！", "走高速吧！", "师傅，走高速！", "上高速吧！"], "gloss": "Let's take the expressway!", "need": [["高速"]],
+               "alts": [{ "of": 0, "answers": ["走小路吧！", "抄近道吧！", "师傅，走小路！"], "gloss": "Take the back streets!", "need": [["小路", "近道", "近路"]] }], "status": "live" },
+        "3": { "en": "Cut in politely: ask him to take the expressway.", "answers": ["师傅，打断一下，咱们走高速吧！", "不好意思，师傅，咱走高速吧！", "师傅，不好意思，能走高速吗？", "打断一下，咱们走机场高速吧！"], "gloss": "Sorry to cut in, but let's take the expressway!", "need": [["高速"], ["打断", "不好意思", "抱歉"]],
+               "tip": "打断一下 dǎduàn yíxià = sorry to cut in: how you stop anyone mid-story without being rude. 走高速 = take the expressway.", "status": "live" }
+      }
+    } },
+    { "who": "driver", "zh": "您这么急，怎么不早点儿出门啊？", "en": "If you're in such a rush, why didn't you leave earlier?" },
+    { "say": {
+      "id": "longstory",
+      "en": "You've no breath for that story. Tell him it's a long one.",
+      "answers": ["说来话长，您专心开车吧！", "唉，说来话长。", "一言难尽啊！", "说来话长，回头再说！"],
+      "gloss": "It's a long story. You just focus on driving!",
+      "need": [["说来话长", "一言难尽"]],
+      "tip": "说来话长 = it's a long story. 一言难尽 = too much to put in a word. Both close a topic politely.",
+      "mistakes": [ { "heard": ["长故事", "很长的故事"], "note": "'Long story' isn't 长故事 in Chinese. Say 说来话长." } ],
+      "ok": [ { "who": "driver", "zh": "哈哈，懂了，睡过头了吧？", "en": "Haha, I get it. Overslept, didn't you?", "fx": "laugh" } ],
+      "fail": [ { "who": "driver", "zh": "嗯？说说呗，反正也堵着。", "en": "Hm? Go on, tell me. We're stuck anyway." } ],
+      "cue": "No time for chit-chat.",
+      "miss": [ { "who": "driver", "zh": "不想说？那我接着说我的。", "en": "Don't want to say? Then back to my story.", "fx": "laugh" } ],
+      "levels": {
+        "1": { "answers": ["唉，说来话长。", "说来话长啊！", "一言难尽啊！"], "gloss": "Ugh, it's a long story.", "need": [["说来话长", "一言难尽"]], "status": "live" },
+        "3": { "en": "You've no breath for that story. Tell him it's a long one, for another time.", "answers": ["说来话长，回头再跟您说吧！", "唉，一言难尽，下次再聊吧！", "说来话长，改天再说吧！", "一言难尽啊，回头再说！"], "gloss": "It's a long story. I'll tell you another time!", "need": [["说来话长", "一言难尽"], ["回头", "下次", "下回", "改天", "有空", "以后", "到时候"]],
+               "tip": "回头再说 = (we'll talk about it) later: the polite way to put any topic off. 说来话长 = it's a long story.", "key": { "回头": "later" }, "status": "live" }
+      }
+    } },
+    { "narr": "7:52. Terminal 3 looms out of the haze. ✈️", "zh": "七点五十二，三号航站楼到了。" },
+    { "who": "driver", "zh": "到了！快去吧，一路平安！", "en": "Here we are! Off you go, safe travels!" },
+    { "sfx": "message" },
+    { "narr": "Your phone buzzes. A text from the airline: your flight is delayed by two hours. 📱", "zh": "手机响了。航空公司发来短信：航班延误两个小时。", "hold": 1 },
+    { "say": {
+      "id": "ifonly",
+      "en": "Groan: if you'd known, you wouldn't have rushed like that.",
+      "answers": ["早知道就不用这么赶了！", "早知道我就不着急了！", "早知道就慢慢来了！"],
+      "gloss": "If I'd known, I wouldn't have rushed like this!",
+      "need": [["早知"]],
+      "tip": "早知道…… = if I'd known (sooner)...: the go-to chunk for hindsight. 慢慢来 = take it slow.",
+      "alts": [
+        { "en": "Or: ask the driver if he fancies carrying on the chat", "answers": ["师傅，要不咱们接着聊？", "要不接着聊吧！"], "gloss": "How about we carry on chatting?", "need": [["接着聊", "聊天", "再聊"]],
+          "then": [ { "who": "driver", "zh": "哈哈！上车，咱从一九九五年聊起！", "en": "Ha! Hop in. We'll start from 1995!", "fx": "laugh" } ] }
+      ],
+      "ok": [ { "who": "driver", "zh": "延误了？嘿，那上车，咱接着聊！", "en": "Delayed? Ha! Hop back in, then. We'll carry on chatting!", "fx": "laugh" } ],
+      "fail": [ { "who": "driver", "zh": "怎么了？飞机没了？", "en": "What's up? Lost your plane?" } ],
+      "cue": "All that rushing!",
+      "miss": [ { "who": "driver", "zh": "嘿，别发呆了，上车！", "en": "Hey, stop staring into space. Hop in!" } ],
+      "levels": {
+        "1": { "en": "Groan: if only you'd known!", "answers": ["早知道就好了！", "早知道就不赶了！", "早知道我就不急了！"], "gloss": "If only I'd known!", "need": [["早知"]], "tip": "早知道就好了 = if only I'd known: hindsight in one breath.",
+               "alts": [{ "of": 0, "answers": ["接着聊吧！", "师傅，接着聊！", "咱们接着聊！"], "gloss": "Let's keep chatting!", "need": [["接着聊", "聊天", "再聊"]] }], "status": "live" },
+        "3": { "en": "Groan: if you'd known about the delay, you'd never have rushed like that.", "answers": ["早知道延误，就不用这么赶了！", "早知道晚点，我就不着急了！", "早知道延误，我就慢慢来了！", "早知道飞机晚点，就不赶了！"], "gloss": "If I'd known it'd be delayed, I wouldn't have rushed like this!", "need": [["早知"], ["延误", "晚点"]],
+               "tip": "早知道 + what you didn't know, 就 + what you'd have done. 延误 yánwù = (a flight) delayed; 晚点 = running late.", "key": { "延误": "delayed (a flight)" }, "status": "live" }
+      }
+    } },
+    { "end": "win", "en": "Two hours, one jar of tea, and the complete history of Beijing, from the Second Ring Road to the Sixth.", "zh": "两个小时，从二环聊到了六环。" }
+  ]
+}

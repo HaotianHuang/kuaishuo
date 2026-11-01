@@ -1,0 +1,152 @@
+{
+  "id": "i-understand-2",
+  "format": "scene",
+  "title": "茶园",
+  "title_en": "The Tea Farm",
+  "level": 2,
+  "listen": 4,
+  "topics": ["work"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "i-understand", "ep": 2, "next": "陈总 has invited you to dinner. Her mother has told her you understand everything." },
+  "tags": ["茶园", "收成", "听得懂"],
+  "setting": "The tea farm in the hills above Hangzhou, 7 am. The real owner asked to see you, alone.",
+  "stage": "🌿",
+  "bg": ["#0c2416", "#4f8a4a"],
+  "cast": {
+    "zhou": { "name": "小周", "en": "the interpreter, who drove you up", "emoji": "🧑‍💻", "voice": "m-young", "speed": 1.05 },
+    "chennainai": { "name": "陈奶奶", "en": "陈总's mother: owns the farm", "emoji": "👵", "voice": "f-old", "speed": 0.9 },
+    "axiu": { "name": "阿秀", "en": "a tea picker", "emoji": "👩‍🌾", "voice": "f-mid", "speed": 1.2 },
+    "laoge": { "name": "老葛", "en": "a tea picker", "emoji": "👨‍🌾", "voice": "m-mid", "speed": 1.2 }
+  },
+  "steps": [
+    { "narr": "Mist on the hills. A small woman in a straw hat, picking tea." },
+    { "who": "zhou", "zh": "这位是陈奶奶，陈总的母亲。茶园是她的。", "en": "This is 陈奶奶, Ms Chen's mother. The farm is hers.", "pace": "fast" },
+    { "say": {
+      "id": "greet",
+      "en": "Greet her, and apologise for the intrusion.",
+      "cue": "Greet her.",
+      "answers": ["陈奶奶好，打扰您了。", "奶奶好，打扰您了！", "奶奶您好，打扰了。"],
+      "gloss": "Hello, 陈奶奶. Sorry to intrude.",
+      "need": [["奶奶"], ["打扰"]],
+      "tip": "打扰您了 = sorry to bother you: what a guest says arriving at someone's place.",
+      "ok": [
+        { "when": { "i-understand.price": "held" }, "who": "chennainai", "zh": "听说你不让价？", "en": "I hear you wouldn't budge on the price?", "pace": "slow",
+          "else": [ { "when": { "i-understand.price": "traded" }, "who": "chennainai", "zh": "听说你要早发货？", "en": "I hear you wanted it shipped early?", "pace": "slow",
+            "else": [ { "who": "chennainai", "zh": "听说你什么都听得懂？", "en": "I hear you understand everything?", "pace": "slow" } ] } ] }
+      ],
+      "fail": [ { "who": "chennainai", "zh": "嗯？", "en": "Mm?", "pace": "slow" } ],
+      "levels": {
+        "1": {
+          "answers": ["奶奶好！", "陈奶奶好！"],
+          "need": [["奶奶"]],
+          "gloss": "Hello, 陈奶奶!",
+          "status": "live" },
+        "3": {
+          "answers": ["陈奶奶好，久仰大名，今天打扰了。", "奶奶好，久仰大名，打扰您了。"],
+          "need": [["久仰"], ["打扰"]],
+          "gloss": "Hello, 陈奶奶. I've heard so much about you. Sorry to intrude.",
+          "tip": "久仰大名 jiǔyǎng dàmíng = I've long admired your name: the formal 'I've heard so much about you'.",
+          "status": "live" }
+      }
+    } },
+    { "who": "chennainai", "zh": "坐，喝茶。今年的新茶。", "en": "Sit. Have some tea. This year's first picking.", "pace": "slow", "prop": "🍵" },
+    { "say": {
+      "id": "harvest",
+      "en": "Ask how this year's tea is.",
+      "cue": "How's the tea?",
+      "answers": ["今年的茶怎么样？", "今年茶叶怎么样？", "今年的新茶怎么样？"],
+      "gloss": "How is this year's tea?",
+      "need": [["今年"], ["怎么样"]],
+      "tip": "怎么样 zěnmeyàng = how is it: ……怎么样？",
+      "ok": [ { "who": "chennainai", "zh": "好，好得很。", "en": "Good. Very good.", "pace": "slow" } ],
+      "fail": [ { "who": "chennainai", "zh": "喝茶，喝茶。", "en": "Drink, drink.", "pace": "slow" } ],
+      "levels": {
+        "1": {
+          "answers": ["茶怎么样？", "今年的茶怎么样？"],
+          "need": [["怎么样"]],
+          "gloss": "How's the tea?",
+          "status": "live" },
+        "3": {
+          "answers": ["今年的收成怎么样？", "今年茶叶的收成怎么样？"],
+          "need": [["收成"], ["怎么样"]],
+          "gloss": "How's this year's harvest?",
+          "tip": "收成 shōucheng = the harvest, the yield.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Behind you, two pickers, talking fast." },
+    { "who": "axiu", "zh": "今年霜大，少了三成，陈总不让说。", "en": "Hard frost this year. Thirty percent down. Ms Chen says don't tell.", "pace": "fast" },
+    { "who": "laoge", "zh": "嘘！客人听得懂吗？", "en": "Shh! Does the guest understand?", "pace": "fast" },
+    { "who": "axiu", "zh": "听不懂的。", "en": "Course not.", "pace": "fast" },
+    { "say": {
+      "id": "catch",
+      "en": "Show you caught it: thirty percent down?",
+      "cue": "You heard that.",
+      "answers": ["少了三成？", "今年少了三成？", "茶少了三成吗？"],
+      "gloss": "Down thirty percent?",
+      "need": [["三成"]],
+      "not": [ { "heard": ["两成"], "note": "She said 三成: three tenths, thirty percent. Listen to the pickers again." } ],
+      "tip": "成 chéng = a tenth: 三成 = thirty percent. 少了三成 = down by three tenths.",
+      "ok": [
+        { "narr": "The pickers freeze. 陈奶奶 puts her cup down, and laughs.", "hold": 1 }
+      ],
+      "fail": [ { "who": "axiu", "zh": "没什么，没什么。", "en": "Nothing, nothing.", "pace": "fast" } ],
+      "levels": {
+        "1": {
+          "answers": ["三成？", "少了三成？"],
+          "gloss": "Thirty percent?",
+          "status": "live" },
+        "3": {
+          "answers": ["霜大，所以少了三成，对吗？", "今年霜大，是少了三成吗？"],
+          "need": [["霜"], ["三成"]],
+          "gloss": "The frost: so you're thirty percent down, is that right?",
+          "tip": "霜 shuāng = frost. 霜大 = a hard frost.",
+          "status": "live" }
+      }
+    } },
+    { "who": "chennainai", "zh": "我就知道你听得懂。", "en": "I knew you'd understand.", "pace": "slow" },
+    { "who": "chennainai", "zh": "我是想看看，你会不会说出来。", "en": "I wanted to see if you'd say so.", "pace": "slow", "hold": 1 },
+    { "who": "chennainai", "zh": "我要退休了。茶园以后给她。", "en": "I'm retiring. The farm goes to her.", "pace": "slow" },
+    { "who": "chennainai", "zh": "她太想证明自己了。少了茶，也不敢说。", "en": "She wants so badly to prove herself. Short of tea, and she daren't say.", "pace": "slow" },
+    { "who": "chennainai", "zh": "所以，今年的茶，你还签吗？", "en": "So. This year's tea: will you still sign?", "pace": "slow" },
+    { "say": {
+      "id": "sign",
+      "en": "Sign for less, or ask for time to consult your firm.",
+      "cue": "Sign, or wait?",
+      "answers": ["少一点也签。", "少一点，我们也签。", "少点也没关系，签。"],
+      "gloss": "Even if it's less, we'll sign.",
+      "need": [["少一点", "少点"], ["签"]],
+      "key": { "签": "sign" },
+      "tip": "签 qiān = sign: 签合同. ……也…… = even if ..., still ...",
+      "sets": { "i-understand.ep2": "sign" },
+      "ok": [ { "who": "chennainai", "zh": "好。这茶，值得。", "en": "Good. This tea is worth it.", "pace": "slow" } ],
+      "alts": [
+        { "en": "Or: ask for time", "answers": ["我得跟公司商量。", "我得先跟公司商量一下。"], "need": [["商量"]], "gloss": "I need to talk it over with my firm.",
+          "key": { "商量": "talk it over" },
+          "sets": { "i-understand.ep2": "wait" },
+          "then": [ { "who": "chennainai", "zh": "应该的。慢慢来。", "en": "Quite right. Take your time.", "pace": "slow" } ] }
+      ],
+      "fail": [ { "who": "chennainai", "zh": "你还签吗？", "en": "Will you still sign?", "pace": "slow" } ],
+      "levels": {
+        "1": {
+          "answers": ["少点也签。", "签！少点也签。"],
+          "need": [["签"]],
+          "gloss": "We'll sign anyway.",
+          "alts": [ { "of": 0, "answers": ["要商量。", "我要商量。"], "need": [["商量"]], "gloss": "I need to check." } ],
+          "status": "live" },
+        "3": {
+          "answers": ["少一点也签，好茶不怕少。", "少一点也签，好茶不在多。"],
+          "need": [["好茶"], ["签"]],
+          "gloss": "We'll sign for less. Good tea is worth it.",
+          "alts": [ { "of": 0, "answers": ["这事我做不了主，得跟公司商量。", "我做不了主，得跟公司商量一下。"], "need": [["做不了主"], ["商量"]], "gloss": "It isn't my decision. I need to talk to my firm." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "On the drive down, 小周's phone buzzes." },
+    { "who": "zhou", "zh": "陈总请你明天吃饭。", "en": "Ms Chen's inviting you to dinner tomorrow.", "pace": "fast" },
+    { "when": { "i-understand.ep2": "sign" }, "end": "win", "en": "Signed, thirty percent smaller. 陈奶奶 sends you home with a tin of the new tea. 🍵",
+      "else": [ { "end": "win", "en": "Nothing signed yet. 陈奶奶 sends you home with a tin of the new tea anyway. 🍵" } ] }
+  ]
+}

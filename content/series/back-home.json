@@ -1,0 +1,10 @@
+{
+  "id": "back-home",
+  "title": "回老家",
+  "title_en": "Back Home",
+  "eps": 8,
+  "audience": "heritage",
+  "levels": [2, 5],
+  "home": "laojia",
+  "cast": ["biaoge", "nainai", "dagu", "eryi", "dabo", "sanshu", "wangdaye", "doudou"]
+}

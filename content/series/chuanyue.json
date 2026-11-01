@@ -1,0 +1,60 @@
+{
+  "id": "chuanyue",
+  "title": "穿越",
+  "title_en": "Transmigration",
+  "eps": 6,
+  "audience": "new",
+  "levels": [
+    0,
+    2
+  ],
+  "genre": "trope",
+  "home": {
+    "name": "长安",
+    "en": "the Tang capital's west market: you fell asleep in a 西安 museum and woke here"
+  },
+  "cast": {
+    "daniang": {
+      "name": "大娘",
+      "en": "a market woman with a basket of dates",
+      "emoji": "👵",
+      "voice": "f-old",
+      "tts": "zf_094"
+    },
+    "aman": {
+      "name": "阿满",
+      "en": "sells 胡饼 by a clay oven; has a coin like yours",
+      "emoji": "🫓",
+      "voice": "f-young",
+      "tts": "zf_042"
+    },
+    "dianjia": {
+      "name": "店家",
+      "en": "keeps the inn where the other traveller stayed",
+      "emoji": "🏮",
+      "voice": "f-mid",
+      "tts": "zf_023"
+    },
+    "xunye": {
+      "name": "巡夜人",
+      "en": "a night guard on the curfew watch",
+      "emoji": "🔦",
+      "voice": "m-old",
+      "tts": "zm_014"
+    },
+    "aje": {
+      "name": "阿杰",
+      "en": "sells jade phone cases in the east market; from 2026",
+      "emoji": "📱",
+      "voice": "m-young",
+      "tts": "zm_053"
+    },
+    "jiangjie": {
+      "name": "讲解员",
+      "en": "a guide at the museum in 西安",
+      "emoji": "🎫",
+      "voice": "f-mid",
+      "tts": "zf_047"
+    }
+  }
+}

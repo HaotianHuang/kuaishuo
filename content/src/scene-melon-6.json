@@ -1,0 +1,137 @@
+{
+  "id": "melon-6",
+  "format": "scene",
+  "title": "舞会",
+  "title_en": "The Dance",
+  "level": 3,
+  "listen": 3,
+  "topics": ["celebrations"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "melon", "ep": 6, "next": "Season one is over. 赵奶奶 has started a new group, 金桂苑相亲角, and added you." },
+  "tags": ["吃瓜", "舞会", "红娘"],
+  "setting": "金桂苑's square, Saturday, 8 pm. The estate's dance night. Fairy lights, folding stools, and a waltz.",
+  "stage": "💃",
+  "bg": ["#0f3a1e", "#c9a23a"],
+  "cast": {
+    "hu": { "name": "胡阿姨", "en": "5号楼: first to see everything", "emoji": "👩‍🦱", "voice": "f-mid" },
+    "wu": { "name": "吴阿姨", "en": "3号楼: knows someone who saw it", "emoji": "👩", "voice": "f-mid" },
+    "zhao": { "name": "赵奶奶", "en": "eighty, and up to something", "emoji": "👵", "voice": "f-old" },
+    "laozhou": { "name": "老周", "en": "3号楼: dancing slowly", "emoji": "👴", "voice": "m-old" },
+    "fang": { "name": "方阿姨", "en": "7号楼: dancing slowly, for her knee", "emoji": "👵", "voice": "f-mid" }
+  },
+  "steps": [
+    { "narr": "金桂苑's dance night. Fairy lights over the square, and two hundred neighbours on folding stools.", "prop": "✨" },
+    { "when": { "melon.ep5": "plain" }, "who": "laozhou", "zh": "就一句话，我打了一个小时。", "en": "One line. It took me an hour to type.", "fx": "laugh",
+      "else": [
+        { "narr": "方阿姨 takes the mic, and reads out one line from her phone." },
+        { "who": "fang", "zh": "“我也是。”", "en": "\"Me too.\"", "hold": 1 },
+        { "sfx": "cheer" }
+      ] },
+    { "narr": "The waltz. 老周 and 方阿姨, slowly, for her knee. Nobody on the square says a word.", "hold": 2 },
+    { "sfx": "cheer" },
+    { "who": "hu", "zh": "跳得真好！", "en": "Beautiful dancing!" },
+    { "who": "wu", "zh": "我早就知道他们俩……", "en": "I always knew those two..." },
+    { "narr": "Then three aunties turn round on their stools, together, and look at you." },
+    { "who": "hu", "zh": "小邻居，你呢？有对象吗？", "en": "Young neighbour, what about you? Seeing anyone?", "pace": "fast" },
+    { "who": "wu", "zh": "我认识一个好孩子，介绍给你！", "en": "I know a lovely young person. I'll introduce you!", "pace": "fast" },
+    { "say": {
+      "id": "dodge",
+      "en": "Deflect it, nicely: nobody, and you'll see when the time comes.",
+      "cue": "Deflect.",
+      "answers": ["没有啦，到时候再说吧。", "阿姨，没有啦，到时候再说吧。"],
+      "gloss": "Nobody! We'll see when the time comes.",
+      "need": [["没有啦"], ["到时候"]],
+      "key": { "对象": "someone you're seeing" },
+      "tip": "对象 duìxiàng = a partner, anyone you're seeing. 没有啦 = nope (啦 softens it). 到时候再说 = we'll see.",
+      "ok": [
+        { "who": "hu", "zh": "到时候是什么时候？", "en": "And when's \"when the time comes\"?", "pace": "fast" },
+        { "who": "wu", "zh": "下个月？", "en": "Next month?", "pace": "fast" }
+      ],
+      "fail": [ { "who": "hu", "zh": "有没有嘛？", "en": "Well, are you or aren't you?" } ],
+      "levels": {
+        "2": {
+          "answers": ["没有啦！", "没有啦，阿姨！"],
+          "need": [["没有啦"]],
+          "gloss": "Nobody!",
+          "status": "live" },
+        "4": {
+          "answers": ["没有啦，缘分到时候再说吧。"],
+          "need": [["缘分"], ["没有啦"]],
+          "gloss": "Nobody! Let's leave it to fate, and see.",
+          "tip": "缘分 yuánfèn = the luck that brings two people together.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "tease",
+      "en": "Tease them back: they're in more of a hurry than you are!",
+      "cue": "Tease them.",
+      "answers": ["阿姨们，你们比我还着急！", "你们比我还着急！"],
+      "gloss": "Aunties, you're in more of a hurry than I am!",
+      "need": [["比我"], ["着急"]],
+      "key": { "着急": "in a hurry, anxious" },
+      "tip": "比我还…… = even more ... than me. 着急 zháojí = anxious, in a hurry.",
+      "ok": [
+        { "who": "hu", "zh": "哈哈，被你说中了！", "en": "Ha! You've got us there!", "fx": "laugh" },
+        { "who": "zhao", "zh": "急的是我。", "en": "The one in a hurry is me.", "pace": "slow", "hold": 1 }
+      ],
+      "fail": [ { "who": "wu", "zh": "周六有空吗？", "en": "Are you free on Saturday?", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["你们比我还急！", "比我还着急！"],
+          "need": [["比我还"]],
+          "gloss": "You're keener than I am!",
+          "status": "live" },
+        "4": {
+          "answers": ["阿姨们，你们怎么比我还着急呀！"],
+          "need": [["怎么"], ["着急"]],
+          "gloss": "Aunties, how come you're in more of a hurry than I am?",
+          "status": "live" }
+      }
+    } },
+    { "who": "zhao", "zh": "老周和方阿姨的事，是我传出去的。", "en": "That rumour about 老周 and 方阿姨: I started it.", "pace": "slow" },
+    { "who": "zhao", "zh": "故意的。", "en": "On purpose.", "pace": "slow", "hold": 2 },
+    { "who": "zhao", "zh": "他们俩，一个比一个害羞。不推一把，再等十年。", "en": "Those two are each shyer than the other. Without a push, they'd have waited another ten years.", "pace": "slow" },
+    { "who": "zhao", "zh": "我当红娘，四十年了。", "en": "I've been a matchmaker for forty years.", "pace": "slow", "hold": 1 },
+    { "who": "hu", "zh": "赵奶奶！", "en": "赵奶奶!", "fx": "shake" },
+    { "who": "wu", "zh": "所以那张照片……那些语音……", "en": "So that photo... all those voice notes...", "hold": 1 },
+    { "say": {
+      "id": "end",
+      "en": "Thank her: she's amazing. Or tease her: so it was you!",
+      "cue": "Thank, or tease?",
+      "answers": ["赵奶奶，您真厉害！", "赵奶奶，您可真厉害！"],
+      "gloss": "赵奶奶, you're amazing!",
+      "need": [["赵奶奶"], ["厉害"]],
+      "tip": "厉害 lìhai = amazing, formidable: the highest praise for a schemer.",
+      "sets": { "melon.end": "thanks" },
+      "ok": [ { "who": "zhao", "zh": "不客气。下一个，就是你。", "en": "You're welcome. You're next.", "fx": "laugh" } ],
+      "alts": [
+        { "en": "Or: tease her, so it was you!", "answers": ["原来是您！", "原来是您啊，赵奶奶！"], "need": [["原来是您"]], "gloss": "So it was you!",
+          "sets": { "melon.end": "tease" },
+          "then": [
+            { "who": "zhao", "zh": "嘘——别告诉老周。", "en": "Shh. Don't tell 老周." },
+            { "who": "hu", "zh": "我们都知道了！", "en": "We all know now!", "fx": "laugh" }
+          ] }
+      ],
+      "fail": [ { "who": "zhao", "zh": "怎么？不高兴？", "en": "What? Not pleased?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["您真厉害！", "真厉害！"],
+          "need": [["厉害"]],
+          "gloss": "You're amazing!",
+          "alts": [ { "of": 0, "answers": ["原来是您！"], "need": [["原来是"]], "gloss": "So it was you!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["赵奶奶，您真厉害，谢谢您！"],
+          "need": [["谢谢您"], ["厉害"]],
+          "gloss": "赵奶奶, you're amazing. Thank you!",
+          "alts": [ { "of": 0, "answers": ["原来是您！您才是最大的瓜！"], "need": [["最大的瓜"], ["原来是您"]], "gloss": "So it was you! You're the biggest gossip of all!" } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "melon.end": "thanks" }, "end": "win", "en": "The square dances until ten. 赵奶奶 has already written down three names, and one of them is yours. Season one ends here. 🍉",
+      "else": [ { "end": "win", "en": "By morning the whole estate knows who started it. 赵奶奶 doesn't mind one bit. Season one ends here. 🍉" } ] }
+  ]
+}

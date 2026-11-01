@@ -1,0 +1,156 @@
+{
+  "id": "rehearsal-3",
+  "format": "scene",
+  "title": "敲门",
+  "title_en": "The Knock",
+  "level": 2,
+  "listen": 2,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "rehearsal", "ep": 3, "next": "Tomorrow, 林老师 opens both rehearsal rooms at once." },
+  "tags": ["彩排", "敲门", "父子"],
+  "setting": "彩排工作室, 9 pm. 老黄 has booked the door.",
+  "stage": "🚪",
+  "bg": ["#1d1d22", "#5b5a66"],
+  "cast": {
+    "lin": { "name": "林老师", "en": "runs the studio; has never smiled", "emoji": "🧑‍🏫", "voice": "m-mid" },
+    "laohuang": { "name": "老黄", "en": "an actor, and a father", "emoji": "🧔", "voice": "m-old" }
+  },
+  "steps": [
+    { "when": { "rehearsal.ep2": "his" }, "narr": "A small flat, built overnight. Down to the shoes by the door.", "prop": "👟",
+      "else": [
+        { "narr": "You're still in your parents' living room. Through the wall: 老黄, rehearsing." },
+        { "who": "laohuang", "zh": "儿子，我……不对。再来。", "en": "Son, I... no. Again." }
+      ] },
+    { "who": "lin", "zh": "今天，你演他儿子。", "en": "Today, you play his son." },
+    { "who": "lin", "zh": "老黄，敲门。", "en": "老黄. Knock." },
+    { "sfx": "knock" },
+    { "who": "laohuang", "zh": "……是我。", "en": "...It's me.", "fx": "enter" },
+    { "say": {
+      "id": "cold",
+      "en": "Be cold, as the son: what are you here for?",
+      "cue": "Be cold.",
+      "answers": ["你来干什么？", "你来这儿干什么？", "你还来干什么？"],
+      "gloss": "What are you doing here?",
+      "need": [["来干什么", "来这儿干什么"]],
+      "tip": "你来干什么？ = what are you here for? Said flat, it's a door closing.",
+      "ok": [
+        { "who": "laohuang", "zh": "我……路过。", "en": "I was... passing." },
+        { "who": "lin", "zh": "继续。", "en": "Go on." }
+      ],
+      "fail": [ { "who": "laohuang", "zh": "……是我。", "en": "...It's me." } ],
+      "levels": {
+        "1": {
+          "answers": ["干什么？", "你来干什么？"],
+          "need": [["干什么"]],
+          "gloss": "What do you want?",
+          "status": "live" },
+        "3": {
+          "answers": ["这么多年了，你来干什么？", "你还来干什么？这么多年了。"],
+          "need": [["这么多年"], ["来干什么"]],
+          "gloss": "After all these years, what are you here for?",
+          "status": "live" }
+      }
+    } },
+    { "who": "laohuang", "zh": "你长高了。", "en": "You've grown." },
+    { "say": {
+      "id": "why",
+      "en": "Ask him why he left.",
+      "cue": "Why?",
+      "answers": ["你为什么走？", "你当年为什么走？", "为什么要走？"],
+      "gloss": "Why did you leave?",
+      "need": [["为什么"], ["走"]],
+      "tip": "当年 dāngnián = back then, in those years.",
+      "ok": [
+        { "who": "laohuang", "zh": "我怕。", "en": "I was scared.", "hold": 1 },
+        { "who": "laohuang", "zh": "我怕我做不好你爸。", "en": "Scared I'd be no good at being your dad." },
+        { "who": "laohuang", "zh": "我以为，我走了，你们会过得好一点。", "en": "I thought, if I left, you'd all be better off." }
+      ],
+      "fail": [ { "who": "laohuang", "zh": "我……", "en": "I..." } ],
+      "levels": {
+        "1": {
+          "answers": ["为什么走？", "为什么？"],
+          "need": [["为什么"]],
+          "gloss": "Why?",
+          "status": "live" },
+        "3": {
+          "answers": ["你当年为什么一声不吭就走？", "当年你为什么一声不吭就走了？"],
+          "need": [["当年"], ["一声不吭"]],
+          "gloss": "Why did you leave without a word, back then?",
+          "tip": "一声不吭 yì shēng bù kēng = without a sound, without a word.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "in",
+      "en": "Soften: let him in.",
+      "cue": "Let him in.",
+      "answers": ["进来吧。", "先进来吧。", "进来坐吧。"],
+      "gloss": "Come in.",
+      "need": [["进来"]],
+      "tip": "进来吧 = come in: 吧 makes it an offer, not an order.",
+      "ok": [
+        { "who": "laohuang", "zh": "……好。", "en": "...All right." },
+        { "narr": "He takes his shoes off, and puts them beside the others. Exactly beside." }
+      ],
+      "fail": [ { "who": "laohuang", "zh": "我……还是走吧。", "en": "I'd... better go." } ],
+      "levels": {
+        "1": {
+          "answers": ["进来吧。", "进来。"],
+          "gloss": "Come in.",
+          "status": "live" },
+        "3": {
+          "answers": ["别站在门口了，进来吧。", "外面冷，进来吧。"],
+          "need": [["门口", "外面"], ["进来"]],
+          "gloss": "Don't stand in the doorway. Come in.",
+          "status": "live" }
+      }
+    } },
+    { "who": "lin", "zh": "停。", "en": "Stop." },
+    { "narr": "林老师 takes you aside." },
+    { "who": "lin", "zh": "他儿子昨天来过。订的是同一场。", "en": "His son came in yesterday. Booked the same scene." },
+    { "who": "lin", "zh": "两边都是客户。", "en": "Both sides are clients." },
+    { "who": "laohuang", "zh": "林老师跟你说什么了？", "en": "What did 林老师 tell you?" },
+    { "say": {
+      "id": "tell",
+      "en": "Tell 老黄 his son is rehearsing too, or keep the confidence.",
+      "cue": "Tell, or keep it?",
+      "answers": ["他也在练。", "他儿子也在练。"],
+      "gloss": "He's rehearsing too.",
+      "need": [["也在练"]],
+      "key": { "也在练": "rehearsing too" },
+      "tip": "也在 = also (in the middle of doing): 他也在练.",
+      "sets": { "rehearsal.ep3": "told" },
+      "ok": [
+        { "who": "laohuang", "zh": "……他也在练？", "en": "...He's rehearsing too?", "hold": 2 },
+        { "who": "laohuang", "zh": "那……他也想跟我说话。", "en": "Then... he wants to talk to me too." }
+      ],
+      "alts": [
+        { "en": "Or: keep the confidence", "answers": ["我什么都不能说。", "我什么也不能说。"], "need": [["不能说"]], "gloss": "I can't say anything.",
+          "sets": { "rehearsal.ep3": "kept" },
+          "then": [
+            { "who": "laohuang", "zh": "……好。我明白。", "en": "...All right. I understand." },
+            { "who": "lin", "zh": "收费照旧。", "en": "Fees as usual." }
+          ] }
+      ],
+      "fail": [ { "who": "laohuang", "zh": "他说什么了？", "en": "What did he say?" } ],
+      "levels": {
+        "1": {
+          "answers": ["他也在练！", "也在练。"],
+          "gloss": "He's rehearsing too!",
+          "alts": [ { "of": 0, "answers": ["不能说。", "我不能说。"], "need": [["不能说"]], "gloss": "Can't say." } ],
+          "status": "live" },
+        "3": {
+          "answers": ["您儿子也在练，跟您一样。", "您儿子也在练同一场。"],
+          "need": [["儿子"], ["也在练"]],
+          "gloss": "Your son is rehearsing too. Just like you.",
+          "alts": [ { "of": 0, "answers": ["对不起，我什么都不能说。", "对不起，这个我不能说。"], "need": [["对不起"], ["不能说"]], "gloss": "Sorry. I can't say anything." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "rehearsal.ep3": "told" }, "end": "win", "en": "老黄 asks for his son's time slot. 林老师 writes it down without a word. 🚪",
+      "else": [ { "end": "win", "en": "老黄 practises the knock forty more times. 林老师 bills for each. 🚪" } ] }
+  ]
+}

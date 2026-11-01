@@ -1,0 +1,73 @@
+{
+  "id": "liaozhai",
+  "title": "聊斋",
+  "title_en": "Strange Tales",
+  "audience": "heritage",
+  "levels": [
+    3,
+    5
+  ],
+  "genre": "classic",
+  "home": {
+    "name": "聊斋",
+    "en": "an anthology of stories retold from 蒲松龄's 聊斋志异: Qing China, where foxes are often the best-mannered guests"
+  },
+  "cast": {
+    "pengyou": {
+      "name": "朋友",
+      "en": "the friend who dared you",
+      "emoji": "🧑",
+      "voice": "m-young",
+      "tts": "zm_012"
+    },
+    "laoweng": {
+      "name": "老翁",
+      "en": "the bride's father: silk robes, a beaming host",
+      "emoji": "🦊",
+      "voice": "m-old",
+      "tts": "zm_098"
+    },
+    "furen": {
+      "name": "老夫人",
+      "en": "his wife: counts everything",
+      "emoji": "👵",
+      "voice": "f-old",
+      "tts": "zf_099"
+    },
+    "xinlang": {
+      "name": "新郎",
+      "en": "the groom, nervous and polite",
+      "emoji": "🤵",
+      "voice": "m-young",
+      "tts": "zm_056"
+    },
+    "hu": {
+      "name": "胡先生",
+      "en": "a learned old gentleman who visits every night; a fox, though neither of you says so",
+      "emoji": "🦊",
+      "voice": "m-old",
+      "tts": "zm_029"
+    },
+    "fangdong": {
+      "name": "房东",
+      "en": "your landlord, owed three months",
+      "emoji": "🧔",
+      "voice": "m-mid",
+      "tts": "zm_015"
+    },
+    "dajie": {
+      "name": "大姐",
+      "en": "the elder fox sister: sets riddles, never loses",
+      "emoji": "🏮",
+      "voice": "f-young",
+      "tts": "zf_071"
+    },
+    "xiaomei": {
+      "name": "小妹",
+      "en": "the younger fox sister: laughs at everything, kindly",
+      "emoji": "🪭",
+      "voice": "f-young",
+      "tts": "zf_042"
+    }
+  }
+}

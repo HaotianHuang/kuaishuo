@@ -1,0 +1,176 @@
+{
+  "id": "fake-ghosts-6",
+  "format": "scene",
+  "title": "第一封信",
+  "title_en": "The First Letter",
+  "level": 3,
+  "listen": 3,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "fake-ghosts", "ep": 6, "next": "Season one is over. A new note under the door, in 小钟's handwriting." },
+  "tags": ["假鬼社", "包子", "第一封信"],
+  "setting": "The club room, 3:20 am. The light is on. Someone is sitting in 阿乐's chair, stroking a cat.",
+  "stage": "🐈",
+  "bg": ["#0a0d14", "#4a3a26"],
+  "cast": {
+    "le": { "name": "阿乐", "en": "the club's loudest member", "emoji": "🙋", "voice": "m-young" },
+    "yu": { "name": "小雨", "en": "has read everything", "emoji": "🤓", "voice": "f-young" },
+    "guo": { "name": "果果", "en": "films it all", "emoji": "📹", "voice": "f-young" },
+    "lu": { "name": "老鲁", "en": "the night guard", "emoji": "🔦", "voice": "m-old" },
+    "ke": { "name": "柯老师", "en": "in 阿乐's chair, with a cat", "emoji": "🩺", "voice": "f-mid" }
+  },
+  "steps": [
+    { "when": { "fake-ghosts.account": "now" }, "narr": "You burst in together, four torches up, 果果's camera rolling.", "fx": "shake",
+      "else": [
+        { "narr": "老鲁 opens the club door with his own key, and stands aside to let you in." },
+        { "who": "lu", "zh": "……其实，我早就知道。", "en": "...Truth is, I knew all along.", "hold": 1 }
+      ] },
+    { "narr": "In 阿乐's chair: a woman in a white coat, stroking a big grey cat. It looks just like 包子, only older.", "prop": "🐈" },
+    { "sfx": "door" },
+    { "narr": "Behind you, the door clicks shut. Locked.", "hold": 1 },
+    { "who": "le", "zh": "包子？你怎么在这儿？", "en": "包子? What are you doing here?", "pace": "fast" },
+    { "say": {
+      "id": "who",
+      "en": "Ask the woman, politely: who are you?",
+      "cue": "Who?",
+      "answers": ["请问，您是谁？", "您好，请问您是谁？"],
+      "gloss": "Excuse me, who are you?",
+      "need": [["请问"], ["您是谁"]],
+      "tip": "您 nín = you, the polite one: for someone older than you.",
+      "ok": [
+        { "who": "ke", "zh": "我姓柯。坐吧，不用怕。", "en": "My name's 柯. Sit down. There's nothing to be scared of." },
+        { "who": "ke", "zh": "这不是你们的包子。这是四号，它妈妈。", "en": "That isn't your 包子. This is the Fourth: its mother." }
+      ],
+      "fail": [ { "who": "ke", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "2": {
+          "answers": ["您是谁？", "你是谁？"],
+          "need": [["是谁"]],
+          "gloss": "Who are you?",
+          "status": "live" },
+        "4": {
+          "answers": ["这么晚了，请问您是谁？"],
+          "need": [["这么晚"], ["您是谁"]],
+          "gloss": "At this hour... excuse me, who are you?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "On the table: the twenty-year-old photos from the parcel, laid out in a row. A cat in every one.", "prop": "📸" },
+    { "who": "ke", "zh": "这是包子一号，这是二号，这是三号。", "en": "That's 包子 the First. That's the Second. That's the Third.", "pace": "slow" },
+    { "who": "ke", "zh": "你们的包子，是五号。", "en": "Yours is 包子 the Fifth.", "pace": "slow" },
+    { "narr": "In the oldest photo, behind the students, a sign over a door. The same words are on the badge on her coat.", "zh": "校医院宠物门诊", "prop": "🩺" },
+    { "who": "yu", "zh": "宠物门诊……您是校医院的兽医？", "en": "The pet clinic... you're the campus vet?" },
+    { "who": "ke", "zh": "二十年了。", "en": "For twenty years." },
+    { "say": {
+      "id": "accuse",
+      "en": "Say it: she wrote the letters.",
+      "cue": "Who wrote them?",
+      "answers": ["信是您写的！", "那些信都是您写的！"],
+      "gloss": "You wrote the letters!",
+      "need": [["信"], ["您写的"]],
+      "not": [
+        { "heard": ["老鲁"], "note": "老鲁 has the keys. Who knows the name of every cat in those photos?" }
+      ],
+      "tip": "是……的 says who did it: 信是您写的 = it was you who wrote the letters.",
+      "ok": [
+        { "who": "ke", "zh": "对。第一封，是我写的。", "en": "Yes. The first one was mine.", "hold": 1 },
+        { "who": "ke", "zh": "后来的每一封，也是。", "en": "And every one after it." }
+      ],
+      "fail": [ { "who": "guo", "zh": "是谁写的？", "en": "Who wrote them?" } ],
+      "miss": [
+        { "narr": "Everyone looks where you're pointing: at the cat. A fourth time." },
+        { "who": "ke", "zh": "包子不会写字。", "en": "包子 can't write.", "pace": "slow", "hold": 2 },
+        { "narr": "包子's mother yawns, very slowly, right at you." },
+        { "who": "yu", "zh": "……是柯老师写的吧？", "en": "...It was 柯老师 who wrote them, surely?" }
+      ],
+      "levels": {
+        "2": {
+          "answers": ["是您写的！", "信是您写的！"],
+          "need": [["您写的"]],
+          "gloss": "It was you!",
+          "status": "live" },
+        "4": {
+          "answers": ["那些信，都是柯老师您写的！"],
+          "need": [["柯老师"], ["您写的"]],
+          "gloss": "Those letters: you wrote every one, 柯老师!",
+          "status": "live" }
+      }
+    } },
+    { "who": "le", "zh": "可是……为什么？", "en": "But... why?", "hold": 1 },
+    { "say": {
+      "id": "why",
+      "en": "Ask her, gently: why did she do it?",
+      "cue": "Why?",
+      "answers": ["柯老师，为什么？", "您为什么这么做？"],
+      "gloss": "Why, 柯老师?",
+      "need": [["为什么"], ["柯老师", "这么做"]],
+      "tip": "为什么 wèishénme = why. 这么做 = do it like this.",
+      "ok": [
+        { "who": "ke", "zh": "二十年前，我是第一任社长。", "en": "Twenty years ago, I was the club's first president.", "pace": "slow" },
+        { "who": "ke", "zh": "我们抓的鬼，都是假的。可是来找我们的人，都是真的。", "en": "Every ghost we caught was fake. But everyone who came to us was real.", "pace": "slow", "hold": 1 },
+        { "who": "ke", "zh": "这样的社团，只有有人需要它，才活得下去。", "en": "A club like this only stays alive while someone needs it.", "pace": "slow", "hold": 2 },
+        { "who": "ke", "zh": "所以我替你们找：小潘，邓阿姨，小钟。", "en": "So I found them for you: 小潘, 邓阿姨, 小钟.", "pace": "slow" }
+      ],
+      "fail": [ { "who": "ke", "zh": "你想问什么？", "en": "What do you want to ask?" } ],
+      "levels": {
+        "2": {
+          "answers": ["为什么？", "您为什么？"],
+          "need": [["为什么"]],
+          "gloss": "Why?",
+          "status": "live" },
+        "4": {
+          "answers": ["柯老师，您为什么要这么做呢？"],
+          "need": [["为什么"], ["这么做"]],
+          "gloss": "柯老师, why would you do all this?",
+          "status": "live" }
+      }
+    } },
+    { "who": "guo", "zh": "那包子呢？", "en": "And 包子?" },
+    { "who": "ke", "zh": "每一个包子，都是上一个的孩子。我负责打疫苗。", "en": "Every 包子 is the last one's kitten. I do the jabs." },
+    { "who": "ke", "zh": "现在你们不需要我了。", "en": "And now you don't need me any more.", "hold": 1 },
+    { "say": {
+      "id": "decide",
+      "en": "Ask her to come back to the club, or tell her: from now on, you'll find the cases yourselves.",
+      "cue": "Come back, or ours?",
+      "answers": ["柯老师，您回来吧！", "您回来吧，柯老师！"],
+      "gloss": "柯老师, come back to us!",
+      "need": [["回来吧"], ["柯老师"]],
+      "tip": "……吧 makes it a warm ask: 您回来吧 = do come back.",
+      "sets": { "fake-ghosts.end": "back" },
+      "ok": [
+        { "who": "ke", "zh": "……我四十五了。", "en": "...I'm forty-five.", "hold": 1 },
+        { "who": "le", "zh": "那您就是第一个四十五岁的社员！", "en": "Then you'll be our first forty-five-year-old member!" },
+        { "who": "ke", "zh": "……好。", "en": "...All right.", "fx": "laugh" }
+      ],
+      "alts": [
+        { "en": "Or: from now on, you'll find them yourselves", "answers": ["以后我们自己找。", "以后，我们自己找吧。"], "need": [["以后"], ["自己找"]], "gloss": "From now on, we'll find them ourselves.",
+          "sets": { "fake-ghosts.end": "ours" },
+          "then": [
+            { "who": "ke", "zh": "……好。这才是假鬼社。", "en": "...Good. That's what 假鬼社 is.", "hold": 1 },
+            { "narr": "柯老师 hands 阿乐 a key on a red string: the club room's spare." }
+          ] }
+      ],
+      "fail": [ { "who": "ke", "zh": "我该走了。", "en": "I should go." } ],
+      "levels": {
+        "2": {
+          "answers": ["您回来吧！", "回来吧！"],
+          "need": [["回来吧"]],
+          "gloss": "Come back!",
+          "alts": [ { "of": 0, "answers": ["我们自己找！"], "need": [["自己找"]], "gloss": "We'll find them ourselves!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["柯老师，假鬼社需要您，回来吧！"],
+          "need": [["需要您"], ["回来吧"]],
+          "gloss": "柯老师, 假鬼社 needs you. Come back!",
+          "alts": [ { "of": 0, "answers": ["您放心，以后我们自己找。"], "need": [["放心"], ["自己找"]], "gloss": "Don't worry. From now on, we'll find them ourselves." } ],
+          "status": "live" }
+      }
+    } },
+    { "sfx": "door" },
+    { "narr": "Behind you, the door swings open by itself. It was never locked, only stuck." },
+    { "when": { "fake-ghosts.end": "back" }, "end": "win", "en": "Dawn. Five members, two 包子s, and a new name on the club list in very neat handwriting. Season one ends here. 🐈",
+      "else": [ { "end": "win", "en": "Dawn. Four members, one 包子, one spare key on a red string, and no idea who comes next. Season one ends here. 🐈" } ] }
+  ]
+}

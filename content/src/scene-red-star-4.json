@@ -1,0 +1,159 @@
+{
+  "id": "red-star-4",
+  "format": "scene",
+  "title": "成都",
+  "title_en": "Chengdu",
+  "level": 2,
+  "listen": 2,
+  "topics": ["dating"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "red-star", "ep": 4, "next": "On the train home, 程远's phone rings. An unknown number. They hand it to you." },
+  "tags": ["打错了", "成都", "茶馆"],
+  "setting": "A teahouse in 成都's 人民公园, 3 pm. The address in the letter led here.",
+  "stage": "🍵",
+  "bg": ["#1f2410", "#7a8c3a"],
+  "cast": {
+    "cheng": { "name": "程远", "en": "the stranger from 红星饭店, shaking", "emoji": "👤", "voice": "m-young" },
+    "naren": { "name": "那个人", "en": "the one 程远 missed by ten minutes", "emoji": "🧥", "voice": "f-mid" },
+    "chashi": { "name": "掺茶师傅", "en": "pours tea from a long-spouted kettle", "emoji": "🫖", "voice": "m-old" }
+  },
+  "steps": [
+    { "when": { "red-star.ep3": "find" }, "who": "cheng", "zh": "谢谢你陪我来。", "en": "Thank you for coming with me.",
+      "else": [ { "who": "cheng", "zh": "我还是想去。可是这次，我想你在旁边。", "en": "I still wanted to go. But this time, I wanted you beside me." } ] },
+    { "narr": "成都. A teahouse in the park: bamboo chairs, mahjong tiles, birdcages in the trees." },
+    { "who": "cheng", "zh": "我的手又在抖了。", "en": "My hands are shaking again." },
+    { "who": "chashi", "zh": "两位，喝什么茶？", "en": "What tea for the two of you?", "fx": "enter", "prop": "🫖" },
+    { "say": {
+      "id": "order",
+      "en": "Order two jasmine teas.",
+      "cue": "Two teas.",
+      "answers": ["两杯花茶，谢谢。", "来两杯花茶。"],
+      "gloss": "Two jasmine teas, please.",
+      "need": [["两杯"], ["花茶"]],
+      "tip": "花茶 huāchá = flower tea: in 成都, jasmine. 来 = bring (when ordering).",
+      "ok": [
+        { "who": "chashi", "zh": "好嘞！", "en": "Coming up!" },
+        { "narr": "The kettle pours from a metre away. Not a drop spilt." }
+      ],
+      "fail": [ { "who": "chashi", "zh": "喝什么？", "en": "What'll it be?" } ],
+      "levels": {
+        "1": {
+          "answers": ["两杯茶！", "两杯茶，谢谢。"],
+          "need": [["两杯"]],
+          "gloss": "Two teas!",
+          "status": "live" },
+        "3": {
+          "answers": ["师傅，来两杯茉莉花茶，谢谢。", "师傅，两杯茉莉花茶，谢谢。"],
+          "need": [["茉莉花茶"], ["两杯"]],
+          "gloss": "Two jasmine teas, please.",
+          "tip": "茉莉 mòlì = jasmine.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "In the corner: someone in a grey coat, a newspaper, a cup gone cold. 程远 stops." },
+    { "who": "cheng", "zh": "……是那个人。我不敢。", "en": "...That's them. I can't.", "pace": "slow" },
+    { "say": {
+      "id": "go",
+      "en": "Encourage 程远: go on, you're right here.",
+      "cue": "Go on.",
+      "answers": ["去吧，我在这儿。", "去吧，我就在这儿。"],
+      "gloss": "Go on. I'm right here.",
+      "need": [["去吧"], ["在这儿"]],
+      "tip": "去吧 = go on (吧 makes it a gentle push).",
+      "ok": [ { "narr": "程远 crosses the room, one bamboo chair at a time. You follow." } ],
+      "fail": [ { "who": "cheng", "zh": "我真的不敢。", "en": "I really can't." } ],
+      "levels": {
+        "1": {
+          "answers": ["去吧！", "去吧，没事。"],
+          "need": [["去吧"]],
+          "gloss": "Go on!",
+          "status": "live" },
+        "3": {
+          "answers": ["别怕，去吧，我就在这儿等你。", "去吧，别怕，我就在这儿等你。"],
+          "need": [["别怕"], ["等你"]],
+          "gloss": "Don't be afraid. Go. I'll be right here.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "At the table, 程远 opens their mouth, and nothing comes out." },
+    { "who": "naren", "zh": "请问，有事吗？", "en": "Excuse me. Can I help you?" },
+    { "say": {
+      "id": "intro",
+      "en": "Introduce 程远 for them.",
+      "cue": "Introduce.",
+      "answers": ["你好，这位是程远。", "您好，这位是程远。"],
+      "gloss": "Hello. This is 程远.",
+      "need": [["这位是"], ["程远"]],
+      "tip": "这位 zhè wèi = this (person), politely.",
+      "ok": [
+        { "who": "naren", "zh": "……程远？", "en": "...程远?", "hold": 2 },
+        { "narr": "The newspaper goes down, very slowly." }
+      ],
+      "fail": [ { "who": "naren", "zh": "你们是……？", "en": "And you are...?" } ],
+      "levels": {
+        "1": {
+          "answers": ["这是程远。", "你好，这是程远。"],
+          "need": [["程远"]],
+          "gloss": "This is 程远.",
+          "status": "live" },
+        "3": {
+          "answers": ["您好，这位是程远，红星饭店的。", "这位是程远，红星饭店的。"],
+          "need": [["红星饭店"], ["这位是"]],
+          "gloss": "Hello. This is 程远. From 红星饭店.",
+          "status": "live" }
+      }
+    } },
+    { "who": "naren", "zh": "我每年都打你的电话。", "en": "I called your number every year.", "pace": "slow" },
+    { "who": "naren", "zh": "每年，都是空号。", "en": "Every year: number not in service.", "pace": "slow", "hold": 1 },
+    { "who": "cheng", "zh": "我十年前换了号码。", "en": "I changed my number ten years ago." },
+    { "who": "cheng", "zh": "我每年也打……红星饭店的电话。", "en": "And every year I called... 红星饭店's number." },
+    { "who": "naren", "zh": "我们都在找。", "en": "We were both looking.", "hold": 2 },
+    { "narr": "They laugh, both of them, at the same moment. 程远 looks at the cold cup, then at you." },
+    { "who": "cheng", "zh": "十年……我想找的，原来不是十年前。", "en": "Ten years... and what I was looking for wasn't ten years ago after all.", "pace": "slow" },
+    { "who": "naren", "zh": "那你们是……？", "en": "So the two of you are...?" },
+    { "say": {
+      "id": "who",
+      "en": "Answer: you're friends, or you're together.",
+      "cue": "Friends, or together?",
+      "answers": ["我们是朋友。", "我们是好朋友。"],
+      "gloss": "We're friends.",
+      "need": [["我们是"], ["朋友"]],
+      "tip": "朋友 péngyou = friend.",
+      "sets": { "red-star.ep4": "friends" },
+      "ok": [
+        { "who": "naren", "zh": "好朋友难得。", "en": "Good friends are hard to find." },
+        { "who": "cheng", "zh": "……是啊。", "en": "...They are." }
+      ],
+      "alts": [
+        { "en": "Or: you're together", "answers": ["我们在一起。", "我们在一起了。"], "need": [["我们"], ["在一起"]], "gloss": "We're together.",
+          "key": { "在一起": "together" },
+          "sets": { "red-star.ep4": "together" },
+          "then": [
+            { "narr": "程远 takes your hand under the table, and doesn't let go." },
+            { "who": "cheng", "zh": "我找了十年……", "en": "I looked for ten years...", "pace": "slow", "hold": 1 },
+            { "who": "cheng", "zh": "原来，在这儿。", "en": "And it was right here." },
+            { "who": "naren", "zh": "那就好。真好。", "en": "Then that's good. That's really good." }
+          ] }
+      ],
+      "fail": [ { "who": "naren", "zh": "你们是……？", "en": "You two are...?" } ],
+      "levels": {
+        "1": {
+          "answers": ["朋友。", "是朋友。"],
+          "need": [["朋友"]],
+          "gloss": "Friends.",
+          "alts": [ { "of": 0, "answers": ["在一起。"], "need": [["在一起"]], "gloss": "Together." } ],
+          "status": "live" },
+        "3": {
+          "answers": ["我们是朋友，是程远的朋友。"],
+          "need": [["程远的朋友"], ["我们是"]],
+          "gloss": "We're friends. I'm 程远's friend.",
+          "alts": [ { "of": 0, "answers": ["我们在一起，快一年了。"], "need": [["在一起"], ["一年"]], "gloss": "We're together. Nearly a year now." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "red-star.ep4": "friends" }, "end": "win", "en": "Three cups, then a fourth. 那个人 tells stories about 红星饭店 until the teahouse closes. 🍵",
+      "else": [ { "end": "win", "en": "那个人 pays for all the tea, and tells you both: whatever you do, be on time. 🍵" } ] }
+  ]
+}

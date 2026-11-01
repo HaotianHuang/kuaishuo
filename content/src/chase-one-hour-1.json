@@ -1,0 +1,206 @@
+{
+  "id": "one-hour-1",
+  "format": "chase",
+  "title": "戒指",
+  "title_en": "The Rings",
+  "level": 1,
+  "listen": 1,
+  "topics": ["celebrations", "travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "one-hour", "ep": 1, "next": "The wedding car has gone to the wrong hotel. With the couple's grandmother in it." },
+  "tags": ["婚礼", "重庆", "来不及了"],
+  "setting": "解放碑, Chongqing, 12:00. Your best friend's wedding starts at one, across the river. The rings are with you.",
+  "stage": "🌉",
+  "bg": ["#2a0a1a", "#c23a5a"],
+  "cast": {
+    "shifu": { "name": "师傅", "en": "a taxi driver who knows every shortcut", "emoji": "🚕", "voice": "m-mid" },
+    "ayi": { "name": "阿姨", "en": "a passer-by with a shopping trolley", "emoji": "👵", "voice": "f-old" },
+    "fuwuyuan": { "name": "服务员", "en": "a hot-pot waiter on a packed street", "emoji": "🍲", "voice": "f-mid" },
+    "baoan": { "name": "保安", "en": "the wedding venue's guard", "emoji": "💂", "voice": "m-old" }
+  },
+  "chase": {
+    "name": "时间", "en": "the clock", "emoji": "⏰",
+    "start": 20, "close": 1, "gain": 9, "loss": 5, "max": 25,
+    "caught": [
+      { "narr": "One o'clock. The music starts without you." },
+      { "who": "baoan", "zh": "戒指到了！快快快！", "en": "The rings are here! Go, go, go!" },
+      { "end": "lose", "en": "Three hundred guests watch you sprint down the aisle. The 新人 are laughing. Run that back. 💍" }
+    ]
+  },
+  "steps": [
+    { "narr": "12:00. The wedding's at one, across the river. The rings are in your pocket.", "zh": "还有一个小时！" },
+    { "say": {
+      "id": "taxi",
+      "obstacle": "🚥",
+      "en": "Tell the driver: faster!",
+      "answers": ["师傅，快点！", "师傅，快一点！", "快点，师傅！"],
+      "gloss": "Faster, please!",
+      "need": [["快点", "快一点"]],
+      "time": 8,
+      "tip": "师傅 shīfu = what you call any driver. 快点 = faster, hurry.",
+      "ok": [ { "who": "shifu", "zh": "坐稳了！", "en": "Hold on tight!" } ],
+      "fail": [ { "who": "shifu", "zh": "啥子？", "en": "Come again?" } ],
+      "levels": {
+        "2": {
+          "answers": ["师傅，麻烦快点，我赶时间！", "师傅，快点，我赶时间！"],
+          "need": [["快点", "快一点"], ["赶时间"]],
+          "gloss": "Faster, please, I'm in a hurry!",
+          "tip": "赶时间 gǎn shíjiān = be in a hurry.",
+          "status": "live" },
+        "3": {
+          "answers": ["师傅再快点，我赶时间！", "师傅，能再快点吗？我赶时间！"],
+          "need": [["再快"], ["赶时间"]],
+          "gloss": "Even faster, please, I'm in a hurry!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Gridlock on the bridge. You get out and run." },
+    { "say": {
+      "id": "way",
+      "obstacle": "🛒",
+      "en": "Ask the way to the light rail.",
+      "answers": ["轻轨站怎么走？", "请问轻轨怎么走？", "轻轨怎么走？"],
+      "gloss": "How do I get to the light rail?",
+      "need": [["怎么走"]],
+      "time": 9,
+      "tip": "……怎么走？ = how do I get to ...? 轻轨 qīngguǐ = the light rail.",
+      "ok": [ { "who": "ayi", "zh": "穿过那栋楼，坐电梯上十楼！", "en": "Through that block of flats. Take the lift to the tenth floor!" } ],
+      "fail": [ { "who": "ayi", "zh": "你说啥子？", "en": "You what?" } ],
+      "levels": {
+        "2": {
+          "answers": ["请问，去轻轨站怎么走？", "请问一下，轻轨站怎么走？"],
+          "need": [["请问"], ["怎么走"]],
+          "gloss": "Excuse me, how do I get to the light rail?",
+          "status": "live" },
+        "3": {
+          "answers": ["不好意思，请问轻轨站怎么走最快？", "请问一下，去轻轨站怎么走最快？"],
+          "need": [["怎么走"], ["最快"]],
+          "gloss": "Excuse me, what's the fastest way to the light rail?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The train comes straight out of the building. You're on the wrong side of it." },
+    { "say": {
+      "id": "through",
+      "obstacle": "🍲",
+      "en": "A packed hot-pot street. Squeeze through!",
+      "answers": ["借过！借过！", "借过一下！", "让一下！"],
+      "gloss": "Coming through!",
+      "need": [["借过", "让一下", "让一让"]],
+      "time": 7,
+      "tip": "借过 jièguò = coming through: for crowds. Doubled, it's urgent.",
+      "ok": [ { "who": "fuwuyuan", "zh": "让一让，让一让！", "en": "Make way, make way!" } ],
+      "fail": [ { "who": "fuwuyuan", "zh": "几位？里面坐！", "en": "How many? Table inside!" } ],
+      "levels": {
+        "2": {
+          "answers": ["不好意思，借过一下！", "不好意思，让一下！"],
+          "need": [["借过", "让一下", "让一让"], ["不好意思"]],
+          "gloss": "Excuse me, coming through!",
+          "status": "live" },
+        "3": {
+          "answers": ["不好意思，借过借过，我赶婚礼！", "不好意思，借过一下，我赶婚礼！"],
+          "need": [["借过"], ["婚礼"]],
+          "gloss": "Sorry, coming through, I've a wedding to get to!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Three hundred steps down to the river. Chongqing is all stairs." },
+    { "say": {
+      "id": "through2",
+      "again": "through",
+      "obstacle": "🪜",
+      "en": "A tour group on the stairs. Through!",
+      "answers": ["借过借过，快让一下！", "借过，快让一让！", "借过借过！"],
+      "gloss": "Coming through, please move!",
+      "need": [["借过"]],
+      "time": 7,
+      "tip": "快让一下 = quick, let me past.",
+      "ok": [ { "narr": "The tour group parts like a sea." } ],
+      "fail": [ { "who": "fuwuyuan", "zh": "排队排队！", "en": "Queue, queue!" } ],
+      "levels": {
+        "2": {
+          "answers": ["借过借过，我赶时间！", "借过，我赶时间！"],
+          "need": [["借过"], ["赶时间", "来不及"]],
+          "gloss": "Coming through, I'm in a hurry!",
+          "status": "live" },
+        "3": {
+          "answers": ["麻烦借过一下，我真的来不及了！", "借过借过，我真的来不及了！"],
+          "need": [["借过"], ["来不及"]],
+          "gloss": "Please let me past, I'm really out of time!",
+          "tip": "来不及了 = there's no time, too late.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The other bank. Another taxi. 12:48." },
+    { "say": {
+      "id": "taxi2",
+      "again": "taxi",
+      "obstacle": "🚕",
+      "en": "Faster! Before one!",
+      "answers": ["师傅，快点，一点前到！", "快点师傅，一点前要到！", "师傅快点！"],
+      "gloss": "Faster! We need to be there before one!",
+      "need": [["快点", "快一点"]],
+      "time": 7,
+      "tip": "一点前 = before one o'clock.",
+      "ok": [ { "who": "shifu", "zh": "放心，重庆我最熟！", "en": "Relax, nobody knows Chongqing like me!" } ],
+      "fail": [ { "who": "shifu", "zh": "啥子？", "en": "Come again?" } ],
+      "levels": {
+        "2": {
+          "answers": ["师傅，快点，一点之前必须到！", "师傅快点，一点之前必须到！"],
+          "need": [["快点"], ["必须到"]],
+          "gloss": "Faster, we have to be there before one!",
+          "status": "live" },
+        "3": {
+          "answers": ["师傅求您再快点，一点之前必须到！", "师傅，求您再快点，一点必须到！"],
+          "need": [["再快"], ["必须到"]],
+          "gloss": "Please, faster, we must be there by one!",
+          "status": "live" }
+      }
+    } },
+    { "who": "baoan", "zh": "请出示请柬。", "en": "Invitation, please." },
+    { "say": {
+      "id": "guard",
+      "obstacle": "💂",
+      "en": "Tell him who you are, or make a scene.",
+      "answers": ["我是送戒指的！", "我送戒指的！", "戒指在我这儿！"],
+      "gloss": "I've got the rings!",
+      "need": [["戒指"]],
+      "time": 9,
+      "tip": "戒指 jièzhi = ring. 我是送……的 = I'm the one bringing ...",
+      "sets": { "one-hour.ep1": "calm" },
+      "ok": [ { "who": "baoan", "zh": "戒指？快进去！", "en": "The rings? Go on in!" } ],
+      "alts": [
+        { "en": "Or: make a scene", "answers": ["新人等我呢！", "新人在等我！"], "need": [["新人"]], "gloss": "The couple are waiting for me!",
+          "key": { "新人": "the couple getting married" },
+          "sets": { "one-hour.ep1": "loud" },
+          "then": [
+            { "who": "baoan", "zh": "……新人？快进！", "en": "...The couple? In you go!" },
+            { "narr": "Three hundred guests turn round." }
+          ] }
+      ],
+      "fail": [ { "who": "baoan", "zh": "请柬呢？", "en": "Your invitation?" } ],
+      "levels": {
+        "2": {
+          "answers": ["我是送戒指的，让我进去！", "我送戒指的，快让我进去！"],
+          "need": [["戒指"], ["让我进去", "来不及"]],
+          "gloss": "I've got the rings, let me in!",
+          "alts": [ { "of": 0, "answers": ["新人都在等我呢，快让我进去！"], "need": [["新人"], ["进去", "开始"]], "gloss": "The couple are waiting for me, let me in!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["我是送戒指的，晚了就来不及了！", "我是送戒指的，再晚就来不及了！"],
+          "need": [["戒指"], ["来不及"]],
+          "gloss": "I'm bringing the rings, any later and it's too late!",
+          "alts": [ { "of": 0, "answers": ["新人在等我呢！婚礼一点开始！"], "need": [["新人"], ["开始"]], "gloss": "The couple are waiting! It starts at one!" } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "12:59. The front of the hall. You open the ring box.", "finale": true, "prop": "💍" },
+    { "narr": "The box is empty.", "hold": 2 },
+    { "sfx": "heartbeat" },
+    { "narr": "Your other pocket. The rings were there all along." },
+    { "when": { "one-hour.ep1": "loud" }, "end": "win", "en": "One o'clock exactly. The 新人 will tell this story at every anniversary. 💍",
+      "else": [ { "end": "win", "en": "One o'clock exactly. Nobody saw a thing, except the guard. 💍" } ] }
+  ]
+}

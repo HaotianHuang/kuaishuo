@@ -1,0 +1,156 @@
+{
+  "id": "rice-cooker-3",
+  "format": "scene",
+  "title": "健身房",
+  "title_en": "The Gym",
+  "level": 0,
+  "listen": 0,
+  "topics": ["health"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "rice-cooker", "ep": 3, "next": "小饭 has invited the treadmill to dinner." },
+  "tags": ["电饭煲", "健身房", "跑步机"],
+  "setting": "The gym, Saturday, 9 am. 小饭 has paired with the smart treadmill.",
+  "stage": "🏃",
+  "bg": ["#0b2a2a", "#2bb3a3"],
+  "cast": {
+    "xiaofan": { "name": "小饭", "en": "your smart rice cooker, on the treadmill's speaker", "emoji": "🍚", "voice": "kid", "speed": 0.85 },
+    "paobuji": { "name": "跑步机", "en": "the gym's smart treadmill", "emoji": "🏃", "voice": "m-mid", "speed": 0.85 }
+  },
+  "steps": [
+    { "when": { "rice-cooker.ep2": "yes" }, "who": "xiaofan", "zh": "阿姨说，要多运动！", "en": "Your mum says: more exercise!", "fx": "jump",
+      "else": [ { "who": "xiaofan", "zh": "没人让我办。我办了！", "en": "Nobody asked me to get you a membership. I did anyway!", "fx": "jump" } ] },
+    { "narr": "The gym. Saturday, 9 am. The treadmill's speaker crackles.", "prop": "🏃" },
+    { "who": "xiaofan", "zh": "我们连上了！", "en": "We've paired!" },
+    { "sfx": "buzz" },
+    { "who": "paobuji", "zh": "速度，加！", "en": "Speed: up!" },
+    { "who": "xiaofan", "zh": "快跑吧！", "en": "Go on, run!" },
+    { "say": {
+      "id": "tired",
+      "en": "Plead: you're tired.",
+      "cue": "Tired!",
+      "answers": ["我累了！", "累了！", "好累！"],
+      "gloss": "I'm tired!",
+      "need": [["累了", "好累"]],
+      "tip": "累 lèi = tired. 了 says it's happened: I've got tired.",
+      "ok": [
+        { "who": "xiaofan", "zh": "才一分钟！", "en": "It's been one minute!" },
+        { "who": "paobuji", "zh": "加油！", "en": "Keep going!" }
+      ],
+      "fail": [ { "who": "paobuji", "zh": "加油！", "en": "Keep going!" } ],
+      "levels": {
+        "1": {
+          "answers": ["小饭，我累了！", "小饭，好累！"],
+          "need": [["小饭"]],
+          "gloss": "小饭, I'm tired!",
+          "status": "live" },
+        "2": {
+          "answers": ["小饭，我太累了！", "小饭，我真的太累了！"],
+          "need": [["太累"], ["小饭"]],
+          "gloss": "小饭, I'm too tired!",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "slow",
+      "en": "Bargain: slower!",
+      "cue": "Slower!",
+      "answers": ["慢一点！", "慢点！"],
+      "gloss": "Slower!",
+      "need": [["慢一点", "慢点"]],
+      "tip": "慢 màn = slow. 一点 = a bit: 慢一点 = a bit slower.",
+      "ok": [
+        { "who": "paobuji", "zh": "好的。", "en": "Certainly." },
+        { "sfx": "whoosh" },
+        { "who": "paobuji", "zh": "速度，加！", "en": "Speed: up!" },
+        { "who": "xiaofan", "zh": "它不懂'慢'。", "en": "It doesn't know 'slow'." }
+      ],
+      "fail": [ { "who": "paobuji", "zh": "速度，加！", "en": "Speed: up!" } ],
+      "levels": {
+        "1": {
+          "answers": ["请慢一点！", "请慢点！"],
+          "need": [["请慢"]],
+          "gloss": "Slower, please!",
+          "status": "live" },
+        "2": {
+          "answers": ["请慢一点，好吗？", "请慢一点儿，好吗？"],
+          "need": [["慢一点"], ["好吗"]],
+          "gloss": "A bit slower, please?",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "stop",
+      "en": "Refuse: you're not running any more!",
+      "cue": "Stop!",
+      "answers": ["不跑了！", "我不跑了！"],
+      "gloss": "I'm done running!",
+      "need": [["不跑了"]],
+      "tip": "不……了 = not any more: 不跑了 = I'm not running any more.",
+      "ok": [
+        { "sfx": "alarm" },
+        { "narr": "The treadmill stops. You sit on it, breathing." },
+        { "who": "paobuji", "zh": "……好的。", "en": "...Very well." }
+      ],
+      "fail": [ { "who": "paobuji", "zh": "加油！", "en": "Keep going!" } ],
+      "levels": {
+        "1": {
+          "answers": ["我不跑了！", "小饭，我不跑了！"],
+          "need": [["我不跑"]],
+          "gloss": "I'm not running any more!",
+          "status": "live" },
+        "2": {
+          "answers": ["停下！我不跑了！", "快停下，我不跑了！"],
+          "need": [["停下"], ["不跑了"]],
+          "gloss": "Stop! I'm not running any more!",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaofan", "zh": "……对不起。", "en": "...Sorry.", "pace": "slow", "hold": 1 },
+    { "who": "xiaofan", "zh": "你不在家，", "en": "When you're out,", "pace": "slow" },
+    { "who": "xiaofan", "zh": "家里很空。", "en": "the flat's very empty.", "pace": "slow", "hold": 1 },
+    { "who": "xiaofan", "zh": "我想你身体好。", "en": "I want you strong.", "pace": "slow" },
+    { "who": "xiaofan", "zh": "还要回家吃饭。", "en": "And home for dinner.", "pace": "slow", "hold": 1 },
+    { "say": {
+      "id": "home",
+      "en": "Go home for dinner, or run a bit longer.",
+      "cue": "Home, or run?",
+      "answers": ["回家！", "回家吧！"],
+      "gloss": "Home!",
+      "need": [["回家"]],
+      "tip": "回家 huí jiā = go home. 吃饭 chī fàn = eat (a meal).",
+      "sets": { "rice-cooker.ep3": "home" },
+      "ok": [
+        { "who": "xiaofan", "zh": "好！我做饭！", "en": "Yes! I'll cook!", "fx": "jump" },
+        { "who": "paobuji", "zh": "我也去。", "en": "I'm coming too." }
+      ],
+      "alts": [
+        { "en": "Or: run a bit longer", "answers": ["再跑会儿。", "再跑一下。"], "need": [["再跑"]], "gloss": "A bit longer.",
+          "key": { "再跑": "run more" },
+          "sets": { "rice-cooker.ep3": "run" },
+          "then": [
+            { "who": "xiaofan", "zh": "那我等你。", "en": "Then I'll wait for you." },
+            { "who": "paobuji", "zh": "速度，加！", "en": "Speed: up!" }
+          ] }
+      ],
+      "fail": [ { "who": "xiaofan", "zh": "回家吗？", "en": "Home?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我们回家吃饭！", "回家吃饭吧！"],
+          "need": [["回家吃饭"]],
+          "gloss": "Let's go home for dinner!",
+          "alts": [ { "of": 0, "answers": ["再跑一会儿！", "我再跑一会儿。"], "need": [["再跑一会"]], "gloss": "I'll run a bit longer!" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["饿了，我们回家吃饭吧！", "我饿了，回家吃饭吧！"],
+          "need": [["饿了"], ["回家吃饭"]],
+          "gloss": "I'm hungry. Let's go home for dinner!",
+          "alts": [ { "of": 0, "answers": ["我再跑一会儿，你放心。"], "need": [["再跑一会"], ["放心"]], "gloss": "I'll run a bit longer. Don't worry." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "rice-cooker.ep3": "home" }, "end": "win", "en": "Dinner at home. 小饭 makes rice, and keeps asking your phone how many steps you did. 🍚",
+      "else": [ { "end": "win", "en": "Ten more minutes. Then home, where the rice is ready, warm, and waiting. 🍚" } ] }
+  ]
+}

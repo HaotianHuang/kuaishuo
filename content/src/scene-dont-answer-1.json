@@ -1,0 +1,170 @@
+{
+  "id": "dont-answer-1",
+  "format": "scene",
+  "title": "第一条",
+  "title_en": "The First Rule",
+  "level": 0,
+  "listen": 0,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "dont-answer", "ep": 1, "next": "The note is in your handwriting." },
+  "tags": ["八零四", "半夜", "别回答"],
+  "setting": "Flat 804, an old estate on a Chongqing hillside, 11:58 pm. The seventh lunar month; fog on the stairs.",
+  "stage": "🚪",
+  "bg": ["#04060d", "#1b2744"],
+  "cast": {
+    "wuye": { "name": "物业", "en": "the estate's property office, on the phone at midnight", "emoji": "📞", "voice": "m-mid", "phone": true, "speed": 0.85 },
+    "sun": { "name": "门外的人", "en": "a voice outside your door, who knows your flat number", "emoji": "👤", "voice": "f-old", "speed": 0.85 }
+  },
+  "steps": [
+    { "narr": "Midnight. Your first night in flat 804.", "zh": "八零四，第一晚。" },
+    { "sfx": "ring" },
+    { "who": "wuye", "zh": "喂，八零四吗？", "en": "Hello, is that 804?" },
+    { "say": {
+      "id": "confirm",
+      "en": "Tell them yes, this is 804.",
+      "cue": "Yes, it's 804.",
+      "answers": ["对。", "是的。", "是我。", "对，是我。"],
+      "gloss": "Yes.",
+      "need": [["对", "是", "没错"]],
+      "not": [ { "heard": ["对不起"], "note": "对不起 is sorry. Yes is just 对 duì." } ],
+      "tip": "对 duì = right, yes: the quickest way to say 'that's me'.",
+      "fail": [ { "who": "wuye", "zh": "喂，八零四吗？", "en": "Hello? Is that 804?", "fx": "squint" } ],
+      "levels": {
+        "1": {
+          "answers": ["对，是八零四。", "是，八零四。", "对，八零四。"],
+          "need": [["八零四"]],
+          "gloss": "Yes, this is 804.",
+          "tip": "八零四 bā líng sì: flat numbers are read digit by digit, with 零 for the zero.",
+          "status": "live" },
+        "2": {
+          "answers": ["对，我住八零四。", "是，我住八零四。", "对，我住在八零四。"],
+          "need": [["住"], ["八零四"]],
+          "gloss": "Yes, I live in 804.",
+          "tip": "住 zhù = live (somewhere): 我住八零四.",
+          "status": "live" }
+      }
+    } },
+    { "who": "wuye", "zh": "今晚停水。", "en": "The water's off tonight." },
+    { "who": "wuye", "zh": "门锁好了吗？", "en": "Is your door locked?" },
+    { "say": {
+      "id": "locked",
+      "en": "Tell them the door's locked.",
+      "cue": "Door's locked.",
+      "answers": ["锁好了。", "锁了。", "锁上了。", "锁好了！"],
+      "gloss": "It's locked.",
+      "need": [["锁"]],
+      "not": [ { "heard": ["没锁", "没有锁"], "note": "That says it ISN'T locked! Locked is 锁好了 suǒ hǎo le." } ],
+      "tip": "锁 suǒ = lock. 好了 says it's done: 锁好了 = locked, all done.",
+      "fail": [ { "who": "wuye", "zh": "门锁好了吗？", "en": "Is your door locked?", "fx": "squint" } ],
+      "levels": {
+        "1": {
+          "answers": ["门锁好了。", "门锁上了。", "门锁了。"],
+          "need": [["门"], ["锁"]],
+          "gloss": "The door's locked.",
+          "tip": "门 mén = door. 门锁好了 = the door's locked.",
+          "status": "live" },
+        "2": {
+          "answers": ["门已经锁好了。", "门已经锁上了。", "门早就锁好了。"],
+          "need": [["门"], ["已经", "早就"]],
+          "gloss": "I've already locked the door.",
+          "tip": "已经 yǐjīng = already: 已经锁好了. 早就 zǎo jiù = long since.",
+          "status": "live" }
+      }
+    } },
+    { "who": "wuye", "zh": "如果有人叫你……", "en": "If anyone calls you..." },
+    { "sfx": "buzz", "hold": 2 },
+    { "narr": "The line goes dead. So do the lights." },
+    { "sfx": "knock" },
+    { "who": "sun", "zh": "外卖！", "en": "Delivery!" },
+    { "say": {
+      "id": "refuse",
+      "en": "You didn't order anything. Tell them.",
+      "cue": "You didn't order anything.",
+      "answers": ["我没点。", "没点！", "不是我的。", "我没点外卖。"],
+      "gloss": "I didn't order.",
+      "need": [["没点", "没有点", "不是我"]],
+      "key": { "没点": "didn't order" },
+      "tip": "点 diǎn = order (food). 没点 méi diǎn = didn't order.",
+      "fail": [ { "sfx": "knock" }, { "who": "sun", "zh": "外卖！", "en": "Delivery!" } ],
+      "miss": [
+        { "who": "sun", "zh": "那我进来了。", "en": "Then I'm coming in." },
+        { "sfx": "door" },
+        { "end": "lose", "en": "The door you locked swings open. 🫣 Run that back." }
+      ],
+      "levels": {
+        "1": {
+          "answers": ["我没点外卖。", "我没有点外卖。", "没点外卖！"],
+          "need": [["没点外卖", "没有点外卖"]],
+          "gloss": "I didn't order a takeaway.",
+          "key": { "没点外卖": "didn't order a takeaway" },
+          "tip": "外卖 wàimài = takeaway, delivered to your door.",
+          "status": "live" },
+        "2": {
+          "answers": ["你送错了，我没点外卖。", "送错了吧，我没点外卖。", "你送错了，我没有点外卖。"],
+          "need": [["送错"], ["没点", "没有点"]],
+          "gloss": "Wrong flat. I didn't order anything.",
+          "key": { "送错": "delivered to the wrong place", "没点": "didn't order" },
+          "tip": "送错 sòng cuò = delivered to the wrong place: 错 after a verb says it went wrong (走错, 打错).",
+          "status": "live" }
+      }
+    } },
+    { "who": "sun", "zh": "八零四，没错啊。", "en": "804. That's right, isn't it?" },
+    { "who": "sun", "zh": "你叫什么名字？", "en": "What's your name?", "hold": 1 },
+    { "say": {
+      "id": "door",
+      "en": "Don't give your name. Tell them to leave it at the door, or ask who they are.",
+      "cue": "Not your name.",
+      "answers": ["放门口吧。", "放门口。", "放门口吧！", "门口就行。"],
+      "gloss": "Leave it at the door.",
+      "need": [["门口"]],
+      "not": [ { "heard": ["我叫"], "note": "Don't give your name! Tell them to leave it at the door, or ask who they are." } ],
+      "tip": "放 fàng = put. 门口 ménkǒu = the doorway: 放门口吧 = leave it at the door.",
+      "sets": { "dont-answer.door": "leave" },
+      "ok": [
+        { "sfx": "heartbeat" },
+        { "narr": "Footsteps go down the stairs. Then nothing.", "hold": 1 },
+        { "sfx": "door" },
+        { "narr": "The lights flicker on. On the mat: a bowl of 汤圆, still warm.", "prop": "🥣" },
+        { "narr": "And a note: Rule one. Don't answer.", "zh": "第一条：别回答。", "prop": "📝" }
+      ],
+      "fail": [ { "who": "sun", "zh": "你叫什么名字？", "en": "What's your name?" } ],
+      "miss": [
+        { "who": "sun", "zh": "……好吧。", "en": "...All right." },
+        { "narr": "Footsteps fade. On the mat: a bowl of 汤圆, still warm.", "prop": "🥣" },
+        { "end": "win", "en": "You never said a word. The 汤圆 are still warm." }
+      ],
+      "alts": [
+        { "en": "Or: ask who's there", "answers": ["你是谁？", "你是谁啊？", "你谁啊？"], "need": [["谁"]], "gloss": "Who are you?",
+          "sets": { "dont-answer.door": "ask" },
+          "then": [
+            { "who": "sun", "zh": "我？我住过八零四。", "en": "Me? I used to live in 804.", "hold": 1 },
+            { "narr": "The lights come back on." },
+            { "sfx": "ring" },
+            { "who": "wuye", "zh": "别回答。晚安！", "en": "Don't answer. Good night!", "fx": "laugh" }
+          ] }
+      ],
+      "levels": {
+        "1": {
+          "answers": ["放门口就行。", "放门口就好。", "放在门口就行。"],
+          "need": [["门口就行", "门口就好"]],
+          "gloss": "Just leave it at the door.",
+          "key": { "门口就行": "the door will do" },
+          "tip": "……就行 = ... will do: 放门口就行 = leaving it at the door will do.",
+          "alts": [ { "of": 0, "answers": ["你到底是谁？", "你到底是谁啊？"], "need": [["到底"], ["谁", "什么人"]], "gloss": "Who are you, really?" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["东西放门口就行。", "东西放在门口就行。", "东西放门口就好。"],
+          "need": [["东西"], ["门口"]],
+          "gloss": "Just leave the stuff at the door.",
+          "tip": "东西 dōngxi = things, stuff: whatever it is you didn't order.",
+          "alts": [ { "of": 0, "answers": ["你到底是什么人？", "你到底是什么人啊？"], "need": [["到底"], ["什么人"]], "gloss": "Just who are you?" } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "dont-answer.door": "leave" }, "end": "win", "en": "You never gave your name. Someone made you supper anyway. 🥣",
+      "else": [ { "end": "win", "en": "The landing outside is empty. You check the lock twice. 🔒" } ] }
+  ]
+}

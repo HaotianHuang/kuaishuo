@@ -1,0 +1,198 @@
+{
+  "id": "chuanyue-4",
+  "format": "scene",
+  "title": "两天",
+  "title_en": "Two Days",
+  "level": 0,
+  "listen": 0,
+  "topics": ["shopping"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "chuanyue", "ep": 4, "next": "Tomorrow is the full moon. 阿杰 has changed his mind: he's coming home too." },
+  "tags": ["穿越", "胡饼", "阿满"],
+  "setting": "长安's west market. Two days to the full moon. You're working 阿满's 胡饼 stall.",
+  "stage": "🫓",
+  "bg": ["#2a1a0a", "#c47a2a"],
+  "cast": {
+    "aman": { "name": "阿满", "en": "sells 胡饼 by a clay oven", "emoji": "🫓", "voice": "f-young", "speed": 0.85 },
+    "daniang": { "name": "大娘", "en": "a market woman with a basket", "emoji": "👵", "voice": "f-old", "speed": 0.85 },
+    "aje": { "name": "阿杰", "en": "sells jade phone cases; from 2026", "emoji": "📱", "voice": "m-young", "speed": 0.85 }
+  },
+  "steps": [
+    { "when": { "chuanyue.ep3": "home" }, "narr": "Two days to go. 阿杰 has been teaching you the market.",
+      "else": [ { "narr": "You'd decided on a few more days anyway. Now there are two left." } ] },
+    { "when": { "chuanyue.ep3": "home" }, "who": "aje", "zh": "少说，多笑。", "en": "Talk less. Smile more.",
+      "else": [ { "who": "aje", "zh": "我就知道！", "en": "Knew it!", "fx": "laugh" } ] },
+    { "narr": "Morning. 阿满's clay oven, and a stack of hot 胡饼.", "prop": "🫓" },
+    { "who": "aman", "zh": "今天你来卖。", "en": "You're selling today." },
+    { "who": "aman", "zh": "一个五文。", "en": "Five coins each." },
+    { "who": "daniang", "zh": "要胡饼。", "en": "胡饼, please.", "fx": "enter" },
+    { "say": {
+      "id": "how",
+      "en": "Ask her: two?",
+      "cue": "How many?",
+      "answers": ["两个？"],
+      "gloss": "Two?",
+      "need": [["两个"]],
+      "tip": "两个 liǎng ge = two (of them). 两, not 二, before a measure word.",
+      "ok": [ { "who": "daniang", "zh": "两个。多少钱？", "en": "Two. How much?" } ],
+      "fail": [ { "who": "daniang", "zh": "啊？", "en": "Eh?" } ],
+      "levels": {
+        "1": {
+          "answers": ["要两个吗？"],
+          "need": [["要两个"]],
+          "gloss": "Would you like two?",
+          "status": "live" },
+        "2": {
+          "answers": ["大娘，您要两个吗？"],
+          "need": [["您要"]],
+          "gloss": "Would you like two, ma'am?",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "price",
+      "en": "Tell her the price for two: five each.",
+      "cue": "How much?",
+      "answers": ["十文。"],
+      "gloss": "Ten coins.",
+      "need": [["十文"]],
+      "key": { "文": "coin (old money)" },
+      "tip": "文 wén = a coin in old 长安. 一个五文, so two are 十文.",
+      "ok": [
+        { "who": "daniang", "zh": "给你。", "en": "Here you are." },
+        { "narr": "Ten coins, warm from her hand.", "prop": "🪙" }
+      ],
+      "fail": [ { "who": "daniang", "zh": "多少？", "en": "How much?" } ],
+      "levels": {
+        "1": {
+          "answers": ["一共十文。"],
+          "need": [["一共"]],
+          "gloss": "Ten coins in all.",
+          "status": "live" },
+        "2": {
+          "answers": ["两个一共十文，谢谢。"],
+          "need": [["两个一共"]],
+          "gloss": "Two, that's ten coins in all. Thank you.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "give",
+      "en": "Hand her the 胡饼: here you are!",
+      "cue": "Hand them over.",
+      "answers": ["给你！"],
+      "gloss": "Here you are!",
+      "need": [["给你"]],
+      "tip": "给你 gěi nǐ = here you are (giving something).",
+      "ok": [ { "who": "daniang", "zh": "谢谢。", "en": "Thank you." } ],
+      "fail": [ { "who": "daniang", "zh": "我的胡饼呢？", "en": "Where are my 胡饼?" } ],
+      "levels": {
+        "1": {
+          "answers": ["大娘，给你！", "给你，大娘！"],
+          "need": [["大娘"]],
+          "gloss": "Here you are, ma'am!",
+          "status": "live" },
+        "2": {
+          "answers": ["大娘，给你，小心烫！"],
+          "need": [["小心烫"]],
+          "gloss": "Here you are, ma'am. Careful, they're hot!",
+          "tip": "小心烫 = careful, it's hot.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "thanks",
+      "en": "Thank her as she goes.",
+      "cue": "Thank her.",
+      "answers": ["谢谢！"],
+      "gloss": "Thank you!",
+      "need": [["谢谢"]],
+      "tip": "谢谢 xièxie = thank you.",
+      "ok": [ { "who": "daniang", "zh": "好孩子。", "en": "Good child.", "fx": "leave" } ],
+      "fail": [ { "who": "daniang", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["谢谢，再来！"],
+          "need": [["再来"]],
+          "gloss": "Thanks, come again!",
+          "status": "live" },
+        "2": {
+          "answers": ["谢谢大娘，下次再来！"],
+          "need": [["下次"]],
+          "gloss": "Thank you, ma'am. Come again!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Evening. The oven cools. 阿满 counts the coins, and keeps one apart from the rest." },
+    { "narr": "Not a 长安 coin. A one-yuan coin, dated 2025.", "prop": "🪙" },
+    { "who": "aman", "zh": "我早就知道。", "en": "I've known all along." },
+    { "who": "aman", "zh": "你和阿杰，一样。", "en": "You and 阿杰 are the same.", "hold": 1 },
+    { "who": "aman", "zh": "这是他的钱。", "en": "This is his money." },
+    { "who": "aman", "zh": "我藏起来了。", "en": "I hid it." },
+    { "who": "aman", "zh": "别人会说他是贼。", "en": "People would have called him a thief.", "hold": 2 },
+    { "say": {
+      "id": "afraid",
+      "en": "She's very quiet. Ask her: are you scared?",
+      "cue": "Ask her.",
+      "answers": ["你怕吗？"],
+      "gloss": "Are you scared?",
+      "need": [["怕吗"]],
+      "tip": "怕 pà = be scared. ……吗？ makes it a question.",
+      "ok": [
+        { "who": "aman", "zh": "怕。", "en": "I am.", "hold": 1 },
+        { "who": "aman", "zh": "怕你们走。", "en": "Scared you'll both go.", "hold": 2 }
+      ],
+      "fail": [ { "who": "aman", "zh": "什么？", "en": "What?" } ],
+      "levels": {
+        "1": {
+          "answers": ["阿满，你怕吗？"],
+          "need": [["阿满"]],
+          "gloss": "阿满, are you scared?",
+          "status": "live" },
+        "2": {
+          "answers": ["阿满，你怕吗？怕什么？"],
+          "need": [["怕什么"]],
+          "gloss": "阿满, are you scared? Of what?",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "decide",
+      "en": "Promise to come back, or ask her to come with you.",
+      "cue": "Back, or with you?",
+      "answers": ["我会回来。"],
+      "gloss": "I'll come back.",
+      "need": [["会回来"]],
+      "tip": "会 huì = will. 我会回来 = I'll come back.",
+      "sets": { "chuanyue.ep4": "back" },
+      "ok": [ { "who": "aman", "zh": "……好。我等你。", "en": "...All right. I'll wait for you.", "hold": 2 } ],
+      "alts": [
+        { "en": "Or: ask her to come with you", "answers": ["跟我走？"], "need": [["跟我走"]], "gloss": "Come with me?",
+          "sets": { "chuanyue.ep4": "come" },
+          "then": [
+            { "who": "aman", "zh": "……我？", "en": "...Me?", "hold": 1 },
+            { "who": "aman", "zh": "我想想。", "en": "Let me think.", "hold": 2 }
+          ] }
+      ],
+      "fail": [ { "who": "aman", "zh": "你说什么？", "en": "What did you say?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我会回来的。"],
+          "need": [["回来的"]],
+          "gloss": "I'll come back, I will.",
+          "alts": [ { "of": 0, "answers": ["跟我走吧？"], "need": [["走吧"]], "gloss": "Come with me?" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["我会回来的，我保证。"],
+          "need": [["保证"]],
+          "gloss": "I'll come back. I promise.",
+          "alts": [ { "of": 0, "answers": ["阿满，跟我走吧？"], "need": [["阿满"]], "gloss": "阿满, come with me?" } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "chuanyue.ep4": "back" }, "end": "win", "en": "阿满 gives you a 胡饼 for the road. It's still warm the next morning, somehow. 🫓",
+      "else": [ { "end": "win", "en": "阿满 doesn't answer. But she starts packing a basket, very slowly. 🫓" } ] }
+  ]
+}

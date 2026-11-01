@@ -1,0 +1,166 @@
+{
+  "id": "first-date",
+  "format": "chat",
+  "title": "我是小鹿",
+  "title_en": "Hi, I'm Xiao Lu",
+  "level": 2,
+  "topics": ["dating", "food"],
+  "audience": "new",
+  "hook": 2,
+  "status": "live",
+  "tags": ["约会", "交友", "见面"],
+  "write": ["火锅", "周末", "门口"],
+  "setting": "Thursday, 10 pm. You matched on a dating app and swapped WeChats.",
+  "stage": "💘",
+  "bg": ["#5b1048", "#d6457f"],
+  "chat": { "with": "lu", "giveup": [
+    { "who": "lu", "zh": "算了，不聊了。", "en": "Forget it. I'm done." },
+    { "narr": "Your message bounced.", "zh": "消息已发出，但被对方拒收了。", "kind": "system", "bounce": true },
+    { "end": "lose", "en": "Xiao Lu blocked you. Dabai the goose will never know your name.", "zh": "你被拉黑了。" }
+  ] },
+  "cast": {
+    "lu": { "is": "xiaolu", "name": "小鹿", "en": "your match", "emoji": "🦌", "voice": "f-young" }
+  },
+  "steps": [
+    { "narr": "You've added Xiao Lu. You can start chatting now.", "zh": "你已添加了小鹿，现在可以开始聊天了。", "kind": "system" },
+    { "who": "lu", "zh": "我是小鹿", "en": "I'm Xiao Lu.", "clock": "22:03", "typing": 1 },
+    { "who": "lu", "zh": "你好呀", "tail": "👋", "en": "Hi there!", "typing": 1.5 },
+    { "who": "lu", "zh": "看你资料上写着喜欢吃火锅？", "en": "Your profile says you like hotpot?", "typing": 2.5 },
+    { "say": {
+      "id": "spicy",
+      "en": "Yes! Tell her you love spicy food.",
+      "cue": "You love spice!",
+      "reply": "type",
+      "answers": ["对啊，我超爱吃辣的！", "是啊，我特别喜欢吃辣。", "对！无辣不欢！", "嗯嗯，我很能吃辣！"],
+      "gloss": "Yeah, I absolutely love spicy food!",
+      "need": [["辣"]],
+      "not": [ { "heard": ["不能吃辣", "怕辣", "吃不了辣", "不太能吃辣"], "note": "That says you can't take spice." } ],
+      "time": 20,
+      "tip": "超爱 = absolutely love (超 = super). 吃辣 = eat spicy food. 无辣不欢 is the idiom: no spice, no joy.",
+      "ok": [
+        { "who": "lu", "zh": "哈哈哈我也是", "en": "Hahaha, me too.", "typing": 1 },
+        { "who": "lu", "zh": "我能吃变态辣", "tail": "🌶️", "en": "I can handle 'insanely hot', the top of the menu.", "typing": 1.5 }
+      ],
+      "fail": [ { "who": "lu", "zh": "在忙吗？", "en": "Busy?", "typing": 1 } ],
+      "levels": {
+        "1": { "answers": ["对，超爱吃辣！", "我爱吃辣！", "超爱吃辣的！", "喜欢吃辣！"], "gloss": "Yes, I love spicy food!", "status": "live" },
+        "3": { "en": "Yes! Tell her you love spicy food: the hotter the better.",
+               "answers": ["对啊，我超爱吃辣，越辣越好！", "是啊，我特别能吃辣，越辣越好。", "对！无辣不欢，越辣越好！", "嗯嗯，越辣越好，我超爱吃辣的！"],
+               "gloss": "Yeah, I love spicy food. The hotter the better!", "need": [["辣"], ["越辣越好"]], "time": 24,
+               "tip": "越……越…… = the more …, the more …: 越辣越好 = the hotter the better.", "key": { "越辣越好": "the hotter the better" }, "status": "live" }
+      }
+    } },
+    { "who": "lu", "zh": "那你平时周末都干嘛？", "en": "So what do you usually do at weekends?", "typing": 2 },
+    { "say": {
+      "id": "weekend",
+      "en": "Send a voice message: mostly you sleep in at home, haha.",
+      "cue": "Your lazy weekends.",
+      "reply": "speak",
+      "answers": ["一般在家睡懒觉，哈哈。", "睡懒觉，哈哈哈。", "一般就宅在家里。", "在家睡觉，哈哈。"],
+      "gloss": "Usually I just sleep in at home, haha.",
+      "need": [["睡", "宅"]],
+      "time": 15,
+      "tip": "睡懒觉 = sleep in (literally, sleep a lazy sleep). 一般 = usually. 宅 = stay in, be a homebody.",
+      "ok": [ { "who": "lu", "kind": "voice", "secs": 3, "zh": "哈哈，好巧，我也是！", "en": "Haha, what a coincidence, me too!", "typing": 3 } ],
+      "fail": [ { "who": "lu", "zh": "你不会是睡着了吧？", "en": "You haven't fallen asleep, have you?", "typing": 1.5 } ],
+      "levels": {
+        "1": { "answers": ["在家睡懒觉！", "睡懒觉，哈哈！", "宅在家里！", "在家睡觉！"], "gloss": "Sleeping in at home!", "status": "live" },
+        "3": { "en": "Send a voice message: nothing much, really. You just sleep in at home.",
+               "answers": ["其实也没干嘛，就在家睡懒觉。", "也没干啥，一般就宅在家里。", "没干什么，在家睡懒觉，哈哈。", "也没干嘛，睡觉呗，哈哈。"],
+               "gloss": "Nothing much, really. I just sleep in at home.", "need": [["睡", "宅"], ["没干嘛", "没干啥", "没干什么", "没做什么"]],
+               "tip": "也没干嘛 = nothing much (playing it down). 就 = just.", "key": { "没干嘛": "nothing much" }, "status": "live" }
+      }
+    } },
+    { "who": "lu", "zh": "我妈天天催我找对象", "en": "My mum nags me every day to find someone.", "typing": 2, "recall": 2.5 },
+    { "narr": "Xiao Lu unsent a message.", "zh": "小鹿撤回了一条消息", "kind": "system" },
+    { "who": "lu", "zh": "没什么没什么", "tail": "😅", "en": "Nothing, nothing!", "typing": 1 },
+    { "say": {
+      "id": "askout",
+      "en": "You saw that. Seize the moment: suggest hotpot together this weekend.",
+      "cue": "Hotpot, this weekend?",
+      "reply": "type",
+      "answers": ["那周末一起去吃火锅吧？", "要不这周末一起吃火锅？", "周末一起去吃火锅怎么样？", "那周末约个火锅？"],
+      "gloss": "Then shall we go for hotpot together this weekend?",
+      "need": [["火锅"], ["一起", "约", "我们", "咱们"]],
+      "time": 22,
+      "tip": "一起去……吧？ = shall we go and … together? 要不 = how about. 约个火锅 = make a hotpot date.",
+      "alts": [
+        { "en": "Tease her: say you saw the unsent message",
+          "answers": ["我都看到了，哈哈哈！", "撤回也没用，我看到了！"],
+          "gloss": "I saw that, hahaha!",
+          "need": [["看到", "看见"]],
+          "then": [
+            { "who": "lu", "kind": "sticker", "art": "🙈", "zh": "社死", "en": "Social death.", "typing": 1 },
+            { "who": "lu", "zh": "那你还不约我？", "en": "So why haven't you asked me out yet?", "typing": 1.5 }
+          ] }
+      ],
+      "ok": [ { "who": "lu", "zh": "好呀！", "tail": "😆", "en": "Yes!", "typing": 0.8 } ],
+      "fail": [ { "who": "lu", "zh": "怎么不说话了？", "en": "Why've you gone quiet?", "typing": 1.5 } ],
+      "levels": {
+        "1": { "answers": ["一起吃火锅吧？", "周末吃火锅？", "约个火锅？", "去吃火锅吧！"], "gloss": "Shall we get hotpot together?", "need": [["火锅"]],
+               "alts": [{ "of": 0, "answers": ["看到了，哈哈！", "我都看到了！", "我看见了！"], "gloss": "Saw that, haha!" }], "status": "live" },
+        "3": { "en": "You saw that. Seize the moment: ask if she's free this weekend, and suggest hotpot together.",
+               "answers": ["你周末有空吗？一起吃火锅吧！", "有空的话，周末一起吃火锅吧？", "这周末有时间吗？咱们约个火锅？", "周末要是有空，我们去吃火锅？"],
+               "gloss": "Are you free this weekend? Let's get hotpot together!", "need": [["火锅"], ["一起", "约", "我们", "咱们"], ["有空", "有时间"]], "time": 25,
+               "tip": "有空 yǒu kòng = free (to do something). Asking 你周末有空吗？ first makes it easy to say yes.", "status": "live" }
+      }
+    } },
+    { "who": "lu", "zh": "什么时候？在哪儿见？", "en": "When? Where shall we meet?", "typing": 1.5 },
+    { "say": {
+      "id": "when",
+      "en": "Suggest Saturday, 7 pm, outside the hotpot place.",
+      "cue": "When and where?",
+      "reply": "type",
+      "answers": ["周六晚上七点，火锅店门口见！", "周六晚上七点，店门口见？", "星期六晚上七点，在火锅店门口？", "周六七点，地铁站出口见吧。"],
+      "gloss": "Saturday, 7 pm, see you outside the hotpot place!",
+      "need": [["周六", "期六", "拜六"], ["七点"], ["门口", "出口", "店"]],
+      "time": 26,
+      "tip": "Time goes big to small: 周六, then 晚上, then 七点, then the place. 门口见 = see you at the door.",
+      "decoys": ["期", "起"],
+      "ok": [ { "who": "lu", "zh": "好！就这么定了", "tail": "🤝", "en": "Great! It's a date.", "typing": 1.5 } ],
+      "fail": [ { "who": "lu", "zh": "几点呀？", "en": "What time?", "typing": 1 } ],
+      "levels": {
+        "1": { "en": "Suggest Saturday at seven.", "answers": ["周六七点见！", "周六晚上七点！", "七点门口见！", "周六七点，门口见！"], "gloss": "See you Saturday at seven!", "need": [["七点"]], "status": "live" },
+        "3": { "en": "Suggest Saturday, 7 pm, outside the hotpot place, and check that works for her.",
+               "answers": ["周六七点，火锅店门口见，行吗？", "周六晚上七点，店门口见，你看行吗？", "星期六晚上七点，火锅店门口，可以吗？", "周六七点，在火锅店门口见，方便吗？"],
+               "gloss": "Saturday, 7 pm, outside the hotpot place. Does that work?",
+               "need": [["周六", "期六", "拜六"], ["七点"], ["门口", "出口", "店"], ["行吗", "可以吗", "方便吗", "怎么样", "行不行"]], "time": 30,
+               "tip": "……，行吗？ = does that work (for you)? 你看行吗？ is softer still: it turns a plan into a suggestion.", "key": { "行吗": "OK? does that work?" }, "status": "live" }
+      }
+    } },
+    { "who": "lu", "zh": "对了，我能带上大白吗？", "en": "Oh, and can I bring Dabai?", "typing": 3 },
+    { "who": "lu", "kind": "photo", "art": "🦢🎀", "zh": "一只大白鹅，脖子上系着粉色蝴蝶结", "en": "A big white goose with a pink bow round its neck.", "typing": 1.5 },
+    { "who": "lu", "zh": "它很乖的，就是偶尔咬人", "en": "It's very good. It only bites people now and then.", "typing": 2 },
+    { "say": {
+      "id": "goose",
+      "en": "Of course it can come. (Ask whether it eats hotpot.)",
+      "cue": "Bring the goose?",
+      "reply": "type",
+      "answers": ["当然可以！它吃火锅吗？", "当然可以！", "可以啊，带上它吧！", "没问题！它能吃辣吗？", "当然可以，它咬我怎么办？"],
+      "gloss": "Of course! Does it eat hotpot?",
+      "need": [["可以", "没问题", "带上", "行", "当然"]],
+      "not": [ { "heard": ["不可以", "不行"], "note": "That says no!" } ],
+      "time": 18,
+      "tip": "当然可以 = of course. 带上它 = bring it along. 它 is 'it', for animals and things.",
+      "alts": [
+        { "en": "Ask if a hotpot place will even let a goose in",
+          "answers": ["火锅店能带鹅进去吗？", "鹅能进火锅店吗？"],
+          "gloss": "Will a hotpot place even let a goose in?",
+          "need": [["带鹅", "鹅能", "鹅进", "带它进"]],
+          "then": [ { "who": "lu", "zh": "我问过了，老板说只要它不进锅就行", "en": "I asked. The owner says it's fine, as long as it doesn't end up in the pot.", "typing": 3 } ] }
+      ],
+      "ok": [ { "who": "lu", "zh": "哈哈哈，它只吃白菜", "en": "Hahaha, it only eats cabbage.", "typing": 1.5 } ],
+      "fail": [ { "who": "lu", "zh": "不可以吗？", "tail": "🥺", "en": "It can't come?", "typing": 1.5 } ],
+      "levels": {
+        "1": { "en": "Say of course it can come.", "answers": ["当然可以！", "可以啊！", "没问题！", "带上它吧！"], "gloss": "Of course!",
+               "alts": [{ "of": 0, "answers": ["能带鹅进去吗？", "鹅能进店吗？", "能带鹅吗？"], "gloss": "Can you even take a goose in?" }], "status": "live" },
+        "3": { "en": "Of course it can come, as long as it doesn't bite you.",
+               "answers": ["当然可以，只要它别咬我就行！", "可以啊，只要它不咬人就行。", "没问题！只要它乖乖的就行。", "当然可以，就是别让它咬我哈！"],
+               "gloss": "Of course, as long as it doesn't bite me!", "need": [["可以", "没问题", "带上", "行", "当然"], ["只要", "咬"]], "time": 22,
+               "tip": "只要……就行 = as long as …, that's fine. 咬 yǎo = bite: 别咬我 = don't bite me.", "status": "live" }
+      }
+    } },
+    { "who": "lu", "kind": "sticker", "art": "🦢", "zh": "周六见", "en": "See you Saturday!" },
+    { "end": "win", "en": "Saturday, 7 pm, outside the hotpot place: Xiao Lu, a pink bow, and a goose that hisses at the waiter.", "zh": "周六晚上，火锅店门口站着小鹿和一只鹅。" }
+  ]
+}

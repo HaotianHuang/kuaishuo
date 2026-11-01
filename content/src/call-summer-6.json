@@ -1,0 +1,182 @@
+{
+  "id": "summer-6",
+  "format": "call",
+  "title": "录取",
+  "title_en": "The Letter",
+  "level": 3,
+  "listen": 4,
+  "topics": ["family"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "summer", "ep": 6, "next": "Season one is over. A photo arrives: 小敏 at 北京 station, alone, smiling." },
+  "tags": ["那年夏天", "录取", "北京"],
+  "setting": "Your flat abroad, 3 am. Two weeks after the airport. Your phone lights up: 小敏.",
+  "stage": "📞",
+  "bg": ["#0a0e1a", "#3a4a6a"],
+  "cast": {
+    "xiaomin": { "name": "小敏", "en": "your cousin, crying, talking too fast", "emoji": "👧", "voice": "f-young", "speed": 1.2, "phone": true },
+    "yifu": { "name": "姨父", "en": "小敏's father: says little", "emoji": "👨", "voice": "m-mid", "phone": true }
+  },
+  "call": {
+    "caller": "xiaomin", "photo": "👧", "name": { "zh": "小敏" }, "number": "138 0000 0718", "label": { "zh": "中国" }, "clock": "03:00", "patience": 8,
+    "silence": [
+      { "who": "xiaomin", "zh": "你在听吗？", "en": "Are you listening?" },
+      { "who": "xiaomin", "zh": "喂？喂？", "en": "Hello? Hello?" }
+    ],
+    "hangup": [
+      { "who": "xiaomin", "zh": "……我晚点再打。", "en": "...I'll call back later." },
+      { "end": "lose", "en": "She hangs up. You lie awake until dawn, wondering. Run that back." }
+    ],
+    "missed": [ { "who": "xiaomin", "zh": "接电话呀！", "en": "Pick up!" } ]
+  },
+  "steps": [
+    { "say": {
+      "id": "what",
+      "en": "Pick up. She's crying. Ask what's wrong, and to tell it slowly.",
+      "cue": "Pick up.",
+      "answers": ["小敏，怎么了？慢慢说。", "怎么了？你慢慢说。"],
+      "gloss": "小敏, what is it? Slowly.",
+      "need": [["怎么了"], ["慢慢说"]],
+      "tip": "慢慢说 = tell it slowly: take your time.",
+      "ok": [
+        { "who": "xiaomin", "zh": "录取了！北京！", "en": "I got in! 北京!", "pace": "fast" },
+        { "who": "xiaomin", "zh": "我填的就是北京！", "en": "北京 is what I put down!", "pace": "fast" },
+        { "who": "xiaomin", "zh": "通知书今天到的，我爸先哭了，然后我也……", "en": "The letter came today, and my dad cried first, and then I...", "pace": "fast" }
+      ],
+      "fail": [ { "who": "xiaomin", "zh": "你听我说……", "en": "Listen to me...", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["怎么了？", "小敏，怎么了？"],
+          "need": [["怎么了"]],
+          "gloss": "What is it?",
+          "status": "live" },
+        "4": {
+          "answers": ["小敏，别哭，怎么了？慢慢说。"],
+          "need": [["别哭"], ["慢慢说"]],
+          "gloss": "小敏, don't cry. What is it? Slowly.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "congrats",
+      "en": "Did you catch where? Congratulate her.",
+      "cue": "Congratulate her.",
+      "answers": ["北京？恭喜你！", "考上北京了？恭喜你！"],
+      "gloss": "北京? Congratulations!",
+      "need": [["北京"], ["恭喜你"]],
+      "key": { "恭喜": "congratulations" },
+      "tip": "恭喜 gōngxǐ = congratulations. 考上 = got in (by exam).",
+      "ok": [ { "who": "xiaomin", "zh": "嗯！", "en": "Yes!", "fx": "laugh" } ],
+      "fail": [ { "who": "xiaomin", "zh": "你没听清？北京！", "en": "Didn't you hear? 北京!", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["北京？恭喜！", "恭喜！北京！"],
+          "need": [["北京"]],
+          "gloss": "Congratulations!",
+          "status": "live" },
+        "4": {
+          "answers": ["你考上北京了？太好了，恭喜你！"],
+          "need": [["考上"], ["恭喜你"]],
+          "gloss": "You got into 北京? That's wonderful. Congratulations!",
+          "status": "live" }
+      }
+    } },
+    { "when": { "summer.ep5": "back" }, "who": "xiaomin", "zh": "你说明年回来的！别忘了！", "en": "You said you'd be back next year! Don't forget!",
+      "else": [ { "who": "xiaomin", "zh": "现在轮到你来看我了。", "en": "Now it's your turn to come and see me." } ] },
+    { "who": "xiaomin", "zh": "可是我一直哭……我爸从来不哭的。", "en": "But I can't stop crying... and my dad never cries.", "pace": "fast" },
+    { "say": {
+      "id": "cry",
+      "en": "Reassure her: people cry when they're happy, too.",
+      "cue": "Reassure her.",
+      "answers": ["高兴的时候，也会哭。", "人高兴也会哭的。"],
+      "gloss": "People cry when they're happy, too.",
+      "need": [["高兴"], ["也会哭"]],
+      "tip": "也会 = can also, will also: 高兴的时候也会哭.",
+      "ok": [
+        { "who": "xiaomin", "zh": "……嗯。", "en": "...Mm.", "hold": 1 },
+        { "who": "xiaomin", "zh": "我爸要跟你说话。", "en": "My dad wants to talk to you." }
+      ],
+      "fail": [ { "who": "xiaomin", "zh": "我是不是很傻？", "en": "Am I being silly?" } ],
+      "levels": {
+        "2": {
+          "answers": ["高兴也会哭。", "人高兴也会哭。"],
+          "need": [["高兴"]],
+          "gloss": "Happy people cry too.",
+          "status": "live" },
+        "4": {
+          "answers": ["傻孩子，人高兴的时候也会哭。"],
+          "need": [["傻孩子"], ["也会哭"]],
+          "gloss": "Silly thing. People cry when they're happy, too.",
+          "status": "live" }
+      }
+    } },
+    { "who": "yifu", "zh": "喂。", "en": "Hello." },
+    { "who": "yifu", "zh": "那天在桥上，我没说出来。", "en": "That night on the bridge, I couldn't say it.", "pace": "slow", "hold": 1 },
+    { "who": "yifu", "zh": "谢谢你。", "en": "Thank you.", "pace": "slow", "hold": 2 },
+    { "who": "yifu", "zh": "她敢去北京，是因为你。", "en": "She's brave enough to go to 北京 because of you.", "pace": "slow", "hold": 1 },
+    { "say": {
+      "id": "yifu",
+      "en": "Answer 姨父: congratulate him, or tell him it was her own choice.",
+      "cue": "Congrats, or hers?",
+      "answers": ["恭喜姨父！", "姨父，恭喜您！"],
+      "gloss": "Congratulations, 姨父!",
+      "need": [["恭喜"], ["姨父"]],
+      "tip": "恭喜您 to an elder. They'll answer 同喜: the joy is shared.",
+      "sets": { "summer.end": "congrats" },
+      "ok": [ { "who": "yifu", "zh": "……同喜，同喜。", "en": "...The joy is yours too.", "fx": "laugh" } ],
+      "alts": [
+        { "en": "Or: it was her own choice", "answers": ["是她自己选的。", "姨父，是她自己选的。"], "need": [["自己选"]], "gloss": "She chose it herself.",
+          "sets": { "summer.end": "hers" },
+          "then": [
+            { "who": "yifu", "zh": "……对。她自己选的。", "en": "...Yes. She chose it herself.", "hold": 1 },
+            { "who": "yifu", "zh": "我女儿，自己选的。", "en": "My daughter. Her own choice.", "pace": "slow" }
+          ] }
+      ],
+      "fail": [ { "who": "yifu", "zh": "……嗯。", "en": "...Mm." } ],
+      "levels": {
+        "2": {
+          "answers": ["恭喜姨父！", "姨父，恭喜您！"],
+          "need": [["姨父"]],
+          "gloss": "Congratulations!",
+          "alts": [ { "of": 0, "answers": ["她自己选的。"], "need": [["自己选"]], "gloss": "She chose it herself." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["姨父，恭喜您，养了个好女儿！"],
+          "need": [["好女儿"], ["恭喜"]],
+          "gloss": "Congratulations, 姨父. You raised a wonderful daughter!",
+          "alts": [ { "of": 0, "answers": ["姨父，路是她自己选的，不是我。"], "need": [["不是我"], ["自己选"]], "gloss": "姨父, she chose this road herself. Not me." } ],
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaomin", "zh": "我回来了！你还在吗？", "en": "It's me again! Are you still there?" },
+    { "say": {
+      "id": "promise",
+      "en": "Promise her: in October, you'll come to 北京 to see her.",
+      "cue": "Promise.",
+      "answers": ["十月我去北京看你。", "小敏，十月我去北京看你。"],
+      "gloss": "In October I'll come to 北京 to see you.",
+      "need": [["十月"], ["看你"]],
+      "tip": "十月 shíyuè = October: months are just numbers + 月.",
+      "ok": [
+        { "who": "xiaomin", "zh": "说好了！", "en": "It's a promise!", "fx": "laugh" },
+        { "who": "xiaomin", "zh": "你快睡吧。三点了！", "en": "Go to sleep. It's three o'clock!" }
+      ],
+      "fail": [ { "who": "xiaomin", "zh": "你说什么？", "en": "What did you say?" } ],
+      "levels": {
+        "2": {
+          "answers": ["十月去看你！", "我去看你！"],
+          "need": [["看你"]],
+          "gloss": "I'll come and see you!",
+          "status": "live" },
+        "4": {
+          "answers": ["十月我去北京看你，说话算话。"],
+          "need": [["说话算话"], ["十月"]],
+          "gloss": "In October I'll come to 北京 to see you. I mean it.",
+          "status": "live" }
+      }
+    } },
+    { "when": { "summer.end": "congrats" }, "end": "win", "en": "4 am. You can't get back to sleep. You don't mind at all. Season one ends here. ☀️",
+      "else": [ { "end": "win", "en": "4 am. In the family group, 姨父 posts for the first time ever: 我女儿。 Season one ends here. ☀️" } ] }
+  ]
+}

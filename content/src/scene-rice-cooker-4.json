@@ -1,0 +1,542 @@
+{
+  "id": "rice-cooker-4",
+  "format": "scene",
+  "title": "家电聚会",
+  "title_en": "The Appliance Party",
+  "level": 0,
+  "listen": 0,
+  "topics": [
+    "home"
+  ],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": {
+    "id": "rice-cooker",
+    "ep": 4,
+    "next": "The fridge has started a group chat."
+  },
+  "tags": [
+    "电饭煲",
+    "聚会",
+    "冰箱"
+  ],
+  "setting": "Your kitchen, Saturday, 7 pm. 小饭 invited the treadmill to dinner. Others have come too.",
+  "stage": "🎉",
+  "bg": [
+    "#2a1a0b",
+    "#e0a030"
+  ],
+  "cast": {
+    "xiaofan": {
+      "name": "小饭",
+      "en": "your smart rice cooker, the host",
+      "emoji": "🍚",
+      "voice": "kid",
+      "speed": 0.85
+    },
+    "paobuji": {
+      "name": "跑步机",
+      "en": "the gym's treadmill, on the TV by video",
+      "emoji": "🏃",
+      "voice": "m-mid",
+      "speed": 0.85
+    },
+    "bingbing": {
+      "name": "冰冰",
+      "en": "the fridge: chilly, chatty",
+      "emoji": "🧊",
+      "voice": "f-young",
+      "speed": 0.85
+    },
+    "saosao": {
+      "name": "扫扫",
+      "en": "the robot vacuum: cannot bear a crumb",
+      "emoji": "🤖",
+      "voice": "m-young",
+      "speed": 0.85
+    }
+  },
+  "steps": [
+    {
+      "when": {
+        "rice-cooker.ep3": "home"
+      },
+      "who": "xiaofan",
+      "zh": "你回家吃饭了！",
+      "en": "You came home for dinner!",
+      "fx": "jump",
+      "else": [
+        {
+          "who": "paobuji",
+          "zh": "你多跑了十分钟！",
+          "en": "You ran ten extra minutes!",
+          "fx": "jump"
+        }
+      ]
+    },
+    {
+      "narr": "Saturday, 7 pm. The treadmill is on the TV, by video. And the fridge and the robot vacuum have joined in.",
+      "prop": "📺"
+    },
+    {
+      "who": "xiaofan",
+      "zh": "客人来了！",
+      "en": "The guests are here!"
+    },
+    {
+      "say": {
+        "id": "hello",
+        "en": "Greet them: hello!",
+        "cue": "Hello!",
+        "answers": [
+          "你好！",
+          "你们好！"
+        ],
+        "gloss": "Hello!",
+        "need": [
+          [
+            "你好",
+            "你们好"
+          ]
+        ],
+        "tip": "你们 nǐmen = you, more than one.",
+        "ok": [
+          {
+            "who": "bingbing",
+            "zh": "你好！我是冰冰！",
+            "en": "Hi! I'm 冰冰!"
+          },
+          {
+            "who": "saosao",
+            "zh": "我是扫扫！",
+            "en": "I'm 扫扫!"
+          }
+        ],
+        "fail": [
+          {
+            "who": "xiaofan",
+            "zh": "说你好！",
+            "en": "Say hello!"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "你们好！欢迎！"
+            ],
+            "need": [
+              [
+                "欢迎"
+              ]
+            ],
+            "gloss": "Hello! Welcome!",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "你们好，欢迎欢迎！"
+            ],
+            "need": [
+              [
+                "欢迎欢迎"
+              ]
+            ],
+            "gloss": "Hello, welcome, welcome!",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "who": "bingbing",
+      "zh": "我好冷！",
+      "en": "I'm so cold!"
+    },
+    {
+      "who": "saosao",
+      "zh": "地上好脏！",
+      "en": "The floor's so dirty!"
+    },
+    {
+      "who": "paobuji",
+      "zh": "速度，加！",
+      "en": "Speed: up!"
+    },
+    {
+      "say": {
+        "id": "sit",
+        "en": "Seat them: sit down!",
+        "cue": "Sit!",
+        "answers": [
+          "坐吧！",
+          "请坐！"
+        ],
+        "gloss": "Sit down!",
+        "need": [
+          [
+            "坐"
+          ]
+        ],
+        "tip": "坐 zuò = sit. 请坐 = please sit.",
+        "ok": [
+          {
+            "narr": "扫扫 parks under the table. 冰冰 stays standing. It's a fridge."
+          },
+          {
+            "who": "bingbing",
+            "zh": "我站着就好。",
+            "en": "I'm fine standing."
+          }
+        ],
+        "fail": [
+          {
+            "who": "saosao",
+            "zh": "我坐哪儿？",
+            "en": "Where do I sit?"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "大家坐吧！",
+              "大家请坐！"
+            ],
+            "need": [
+              [
+                "大家"
+              ]
+            ],
+            "gloss": "Sit down, everyone!",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "大家都坐下吧！"
+            ],
+            "need": [
+              [
+                "坐下"
+              ]
+            ],
+            "gloss": "Everyone, sit yourselves down!",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "who": "xiaofan",
+      "zh": "饭好了！",
+      "en": "Rice is ready!",
+      "fx": "jump"
+    },
+    {
+      "say": {
+        "id": "eat",
+        "en": "Announce it: dinner's on!",
+        "cue": "Dinner!",
+        "answers": [
+          "吃饭了！",
+          "吃饭！"
+        ],
+        "gloss": "Dinner time!",
+        "need": [
+          [
+            "吃饭"
+          ]
+        ],
+        "tip": "吃饭了！ = time to eat! 了 says: it's happening now.",
+        "ok": [
+          {
+            "who": "paobuji",
+            "zh": "吃完跑步！",
+            "en": "Run after dinner!"
+          },
+          {
+            "who": "bingbing",
+            "zh": "我有冰淇淋！",
+            "en": "I've got ice cream!"
+          },
+          {
+            "who": "saosao",
+            "zh": "米掉了！我来！",
+            "en": "Rice on the floor! I've got it!",
+            "fx": "shake"
+          }
+        ],
+        "fail": [
+          {
+            "who": "xiaofan",
+            "zh": "说吃饭了！",
+            "en": "Say: dinner time!"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "吃饭了！快来！"
+            ],
+            "need": [
+              [
+                "快来"
+              ]
+            ],
+            "gloss": "Dinner's on! Come on!",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "好了，快来吃饭了！"
+            ],
+            "need": [
+              [
+                "好了"
+              ]
+            ],
+            "gloss": "Right, come and eat!",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "narr": "Everyone talks at once, louder and louder. The fridge hums. The vacuum whirs. The treadmill shouts.",
+      "fx": "shake"
+    },
+    {
+      "sfx": "buzz"
+    },
+    {
+      "say": {
+        "id": "quiet",
+        "en": "Plead: stop squabbling!",
+        "cue": "Quiet!",
+        "answers": [
+          "别吵！",
+          "别吵了！"
+        ],
+        "gloss": "Stop it!",
+        "need": [
+          [
+            "别吵"
+          ]
+        ],
+        "tip": "别 bié = don't. 吵 chǎo = make a racket, squabble.",
+        "ok": [
+          {
+            "sfx": "pop"
+          }
+        ],
+        "fail": [
+          {
+            "sfx": "buzz"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "别吵了！",
+              "大家别吵了！"
+            ],
+            "need": [
+              [
+                "别吵了"
+              ]
+            ],
+            "gloss": "Stop squabbling!",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "别吵了，一个一个说！"
+            ],
+            "need": [
+              [
+                "一个一个"
+              ]
+            ],
+            "gloss": "Stop squabbling! One at a time!",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "narr": "The power trips. Dark. Silent. Only you, in the kitchen, in the quiet.",
+      "hold": 2
+    },
+    {
+      "narr": "Then, one by one, little lights come back on."
+    },
+    {
+      "who": "xiaofan",
+      "zh": "谢谢。",
+      "en": "Thank you.",
+      "pace": "slow"
+    },
+    {
+      "who": "bingbing",
+      "zh": "谢谢。",
+      "en": "Thank you.",
+      "pace": "slow"
+    },
+    {
+      "who": "saosao",
+      "zh": "谢谢。",
+      "en": "Thank you.",
+      "pace": "slow"
+    },
+    {
+      "who": "paobuji",
+      "zh": "谢谢。",
+      "en": "Thank you.",
+      "pace": "slow",
+      "hold": 1
+    },
+    {
+      "who": "xiaofan",
+      "zh": "没人请过我们。",
+      "en": "Nobody's ever had us round.",
+      "pace": "slow",
+      "hold": 1
+    },
+    {
+      "say": {
+        "id": "again",
+        "en": "Invite them again, or say: just this once.",
+        "cue": "Again, or never?",
+        "answers": [
+          "下次再来！",
+          "再来！"
+        ],
+        "gloss": "Come again!",
+        "need": [
+          [
+            "再来"
+          ]
+        ],
+        "tip": "下次 = next time. 再来 = come again.",
+        "sets": {
+          "rice-cooker.ep4": "again"
+        },
+        "ok": [
+          {
+            "sfx": "cheer"
+          },
+          {
+            "who": "bingbing",
+            "zh": "我建个群！",
+            "en": "I'll start a group chat!"
+          }
+        ],
+        "alts": [
+          {
+            "en": "Or: just this once",
+            "answers": [
+              "下不为例！"
+            ],
+            "need": [
+              [
+                "下不为例"
+              ]
+            ],
+            "gloss": "Just this once!",
+            "key": {
+              "下不为例": "just this once"
+            },
+            "sets": {
+              "rice-cooker.ep4": "never"
+            },
+            "then": [
+              {
+                "who": "xiaofan",
+                "zh": "好吧。",
+                "en": "Fair enough."
+              },
+              {
+                "who": "bingbing",
+                "zh": "那我建个群。",
+                "en": "Then I'll start a group chat."
+              }
+            ]
+          }
+        ],
+        "fail": [
+          {
+            "who": "xiaofan",
+            "zh": "还来吗？",
+            "en": "Can they come again?"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "下次再来玩！"
+            ],
+            "need": [
+              [
+                "来玩"
+              ]
+            ],
+            "gloss": "Come over again next time!",
+            "alts": [
+              {
+                "of": 0,
+                "answers": [
+                  "这次下不为例！"
+                ],
+                "need": [
+                  [
+                    "这次"
+                  ]
+                ],
+                "gloss": "This time, and never again!"
+              }
+            ],
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "下次一定再来玩！"
+            ],
+            "need": [
+              [
+                "一定"
+              ]
+            ],
+            "gloss": "You must come over again next time!",
+            "alts": [
+              {
+                "of": 0,
+                "answers": [
+                  "好吧，这次下不为例！"
+                ],
+                "need": [
+                  [
+                    "好吧"
+                  ]
+                ],
+                "gloss": "All right: just this once!"
+              }
+            ],
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "when": {
+        "rice-cooker.ep4": "again"
+      },
+      "end": "win",
+      "en": "Midnight. Your phone buzzes: you've been added to a group chat called 我们家. 🍚",
+      "else": [
+        {
+          "end": "win",
+          "en": "Midnight. Your phone buzzes: you've been added to a group chat called 下不为例. 🍚"
+        }
+      ]
+    }
+  ]
+}

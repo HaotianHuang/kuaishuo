@@ -1,0 +1,155 @@
+{
+  "id": "summer-4",
+  "format": "scene",
+  "title": "填志愿",
+  "title_en": "The Form",
+  "level": 3,
+  "listen": 3,
+  "topics": ["family"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "summer", "ep": 4, "next": "Submitted at 4:58. 小敏 isn't telling. The results come in two weeks, and you fly home in one." },
+  "tags": ["那年夏天", "填志愿", "外公"],
+  "setting": "外公's front room, Friday, 4 pm. The university form closes at five. The whole family is round the old computer.",
+  "stage": "💻",
+  "bg": ["#1a2a1a", "#7a9a5a"],
+  "cast": {
+    "xiaomin": { "name": "小敏", "en": "your cousin, eighteen, top of the county", "emoji": "👧", "voice": "f-young" },
+    "xiaoyi": { "name": "小姨", "en": "小敏's mother: trying very hard not to look", "emoji": "👩", "voice": "f-mid" },
+    "yifu": { "name": "姨父", "en": "小敏's father: says little", "emoji": "👨", "voice": "m-mid" },
+    "waigong": { "name": "外公", "en": "your grandfather, whose house this is", "emoji": "👴", "voice": "m-old" }
+  },
+  "steps": [
+    { "when": { "summer.ep3": "call" }, "narr": "小姨 and 姨父 are sitting side by side on the sofa. For once.",
+      "else": [ { "narr": "小敏 spoke first, that night in 北京. Her mum hasn't stopped looking at her since." } ] },
+    { "narr": "Friday, 4 pm. The form closes at five. Cicadas outside, and the whole family round 外公's old computer.", "prop": "💻" },
+    { "who": "xiaomin", "zh": "我填好了。谁也不许看。", "en": "I've filled it in. Nobody's allowed to look." },
+    { "who": "xiaoyi", "zh": "我就看一眼！", "en": "Just one peek!", "pace": "fast" },
+    { "who": "yifu", "zh": "……让她自己定。", "en": "...Let her decide for herself." },
+    { "say": {
+      "id": "support",
+      "en": "Tell 小敏: whatever she's put, you all support her.",
+      "cue": "Support her.",
+      "answers": ["不管你填什么，我们都支持你。", "不管填什么，我们都支持你。"],
+      "gloss": "Whatever you put, we're all behind you.",
+      "need": [["不管"], ["支持你"]],
+      "key": { "支持": "support" },
+      "tip": "不管……都…… = no matter what ..., still ... 支持 zhīchí = support.",
+      "ok": [
+        { "who": "xiaomin", "zh": "真的吗？", "en": "Really?", "hold": 1 },
+        { "who": "xiaoyi", "zh": "真的，妈支持你。", "en": "Really. Mum's behind you.", "pace": "slow", "hold": 1 }
+      ],
+      "fail": [ { "who": "xiaoyi", "zh": "你说，她会不会填北京？", "en": "What do you think, has she put 北京?", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["我们都支持你。", "我们支持你！"],
+          "need": [["支持你"]],
+          "gloss": "We're behind you.",
+          "status": "live" },
+        "4": {
+          "answers": ["小敏，不管你填什么，我们都支持你。"],
+          "need": [["小敏"], ["不管"]],
+          "gloss": "小敏, whatever you put, we're all behind you.",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaoyi", "zh": "可是北京那么远……", "en": "But 北京 is so far...", "pace": "fast" },
+    { "who": "yifu", "zh": "你又来了。", "en": "Here you go again." },
+    { "who": "xiaoyi", "zh": "我说什么了？！", "en": "What did I say?!", "pace": "fast", "fx": "shake" },
+    { "say": {
+      "id": "peace",
+      "en": "Keep the peace: not today.",
+      "cue": "Not today.",
+      "answers": ["好了好了，今天别吵了。", "小姨，姨父，今天别吵了。"],
+      "gloss": "All right, all right. Not today.",
+      "need": [["别吵了"], ["今天"]],
+      "tip": "别吵了 = stop arguing.",
+      "ok": [ { "narr": "Quiet. Just the cicadas. 外公 puts down his tea.", "hold": 1 } ],
+      "fail": [ { "who": "xiaoyi", "zh": "我没吵！", "en": "I'm not arguing!", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["别吵了！", "好了，别吵了。"],
+          "need": [["别吵了"]],
+          "gloss": "Stop arguing!",
+          "status": "live" },
+        "4": {
+          "answers": ["今天是小敏的大日子，别吵了。"],
+          "need": [["大日子"], ["别吵了"]],
+          "gloss": "Today's 小敏's big day. Stop arguing.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "waigong",
+      "en": "Ask 外公 what he thinks.",
+      "cue": "Ask 外公.",
+      "answers": ["外公，您怎么想？", "外公，您觉得呢？"],
+      "gloss": "外公, what do you think?",
+      "need": [["外公"], ["怎么想", "觉得"]],
+      "tip": "您怎么想？ = what do you think? 您 for 外公, always.",
+      "ok": [
+        { "who": "waigong", "zh": "我十八岁，离开这个小县城，去了上海。", "en": "At eighteen I left this little town, and went to 上海.", "pace": "slow" },
+        { "who": "waigong", "zh": "三十岁，又回来了。", "en": "At thirty, I came back.", "pace": "slow", "hold": 1 },
+        { "who": "waigong", "zh": "走了，才知道家在哪儿。", "en": "It's only when you leave that you find out where home is.", "pace": "slow", "hold": 3 },
+        { "narr": "He isn't only looking at 小敏. He's looking at you too: the one who lives far away.", "hold": 2 }
+      ],
+      "fail": [ { "who": "waigong", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "2": {
+          "answers": ["外公呢？", "外公，您呢？"],
+          "need": [["外公"]],
+          "gloss": "And 外公?",
+          "status": "live" },
+        "4": {
+          "answers": ["外公，您一直没说话，您怎么想？"],
+          "need": [["没说话"], ["怎么想"]],
+          "gloss": "外公, you haven't said a word. What do you think?",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaomin", "zh": "四点五十了。", "en": "It's ten to five." },
+    { "who": "xiaomin", "zh": "……你们想看吗？", "en": "...Do you want to see?", "hold": 1 },
+    { "say": {
+      "id": "form",
+      "en": "Ask her to show you, or tell her to submit it unseen.",
+      "cue": "Show us, or submit?",
+      "answers": ["给我们看看吧。", "小敏，给我们看看吧。"],
+      "gloss": "Show us.",
+      "need": [["给我们"], ["看看"]],
+      "tip": "看看 = have a look: doubled, it's gentle.",
+      "sets": { "summer.ep4": "show" },
+      "ok": [
+        { "narr": "小敏 turns the screen, but only towards 外公. He reads it, and nods." },
+        { "who": "xiaoyi", "zh": "写的什么？", "en": "What does it say?", "pace": "fast" },
+        { "who": "waigong", "zh": "她自己会说。", "en": "She'll tell you herself.", "pace": "slow" }
+      ],
+      "alts": [
+        { "en": "Or: submit it unseen", "answers": ["不用给我们看，提交吧。", "不用看，提交吧。"], "need": [["不用"], ["提交"]], "gloss": "You don't have to show us. Submit it.",
+          "key": { "提交": "submit" },
+          "sets": { "summer.ep4": "unseen" },
+          "then": [
+            { "who": "xiaomin", "zh": "……谢谢。", "en": "...Thank you.", "hold": 1 },
+            { "narr": "Click." }
+          ] }
+      ],
+      "fail": [ { "who": "xiaomin", "zh": "看，还是不看？", "en": "Look, or not?" } ],
+      "levels": {
+        "2": {
+          "answers": ["给我们看看！", "看看吧。"],
+          "need": [["看看"]],
+          "gloss": "Show us!",
+          "alts": [ { "of": 0, "answers": ["提交吧！"], "need": [["提交"]], "gloss": "Submit it!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["小敏，你愿意的话，给我们看看吧。"],
+          "need": [["愿意"], ["看看"]],
+          "gloss": "小敏, if you're happy to, show us.",
+          "alts": [ { "of": 0, "answers": ["不用给我们看，相信你，提交吧。"], "need": [["相信你"], ["提交"]], "gloss": "You don't have to show us. We trust you. Submit it." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "summer.ep4": "show" }, "end": "win", "en": "4:58. Submitted. Only 外公 saw it, and he's smiling into his tea. 📝",
+      "else": [ { "end": "win", "en": "4:58. Submitted. 小敏 hugs everyone: you last, and longest. 📝" } ] }
+  ]
+}

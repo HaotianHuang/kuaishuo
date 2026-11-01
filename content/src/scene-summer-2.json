@@ -1,0 +1,148 @@
+{
+  "id": "summer-2",
+  "format": "scene",
+  "title": "北京",
+  "title_en": "Beijing",
+  "level": 3,
+  "listen": 3,
+  "topics": ["travel"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "summer", "ep": 2, "next": "外公 calls: 小敏's mum is getting on a train to 北京. Tonight." },
+  "tags": ["北京", "大学", "回家"],
+  "setting": "A university campus in 北京, Wednesday, 9 am. 小敏 has to decide by Friday.",
+  "stage": "🏛️",
+  "bg": ["#1b2340", "#c2603a"],
+  "cast": {
+    "xiaomin": { "name": "小敏", "en": "your cousin, eighteen", "emoji": "👧", "voice": "f-young" },
+    "luren": { "name": "路人", "en": "a passer-by", "emoji": "🚶", "voice": "f-mid" },
+    "tongxue": { "name": "同学", "en": "a student from your own town", "emoji": "🎒", "voice": "m-young" }
+  },
+  "steps": [
+    { "when": { "summer.ep1": "told" }, "narr": "姨父 bought the two train tickets, and left them by her bowl. He said nothing.", "prop": "🎫",
+      "else": [ { "who": "xiaomin", "zh": "我想自己来看看。", "en": "I wanted to come and see for myself." } ] },
+    { "narr": "北京. A campus gate. Heat, and a thousand bicycles." },
+    { "who": "xiaomin", "zh": "图书馆在哪儿啊？我想看看。", "en": "Where's the library? I want to see it." },
+    { "say": {
+      "id": "way",
+      "en": "Ask a passer-by the way to the library.",
+      "cue": "Ask the way.",
+      "answers": ["请问，图书馆怎么走？", "不好意思，请问图书馆怎么走？", "请问一下，去图书馆怎么走？"],
+      "gloss": "Excuse me, how do I get to the library?",
+      "need": [["请问"], ["怎么走"]],
+      "tip": "请问 qǐngwèn = excuse me, may I ask: before any question to a stranger.",
+      "ok": [
+        { "who": "luren", "zh": "一直走，看见湖就左拐。", "en": "Straight on. Left at the lake.", "pace": "fast" },
+        { "narr": "A lake. Willows. 小敏 stops at every building." }
+      ],
+      "fail": [ { "who": "luren", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "2": {
+          "answers": ["图书馆怎么走？", "请问图书馆在哪儿？"],
+          "need": [["怎么走", "在哪"]],
+          "gloss": "Where's the library?",
+          "status": "live" },
+        "4": {
+          "answers": ["打扰一下，请问去图书馆怎么走最近？", "打扰一下，请问图书馆怎么走最近？"],
+          "need": [["打扰"], ["最近"]],
+          "gloss": "Sorry to bother you: what's the quickest way to the library?",
+          "tip": "最近 zuì jìn = nearest, shortest: 怎么走最近？",
+          "status": "live" }
+      }
+    } },
+    { "narr": "On the library steps, a student hears you talking, and turns." },
+    { "who": "tongxue", "zh": "听口音，你们是老家那边的吧？", "en": "That accent: you're from back home, aren't you?" },
+    { "say": {
+      "id": "same",
+      "en": "Yes! Ask if they're from your town too.",
+      "cue": "From home too?",
+      "answers": ["是啊！同学，你也是我们那儿的？", "对！同学你也是我们那儿的吗？"],
+      "gloss": "Yes! Are you from our town too?",
+      "need": [["同学"], ["也是"]],
+      "tip": "同学 tóngxué = what you call any student: no older, no younger, no he or she.",
+      "ok": [
+        { "who": "tongxue", "zh": "对！我来北京三年了。", "en": "I am! Three years in 北京 now." },
+        { "who": "tongxue", "zh": "三年没回过家。票太难买了，习惯了。", "en": "Haven't been home once. Tickets are impossible. You get used to it.", "pace": "fast" },
+        { "narr": "小敏 goes quiet.", "hold": 2 }
+      ],
+      "fail": [ { "who": "tongxue", "zh": "不是吗？", "en": "No?" } ],
+      "levels": {
+        "2": {
+          "answers": ["是啊，你也是吗？", "对！你也是？"],
+          "need": [["也是"]],
+          "gloss": "Yes! You too?",
+          "status": "live" },
+        "4": {
+          "answers": ["是啊，真巧！同学，你也是我们县的？", "真巧，同学你也是我们县的吗？"],
+          "need": [["真巧"], ["同学"]],
+          "gloss": "Yes, what a coincidence! You're from our county too?",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaomin", "zh": "三年不回家……我做不到。", "en": "Three years without going home... I couldn't." },
+    { "say": {
+      "id": "slow",
+      "en": "Encourage her: take it slowly. There's time.",
+      "cue": "Easy.",
+      "answers": ["慢慢来，不着急。", "慢慢来，还有时间。", "别急，慢慢来，不着急。"],
+      "gloss": "Take it slowly. No rush.",
+      "need": [["慢慢来"], ["不着急", "不急", "还有时间", "还有两天"]],
+      "key": { "慢慢来": "take it slowly" },
+      "tip": "慢慢来 mànmàn lái = take your time, one step at a time.",
+      "ok": [ { "who": "xiaomin", "zh": "……嗯。", "en": "...Mm." } ],
+      "fail": [ { "who": "xiaomin", "zh": "我做不到。", "en": "I couldn't." } ],
+      "levels": {
+        "2": {
+          "answers": ["慢慢来！", "慢慢来吧。"],
+          "need": [["慢慢来"]],
+          "gloss": "Take it slowly!",
+          "status": "live" },
+        "4": {
+          "answers": ["慢慢来，到星期五还有两天呢。", "慢慢来，离星期五还有两天呢。"],
+          "need": [["星期五"], ["慢慢来"]],
+          "gloss": "Take it slowly. There are still two days till Friday.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Evening, by the lake. The willows, and the lights of the library." },
+    { "who": "xiaomin", "zh": "如果我来了，是不是就回不去了？", "en": "If I come here... does that mean I can never go back?" },
+    { "say": {
+      "id": "home",
+      "en": "Tell her far away isn't for ever, or that she doesn't have to know yet.",
+      "cue": "Home, or not yet?",
+      "answers": ["走远了也能回家。", "走得再远，也能回家。"],
+      "gloss": "You can go far, and still come home.",
+      "need": [["回家"], ["走远", "再远"]],
+      "tip": "再远 = however far: 走得再远，也能回家.",
+      "sets": { "summer.ep2": "home" },
+      "ok": [
+        { "who": "xiaomin", "zh": "……真的吗？", "en": "...Really?", "hold": 1 },
+        { "who": "xiaomin", "zh": "那你要常给我打电话。", "en": "Then you have to call me. Often." }
+      ],
+      "alts": [
+        { "en": "Or: she doesn't have to know yet", "answers": ["还没想好也没关系。", "没想好也没关系。"], "need": [["没关系"], ["想好"]], "gloss": "It's all right not to know yet.",
+          "key": { "想好": "made up your mind" },
+          "sets": { "summer.ep2": "unsure" },
+          "then": [ { "who": "xiaomin", "zh": "嗯。那我们先去吃烤鸭。", "en": "Mm. Then let's go and have roast duck first.", "fx": "laugh" } ] }
+      ],
+      "fail": [ { "who": "xiaomin", "zh": "是不是就回不去了？", "en": "Can I never go back?" } ],
+      "levels": {
+        "2": {
+          "answers": ["能回家的！", "走远了也能回家。"],
+          "need": [["回家"]],
+          "gloss": "You can always come home!",
+          "alts": [ { "of": 0, "answers": ["没想好也没关系。", "没关系的。"], "need": [["没关系"]], "gloss": "It's all right." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["走得再远，想家了就能回家。", "走得再远，随时都能回家。"],
+          "need": [["再远"], ["想家", "随时"]],
+          "gloss": "However far you go, you can come home whenever you miss it.",
+          "alts": [ { "of": 0, "answers": ["还没想好也没关系，日子还长着呢。", "没想好也没关系，日子还长。"], "need": [["日子还长"], ["没关系"]], "gloss": "It's all right not to know yet. There's a lot of life ahead." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "summer.ep2": "home" }, "end": "win", "en": "That night 小敏 buys a 北京 keyring. For her dad. 🔑",
+      "else": [ { "end": "win", "en": "Two days to Friday. 小敏 falls asleep with the campus map on her chest. 🗺️" } ] }
+  ]
+}

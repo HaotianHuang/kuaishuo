@@ -1,0 +1,60 @@
+{
+  "id": "melon",
+  "title": "吃瓜",
+  "title_en": "Melon Season",
+  "eps": 6,
+  "audience": "heritage",
+  "levels": [
+    2,
+    4
+  ],
+  "genre": "comedy",
+  "home": {
+    "name": "金桂苑",
+    "en": "an old estate in Hangzhou, and its residents' group chat, where every scandal is a misunderstanding"
+  },
+  "cast": {
+    "hu": {
+      "name": "胡阿姨",
+      "en": "5号楼: first to see everything",
+      "emoji": "👩‍🦱",
+      "voice": "f-mid",
+      "tts": "zf_023"
+    },
+    "wu": {
+      "name": "吴阿姨",
+      "en": "3号楼: knows someone who saw it",
+      "emoji": "👩",
+      "voice": "f-mid",
+      "tts": "zf_036"
+    },
+    "zhao": {
+      "name": "赵奶奶",
+      "en": "eighty, sends only sixty-second voice notes",
+      "emoji": "👵",
+      "voice": "f-old",
+      "tts": "zf_046"
+    },
+    "ting": {
+      "name": "婷婷",
+      "en": "老周's daughter, also in the group",
+      "emoji": "🙍",
+      "voice": "f-young",
+      "tts": "zf_001"
+    },
+    "laozhou": {
+      "name": "老周",
+      "en": "3号楼: retired, and lately in a suit every evening",
+      "emoji": "👴",
+      "voice": "m-old",
+      "tts": "zm_029"
+    },
+    "fang": {
+      "name": "方阿姨",
+      "en": "7号楼: the waltz partner whose knee went",
+      "emoji": "👵",
+      "voice": "f-mid",
+      "tts": "zf_047"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "id": "dont-answer-5",
+  "format": "scene",
+  "title": "规则",
+  "title_en": "The Rules",
+  "level": 2,
+  "listen": 2,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "dont-answer", "ep": 5, "next": "Midnight on the fifteenth. Someone outside 804 is saying a name." },
+  "tags": ["规则", "中元", "第一条"],
+  "setting": "Flat 804, 11 pm, the night after the stairs. Tomorrow is the fifteenth of the seventh month.",
+  "stage": "🔦",
+  "bg": ["#04060d", "#2a2440"],
+  "cast": {
+    "wuye": { "name": "物业", "en": "the property office's night man, with a torch", "emoji": "🧑‍💼", "voice": "m-mid" },
+    "zheng": { "name": "小郑", "en": "1101: a student, still shaken", "emoji": "🧑‍🎓", "voice": "m-young" }
+  },
+  "steps": [
+    { "narr": "804. You and 物业 search the flat by torchlight." },
+    { "who": "wuye", "zh": "明天就是中元了。", "en": "Tomorrow's the fifteenth. 中元." },
+    { "who": "wuye", "zh": "中元那天晚上，她叫得最响。", "en": "On that night, she calls the loudest." },
+    { "when": { "dont-answer.stairs": "together" }, "who": "zheng", "zh": "我也来帮你们找！", "en": "I'll help you look!", "fx": "enter",
+      "else": [ { "when": { "dont-answer.stairs": "hid" }, "narr": "Your phone buzzes. 小郑: still hiding...", "zh": "小郑：我还藏着呢……" } ] },
+    { "say": {
+      "id": "before",
+      "en": "Ask him what happened to the people who lived here before.",
+      "cue": "The tenants before you?",
+      "answers": ["以前住这儿的人呢？", "以前的房客呢？", "以前住这里的人去哪了？"],
+      "gloss": "What about the people who lived here before?",
+      "need": [["以前"], ["人呢", "房客", "去哪"]],
+      "key": { "人呢": "where are the people (now)" },
+      "tip": "……呢？ asks where something has got to: 以前住这儿的人呢？ = and the people who lived here before?",
+      "ok": [ { "who": "wuye", "zh": "都住不久。都说有人叫他们。", "en": "None of them stayed long. They all said someone called them." } ],
+      "fail": [ { "who": "wuye", "zh": "中元那天晚上，她叫得最响。", "en": "On that night, she calls the loudest." } ],
+      "levels": {
+        "1": {
+          "answers": ["以前的人呢？", "以前住的人呢？", "以前的房客呢？"],
+          "need": [["以前"]],
+          "gloss": "And the people before?",
+          "status": "live" },
+        "3": {
+          "answers": ["以前的房客后来都去哪了？", "以前的房客，后来都去哪儿了？"],
+          "need": [["以前"], ["后来"]],
+          "gloss": "Where did the tenants before me all end up?",
+          "tip": "后来 hòulái = afterwards, later on: 后来都去哪了？ = where did they all go, in the end?",
+          "status": "live" }
+      }
+    } },
+    { "who": "wuye", "zh": "你的纸条呢？念给我听。", "en": "Where are your notes? Read me one." },
+    { "say": {
+      "id": "read",
+      "en": "Read him one of the rules aloud. Careful which.",
+      "cue": "Read one out. Carefully.",
+      "answers": ["第一条，别回答。", "第三条，别跑。", "第一条：别回答。"],
+      "gloss": "Rule one: don't answer.",
+      "need": [["别回答", "别跑"]],
+      "not": [ { "heard": ["别说四", "说四"], "note": "You just said 四! Read one of the other two: 别回答, or 别跑." } ],
+      "key": { "别回答": "don't answer" },
+      "tip": "第 dì makes a number an ordinal: 第一条 = rule one. 条 tiáo counts rules, lines, fish.",
+      "ok": [ { "who": "wuye", "zh": "嗯。都一样。", "en": "Mm. They're all the same." } ],
+      "fail": [ { "sfx": "ding" }, { "who": "wuye", "zh": "……你听见了吗？", "en": "...Did you hear that?", "hold": 1 } ],
+      "levels": {
+        "1": {
+          "answers": ["别回答。", "别跑。", "第一条，别回答。"],
+          "gloss": "Don't answer.",
+          "status": "live" },
+        "3": {
+          "answers": ["第一条说：有人叫你，别回答。", "第一条：有人叫你，千万别回答。"],
+          "need": [["有人叫你"], ["别回答"]],
+          "gloss": "Rule one says: if someone calls you, don't answer.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Behind the wardrobe: a folded list. Not your handwriting.", "prop": "📜" },
+    { "who": "wuye", "zh": "这是阿梅的字。十年前住这儿。", "en": "That's 阿梅's writing. She lived here ten years ago." },
+    { "narr": "The same three rules. Rule one is crossed out.", "zh": "第一条划掉了。" },
+    { "narr": "Beside it, in a shaky hand: answer me.", "zh": "旁边写着：回答我。", "hold": 1 },
+    { "who": "wuye", "zh": "每个人的纸条，都是自己的字。", "en": "Everyone's notes were in their own handwriting.", "hold": 1 },
+    { "who": "wuye", "zh": "哪一条是假的？", "en": "Which rule is the false one?" },
+    { "say": {
+      "id": "false",
+      "en": "Tell him which rule is false.",
+      "cue": "Which rule is false?",
+      "answers": ["第一条是假的。", "别回答是假的。", "第一条，是假的。"],
+      "gloss": "Rule one is the false one.",
+      "need": [["第一条", "别回答"], ["假"]],
+      "not": [ { "heard": ["第二条", "第三条", "别说四", "别跑"], "note": "That rule held. Which one did 阿梅 cross out?" } ],
+      "key": { "假的": "false" },
+      "tip": "假的 jiǎ de = false, fake. 真的 zhēn de = true.",
+      "ok": [ { "who": "wuye", "zh": "……她想要人回答她。", "en": "...She wants someone to answer her.", "hold": 1 } ],
+      "fail": [ { "who": "wuye", "zh": "哪一条？", "en": "Which one?", "fx": "squint" } ],
+      "miss": [
+        { "narr": "You say it before you think: rule two, don't say 四." },
+        { "sfx": "ding" },
+        { "who": "wuye", "zh": "电梯……又停在四楼了。", "en": "The lift... it's stopped at four again.", "hold": 1 }
+      ],
+      "levels": {
+        "1": {
+          "answers": ["第一条！", "第一条是假的。", "别回答！"],
+          "need": [["第一条", "别回答"]],
+          "gloss": "Rule one!",
+          "status": "live" },
+        "3": {
+          "answers": ["第一条是假的，她想要人回答。", "第一条是假的，她在等人回答。"],
+          "need": [["假"], ["人回答"]],
+          "gloss": "Rule one is false. She wants someone to answer.",
+          "status": "live" }
+      }
+    } },
+    { "who": "wuye", "zh": "明天晚上，你打算怎么办？", "en": "So what will you do tomorrow night?" },
+    { "say": {
+      "id": "face",
+      "en": "Wait for her alone, or ask him to wait with you.",
+      "cue": "Alone, or with him?",
+      "answers": ["我自己等她。", "我一个人等她。", "我自己来等她。"],
+      "gloss": "I'll wait for her myself.",
+      "need": [["自己", "一个人"]],
+      "tip": "自己 zìjǐ = myself, on my own. 等 děng = wait for.",
+      "sets": { "dont-answer.rules": "alone" },
+      "ok": [ { "who": "wuye", "zh": "好。我就在楼下。", "en": "All right. I'll be just downstairs." } ],
+      "alts": [
+        { "en": "Or: ask him to wait with you", "answers": ["你陪我等吧。", "你陪我一起等吧。", "陪我等吧。"], "need": [["陪"]], "gloss": "Wait with me.",
+          "key": { "陪": "keep (someone) company" },
+          "sets": { "dont-answer.rules": "together" },
+          "then": [ { "who": "wuye", "zh": "好，我陪你。", "en": "All right. I'll stay with you." } ] }
+      ],
+      "fail": [ { "who": "wuye", "zh": "明天晚上，你打算怎么办？", "en": "So what will you do tomorrow night?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我自己等。", "我一个人等。", "我自己来。"],
+          "gloss": "I'll wait on my own.",
+          "alts": [ { "of": 0, "answers": ["你陪我吧。", "陪我等吧。"], "need": [["陪"]], "gloss": "Stay with me." } ],
+          "status": "live" },
+        "3": {
+          "answers": ["我自己等她，看她想说什么。", "我一个人等她，听她想说什么。"],
+          "need": [["自己", "一个人"], ["说什么"]],
+          "gloss": "I'll wait for her myself, and hear what she wants to say.",
+          "alts": [ { "of": 0, "answers": ["你陪我等吧，我有点害怕。", "你陪我一起等吧，我有点怕。"], "need": [["陪"], ["怕"]], "gloss": "Wait with me. I'm a bit scared." } ],
+          "status": "live" }
+      }
+    } },
+    { "who": "wuye", "zh": "过了明天，她就不叫了。", "en": "After tomorrow, she stops calling." },
+    { "end": "win", "en": "物业 leaves you his torch. Tomorrow is the fifteenth. 🔦" }
+  ]
+}

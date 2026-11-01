@@ -1,0 +1,146 @@
+{
+  "id": "chuanyue-5",
+  "format": "scene",
+  "title": "满月",
+  "title_en": "The Full Moon",
+  "level": 0,
+  "listen": 0,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "chuanyue", "ep": 5, "next": "A museum guard is shaking you awake: closing time. In your pocket, a warm 胡饼." },
+  "tags": ["穿越", "满月", "铜镜"],
+  "setting": "长安, the night of the full moon. A temple courtyard, and an old bronze mirror: the one from the museum.",
+  "stage": "🌕",
+  "bg": ["#0a0e1a", "#4a5a8a"],
+  "cast": {
+    "aman": { "name": "阿满", "en": "sells 胡饼 by a clay oven", "emoji": "🫓", "voice": "f-young", "speed": 0.85 },
+    "aje": { "name": "阿杰", "en": "going home after all", "emoji": "📱", "voice": "m-young", "speed": 0.85 }
+  },
+  "steps": [
+    { "when": { "chuanyue.ep4": "back" }, "narr": "At sunset, 阿满 made you promise again: you'll come back. You did.",
+      "else": [
+        { "who": "aman", "zh": "我不走。", "en": "I'm not going." },
+        { "who": "aman", "zh": "我的饼摊在这儿。", "en": "My stall is here.", "hold": 1 }
+      ] },
+    { "narr": "Midnight. The full moon. In the temple courtyard: an old bronze mirror, the one from the museum.", "prop": "🪞" },
+    { "narr": "Only one person can pass at a time, and the moon's shadow is getting short." },
+    { "who": "aje", "zh": "影子短了！", "en": "The shadow's going!", "fx": "shake" },
+    { "say": {
+      "id": "hurry",
+      "en": "Hurry: let's go!",
+      "cue": "Hurry!",
+      "answers": ["走吧！"],
+      "gloss": "Let's go!",
+      "need": [["走吧"]],
+      "tip": "走吧 zǒu ba = let's go.",
+      "ok": [
+        { "who": "aje", "zh": "等等！有人来了。", "en": "Wait! Someone's coming." },
+        { "narr": "Running footsteps. 阿满, with a cloth bundle." }
+      ],
+      "fail": [ { "who": "aje", "zh": "快呀！", "en": "Hurry!" } ],
+      "levels": {
+        "1": {
+          "answers": ["快点，走吧！"],
+          "need": [["快点"]],
+          "gloss": "Quick, let's go!",
+          "status": "live" },
+        "2": {
+          "answers": ["快点走吧，月亮要落了！"],
+          "need": [["月亮"]],
+          "gloss": "Quick, let's go, the moon's going down!",
+          "status": "live" }
+      }
+    } },
+    { "who": "aman", "zh": "胡饼。一人一个。", "en": "胡饼. One each." },
+    { "narr": "Two 胡饼, still warm.", "prop": "🫓" },
+    { "who": "aman", "zh": "别忘了我。", "en": "Don't forget me.", "hold": 2 },
+    { "say": {
+      "id": "thanks",
+      "en": "Thank her.",
+      "cue": "Thank her.",
+      "answers": ["谢谢你！"],
+      "gloss": "Thank you!",
+      "need": [["谢谢你"]],
+      "tip": "谢谢你 = thank you: 你 makes it personal.",
+      "ok": [ { "who": "aman", "zh": "嗯。", "en": "Mm.", "hold": 1 } ],
+      "fail": [ { "who": "aman", "zh": "什么？", "en": "What?" } ],
+      "levels": {
+        "1": {
+          "answers": ["阿满，谢谢你！"],
+          "need": [["阿满"]],
+          "gloss": "阿满, thank you!",
+          "status": "live" },
+        "2": {
+          "answers": ["阿满，谢谢你，我不会忘。"],
+          "need": [["不会忘"]],
+          "gloss": "阿满, thank you. I won't forget.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "bye",
+      "en": "Say goodbye.",
+      "cue": "Goodbye.",
+      "answers": ["再见！"],
+      "gloss": "Goodbye!",
+      "need": [["再见"]],
+      "tip": "再见 zàijiàn = goodbye: 再 again, 见 see.",
+      "ok": [ { "who": "aman", "zh": "再见。", "en": "Goodbye.", "hold": 2 } ],
+      "fail": [ { "who": "aman", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["再见，保重！"],
+          "need": [["保重"]],
+          "gloss": "Goodbye, take care!",
+          "status": "live" },
+        "2": {
+          "answers": ["再见，阿满，多保重！"],
+          "need": [["多保重"]],
+          "gloss": "Goodbye, 阿满. Take good care!",
+          "status": "live" }
+      }
+    } },
+    { "who": "aje", "zh": "谁先走？", "en": "Who goes first?" },
+    { "say": {
+      "id": "first",
+      "en": "Go first, or let 阿杰 go first.",
+      "cue": "You, or 阿杰?",
+      "answers": ["我先走。"],
+      "gloss": "I'll go first.",
+      "need": [["我先"]],
+      "tip": "先 xiān = first: 我先走 = I'll go first.",
+      "sets": { "chuanyue.ep5": "me" },
+      "ok": [
+        { "narr": "You step into the mirror. The last thing you hear is 阿杰." },
+        { "who": "aje", "zh": "我马上来！", "en": "Right behind you!" }
+      ],
+      "alts": [
+        { "en": "Or: let 阿杰 go first", "answers": ["你先走！"], "need": [["你先"]], "gloss": "You go first!",
+          "sets": { "chuanyue.ep5": "ajie" },
+          "then": [
+            { "who": "aje", "zh": "谢谢！那边见！", "en": "Thanks! See you there!" },
+            { "narr": "阿杰 steps into the mirror, and is gone. Your turn." }
+          ] }
+      ],
+      "fail": [ { "who": "aje", "zh": "快！谁先？", "en": "Quick! Who's first?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我先走，你跟上。"],
+          "need": [["跟上"]],
+          "gloss": "I'll go first. Follow me.",
+          "alts": [ { "of": 0, "answers": ["你先走吧！"], "need": [["走吧"]], "gloss": "You go first!" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["我先走，你马上跟上！"],
+          "need": [["马上"]],
+          "gloss": "I'll go first. Follow me straight away!",
+          "alts": [ { "of": 0, "answers": ["阿杰，你先走吧！"], "need": [["阿杰"]], "gloss": "阿杰, you go first!" } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "chuanyue.ep5": "me" }, "end": "win", "en": "Light, then nothing, then the smell of floor polish. 🌕",
+      "else": [ { "end": "win", "en": "You step in after him. Light, then nothing, then the smell of floor polish. 🌕" } ] }
+  ]
+}

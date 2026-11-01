@@ -1,0 +1,189 @@
+{
+  "id": "dont-answer-2",
+  "format": "scene",
+  "title": "电梯",
+  "title_en": "The Lift",
+  "level": 1,
+  "listen": 1,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "dont-answer", "ep": 2, "next": "Someone has pressed 四. There is no 四 button." },
+  "tags": ["电梯", "四楼", "别说四"],
+  "setting": "The lift of the same old building, 1:03 am, the next night. The stairwell is locked till six.",
+  "stage": "🛗",
+  "bg": ["#05080f", "#22304d"],
+  "cast": {
+    "dianti": { "name": "电梯", "en": "the lift: it takes floors by voice, in a flat, pleasant voice", "emoji": "🛗", "voice": "f-young" },
+    "sun": { "name": "孙奶奶", "en": "an old woman who gets in at the third floor, kind, and a little too calm", "emoji": "👵", "voice": "f-old" },
+    "wuye": { "name": "物业", "en": "the property office's night man, in person this time", "emoji": "🧑‍💼", "voice": "m-mid" }
+  },
+  "steps": [
+    { "narr": "1 am. The stairs are locked, so it's the lift, up to the office on 10.", "zh": "楼梯锁了，只能坐电梯。" },
+    { "who": "dianti", "zh": "请说楼层。", "en": "Floor, please." },
+    { "say": {
+      "id": "floor",
+      "en": "Tell the lift: the tenth floor, where the property office is.",
+      "cue": "Floor ten.",
+      "answers": ["去十楼。", "十楼。", "我去十楼。", "到十楼。"],
+      "gloss": "Tenth floor.",
+      "key": { "十楼": "the tenth floor" },
+      "need": [["十楼"]],
+      "not": [ { "heard": ["四楼"], "note": "That's 四 sì, four: a falling tone and a plain s. Ten is 十 shí: rising, with the tongue curled back for sh." } ],
+      "tip": "十 shí = ten, rising, with sh. 四 sì = four, falling, with s. 楼 lóu = floor.",
+      "fail": [
+        { "sfx": "ding" },
+        { "narr": "The doors open on fog. The panel says 4.", "prop": "🌫️" },
+        { "who": "dianti", "zh": "四楼，到了。", "en": "Fourth floor.", "hold": 2 },
+        { "narr": "Nobody there. The doors slide shut.", "prop": "" },
+        { "who": "dianti", "zh": "请说楼层。", "en": "Floor, please." }
+      ],
+      "miss": [
+        { "sfx": "ding" },
+        { "who": "dianti", "zh": "四楼，到了。", "en": "Fourth floor.", "prop": "🌫️" },
+        { "end": "lose", "en": "You step out into the fog, and the doors close behind you. 🫣 Run that back." }
+      ],
+      "levels": {
+        "0": {
+          "answers": ["十楼。", "十楼！", "去十楼。"],
+          "need": [["十楼"]],
+          "gloss": "Ten.",
+          "status": "live" },
+        "2": {
+          "answers": ["我要去十楼物业。", "去十楼物业办公室。", "我去十楼找物业。"],
+          "need": [["十楼"], ["物业"]],
+          "gloss": "The property office on ten, please.",
+          "tip": "物业 wùyè = the property office, who run the building.",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "ding" },
+    { "narr": "It stops at 3. Someone's waiting." },
+    { "when": { "dont-answer.door": "leave" }, "who": "sun", "zh": "汤圆好吃吗？", "en": "Were the 汤圆 nice?", "fx": "enter",
+      "else": [ { "when": { "dont-answer.door": "ask" }, "who": "sun", "zh": "你问她是谁了？", "en": "So you asked her who she was?", "fx": "enter",
+        "else": [ { "who": "sun", "zh": "这么晚还出去啊？", "en": "Out this late?", "fx": "enter" } ] } ] },
+    { "who": "sun", "zh": "我也住这栋楼。", "en": "I live in this building too." },
+    { "say": {
+      "id": "which",
+      "en": "Ask her which floor she lives on.",
+      "cue": "Which floor is hers?",
+      "answers": ["您住几楼？", "你住几楼？", "您住哪层？", "住几楼啊？"],
+      "gloss": "Which floor are you on?",
+      "key": { "几楼": "which floor" },
+      "need": [["几楼", "哪层", "几层", "哪一层"]],
+      "tip": "几 jǐ = which number: 几楼 = which floor. 您 nín is the polite 你, for someone older.",
+      "fail": [ { "who": "sun", "zh": "我也住这栋楼。", "en": "I live in this building too." } ],
+      "levels": {
+        "0": {
+          "answers": ["几楼？", "您几楼？", "住几楼？"],
+          "gloss": "Which floor?",
+          "status": "live" },
+        "2": {
+          "answers": ["奶奶，您住几楼啊？", "奶奶，您住在几楼？", "奶奶，您住哪一层？"],
+          "need": [["奶奶"], ["几楼", "哪层", "几层", "哪一层"]],
+          "gloss": "Which floor are you on, Granny?",
+          "tip": "奶奶 nǎinai = granny: what you call any old woman, politely.",
+          "status": "live" }
+      }
+    } },
+    { "who": "sun", "zh": "四楼。", "en": "Four.", "hold": 2 },
+    { "narr": "There is no 四 button." },
+    { "sfx": "buzz" },
+    { "narr": "The lights flicker. The doors open on dark, between floors. She steps out.", "fx": "leave" },
+    { "sfx": "ding" },
+    { "who": "wuye", "zh": "这么晚？怎么了？", "en": "This late? What's wrong?" },
+    { "say": {
+      "id": "called",
+      "en": "Ask him if it was him who called you last night.",
+      "cue": "Was that his call?",
+      "answers": ["你打电话了吗？", "你给我打电话了？", "是你打的电话吗？"],
+      "gloss": "Did you call me?",
+      "need": [["打电话", "打了电话", "打的电话", "给我打"]],
+      "tip": "打电话 dǎ diànhuà = make a phone call.",
+      "fail": [ { "who": "wuye", "zh": "这么晚？怎么了？", "en": "This late? What's wrong?", "fx": "squint" } ],
+      "levels": {
+        "0": {
+          "answers": ["你打的？", "你打电话了？", "是你打的？"],
+          "need": [["你打的", "打电话", "打了电话", "打的电话", "给我打"]],
+          "gloss": "Was it you who called?",
+          "key": { "你打的": "you made (the call)" },
+          "status": "live" },
+        "2": {
+          "answers": ["昨晚你给我打电话了？", "昨天晚上你打电话了吗？", "昨晚是你给我打的电话吗？"],
+          "need": [["昨晚", "昨天"], ["打电话", "打了电话", "打的电话", "给我打"]],
+          "gloss": "Did you call me last night?",
+          "tip": "昨晚 zuówǎn = last night: 昨天晚上 for short.",
+          "status": "live" }
+      }
+    } },
+    { "who": "wuye", "zh": "我没给你打电话啊。", "en": "I never called you.", "fx": "squint", "hold": 1 },
+    { "say": {
+      "id": "before",
+      "en": "Ask who lived in 804 before you.",
+      "cue": "Who lived in 804?",
+      "answers": ["谁住过八零四？", "八零四谁住过？", "以前谁住八零四？"],
+      "gloss": "Who's lived in 804?",
+      "need": [["谁住", "住的是谁", "谁在住", "是谁住"]],
+      "key": { "谁住": "who lived" },
+      "tip": "过 guo after a verb = ever done it: 住过 = has lived (there).",
+      "fail": [ { "who": "wuye", "zh": "我没给你打电话啊。", "en": "I never called you." } ],
+      "levels": {
+        "0": {
+          "answers": ["谁住过？", "以前谁住？", "谁住的？"],
+          "gloss": "Who lived there?",
+          "status": "live" },
+        "2": {
+          "answers": ["八零四以前住的是谁？", "以前是谁住在八零四？", "八零四以前是谁在住？"],
+          "need": [["以前"], ["谁住", "住的是谁", "谁在住", "是谁住"]],
+          "gloss": "Who lived in 804 before?",
+          "key": { "谁住": "who lived", "住的是谁": "who it was that lived" },
+          "tip": "以前 yǐqián = before, in the past.",
+          "status": "live" }
+      }
+    } },
+    { "who": "wuye", "zh": "没人住。空了二十年。", "en": "Nobody. It's been empty twenty years.", "hold": 1 },
+    { "sfx": "heartbeat" },
+    { "who": "wuye", "zh": "你在电梯里看见谁了？", "en": "Who did you see in the lift?" },
+    { "say": {
+      "id": "saw",
+      "en": "Tell him about the old woman, or keep it to yourself.",
+      "cue": "Tell him, or don't.",
+      "answers": ["一个奶奶。", "看见一个奶奶。", "有个奶奶。", "一个老奶奶。"],
+      "gloss": "An old lady.",
+      "key": { "没看见": "didn't see" },
+      "need": [["奶奶", "老太太", "老人"]],
+      "tip": "一个 yí ge = a, one: 一个奶奶 = an old lady.",
+      "sets": { "dont-answer.lift": "told" },
+      "ok": [
+        { "narr": "He goes quiet. From a drawer, he takes an old photo." },
+        { "who": "wuye", "zh": "是她吗？", "en": "Was it her?", "fx": "give", "prop": "🖼️", "hold": 2 }
+      ],
+      "alts": [
+        { "en": "Or: keep it to yourself", "answers": ["没看见谁。", "谁也没看见。", "没看见。", "没有人。"], "need": [["没看见", "没有人", "没人", "谁也没"]], "gloss": "Nobody.",
+          "sets": { "dont-answer.lift": "hid" },
+          "then": [ { "who": "wuye", "zh": "那就好。别坐电梯。", "en": "Good. Don't take the lift.", "hold": 1 } ] }
+      ],
+      "fail": [ { "who": "wuye", "zh": "你在电梯里看见谁了？", "en": "Who did you see in the lift?" } ],
+      "levels": {
+        "0": {
+          "answers": ["奶奶。", "一个奶奶。", "老奶奶。"],
+          "gloss": "A granny.",
+          "status": "live" },
+        "2": {
+          "answers": ["一个说住四楼的奶奶。", "一个奶奶，说住四楼。", "看见一个住四楼的奶奶。"],
+          "need": [["奶奶", "老太太", "老人"], ["四楼"]],
+          "gloss": "An old lady who said she lived on four.",
+          "key": { "没看见": "didn't see", "四楼": "the fourth floor" },
+          "tip": "说住四楼的 = who said (she) lived on four: the 的 makes it describe 奶奶.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Back in 804. A second note, under the door.", "prop": "📝" },
+    { "narr": "Rule two: don't say four.", "zh": "第二条：别说四。" },
+    { "when": { "dont-answer.lift": "told" }, "narr": "On the back of his photo, in pencil: 孙." },
+    { "narr": "物业 waits on the landing till your light is on." },
+    { "sfx": "ding" },
+    { "end": "win", "en": "Below you, the lift has stopped at a floor that isn't there." }
+  ]
+}

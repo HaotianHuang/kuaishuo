@@ -1,0 +1,197 @@
+{
+  "id": "i-understand-5",
+  "format": "call",
+  "title": "半夜",
+  "title_en": "Midnight",
+  "level": 2,
+  "listen": 4,
+  "topics": ["work"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "i-understand", "ep": 5, "next": "The signing is at ten. 高总 will be there." },
+  "tags": ["半夜", "高总", "听得懂"],
+  "setting": "Your hotel room in Hangzhou, 11:58 pm. The signing is at ten tomorrow. 小周 is calling.",
+  "stage": "🌙",
+  "bg": ["#0a0a14", "#3a2a4a"],
+  "cast": {
+    "zhou": { "name": "小周", "en": "the interpreter, frightened, talking fast", "emoji": "🧑‍💻", "voice": "m-young", "speed": 1.2, "phone": true }
+  },
+  "call": {
+    "caller": "zhou", "photo": "🧑‍💻", "number": "139 0000 6215", "label": { "zh": "浙江 杭州" }, "clock": "23:58", "patience": 8,
+    "silence": [
+      { "who": "zhou", "zh": "你还在吗？", "en": "Are you still there?" },
+      { "who": "zhou", "zh": "你在听吗？求你了。", "en": "Are you listening? Please." }
+    ],
+    "hangup": [
+      { "who": "zhou", "zh": "……算了。对不起，这么晚。", "en": "...Never mind. Sorry, it's so late." },
+      { "end": "lose", "en": "The line goes dead. At ten, 小周 doesn't come to the signing. Run that back." }
+    ],
+    "missed": [ { "who": "zhou", "zh": "是我，小周。你能回个电话吗？", "en": "It's me, 小周. Could you call me back?" } ]
+  },
+  "steps": [
+    { "say": {
+      "id": "hello",
+      "en": "Pick up: 小周, what's wrong?",
+      "cue": "Pick up.",
+      "answers": ["小周，怎么了？", "喂，小周？怎么了？"],
+      "gloss": "小周, what's wrong?",
+      "need": [["小周"], ["怎么了"]],
+      "tip": "怎么了？ = what's the matter?",
+      "ok": [ { "who": "zhou", "zh": "……你还没睡。", "en": "...You're still up." } ],
+      "fail": [ { "who": "zhou", "zh": "喂？喂？", "en": "Hello? Hello?" } ],
+      "levels": {
+        "1": {
+          "answers": ["小周？", "喂，小周？"],
+          "need": [["小周"]],
+          "gloss": "小周?",
+          "status": "live" },
+        "3": {
+          "answers": ["小周，怎么了？出什么事了？"],
+          "need": [["出什么事"], ["怎么了"]],
+          "gloss": "小周, what's wrong? What's happened?",
+          "status": "live" }
+      }
+    } },
+    { "when": { "i-understand.ep4": "private" }, "who": "zhou", "zh": "只有你问我。", "en": "You're the only one who asked.",
+      "else": [ { "who": "zhou", "zh": "你在群里说了……陈总给我打电话了。", "en": "You said it in the group... 陈总 called me." } ] },
+    { "who": "zhou", "zh": "我不知道怎么说，明天就签了，他让我明天别去，不然……不然……", "en": "I don't know how to say it, it's signing tomorrow, he told me not to come, or else... or else...", "pace": "fast" },
+    { "say": {
+      "id": "calm",
+      "en": "Calm him: don't be scared, tell it slowly.",
+      "cue": "Calm him.",
+      "answers": ["别怕，慢慢说。", "小周，别怕，慢慢说。"],
+      "gloss": "Don't be scared. Tell me slowly.",
+      "need": [["别怕"], ["慢慢说"]],
+      "tip": "慢慢说 = say it slowly: take your time.",
+      "ok": [ { "narr": "A long breath on the line.", "hold": 1 } ],
+      "fail": [ { "who": "zhou", "zh": "不然……我也不知道。", "en": "Or else... I don't even know.", "pace": "fast" } ],
+      "levels": {
+        "1": {
+          "answers": ["慢慢说。", "你慢慢说。"],
+          "need": [["慢慢说"]],
+          "gloss": "Slowly.",
+          "status": "live" },
+        "3": {
+          "answers": ["别怕，我在听，你慢慢说。"],
+          "need": [["我在听"], ["慢慢说"]],
+          "gloss": "Don't be scared. I'm listening. Take your time.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "who",
+      "en": "Ask who's threatening him.",
+      "cue": "Who?",
+      "answers": ["他们是谁？", "是谁？他们是谁？"],
+      "gloss": "Who are they?",
+      "need": [["是谁"]],
+      "tip": "他们是谁？ = who are they?",
+      "ok": [
+        { "who": "zhou", "zh": "是高总。陈总以前的合伙人。", "en": "It's 高总. 陈总's old business partner.", "pace": "fast" },
+        { "who": "zhou", "zh": "他一直想要茶园。", "en": "He's always wanted the tea farm.", "pace": "fast" },
+        { "who": "zhou", "zh": "我妈住院的时候，他帮我还了贷款。现在他说，我欠他的。", "en": "When my mum was in hospital, he paid off my loan. Now he says I owe him.", "pace": "fast" }
+      ],
+      "fail": [ { "who": "zhou", "zh": "我不能说……", "en": "I can't say..." } ],
+      "levels": {
+        "1": {
+          "answers": ["谁？", "是谁？"],
+          "need": [["谁"]],
+          "gloss": "Who?",
+          "status": "live" },
+        "3": {
+          "answers": ["威胁你的人是谁？", "是谁在威胁你？"],
+          "need": [["威胁"], ["是谁"]],
+          "gloss": "Who's threatening you?",
+          "tip": "威胁 wēixié = threaten.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "catch",
+      "en": "Make sure you caught it: 高总, 陈总's old partner?",
+      "cue": "Who did he say?",
+      "answers": ["高总？陈总的合伙人？", "高总？陈总以前的合伙人？"],
+      "gloss": "高总? 陈总's partner?",
+      "need": [["高总"], ["合伙人"]],
+      "key": { "合伙人": "business partner" },
+      "tip": "合伙人 héhuǒrén = business partner. 以前的 = former.",
+      "ok": [ { "who": "zhou", "zh": "……对。", "en": "...Yes." } ],
+      "fail": [ { "who": "zhou", "zh": "你听清楚了吗？", "en": "Did you catch that?", "pace": "fast" } ],
+      "levels": {
+        "1": {
+          "answers": ["高总？", "是高总？"],
+          "need": [["高总"]],
+          "gloss": "高总?",
+          "status": "live" },
+        "3": {
+          "answers": ["是高总？陈总以前的合伙人？"],
+          "need": [["以前"], ["合伙人"]],
+          "gloss": "高总? 陈总's former partner?",
+          "status": "live" }
+      }
+    } },
+    { "who": "zhou", "zh": "他说，明天我不去，这单就签不成。", "en": "He says if I don't go tomorrow, the deal falls through.", "pace": "fast" },
+    { "who": "zhou", "zh": "我不想害陈总，也不想害我妈。", "en": "I don't want to hurt 陈总. And I don't want to hurt my mum.", "pace": "fast", "hold": 1 },
+    { "say": {
+      "id": "promise",
+      "en": "Promise him you'll help.",
+      "cue": "Promise.",
+      "answers": ["我会帮你的。", "小周，我会帮你的。"],
+      "gloss": "I'll help you.",
+      "need": [["会帮你"]],
+      "tip": "会……的 = will, for sure: 我会帮你的.",
+      "ok": [ { "who": "zhou", "zh": "……真的吗？", "en": "...Really?", "hold": 1 } ],
+      "fail": [ { "who": "zhou", "zh": "我该怎么办？", "en": "What do I do?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我帮你。", "我会帮你。"],
+          "need": [["帮你"]],
+          "gloss": "I'll help you.",
+          "status": "live" },
+        "3": {
+          "answers": ["别担心，我一定会帮你的。"],
+          "need": [["一定"], ["会帮你"]],
+          "gloss": "Don't worry. I'll help you, I promise.",
+          "status": "live" }
+      }
+    } },
+    { "who": "zhou", "zh": "那我现在该怎么办？", "en": "So what do I do now?" },
+    { "say": {
+      "id": "advise",
+      "en": "Go with him to 陈奶奶 now, or tell him to tell 陈总 himself in the morning.",
+      "cue": "Now, or the morning?",
+      "answers": ["我们现在去找陈奶奶。", "我们现在就去找陈奶奶。"],
+      "gloss": "We'll go and see 陈奶奶, now.",
+      "need": [["现在"], ["陈奶奶"]],
+      "tip": "去找 = go and find (someone).",
+      "sets": { "i-understand.ep5": "now" },
+      "ok": [ { "who": "zhou", "zh": "……好。我在楼下等你。", "en": "...OK. I'll wait for you downstairs." } ],
+      "alts": [
+        { "en": "Or: tell 陈总 yourself in the morning", "answers": ["明天你自己跟陈总说。", "明天，你自己跟陈总说吧。"], "need": [["明天"], ["跟陈总说"]], "gloss": "Tomorrow, tell 陈总 yourself.",
+          "sets": { "i-understand.ep5": "morning" },
+          "then": [
+            { "who": "zhou", "zh": "……好。我自己说。", "en": "...OK. I'll tell her myself.", "hold": 1 },
+            { "who": "zhou", "zh": "谢谢你。", "en": "Thank you." }
+          ] }
+      ],
+      "fail": [ { "who": "zhou", "zh": "我该怎么办？", "en": "What do I do?" } ],
+      "levels": {
+        "1": {
+          "answers": ["找陈奶奶！", "去找陈奶奶！"],
+          "need": [["陈奶奶"]],
+          "gloss": "Go to 陈奶奶!",
+          "alts": [ { "of": 0, "answers": ["跟陈总说！"], "need": [["陈总"]], "gloss": "Tell 陈总!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["现在就去找陈奶奶，她会帮你。"],
+          "need": [["现在就去"], ["陈奶奶"]],
+          "gloss": "We'll go to 陈奶奶 right now. She'll help you.",
+          "alts": [ { "of": 0, "answers": ["明天一早，你自己跟陈总说清楚。"], "need": [["说清楚"], ["明天"]], "gloss": "First thing tomorrow, tell 陈总 everything yourself." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "i-understand.ep5": "now" }, "end": "win", "en": "12:40 am. A taxi up the dark hill road, towards the tea farm, with 小周 beside you. 🚕",
+      "else": [ { "end": "win", "en": "1 am. 小周 sends one message: 我写好了。明天我自己说。 📱" } ] }
+  ]
+}

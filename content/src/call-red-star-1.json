@@ -1,0 +1,183 @@
+{
+  "id": "red-star-1",
+  "format": "call",
+  "title": "红星饭店",
+  "title_en": "The Red Star Restaurant",
+  "level": 2,
+  "listen": 2,
+  "topics": ["dating"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "red-star", "ep": 1, "next": "A week later, your phone rings at 7:30. The same number." },
+  "tags": ["打错了", "红星饭店", "八点"],
+  "setting": "Your flat, 7:30 pm. Your number used to be 红星饭店's. It closed ten years ago; it's a phone repair stall now.",
+  "stage": "☎️",
+  "bg": ["#2a0d14", "#a3283a"],
+  "cast": {
+    "cheng": { "name": "程远", "en": "a stranger, booking a table", "emoji": "👤", "voice": "m-young", "phone": true }
+  },
+  "call": {
+    "caller": "cheng",
+    "photo": "👤",
+    "number": "138 0000 7730",
+    "label": { "zh": "四川 成都" },
+    "clock": "19:30",
+    "patience": 8,
+    "silence": [
+      { "who": "cheng", "zh": "喂？还在吗？", "en": "Hello? Still there?" },
+      { "who": "cheng", "zh": "你那边……好安静。", "en": "It's... very quiet where you are." }
+    ],
+    "hangup": [
+      { "who": "cheng", "zh": "不好意思，打扰了。", "en": "Sorry to bother you." },
+      { "end": "lose", "en": "They hung up. Next year, same date, same number: the phone will ring." }
+    ],
+    "missed": [
+      { "who": "cheng", "zh": "红星饭店吗？我订八点的，老位子。", "en": "Red Star? Booking for eight. The usual table." }
+    ]
+  },
+  "steps": [
+    { "say": {
+      "id": "hello",
+      "en": "An unknown number. Pick up and ask who it is.",
+      "cue": "Pick up.",
+      "answers": ["喂，你好，哪位？", "喂，您好，哪位？", "你好，请问哪位？"],
+      "gloss": "Hello, who's this?",
+      "need": [["哪位"]],
+      "key": { "哪位": "who (is it)" },
+      "tip": "哪位 nǎ wèi = who (politely): what you say when you pick up an unknown number.",
+      "fail": [ { "who": "cheng", "zh": "喂？", "en": "Hello?" } ],
+      "levels": {
+        "1": {
+          "answers": ["喂，哪位？", "你好，哪位？"],
+          "gloss": "Hello, who is it?",
+          "status": "live" },
+        "3": {
+          "answers": ["喂，你好，请问是哪位？", "您好，请问您是哪位？"],
+          "need": [["请问"], ["哪位"]],
+          "gloss": "Hello, may I ask who's calling?",
+          "status": "live" }
+      }
+    } },
+    { "who": "cheng", "zh": "喂，是红星饭店吗？", "en": "Hello, is that the Red Star Restaurant?", "peek": "free" },
+    { "who": "cheng", "zh": "我订八点的位子，两个人。", "en": "A table for eight o'clock, please. For two." },
+    { "say": {
+      "id": "wrong",
+      "en": "Tell them they've got the wrong number.",
+      "cue": "Not a restaurant.",
+      "answers": ["不好意思，你打错了。", "你打错电话了。", "你打错了吧？"],
+      "gloss": "Sorry, you've got the wrong number.",
+      "need": [["打错"]],
+      "key": { "打错": "dialled wrong" },
+      "tip": "打错了 = wrong number: 错 after a verb says it went wrong.",
+      "ok": [
+        { "who": "cheng", "zh": "打错了？", "en": "Wrong number?" },
+        { "who": "cheng", "zh": "可是……这个号码没错啊。红星饭店，解放路那家。", "en": "But... this is the right number. Red Star, on Liberation Road." }
+      ],
+      "fail": [ { "who": "cheng", "zh": "啊？你说什么？", "en": "Sorry, what?" } ],
+      "levels": {
+        "1": {
+          "answers": ["打错了。", "你打错了。"],
+          "gloss": "Wrong number.",
+          "status": "live" },
+        "3": {
+          "answers": ["这不是饭店，你打错了。", "不好意思，这不是饭店，你打错了。"],
+          "need": [["不是饭店"], ["打错"]],
+          "gloss": "This isn't a restaurant. Wrong number.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "closed",
+      "en": "Explain: that restaurant closed long ago.",
+      "cue": "It's gone.",
+      "answers": ["红星饭店早就关门了。", "那家早就关门了。", "饭店早就关了。"],
+      "gloss": "The Red Star closed a long time ago.",
+      "need": [["关门", "关了"], ["早就", "十年前"]],
+      "tip": "早就 zǎojiù = long since: 早就关门了 = closed long ago.",
+      "ok": [
+        { "who": "cheng", "zh": "关门了？", "en": "Closed?", "hold": 1 },
+        { "who": "cheng", "zh": "……也是。十年了。", "en": "...Of course. It's been ten years." }
+      ],
+      "fail": [ { "who": "cheng", "zh": "不会吧？", "en": "Surely not?" } ],
+      "levels": {
+        "1": {
+          "answers": ["关门了。", "早关门了。", "早就关了。"],
+          "need": [["关门", "关了"]],
+          "gloss": "It's closed.",
+          "status": "live" },
+        "3": {
+          "answers": ["十年前就关了，现在修手机。", "十年前就关门了，现在是修手机的。"],
+          "need": [["十年前"], ["修手机"]],
+          "gloss": "It closed ten years ago. It fixes phones now.",
+          "status": "live" }
+      }
+    } },
+    { "who": "cheng", "zh": "每年今天，我都打这个电话。", "en": "Every year, on this day, I call this number." },
+    { "who": "cheng", "zh": "十年前，我在那儿等一个人。", "en": "Ten years ago, I waited there for someone." },
+    { "who": "cheng", "zh": "那个人没来。", "en": "They never came.", "hold": 1 },
+    { "who": "cheng", "zh": "哈，你一定觉得我很奇怪。", "en": "Ha. You must think I'm very strange." },
+    { "say": {
+      "id": "strange",
+      "en": "Tell them it isn't strange at all.",
+      "cue": "Be kind.",
+      "answers": ["一点也不奇怪。", "不奇怪，真的。", "不会，一点都不奇怪。"],
+      "gloss": "It's not strange at all.",
+      "need": [["不奇怪"]],
+      "key": { "不奇怪": "not strange" },
+      "tip": "一点也不…… = not ... at all: 一点也不奇怪.",
+      "ok": [ { "who": "cheng", "zh": "你人真好。", "en": "You're kind." } ],
+      "fail": [ { "who": "cheng", "zh": "嗯？", "en": "Mm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["不奇怪。", "不奇怪！"],
+          "gloss": "It's not strange.",
+          "status": "live" },
+        "3": {
+          "answers": ["一点也不奇怪，换我也会这样。", "一点都不奇怪，换我也一样。"],
+          "need": [["不奇怪"], ["换我"]],
+          "gloss": "Not strange at all. I'd do the same.",
+          "tip": "换我 = if it were me: 换我也会这样.",
+          "status": "live" }
+      }
+    } },
+    { "who": "cheng", "zh": "那……不打扰你了。", "en": "Well... I won't keep you." },
+    { "say": {
+      "id": "goodbye",
+      "en": "Wish them luck, or offer something else.",
+      "cue": "Luck, or an offer?",
+      "answers": ["那……祝你好运。", "祝你好运！", "那祝你好运吧。"],
+      "gloss": "Well... good luck.",
+      "need": [["好运"]],
+      "tip": "祝你好运 zhù nǐ hǎoyùn = good luck (I wish you).",
+      "sets": { "red-star.ep1": "luck" },
+      "ok": [ { "who": "cheng", "zh": "谢谢。你也是。", "en": "Thank you. You too." } ],
+      "alts": [
+        { "en": "Or: suggest somewhere else", "answers": ["要不要……换个地方？", "要不，换个地方吃？"], "need": [["换个地方"]], "gloss": "How about... somewhere else?",
+          "key": { "换个地方": "somewhere else" },
+          "sets": { "red-star.ep1": "offer" },
+          "then": [
+            { "who": "cheng", "zh": "……换个地方？", "en": "...Somewhere else?", "hold": 1 },
+            { "who": "cheng", "zh": "你这是在约我吗？", "en": "Are you... asking me out?", "fx": "laugh" },
+            { "who": "cheng", "zh": "八点。我还是去那儿等。", "en": "Eight o'clock. I'll still be waiting there." }
+          ] }
+      ],
+      "fail": [ { "who": "cheng", "zh": "嗯？", "en": "Mm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["祝你好运！", "好运！"],
+          "gloss": "Good luck!",
+          "alts": [ { "of": 0, "answers": ["换个地方？", "换个地方吧？"], "need": [["换个地方"]], "gloss": "Somewhere else?" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["那祝你今年好运，别再等了。", "祝你今年好运，别再一个人等了。"],
+          "need": [["好运"], ["别再"]],
+          "gloss": "Then good luck this year. Don't wait any more.",
+          "alts": [ { "of": 0, "answers": ["要不要换个地方，我陪你吃？", "要不换个地方，我陪你吃顿饭？"], "need": [["换个地方"], ["陪"]], "gloss": "How about somewhere else? I'll keep you company." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "red-star.ep1": "offer" }, "end": "win", "en": "At eight, outside a phone repair stall, someone with a booking is waiting. Maybe for you. 🌹",
+      "else": [ { "end": "win", "en": "The line goes quiet. Somewhere across town, a phone repair stall closes for the night. 🌙" } ] }
+  ]
+}

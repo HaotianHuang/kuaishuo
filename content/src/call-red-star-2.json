@@ -1,0 +1,186 @@
+{
+  "id": "red-star-2",
+  "format": "call",
+  "title": "八点那桌",
+  "title_en": "The Table at Eight",
+  "level": 2,
+  "listen": 2,
+  "topics": ["dating"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "red-star", "ep": 2, "next": "The letter is addressed to the table for two at eight. 程远 won't open it alone." },
+  "tags": ["打错了", "红姐", "一封信"],
+  "setting": "Your flat, a week later, 7:30 pm. The same number is calling.",
+  "stage": "☎️",
+  "bg": ["#2a0d14", "#a3283a"],
+  "cast": {
+    "cheng": { "name": "程远", "en": "the stranger who called last week", "emoji": "👤", "voice": "m-young", "phone": true }
+  },
+  "call": {
+    "caller": "cheng",
+    "photo": "👤",
+    "number": "138 0000 7730",
+    "label": { "zh": "四川 成都" },
+    "clock": "19:30",
+    "patience": 8,
+    "silence": [
+      { "who": "cheng", "zh": "喂？你还在听吗？", "en": "Hello? Are you still listening?" },
+      { "who": "cheng", "zh": "我是不是……又打扰你了？", "en": "Am I... bothering you again?" }
+    ],
+    "hangup": [
+      { "who": "cheng", "zh": "算了，不好意思。", "en": "Never mind. Sorry." },
+      { "end": "lose", "en": "They hung up. Somewhere across town, a letter waits in a drawer for another year." }
+    ],
+    "missed": [
+      { "who": "cheng", "zh": "是我，程远。上个星期打错电话的那个。", "en": "It's me, 程远. The wrong number from last week." }
+    ]
+  },
+  "steps": [
+    { "say": {
+      "id": "again",
+      "en": "The same number from last week. Pick up: it's you again?",
+      "cue": "Them again?",
+      "answers": ["又是你？", "喂，又是你啊？", "是你啊！"],
+      "gloss": "It's you again?",
+      "need": [["是你"]],
+      "key": { "是你": "it's you" },
+      "tip": "又 yòu = again (it's happened before): 又是你？",
+      "ok": [ { "who": "cheng", "zh": "是我。程远。", "en": "It's me. 程远.", "fx": "laugh" } ],
+      "fail": [ { "who": "cheng", "zh": "喂？是我。", "en": "Hello? It's me." } ],
+      "levels": {
+        "1": {
+          "answers": ["是你？", "又是你！"],
+          "gloss": "You?",
+          "status": "live" },
+        "3": {
+          "answers": ["又是你？今年不是已经打过了吗？", "又是你啊，今年不是打过了吗？"],
+          "need": [["又是你"], ["打过"]],
+          "gloss": "You again? Didn't you already call this year?",
+          "status": "live" }
+      }
+    } },
+    { "when": { "red-star.ep1": "offer" }, "who": "cheng", "zh": "你上次说换个地方，我想了一个星期。", "en": "Last time you said somewhere else. I've thought about it for a week.",
+      "else": [ { "who": "cheng", "zh": "你祝我好运……我就又去等了。", "en": "You wished me luck... so I went and waited again." } ] },
+    { "who": "cheng", "zh": "那个人，还是没来。", "en": "They still didn't come.", "hold": 1 },
+    { "say": {
+      "id": "after",
+      "en": "Ask what happened to that person, after.",
+      "cue": "And then?",
+      "answers": ["那个人后来呢？", "那后来呢？", "后来怎么样了？"],
+      "gloss": "And that person: what happened after?",
+      "need": [["后来"]],
+      "tip": "后来 hòulái = afterwards, later on: ……后来呢？ asks how a story went on.",
+      "ok": [ { "who": "cheng", "zh": "不知道。十年了，一点消息也没有。", "en": "I don't know. Ten years, and not a word." } ],
+      "fail": [ { "who": "cheng", "zh": "嗯？", "en": "Mm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["后来呢？", "那后来呢？"],
+          "gloss": "And then?",
+          "status": "live" },
+        "3": {
+          "answers": ["那个人后来呢？你一直没找过吗？", "那后来呢？你没找过那个人吗？"],
+          "need": [["后来"], ["找过"]],
+          "gloss": "And after? You never looked for them?",
+          "status": "live" }
+      }
+    } },
+    { "who": "cheng", "zh": "可是……我找到红姐了。红星饭店的老板。", "en": "But... I found 红姐. The Red Star's old owner." },
+    { "who": "cheng", "zh": "那个修手机的店，就是她开的。", "en": "That phone repair stall: it's hers." },
+    { "who": "cheng", "zh": "我不敢去问她。", "en": "I'm scared to go and ask her." },
+    { "say": {
+      "id": "ask",
+      "en": "Encourage them: go and ask.",
+      "cue": "Go on.",
+      "answers": ["去问问吧！", "你去问问她吧。", "去问问看吧！"],
+      "gloss": "Go and ask!",
+      "need": [["问问"]],
+      "tip": "问问 = ask (just a little): doubling a verb makes it light and easy.",
+      "ok": [
+        { "who": "cheng", "zh": "……其实，我已经打过电话了。", "en": "...Actually, I've already called her.", "hold": 1 }
+      ],
+      "fail": [ { "who": "cheng", "zh": "我不敢。", "en": "I can't." } ],
+      "levels": {
+        "1": {
+          "answers": ["去问问！", "问问吧！"],
+          "gloss": "Go and ask!",
+          "status": "live" },
+        "3": {
+          "answers": ["去问问吧，不问你会后悔的。", "去问问吧，不问会后悔的。"],
+          "need": [["问问"], ["后悔"]],
+          "gloss": "Go and ask. If you don't, you'll regret it.",
+          "tip": "后悔 hòuhuǐ = regret.",
+          "status": "live" }
+      }
+    } },
+    { "who": "cheng", "zh": "红姐说，她留着一封信。", "en": "红姐 says she's kept a letter." },
+    { "who": "cheng", "zh": "留了十年。", "en": "Kept it ten years." },
+    { "who": "cheng", "zh": "信封上写着：八点那桌。", "en": "On the envelope it says: the table at eight.", "hold": 2 },
+    { "say": {
+      "id": "you",
+      "en": "The table at eight. Tell them: that's you!",
+      "cue": "That's them!",
+      "answers": ["八点那桌？那就是你啊！", "那就是你啊！", "就是你啊！"],
+      "gloss": "The table at eight? That's you!",
+      "need": [["就是你"]],
+      "key": { "就是你": "is you" },
+      "tip": "就是 jiùshì = is exactly, is none other than: 那就是你.",
+      "ok": [
+        { "who": "cheng", "zh": "……是我。", "en": "...It's me.", "hold": 1 },
+        { "who": "cheng", "zh": "也可能，是我们。", "en": "Or maybe it's us." }
+      ],
+      "fail": [ { "who": "cheng", "zh": "八点那桌……", "en": "The table at eight..." } ],
+      "levels": {
+        "1": {
+          "answers": ["是你！", "就是你！"],
+          "need": [["是你"]],
+          "gloss": "It's you!",
+          "status": "live" },
+        "3": {
+          "answers": ["八点那桌，两个人，那就是你们啊！", "八点，两个人，那就是你们啊！"],
+          "need": [["就是你"], ["两个人"]],
+          "gloss": "Eight o'clock, a table for two: that's the two of you!",
+          "status": "live" }
+      }
+    } },
+    { "who": "cheng", "zh": "她让我自己去拿。可是我……一个人不敢去。", "en": "She says I have to collect it myself. But I... can't go alone." },
+    { "say": {
+      "id": "decide",
+      "en": "Go with them, or stay on the phone.",
+      "cue": "Together, or call me?",
+      "answers": ["那……我们一起去问问？", "我们一起去吧？", "要不我们一起去？"],
+      "gloss": "Then... shall we go and ask together?",
+      "need": [["一起去"]],
+      "key": { "一起去": "go together" },
+      "tip": "一起 yìqǐ = together: 我们一起去.",
+      "sets": { "red-star.ep2": "meet" },
+      "ok": [
+        { "who": "cheng", "zh": "……一起？", "en": "...Together?", "hold": 1 },
+        { "who": "cheng", "zh": "好。明天下午三点，修手机的店门口。", "en": "All right. Tomorrow, 3 pm, outside the phone repair stall." }
+      ],
+      "alts": [
+        { "en": "Or: stay on the phone", "answers": ["你去问，然后告诉我。", "你去拿，再打给我。"], "need": [["告诉我", "打给我"]], "gloss": "You go and ask, then tell me.",
+          "sets": { "red-star.ep2": "phone" },
+          "then": [
+            { "who": "cheng", "zh": "好。拿到信，我第一个打给你。", "en": "All right. When I have the letter, you're the first I'll call." }
+          ] }
+      ],
+      "fail": [ { "who": "cheng", "zh": "你说，我该怎么办？", "en": "What should I do?" } ],
+      "levels": {
+        "1": {
+          "answers": ["一起去？", "一起去吧！"],
+          "gloss": "Together?",
+          "alts": [ { "of": 0, "answers": ["告诉我！", "你去，告诉我。"], "need": [["告诉我", "打给我"]], "gloss": "Tell me!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["别一个人去了，我们一起去问问吧。", "别再一个人了，我们一起去吧。"],
+          "need": [["一个人"], ["一起去"]],
+          "gloss": "Don't go on your own. Let's go and ask together.",
+          "alts": [ { "of": 0, "answers": ["你去问清楚，问完马上告诉我。"], "need": [["问清楚"], ["告诉我"]], "gloss": "Go and get the whole story, and tell me straight away." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "red-star.ep2": "meet" }, "end": "win", "en": "Tomorrow, 3 pm, outside a phone repair stall: two people, one letter. 💌",
+      "else": [ { "end": "win", "en": "Across town, someone is standing outside a phone repair stall. Your phone is on loud. 💌" } ] }
+  ]
+}

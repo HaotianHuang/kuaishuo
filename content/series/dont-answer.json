@@ -1,0 +1,18 @@
+{
+  "id": "dont-answer",
+  "title": "别回答",
+  "title_en": "Don't Answer",
+  "eps": 6,
+  "audience": "all",
+  "levels": [0, 2],
+  "genre": "horror",
+  "optin": true,
+  "home": { "name": "八零四", "en": "flat 804, a short let in an old estate on a hillside in Chongqing" },
+  "cast": {
+    "wuye": { "name": "物业", "en": "the estate's property office: the man on night duty", "emoji": "🧑‍💼", "voice": "m-mid", "tts": "zm_013" },
+    "dianti": { "name": "电梯", "en": "the lift: it takes floors by voice, in a flat, pleasant voice", "emoji": "🛗", "voice": "f-young", "tts": "zf_071" },
+    "sun": { "name": "孙奶奶", "aka": ["门外的人", "孙"], "en": "an old woman who lived in 804 twenty years ago, and is still waiting for someone to answer her", "emoji": "👵", "voice": "f-old", "tts": "zf_099" },
+    "liu": { "name": "刘阿姨", "en": "302: chatty, up at all hours, sends sixty-second voice notes", "emoji": "👩‍🦱", "voice": "f-mid", "tts": "zf_036" },
+    "zheng": { "name": "小郑", "en": "1101: a student, brave about everything except the dark", "emoji": "🧑‍🎓", "voice": "m-young", "tts": "zm_056" }
+  }
+}

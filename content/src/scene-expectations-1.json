@@ -1,0 +1,158 @@
+{
+  "id": "expectations-1",
+  "format": "scene",
+  "title": "滩涂",
+  "title_en": "The Mudflats",
+  "level": 3,
+  "listen": 3,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "expectations", "ep": 1, "next": "Years later, a lawyer from 深圳 calls: someone has paid for your future. They won't say who." },
+  "tags": ["远大前程", "滩涂", "钳子"],
+  "setting": "A fishing village on the 珠江 delta, 1998. Dusk on the mudflats. You're twelve.",
+  "stage": "🌫️",
+  "bg": ["#151a1c", "#5d6a68"],
+  "cast": {
+    "stranger": { "name": "陌生人", "en": "a man with a chain on his ankle", "emoji": "🧔", "voice": "m-old" },
+    "jiujiu": { "name": "舅舅", "en": "your uncle", "emoji": "👨", "voice": "m-mid" },
+    "jiuma": { "name": "舅妈", "en": "your aunt", "emoji": "👩", "voice": "f-mid" }
+  },
+  "steps": [
+    { "narr": "1998. A fishing village on the 珠江 delta. Dusk on the mudflats. You're twelve, and late home." },
+    { "sfx": "splash" },
+    { "narr": "A hand closes on your arm. On his ankle: a chain.", "hold": 1 },
+    { "sfx": "heartbeat" },
+    { "who": "stranger", "zh": "别出声！不许喊！", "en": "Quiet! Don't you shout!", "fx": "shake" },
+    { "say": {
+      "id": "plead",
+      "en": "Plead with him: don't hurt you, you won't tell.",
+      "cue": "Plead.",
+      "answers": ["别伤害我！我什么都不说。", "求求你，别伤害我！我不喊。", "别伤害我，我不喊！"],
+      "gloss": "Don't hurt me! I won't say anything.",
+      "need": [["别伤害"], ["不说", "不喊"]],
+      "key": { "别伤害": "don't hurt" },
+      "tip": "伤害 shānghài = hurt, harm. 什么都不说 = say nothing at all.",
+      "ok": [ { "who": "stranger", "zh": "……好。你家在哪儿？", "en": "...All right. Where do you live?" } ],
+      "fail": [ { "who": "stranger", "zh": "别喊！", "en": "Don't shout!" } ],
+      "levels": {
+        "2": {
+          "answers": ["别伤害我！", "求你别伤害我！"],
+          "need": [["别伤害"]],
+          "gloss": "Don't hurt me!",
+          "status": "live" },
+        "4": {
+          "answers": ["别伤害我，我一个字都不说！", "求你别伤害我，一个字都不说！"],
+          "need": [["别伤害"], ["一个字"]],
+          "gloss": "Don't hurt me. I won't say one word!",
+          "tip": "一个字都不说 = not say a single word.",
+          "status": "live" }
+      }
+    } },
+    { "who": "stranger", "zh": "我饿了三天了。", "en": "I haven't eaten in three days." },
+    { "who": "stranger", "zh": "天亮之前，给我拿吃的，还有钳子。", "en": "Before dawn, bring me food. And pliers." },
+    { "who": "stranger", "zh": "我不是一个人。外面还有人。", "en": "I'm not alone. There are others out there.", "hold": 1 },
+    { "say": {
+      "id": "bargain",
+      "en": "Bargain: you'll fetch them, he waits here.",
+      "cue": "You'll go.",
+      "answers": ["好，我去拿，你在这儿等着。", "我去拿，你等着。", "我去拿，你在这儿等我。"],
+      "gloss": "All right, I'll get them. You wait here.",
+      "need": [["我去拿"], ["等着", "等我", "回来"]],
+      "tip": "等着 děngzhe = wait (there): 你在这儿等着.",
+      "ok": [ { "narr": "He lets go. You run, all the way home." } ],
+      "fail": [ { "who": "stranger", "zh": "听见没有？", "en": "Did you hear me?" } ],
+      "levels": {
+        "2": {
+          "answers": ["我去拿！", "我去拿，你等着。"],
+          "need": [["我去拿"]],
+          "gloss": "I'll get them!",
+          "status": "live" },
+        "4": {
+          "answers": ["你放开我，我去拿，天亮前回来。", "你先放开我，我去拿，天亮回来。"],
+          "need": [["放开"], ["天亮"]],
+          "gloss": "Let go of me. I'll fetch them, and be back by dawn.",
+          "tip": "放开 fàngkāi = let go.",
+          "status": "live" }
+      }
+    } },
+    { "who": "jiuma", "zh": "去哪儿了？这么晚！", "en": "Where have you been? This late!" },
+    { "who": "jiujiu", "zh": "好了，先吃饭吧。", "en": "That's enough. Let's eat." },
+    { "narr": "While nobody's looking, you slip a 粽子 up your sleeve.", "prop": "🍙" },
+    { "who": "jiuma", "zh": "桌上的粽子呢？少了一个。", "en": "Where's the 粽子 that was on the table? There's one missing." },
+    { "say": {
+      "id": "lie",
+      "en": "Lie: you ate it, you were starving.",
+      "cue": "Lie.",
+      "answers": ["我吃了……我太饿了。", "是我吃的，我太饿了。", "我吃了，我饿了。"],
+      "gloss": "I ate it... I was starving.",
+      "need": [["我吃了", "我吃的"], ["饿"]],
+      "tip": "是我吃的 = it was me who ate it: 是……的 puts the weight on who.",
+      "ok": [
+        { "who": "jiuma", "zh": "……下次跟我说。", "en": "...Next time, tell me." },
+        { "who": "jiujiu", "zh": "孩子长身体呢。", "en": "The child's growing." }
+      ],
+      "fail": [ { "who": "jiuma", "zh": "嗯？粽子呢？", "en": "Hm? The 粽子?" } ],
+      "levels": {
+        "2": {
+          "answers": ["我吃了。", "是我吃的。"],
+          "need": [["我吃了", "我吃的"]],
+          "gloss": "I ate it.",
+          "status": "live" },
+        "4": {
+          "answers": ["舅妈，是我吃的，实在太饿了。", "对不起，是我吃的，实在太饿了。"],
+          "need": [["实在"], ["我吃的"]],
+          "gloss": "It was me. I was just so hungry.",
+          "tip": "实在 shízài = truly, really: 实在太饿了.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Night. Out on the water, the lights of the search boats, moving slowly." },
+    { "narr": "Dawn. The mudflats. Food in one hand. In your pocket, 舅舅's pliers.", "prop": "🔧" },
+    { "who": "stranger", "zh": "你来了。", "en": "You came." },
+    { "who": "stranger", "zh": "你叫什么名字？", "en": "What's your name?" },
+    { "narr": "You tell him." },
+    { "who": "stranger", "zh": "我会记住你的。", "en": "I'll remember you.", "hold": 2 },
+    { "say": {
+      "id": "pliers",
+      "en": "Give him the pliers too, or only the food.",
+      "cue": "Pliers, or food?",
+      "answers": ["钳子也给你。", "吃的和钳子，都给你。"],
+      "gloss": "The pliers too. Here.",
+      "need": [["钳子"], ["给你"]],
+      "key": { "钳子": "pliers" },
+      "tip": "钳子 qiánzi = pliers. ……也给你 = this as well, for you.",
+      "sets": { "expectations.ep1": "pliers" },
+      "ok": [
+        { "who": "stranger", "zh": "……谢谢你。", "en": "...Thank you." },
+        { "narr": "He takes the pliers, and goes into the mist." }
+      ],
+      "alts": [
+        { "en": "Or: only food", "answers": ["只有吃的。", "只有吃的，钳子不能给。"], "need": [["只有吃的"]], "gloss": "Just food.",
+          "sets": { "expectations.ep1": "food" },
+          "then": [
+            { "who": "stranger", "zh": "……够了。", "en": "...It's enough." },
+            { "narr": "He eats as if he's forgotten how. Then he's gone into the mist." }
+          ] }
+      ],
+      "fail": [ { "who": "stranger", "zh": "钳子呢？", "en": "The pliers?" } ],
+      "levels": {
+        "2": {
+          "answers": ["钳子也给你！", "钳子给你。"],
+          "need": [["钳子"]],
+          "gloss": "Pliers too!",
+          "alts": [ { "of": 0, "answers": ["只有吃的。"], "need": [["只有吃的"]], "gloss": "Just food." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["钳子我也带来了，都给你。", "我把钳子也带来了，给你。"],
+          "need": [["钳子"], ["带来"]],
+          "gloss": "I brought the pliers too. Take it all.",
+          "alts": [ { "of": 0, "answers": ["只有吃的，钳子是舅舅的。", "只有吃的，钳子是我舅舅的。"], "need": [["只有吃的"], ["舅舅"]], "gloss": "Just food. The pliers are my uncle's." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "expectations.ep1": "pliers" }, "end": "win", "en": "That evening the boats find a broken chain on the mud. Nobody asks you a thing. ⛓️",
+      "else": [ { "end": "win", "en": "That evening the boats go out again. You never learn if they found him. 🌫️" } ] }
+  ]
+}

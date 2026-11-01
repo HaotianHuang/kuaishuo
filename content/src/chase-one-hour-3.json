@@ -1,0 +1,187 @@
+{
+  "id": "one-hour-3",
+  "format": "chase",
+  "title": "伴手礼",
+  "title_en": "The Wedding Favours",
+  "level": 1,
+  "listen": 1,
+  "topics": ["celebrations", "travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "one-hour", "ep": 3, "next": "The 新人 want you at their first anniversary. In 拉萨." },
+  "tags": ["婚礼", "重庆", "腊肠"],
+  "setting": "The wedding, Chongqing, 1:20. Three hundred favours are at 江北机场. The guests leave at two.",
+  "stage": "📦",
+  "bg": ["#2a0a1a", "#c23a5a"],
+  "cast": {
+    "songnai": { "name": "宋奶奶", "en": "the 新人's grandmother, in red", "emoji": "👵", "voice": "f-old" },
+    "chengke": { "name": "乘客", "en": "a passenger on the light rail", "emoji": "🚇", "voice": "m-young" },
+    "xingli": { "name": "行李员", "en": "the baggage office clerk", "emoji": "🧳", "voice": "f-mid" }
+  },
+  "chase": {
+    "name": "时间", "en": "the clock", "emoji": "⏰",
+    "start": 20, "close": 1, "gain": 9, "loss": 5, "max": 25,
+    "caught": [
+      { "narr": "Two o'clock. The guests are leaving, empty-handed." },
+      { "who": "songnai", "zh": "我的东西呢？", "en": "Where are my things?" },
+      { "end": "lose", "en": "Three hundred guests go home with nothing. Run that back. 📦" }
+    ]
+  },
+  "steps": [
+    { "when": { "one-hour.ep2": "now" }, "who": "songnai", "zh": "我刚开始跳呢！", "en": "And I'd only just started dancing!", "fx": "squint",
+      "else": [ { "narr": "宋奶奶 is still humming the other wedding's song.", "zh": "啦——啦啦——" } ] },
+    { "narr": "1:20. The tea is done. The 伴手礼, the wedding favours, are still at 江北机场's baggage office. The guests leave at two.", "zh": "还有四十分钟！" },
+    { "narr": "The light rail to the airport, packed to the doors." },
+    { "say": {
+      "id": "through",
+      "obstacle": "🚇",
+      "en": "Get through the crowd: excuse me!",
+      "answers": ["借过！", "借过借过！", "不好意思，借过！"],
+      "gloss": "Excuse me, coming through!",
+      "need": [["借过"]],
+      "key": { "借过": "excuse me (let me past)" },
+      "time": 7,
+      "tip": "借过 jièguò = lend me the way: excuse me, coming through.",
+      "ok": [ { "who": "chengke", "zh": "去婚礼？快过快过！", "en": "Off to a wedding? Go on, through!" } ],
+      "fail": [ { "who": "chengke", "zh": "挤什么挤！", "en": "Stop shoving!" } ],
+      "levels": {
+        "2": {
+          "answers": ["不好意思，借过一下！", "不好意思，借过！"],
+          "need": [["不好意思"], ["借过"]],
+          "gloss": "Sorry, coming through!",
+          "status": "live" },
+        "3": {
+          "answers": ["不好意思，借过，我赶时间！", "不好意思借过，我赶时间！"],
+          "need": [["借过"], ["赶时间"]],
+          "gloss": "Sorry, coming through, I'm in a hurry!",
+          "tip": "赶时间 gǎn shíjiān = be pressed for time.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "江北机场. Signs everywhere, and none of them say 伴手礼." },
+    { "say": {
+      "id": "where",
+      "obstacle": "🛄",
+      "en": "Ask where you collect a parcel.",
+      "answers": ["在哪儿取？", "请问，在哪儿取？", "行李在哪儿取？"],
+      "gloss": "Where do I collect it?",
+      "need": [["哪儿取", "哪里取"]],
+      "key": { "取": "collect" },
+      "time": 8,
+      "tip": "取 qǔ = collect, pick up: 在哪儿取？",
+      "ok": [ { "who": "xingli", "zh": "这边。要排队。", "en": "Over here. There's a queue." } ],
+      "fail": [ { "who": "xingli", "zh": "您说什么？", "en": "Sorry?" } ],
+      "levels": {
+        "2": {
+          "answers": ["请问，包裹在哪儿取？", "包裹在哪儿取？"],
+          "need": [["包裹"], ["哪儿取", "哪里取"]],
+          "gloss": "Where do I collect a parcel?",
+          "tip": "包裹 bāoguǒ = parcel.",
+          "status": "live" },
+        "3": {
+          "answers": ["请问，寄存的包裹在哪儿取？", "寄存的包裹在哪儿取？"],
+          "need": [["寄存"], ["哪儿取", "哪里取"]],
+          "gloss": "Where do I collect a parcel that's been left here?",
+          "tip": "寄存 jìcún = leave (something) in someone's keeping.",
+          "status": "live" }
+      }
+    } },
+    { "who": "xingli", "zh": "前面还有二十个人。", "en": "There are twenty people ahead of you." },
+    { "say": {
+      "id": "hurry",
+      "obstacle": "⏳",
+      "en": "Tell her you're in a real hurry.",
+      "answers": ["我很急！", "我真的很急！", "对不起，我很急！"],
+      "gloss": "I'm in a hurry!",
+      "need": [["很急"]],
+      "time": 8,
+      "tip": "急 jí = urgent, in a hurry: 我很急！",
+      "ok": [
+        { "who": "xingli", "zh": "……婚礼的？", "en": "...For a wedding?" },
+        { "who": "xingli", "zh": "好吧，你先来。", "en": "Fine. You go first.", "fx": "give", "prop": "📦" }
+      ],
+      "fail": [ { "who": "xingli", "zh": "请排队。", "en": "Please queue." } ],
+      "levels": {
+        "2": {
+          "answers": ["我很急，新人在等！", "我很急，新人在等我！"],
+          "need": [["很急"], ["新人"]],
+          "gloss": "I'm in a hurry, the couple are waiting!",
+          "status": "live" },
+        "3": {
+          "answers": ["我真的很急，新人两点要送客！", "我很急，新人两点就要送客了！"],
+          "need": [["新人"], ["两点"]],
+          "gloss": "I'm really in a hurry: the couple see the guests off at two!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Three hundred boxes, on two trolleys. They smell... of 腊肠?" },
+    { "narr": "Back on the light rail, with two trolleys." },
+    { "say": {
+      "id": "back",
+      "again": "through",
+      "obstacle": "🛒",
+      "en": "Through the crowd again, with the trolleys!",
+      "answers": ["借过！借过！", "借过一下！", "借过！"],
+      "gloss": "Coming through!",
+      "need": [["借过"]],
+      "time": 7,
+      "tip": "借过 again: louder, with trolleys.",
+      "ok": [ { "who": "chengke", "zh": "又是你？快过！", "en": "You again? Go on!" } ],
+      "fail": [ { "who": "chengke", "zh": "这么多箱子！", "en": "That many boxes!" } ],
+      "levels": {
+        "2": {
+          "answers": ["不好意思，借过一下！", "不好意思，借过借过！"],
+          "need": [["不好意思"], ["借过"]],
+          "gloss": "Sorry, coming through!",
+          "status": "live" },
+        "3": {
+          "answers": ["不好意思，借过，箱子有点多！", "不好意思借过，箱子太多了！"],
+          "need": [["借过"], ["箱子"]],
+          "gloss": "Sorry, coming through: rather a lot of boxes!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "1:58. The hall doors. 宋奶奶 opens the first box." },
+    { "who": "songnai", "zh": "我做的腊肠！", "en": "My home-made 腊肠!", "fx": "jump", "prop": "🎁" },
+    { "who": "songnai", "zh": "三百包，做了一个月！", "en": "Three hundred packets. A month of making!" },
+    { "sfx": "cheer" },
+    { "narr": "Every guest wants two." },
+    { "say": {
+      "id": "toast",
+      "obstacle": "🥂",
+      "en": "At the door, a toast: to the 新人, or to 宋奶奶.",
+      "answers": ["祝你们幸福！", "祝你们永远幸福！"],
+      "gloss": "To your happiness!",
+      "need": [["幸福"]],
+      "time": 9,
+      "tip": "祝 zhù = wish: 祝你们幸福 = wishing you happiness.",
+      "sets": { "one-hour.ep3": "couple" },
+      "ok": [ { "narr": "The 新人 raise their glasses. Three hundred guests raise their 腊肠." } ],
+      "alts": [
+        { "en": "Or: to 宋奶奶", "answers": ["谢谢奶奶！", "谢谢奶奶的腊肠！"], "need": [["谢谢奶奶"]], "gloss": "Thank you, Grandma!",
+          "sets": { "one-hour.ep3": "nainai" },
+          "then": [ { "who": "songnai", "zh": "谢什么！吃！", "en": "Don't thank me! Eat!", "fx": "laugh" } ] }
+      ],
+      "fail": [ { "who": "songnai", "zh": "说两句！", "en": "Say a few words!" } ],
+      "levels": {
+        "2": {
+          "answers": ["祝你们永远幸福！", "祝你们永远幸福快乐！"],
+          "need": [["永远"], ["幸福"]],
+          "gloss": "Wishing you happiness, always!",
+          "alts": [ { "of": 0, "answers": ["谢谢奶奶的腊肠！"], "need": [["谢谢奶奶"], ["腊肠"]], "gloss": "Thank you, Grandma, for the 腊肠!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["祝你们白头偕老，永远幸福！", "祝新人白头偕老，永远幸福！"],
+          "need": [["白头偕老"], ["幸福"]],
+          "gloss": "May you grow old together, and be happy always!",
+          "tip": "白头偕老 = grow white-haired together: the wedding wish.",
+          "alts": [ { "of": 0, "answers": ["敬奶奶！谢谢奶奶的腊肠！"], "need": [["敬奶奶"], ["腊肠"]], "gloss": "To Grandma! Thank you for the 腊肠!" } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "2:00 exactly. Three hundred guests leave, each with a packet of 腊肠.", "finale": true, "prop": "🎁" },
+    { "when": { "one-hour.ep3": "couple" }, "end": "win", "en": "The 新人 cry. 宋奶奶 says it's the 腊肠. Season one ends here. 🎉",
+      "else": [ { "end": "win", "en": "宋奶奶 gives a speech nobody planned, about pork. Three hundred guests applaud. Season one ends here. 🎉" } ] }
+  ]
+}

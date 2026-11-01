@@ -1,0 +1,135 @@
+{
+  "id": "melon-5",
+  "format": "chat",
+  "title": "正在输入",
+  "title_en": "Typing…",
+  "level": 3,
+  "listen": 3,
+  "topics": ["home"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "melon", "ep": 5, "next": "方阿姨 has replied with a sticker. Nobody in the group can agree on what it means." },
+  "tags": ["吃瓜", "正在输入", "老周"],
+  "setting": "金桂苑, Tuesday, 9:40 pm. In the estate group, 老周 has been typing for an hour. Then he messages you.",
+  "stage": "⌨️",
+  "bg": ["#0f3a1e", "#3c9a4f"],
+  "chat": { "with": "laozhou", "giveup": [
+    { "who": "laozhou", "zh": "……算了，我不回了。", "en": "...Forget it. I won't reply." },
+    { "end": "lose", "en": "老周 never replies. 方阿姨 waits all week. Run that back. 🍉" }
+  ] },
+  "cast": {
+    "laozhou": { "name": "老周", "en": "3号楼: has typed and deleted for an hour", "emoji": "👴", "voice": "m-old" }
+  },
+  "steps": [
+    { "narr": "In the estate group, under 方阿姨's voice note, for an hour:", "zh": "对方正在输入…" },
+    { "when": { "melon.ep4": "recall" }, "narr": "She recalled it last night. Everyone had already listened to it three times.",
+      "else": [ { "narr": "The group has been sending 加油 stickers for an hour. Forty of them." } ] },
+    { "sfx": "message" },
+    { "who": "laozhou", "zh": "小邻居，在吗？", "en": "Young neighbour, are you there?", "clock": "21:40", "typing": 2 },
+    { "who": "laozhou", "zh": "我该怎么回？", "en": "How should I reply?", "typing": 5 },
+    { "who": "laozhou", "zh": "我这把年纪，不会说这些。", "en": "At my age, I don't know how to say these things.", "typing": 4 },
+    { "say": {
+      "id": "calm",
+      "en": "Reassure him: don't be nervous.",
+      "cue": "Reassure him.",
+      "answers": ["周叔叔，别紧张。", "周叔叔，您别紧张。"],
+      "gloss": "Uncle Zhou, don't be nervous.",
+      "need": [["周叔叔"], ["别紧张"]],
+      "key": { "紧张": "nervous" },
+      "time": 30,
+      "tip": "紧张 jǐnzhāng = nervous. 别紧张 = don't be nervous.",
+      "ok": [
+        { "who": "laozhou", "zh": "……我手在抖。", "en": "...My hands are shaking.", "typing": 3 },
+        { "who": "laozhou", "zh": "打了一个小时，删了一个小时。", "en": "An hour of typing, an hour of deleting.", "typing": 3 }
+      ],
+      "fail": [ { "who": "laozhou", "zh": "你说什么？", "en": "What's that?", "typing": 1 } ],
+      "levels": {
+        "2": {
+          "answers": ["别紧张！", "您别紧张。"],
+          "need": [["别紧张"]],
+          "gloss": "Don't be nervous!",
+          "status": "live" },
+        "4": {
+          "answers": ["周叔叔，别紧张，慢慢想。"],
+          "need": [["慢慢想"], ["别紧张"]],
+          "gloss": "Uncle Zhou, don't be nervous. Take your time.",
+          "status": "live" }
+      }
+    } },
+    { "who": "laozhou", "zh": "你帮我写吧。你说，我打。", "en": "You write it for me. You say it, I'll type it.", "typing": 3 },
+    { "say": {
+      "id": "draft",
+      "en": "Say his reply for him: 方阿姨, let's dance together on Saturday.",
+      "cue": "Write it.",
+      "answers": ["方阿姨，周六一起跳舞吧。", "方阿姨，我们周六一起跳舞吧。"],
+      "gloss": "方阿姨, let's dance together on Saturday.",
+      "need": [["周六"], ["一起跳舞"]],
+      "time": 30,
+      "tip": "一起 yìqǐ = together. ……吧 turns it into an invitation.",
+      "ok": [
+        { "who": "laozhou", "zh": "她膝盖不好……", "en": "Her knee's bad...", "typing": 3 },
+        { "who": "laozhou", "zh": "那就跳慢一点。", "en": "Then we'll dance slowly.", "typing": 2 }
+      ],
+      "fail": [ { "who": "laozhou", "zh": "怎么写？", "en": "How do I write it?", "typing": 1 } ],
+      "levels": {
+        "2": {
+          "answers": ["一起跳舞吧。", "周六一起跳舞吧。"],
+          "need": [["一起跳舞"]],
+          "gloss": "Let's dance together.",
+          "status": "live" },
+        "4": {
+          "answers": ["方阿姨，这个周六，我们一起跳舞吧。"],
+          "need": [["这个周六"], ["一起跳舞"]],
+          "gloss": "方阿姨, this Saturday, let's dance together.",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "message" },
+    { "narr": "Your phone buzzes again. 婷婷, privately too:", "zh": "我妈会高兴的。", "hold": 2 },
+    { "narr": "Then, from 婷婷:", "zh": "我爸一个人，三年了。谢谢你。" },
+    { "who": "laozhou", "zh": "就这样发吗？还是再加一句？", "en": "Send it like this? Or add a line?", "typing": 4 },
+    { "say": {
+      "id": "decide",
+      "en": "Send it as it is, or add one line: me too.",
+      "cue": "As it is, or add?",
+      "answers": ["就这么发吧。", "周叔叔，就这么发吧。"],
+      "gloss": "Send it just like that.",
+      "need": [["这么发"]],
+      "time": 30,
+      "tip": "就这么…… = just like this.",
+      "sets": { "melon.ep5": "plain" },
+      "ok": [
+        { "who": "laozhou", "zh": "……好。发了。", "en": "...All right. Sent.", "typing": 2 },
+        { "narr": "In the group, at last:", "zh": "方阿姨，周六一起跳舞吧。" }
+      ],
+      "alts": [
+        { "en": "Or: add a line, me too", "answers": ["再加一句：我也是。", "再加一句，我也是。"], "need": [["再加一句"], ["我也是"]], "gloss": "Add one line: me too.",
+          "key": { "我也是": "me too" },
+          "sets": { "melon.ep5": "also" },
+          "then": [
+            { "who": "laozhou", "zh": "……我也是。", "en": "...Me too.", "typing": 5, "hold": 1 },
+            { "who": "laozhou", "zh": "好。加上。", "en": "All right. It's in.", "typing": 1 },
+            { "narr": "In the group, at last:", "zh": "方阿姨，周六一起跳舞吧。我也是。" }
+          ] }
+      ],
+      "fail": [ { "who": "laozhou", "zh": "发不发？", "en": "Send it or not?", "typing": 1 } ],
+      "levels": {
+        "2": {
+          "answers": ["就这么发！", "这么发吧。"],
+          "need": [["这么发"]],
+          "gloss": "Send it like that!",
+          "alts": [ { "of": 0, "answers": ["加一句：我也是。"], "need": [["我也是"]], "gloss": "Add: me too." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["别改了，就这么发吧，挺好的。"],
+          "need": [["别改了"], ["这么发"]],
+          "gloss": "Don't change it. Send it like that. It's good.",
+          "alts": [ { "of": 0, "answers": ["再加一句：其实，我也是。"], "need": [["其实"], ["我也是"]], "gloss": "Add one line: actually, me too." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "melon.ep5": "plain" }, "end": "win", "en": "Sent. Thirty seconds later, the group explodes. 🍉",
+      "else": [ { "end": "win", "en": "Sent, with 我也是。 赵奶奶 replies with a sixty-second voice note that is entirely happy crying. 🍉" } ] }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "id": "nothing-happened-6",
+  "format": "scene",
+  "title": "生日",
+  "title_en": "The Birthday",
+  "level": 2,
+  "listen": 2,
+  "topics": ["celebrations"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "nothing-happened", "ep": 6, "next": "Season one is over. Nothing happened. Again." },
+  "tags": ["没什么事", "生日", "请客"],
+  "setting": "The hot-pot place, Friday, 7 pm. It's 阿峰's birthday, and nobody has agreed who's paying.",
+  "stage": "🎂",
+  "bg": ["#2a0d0d", "#c4553a"],
+  "cast": {
+    "feng": { "name": "阿峰", "en": "the birthday boy, overthinking it", "emoji": "😰", "voice": "m-young" },
+    "mei": { "name": "小美", "en": "has a theory for everything", "emoji": "💁", "voice": "f-young" },
+    "qin": { "name": "老秦", "en": "calm, and (lately) right", "emoji": "😌", "voice": "m-mid" },
+    "tian": { "name": "甜甜", "en": "knows someone who knows", "emoji": "🙆", "voice": "f-young" },
+    "fuwuyuan": { "name": "服务员", "en": "the hot-pot waiter, who has seen everything", "emoji": "🧑‍🍳", "voice": "f-mid" },
+    "naren": { "name": "那个人", "en": "says 嗯, mostly", "emoji": "🧥", "voice": "f-young" }
+  },
+  "steps": [
+    { "when": { "nothing-happened.ep5": "add" }, "narr": "The group has a new name now, chosen by 那个人. The friends are still arguing about it.", "zh": "群名：嗯",
+      "else": [ { "narr": "那个人 is at the next table. Again. Everyone pretends not to notice." } ] },
+    { "when": { "nothing-happened.ep5": "add" }, "who": "mei", "zh": "“嗯”还是不是名字！", "en": "嗯 still isn't a name!", "fx": "shake",
+      "else": [ { "who": "tian", "zh": "我朋友说，那是巧合。", "en": "A friend of mine says it's a coincidence." } ] },
+    { "narr": "The hot-pot place. 阿峰's birthday. Two pots bubbling, and one question." },
+    { "who": "mei", "zh": "规矩：生日的人请客。", "en": "The rule: the birthday person treats.", "pace": "fast" },
+    { "who": "qin", "zh": "各付各的。", "en": "Everyone pays their own.", "pace": "fast" },
+    { "who": "tian", "zh": "我朋友说，生日的人不能花钱。", "en": "A friend of mine says the birthday person mustn't spend a thing.", "pace": "fast" },
+    { "who": "feng", "zh": "……我请吧？我不请？", "en": "...Should I pay? Shouldn't I?" },
+    { "say": {
+      "id": "treat",
+      "en": "Take a side: the birthday person treats!",
+      "cue": "Who pays?",
+      "answers": ["生日的人请客！", "今天阿峰请客！"],
+      "gloss": "The birthday person treats!",
+      "need": [["请客"]],
+      "key": { "请客": "treat (pay for everyone)" },
+      "tip": "请客 qǐngkè = treat everyone: on your birthday, many people in China do.",
+      "ok": [
+        { "who": "feng", "zh": "我就知道。", "en": "I knew it." },
+        { "who": "qin", "zh": "那我点贵的。", "en": "Then I'm ordering the expensive stuff." }
+      ],
+      "fail": [ { "who": "mei", "zh": "谁请？", "en": "Who's paying?" } ],
+      "levels": {
+        "1": {
+          "answers": ["请客！", "阿峰请客！"],
+          "need": [["请客"]],
+          "gloss": "He treats!",
+          "status": "live" },
+        "3": {
+          "answers": ["按规矩，生日的人请客！"],
+          "need": [["规矩"], ["请客"]],
+          "gloss": "Rules are rules: the birthday person treats!",
+          "status": "live" }
+      }
+    } },
+    { "who": "fuwuyuan", "zh": "蛋糕要什么味道的？", "en": "What flavour cake?", "fx": "enter" },
+    { "say": {
+      "id": "cake",
+      "en": "Order the cake: a chocolate one.",
+      "cue": "Order.",
+      "answers": ["要一个巧克力的。", "巧克力的，谢谢。"],
+      "gloss": "A chocolate one, please.",
+      "need": [["巧克力"]],
+      "key": { "巧克力": "chocolate" },
+      "tip": "巧克力 qiǎokèlì = chocolate. 要一个……的 = one ... one, please.",
+      "ok": [
+        { "who": "fuwuyuan", "zh": "上面写什么字？", "en": "What shall we write on top?" },
+        { "who": "tian", "zh": "写：没什么事。", "en": "Write: Nothing happened." }
+      ],
+      "fail": [ { "who": "fuwuyuan", "zh": "什么味道？", "en": "What flavour?" } ],
+      "levels": {
+        "1": {
+          "answers": ["巧克力！", "巧克力的。"],
+          "need": [["巧克力"]],
+          "gloss": "Chocolate!",
+          "status": "live" },
+        "3": {
+          "answers": ["要一个巧克力的，写上阿峰。"],
+          "need": [["写上"], ["巧克力"]],
+          "gloss": "A chocolate one, with 阿峰's name on it.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The cake. Candles. On top, in icing:", "zh": "没什么事", "prop": "🎂" },
+    { "narr": "Then 那个人 stands up. The whole table goes quiet.", "hold": 1 },
+    { "who": "naren", "zh": "嗯。", "en": "嗯.", "hold": 2 },
+    { "narr": "A beat.", "hold": 2 },
+    { "who": "naren", "zh": "开玩笑的。", "en": "Just kidding.", "fx": "laugh" },
+    { "who": "naren", "zh": "生日快乐。", "en": "Happy birthday.", "hold": 1 },
+    { "who": "feng", "zh": "……", "en": "...", "fx": "faint" },
+    { "who": "qin", "zh": "第一次，说了四个字。", "en": "First time ever: four characters." },
+    { "who": "mei", "zh": "八个！两句！", "en": "Eight! Two whole sentences!", "pace": "fast" },
+    { "say": {
+      "id": "toast",
+      "en": "Raise the toast to 阿峰, or make the birthday boy say a few words.",
+      "cue": "Toast, or speech?",
+      "answers": ["祝阿峰生日快乐！", "干杯！祝阿峰生日快乐！"],
+      "gloss": "Happy birthday, 阿峰!",
+      "need": [["生日快乐"]],
+      "tip": "祝 zhù = wish: 祝你生日快乐 = happy birthday to you.",
+      "sets": { "nothing-happened.end": "toast" },
+      "ok": [
+        { "sfx": "cheer" },
+        { "who": "feng", "zh": "谢谢大家……真的。", "en": "Thanks, everyone... really." }
+      ],
+      "alts": [
+        { "en": "Or: make 阿峰 say a few words", "answers": ["阿峰，说两句！", "阿峰，你说两句！"], "need": [["说两句"]], "gloss": "阿峰, say a few words!",
+          "key": { "说两句": "say a few words" },
+          "sets": { "nothing-happened.end": "speech" },
+          "then": [
+            { "who": "feng", "zh": "我……", "en": "I...", "hold": 2 },
+            { "who": "feng", "zh": "嗯。", "en": "嗯.", "hold": 1 },
+            { "who": "mei", "zh": "你们俩真是一模一样！", "en": "You two are exactly the same!", "fx": "laugh" }
+          ] }
+      ],
+      "fail": [ { "who": "mei", "zh": "来，谁说两句？", "en": "Come on, who's saying something?" } ],
+      "levels": {
+        "1": {
+          "answers": ["生日快乐！", "阿峰，生日快乐！"],
+          "need": [["生日快乐"]],
+          "gloss": "Happy birthday!",
+          "alts": [ { "of": 0, "answers": ["说两句！"], "need": [["说两句"]], "gloss": "Speech!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["来，干杯！祝阿峰生日快乐！"],
+          "need": [["干杯"], ["生日快乐"]],
+          "gloss": "Come on, glasses up! Happy birthday, 阿峰!",
+          "alts": [ { "of": 0, "answers": ["阿峰，寿星说两句吧！"], "need": [["寿星"], ["说两句"]], "gloss": "阿峰, the birthday star says a few words!" } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "nothing-happened.end": "toast" }, "end": "win", "en": "When 阿峰 goes to pay, the bill's already paid. Nobody says by whom. Everybody knows. Season one ends here. 🎂",
+      "else": [ { "end": "win", "en": "阿峰's speech was one word long. Everyone agrees it's the best speech they've ever heard. Season one ends here. 🎂" } ] }
+  ]
+}

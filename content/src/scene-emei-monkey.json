@@ -1,0 +1,143 @@
+{
+  "id": "emei-monkey",
+  "format": "scene",
+  "title": "猴哥，还我包！",
+  "title_en": "Give It Back, Brother Monkey",
+  "level": 3,
+  "topics": ["animals", "travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "tags": ["峨眉山", "猴子", "讨价还价"],
+  "write": ["还", "包", "香蕉"],
+  "setting": "Mount Emei, Sichuan, the stone steps through the monkey zone, 2 pm.",
+  "stage": "⛰️",
+  "bg": ["#13301f", "#3f7a4f"],
+  "cast": {
+    "monkey": { "name": "猴子", "en": "a large, very confident macaque", "emoji": "🐒", "voice": "kid" },
+    "ranger": { "name": "管理员", "en": "a ranger with a bamboo pole", "emoji": "🧑‍🌾", "voice": "m-mid" },
+    "seller": { "name": "卖香蕉的阿姨", "en": "a woman with a basket of bananas", "emoji": "👵", "voice": "f-mid" }
+  },
+  "steps": [
+    { "sfx": "whoosh" },
+    { "narr": "A monkey snatched your bag. Passport, phone: all inside. 🐒", "zh": "猴子一把抢走了你的包，护照手机全在里面！" },
+    { "who": "monkey", "zh": "吱吱！", "en": "Eek eek!", "fx": "jump" },
+    { "say": {
+      "id": "giveback",
+      "en": "Shout at the monkey: give me back my bag!",
+      "time": 10,
+      "answers": ["把包还给我！", "还我包！", "猴哥，把包还给我！", "快把包还给我！", "把我的包还给我！"],
+      "gloss": "Give me back my bag!",
+      "need": [["还给", "还我"], ["包"]],
+      "tip": "把 + thing + 还给我 = give (it) back to me. 还 huán = return; the same character read hái means 'still'.",
+      "mistakes": [ { "heard": ["借给", "借我"], "note": "借 is borrow or lend. Giving something back is 还 huán: 还给我." } ],
+      "ok": [
+        { "who": "monkey", "zh": "吱！", "en": "Eek!", "fx": "laugh" },
+        { "narr": "The monkey pulls out your sunglasses and puts them on. They suit it. 🕶️", "zh": "猴子从包里掏出你的墨镜，戴上了。", "prop": "🕶️" }
+      ],
+      "fail": [ { "who": "monkey", "zh": "吱吱吱！", "en": "Eek eek eek!", "fx": "jump" } ],
+      "cue": "Your bag! Shout!",
+      "miss": [ { "narr": "It climbs higher, bag and all.", "zh": "猴子带着包，爬得更高了。" } ],
+      "levels": {
+        "4": { "en": "Talk the monkey round: let's be reasonable, and the bag comes back first!", "cue": "Reason with it.", "answers": ["猴哥，有话好好说，先把包还给我！", "有话好好说，把包还给我！", "猴哥，有话好商量，把包还我！", "咱们有话好好说，你先把包还我！"], "gloss": "Brother Monkey, let's be reasonable. Give me my bag back first!", "need": [["还给", "还我"], ["包"], ["好好说", "好商量"]],
+               "tip": "有话好好说 = let's talk this over calmly: how you calm anyone down, monkeys included. 先把包还给我 = give me the bag back first.", "key": { "好好说": "talk it over calmly" }, "status": "live" }
+      }
+    } },
+    { "narr": "A ranger with a bamboo pole is strolling down the steps, in no hurry at all.", "zh": "一个拿竹竿的管理员慢悠悠地走了过来。", "arrive": "ranger" },
+    { "say": {
+      "id": "help",
+      "en": "Get the ranger's help: the monkey snatched your bag!",
+      "answers": ["师傅，帮帮忙！猴子抢了我的包！", "师傅，帮个忙，猴子把我包抢了！", "救命啊！猴子抢包了！", "快帮帮我！", "猴子抢了我的包！"],
+      "gloss": "Help me out! The monkey snatched my bag!",
+      "need": [["帮", "救命", "抢"]],
+      "tip": "帮帮忙 = please, help me out! (帮个忙 is the calmer way to ask.) 抢 qiǎng = snatch: 猴子抢了我的包 = the monkey snatched my bag.",
+      "mistakes": [ { "heard": ["偷了", "偷我"], "note": "偷 tōu is stealing on the sly. Grabbed off your shoulder is 抢 qiǎng." } ],
+      "ok": [
+        { "who": "ranger", "zh": "那是猴王，我也惹不起它。", "en": "That's the monkey king. Even I don't mess with him.", "fx": "shake" },
+        { "who": "ranger", "zh": "你拿吃的跟它换吧。", "en": "Trade him something to eat." }
+      ],
+      "fail": [ { "who": "ranger", "zh": "啥？你喊我？", "en": "What? You calling me?", "fx": "squint" } ],
+      "cue": "Get the ranger!",
+      "miss": [ { "who": "ranger", "zh": "被抢了？这儿天天有，习惯就好。", "en": "Robbed? Happens every day here. You get used to it.", "fx": "shake" } ],
+      "levels": {
+        "2": { "answers": ["帮帮忙！我被猴子抢了！", "师傅，帮帮我！", "猴子把我的包抢了！", "救命啊！猴子抢包了！"], "gloss": "Help! I've been mugged by a monkey!", "need": [["帮", "救命", "抢"]],
+               "tip": "被 bèi says who did it to you: 我被猴子抢了 = I've been robbed by a monkey. 帮帮忙 = please, help me out!", "status": "live" },
+        "4": { "en": "Get the ranger moving: isn't this his job?", "answers": ["师傅，您不是管理员吗？快帮帮忙！", "您不是管这儿的吗？快帮帮我！", "管理员！猴子抢了我的包，您快管管啊！", "师傅，您是管理员，快帮帮忙吧！"], "gloss": "You're the ranger, aren't you? Help me out!", "need": [["帮", "救命", "抢"], ["管理员", "管"]],
+               "tip": "您不是……吗？ = aren't you…?: a question that's really a nudge. 管理员 guǎnlǐyuán = the one in charge here; 管 = to deal with it.", "key": { "管理员": "ranger (the one in charge)" }, "status": "live" }
+      }
+    } },
+    { "who": "seller", "zh": "香蕉！换包专用香蕉！一根五十！", "en": "Bananas! Get-your-bag-back bananas! Fifty yuan each!", "fx": "enter" },
+    { "say": {
+      "id": "ripoff",
+      "en": "Fifty yuan for one banana?! Let her know what you think of that.",
+      "answers": ["一根香蕉五十？你抢钱啊！", "五十？太贵了吧！", "太贵了，便宜点儿！", "这么贵？便宜点儿吧！", "你怎么不去抢啊！"],
+      "gloss": "Fifty for one banana? Are you robbing me?",
+      "need": [["抢钱", "去抢", "贵", "便宜"]],
+      "tip": "你抢钱啊 = 'are you robbing me?', the classic reply to a mad price. 便宜点儿 piányi diǎnr = a bit cheaper.",
+      "mistakes": [ { "heard": ["个香"], "note": "Long thin things take 根 gēn: 一根香蕉, 一根筷子." } ],
+      "alts": [
+        { "en": "Or: skip her and offer the monkey your sandwich", "answers": ["猴哥，我拿三明治跟你换！", "我拿面包跟你换！"], "gloss": "Brother Monkey, I'll trade you my sandwich!", "need": [["三明治", "面包"]],
+          "then": [
+            { "narr": "The monkey sniffs the sandwich, flicks it off the mountain, and goes back to your bag.", "zh": "猴子闻了闻三明治，随手扔下了山。" },
+            { "who": "seller", "zh": "我们这儿的猴子，只吃我的香蕉。", "en": "The monkeys round here only eat my bananas.", "fx": "laugh" }
+          ] }
+      ],
+      "ok": [ { "who": "seller", "zh": "不贵不贵！你看，它都开始翻你的护照了！", "en": "Not dear at all! Look, it's started on your passport!", "fx": "laugh" } ],
+      "fail": [ { "who": "seller", "zh": "嫌贵？那你自己跟猴子谈。", "en": "Too pricey? Then go and bargain with the monkey yourself." } ],
+      "cue": "Fifty?! A banana?",
+      "miss": [ { "who": "seller", "zh": "不砍价？爽快！", "en": "No haggling? I like you!", "fx": "laugh" } ],
+      "levels": {
+        "2": { "en": "Fifty yuan for one banana?! Tell her it's far too dear.", "answers": ["太贵了！便宜点儿吧！", "五十？太贵了吧！", "这么贵？便宜点儿！", "你怎么不去抢啊！"], "gloss": "That's far too much! Knock a bit off!", "need": [["抢钱", "去抢", "贵", "便宜"]],
+               "tip": "太贵了 = too expensive. 便宜点儿 piányi diǎnr = (make it) a bit cheaper: how every haggle starts.", "status": "live" },
+        "4": { "en": "Fifty yuan for one banana?! Ask her if this isn't daylight robbery.", "answers": ["一根香蕉五十？你这不是抢钱吗！", "一根五十？这不是抢钱吗！", "这么贵，你这不是抢钱吗？", "五十块一根，这不就是抢钱吗！"], "gloss": "Fifty for one banana? Isn't that daylight robbery?", "need": [["抢钱", "去抢", "贵", "便宜"], ["不是", "不就是"]],
+               "tip": "你这不是……吗？ = isn't this…?: a question that's really an accusation. 抢钱 qiǎng qián = robbery, which any mad price is.", "status": "live" }
+      }
+    } },
+    { "who": "seller", "zh": "涨价了，现在一百。", "en": "Prices just went up. A hundred now." },
+    { "say": {
+      "id": "walkaway",
+      "en": "Call her bluff. Fine then: you don't want it.",
+      "answers": ["那我不要了！", "算了，不买了！", "那算了，我不要了。", "太贵了，我不要了。"],
+      "gloss": "Then I don't want it!",
+      "need": [["不要", "不买"]],
+      "tip": "那我不要了 = then I don't want it: the walk-away. The 了 says you've just changed your mind. Then turn, and wait to be called back.",
+      "mistakes": [ { "heard": ["没要"], "note": "没要 means you didn't take it. The walk-away is 不要了: you've decided against it." } ],
+      "ok": [ { "who": "seller", "zh": "哎哎哎，回来回来！十块，拿去！", "en": "Hey hey hey, come back! Ten yuan, take it!", "fx": "give", "prop": "🍌" } ],
+      "fail": [ { "who": "seller", "zh": "不要拉倒。一百五！", "en": "Suit yourself. A hundred and fifty!" } ],
+      "cue": "Call her bluff.",
+      "miss": [
+        { "who": "seller", "zh": "两百！再不买，护照就被吃了。", "en": "Two hundred! Any longer and it eats your passport.", "fx": "laugh" },
+        { "end": "lose", "en": "You pay ¥200 for one banana. Your passport comes back with a bite out of it. 🛂", "zh": "一根香蕉两百块，护照还被咬了一口。" }
+      ],
+      "levels": {
+        "4": { "en": "Call her bluff: you don't want it, and if it comes to that, the bag can go too.", "answers": ["那我不要了，大不了包也不要了！", "不买了！大不了不要这个包了！", "算了，不要了，大不了让猴子留着！", "那我不要了，大不了再买个包！"], "gloss": "Then I don't want it. Worst case, I'll write off the bag too!", "need": [["不要", "不买"], ["大不了"]],
+               "tip": "大不了 dàbuliǎo = at worst, so what: the word that calls any bluff. 那我不要了 = then I don't want it.", "key": { "不要": "not want (it)", "大不了": "at worst" }, "status": "live" }
+      }
+    } },
+    { "narr": "Banana in hand, you edge towards the railing. The monkey lowers your passport. Negotiations begin.", "zh": "你拿着香蕉走过去，猴子放下了你的护照。" },
+    { "say": {
+      "id": "swap",
+      "en": "Set the terms: banana in one hand, bag in the other.",
+      "answers": ["一手交香蕉，一手交包！", "香蕉给你，包还我！", "猴哥，香蕉换包，行不行？", "拿包来换香蕉！"],
+      "gloss": "The banana for the bag, at the same time!",
+      "need": [["香蕉"], ["包"]],
+      "tip": "一手交钱，一手交货 = money in one hand, goods in the other: the rule of every fair swap. Swap in 香蕉 and 包.",
+      "ok": [
+        { "who": "monkey", "zh": "吱！", "en": "Eek!", "fx": "give", "prop": "👜" },
+        { "sfx": "cheer" },
+        { "narr": "The monkey drops your bag, grabs the banana, and scampers straight back to the banana seller. It hands her the banana.", "zh": "猴子扔下包，抓起香蕉，跑回去交给了阿姨。", "hold": 1 }
+      ],
+      "fail": [ { "who": "monkey", "zh": "吱吱？", "en": "Eek eek?", "fx": "squint" } ],
+      "cue": "Make the trade.",
+      "miss": [ { "narr": "The monkey snatches the banana and tosses your bag back. No thanks to you.", "zh": "猴子一把抢过香蕉，把包扔了回来。", "prop": "👜" } ],
+      "levels": {
+        "2": { "en": "Set the terms: the banana for your bag.", "answers": ["香蕉给你，包还我！", "香蕉换包，行吗？", "猴哥，拿包换香蕉！", "包给我，香蕉给你！"], "gloss": "Banana for you, bag back to me!", "need": [["香蕉"], ["包"]],
+               "tip": "A给你，B还我 = A for you, B back to me: a swap in two short clauses. 还 huán = give back.", "status": "live" },
+        "4": { "en": "Set the terms: banana in one hand, bag in the other, and the monkey won't lose out.", "answers": ["一手交香蕉，一手交包，你不吃亏！", "猴哥，香蕉换包，你又不吃亏！", "香蕉给你，包还我，谁也不吃亏！", "拿包换香蕉，这买卖你不吃亏！"], "gloss": "Banana in one hand, bag in the other. You won't lose out!", "need": [["香蕉"], ["包"], ["吃亏", "不亏", "划算"]],
+               "tip": "你不吃亏 = you won't lose out: the line that closes a deal. 一手交钱，一手交货 = money in one hand, goods in the other.", "key": { "吃亏": "to lose out" }, "status": "live" }
+      }
+    } },
+    { "who": "seller", "zh": "这根香蕉，今天卖了八回了。", "en": "That banana's been sold eight times today.", "fx": "laugh" },
+    { "end": "win", "en": "Bag: back. Passport: slightly chewed. The banana: already back on sale.", "zh": "包拿回来了。那根香蕉，又回到了阿姨的篮子里。" }
+  ]
+}

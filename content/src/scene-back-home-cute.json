@@ -1,0 +1,152 @@
+{
+  "id": "back-home-cute",
+  "format": "scene",
+  "title": "你中文好可爱",
+  "title_en": "Your Chinese Is So Cute",
+  "level": 2,
+  "listen": 3,
+  "topics": ["family", "celebrations"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "back-home", "ep": 2, "next": "In the kitchen, 大姑 is cornering your mum: she wants to know exactly what you do for a living." },
+  "tags": ["回老家", "中文好可爱", "表演一个"],
+  "write": ["奶奶", "学", "唱"],
+  "setting": "Grandma's courtyard, Saturday lunch: twelve relatives, three neighbours, twenty dishes.",
+  "stage": "🏡",
+  "bg": ["#3a120c", "#a8402a"],
+  "cast": {
+    "nainai": { "name": "奶奶", "en": "your grandma, turning eighty: feeds everyone, cries easily (happily)", "emoji": "👵", "voice": "f-old" },
+    "dagu": { "name": "大姑", "en": "your dad's eldest sister, filming everything for the family group", "emoji": "👩‍💼", "voice": "f-mid" },
+    "eryi": { "name": "二姨", "en": "your mum's second sister: the family matchmaker, who says what she sees", "emoji": "👩‍🦱", "voice": "f-mid" },
+    "biaoge": { "name": "表哥", "en": "your cousin, 大姑's son: never stops talking", "emoji": "🧑", "voice": "m-young" },
+    "wangdaye": { "name": "王大爷", "en": "the neighbour from across the lane, here for the food and the show", "emoji": "👴", "voice": "m-old" },
+    "doudou": { "name": "豆豆", "en": "your little cousin, six: a chopstick expert", "emoji": "🧒", "voice": "kid" }
+  },
+  "steps": [
+    { "who": "dagu", "zh": "来来来，快叫人！我录视频发群里！", "en": "Come on, come on, say hello to everyone! I'm filming this for the family group!", "pace": "fast", "prop": "📱", "arrive": "nainai" },
+    { "say": {
+      "id": "greet",
+      "en": "Greet the table properly: Grandma first, then everyone.",
+      "cue": "Say hello. Eldest first.",
+      "answers": ["奶奶好！大家好！", "奶奶好，大家好！", "奶奶好！大家中午好！", "奶奶好，各位好！"],
+      "gloss": "Hi, Grandma! Hi, everyone!",
+      "need": [["奶奶"], ["大家", "你们", "各位"]],
+      "tip": "叫人 jiào rén = greet everyone properly, eldest first: 奶奶好, then 大家好.",
+      "ok": [ { "who": "nainai", "zh": "哎！我的宝贝回来了！", "en": "Oh! My darling's home!", "fx": "cry" } ],
+      "fail": [ { "who": "dagu", "zh": "叫人啊！奶奶在这儿呢！", "en": "Say hello! Grandma's right here!" } ],
+      "miss": [ { "who": "nainai", "zh": "不叫就不叫，回来就好！", "en": "Never mind the hellos. You're home, that's what counts!", "fx": "cry" } ],
+      "levels": {
+        "1": { "answers": ["奶奶好！", "奶奶，我回来了！", "奶奶好啊！"], "need": [["奶奶好", "回来了"]], "en": "Say hello to Grandma first.", "gloss": "Hi, Grandma!", "status": "live" },
+        "3": { "answers": ["奶奶好！大家好！想死你们了！", "奶奶好，大家好，我想死你们了！", "奶奶好！大家好！可想死你们了！"], "need": [["奶奶"], ["想死你们", "想你们"]], "en": "Greet Grandma, then everyone, and tell them how much you've missed them.",
+               "key": { "想死你们": "miss you all terribly" }, "gloss": "Hi, Grandma! Hi, everyone! I've missed you all so much!",
+               "tip": "想死你们了 = I've missed you to death: the big, warm hello, arms wide open.", "status": "live" }
+      }
+    } },
+    { "who": "dagu", "zh": "哎哟，你中文好可爱！再说两句！", "en": "Aww, your Chinese is so cute! Say some more!", "fx": "laugh" },
+    { "say": {
+      "id": "cute",
+      "en": "Your Chinese is 'cute'? Say you learned it from Grandma, and let her take the bow.",
+      "cue": "Give Grandma the credit.",
+      "answers": ["我的中文是跟奶奶学的！", "我中文是跟奶奶学的！", "我的中文都是跟奶奶学的！", "中文是跟奶奶学的嘛！"],
+      "gloss": "I learned my Chinese from Grandma!",
+      "need": [["中文"], ["奶奶学", "奶奶教"]],
+      "tip": "是……的 puts the spotlight on who: 是跟奶奶学的 = it was Grandma I learned it from. 跟……学 = learn from.",
+      "ok": [ { "who": "nainai", "zh": "听见没？跟我学的！每周视频，一句一句教的！", "en": "Hear that? Learned it from me! Every week on video, line by line!", "fx": "laugh" } ],
+      "fail": [ { "who": "dagu", "zh": "说呀！大家都听着呢！", "en": "Go on! Everyone's listening!" } ],
+      "miss": [ { "who": "nainai", "zh": "可爱吧？跟我学的！", "en": "Cute, isn't it? Learned it from me!", "fx": "laugh" } ],
+      "levels": {
+        "1": { "answers": ["跟奶奶学的！", "是跟奶奶学的！", "都是跟奶奶学的！"], "need": [["奶奶学", "奶奶教"]], "gloss": "Learned it from Grandma!", "status": "live" },
+        "3": { "answers": ["跟奶奶学的中文，能不可爱吗？", "跟奶奶学的中文，当然可爱！", "中文是跟奶奶学的，能不可爱吗？"], "need": [["奶奶学", "奶奶教"], ["可爱"]], "en": "Turn it round: Chinese learned from Grandma, how could it not be cute?",
+               "gloss": "Chinese learned from Grandma: how could it not be cute?",
+               "tip": "能不……吗？ = how could it not be...?: the rhetorical question that ends the argument.", "status": "live" }
+      }
+    } },
+    { "who": "doudou", "zh": "你会用筷子吗？我会！", "en": "Can you use chopsticks? I can!", "fx": "jump" },
+    { "say": {
+      "id": "chopsticks",
+      "en": "Your six-year-old cousin wants to know if you can use chopsticks. You've used them since you were little.",
+      "cue": "The six-year-old doubts you.",
+      "answers": ["我从小就用！", "当然会，我从小就用！", "会啊，从小就用！", "我从小就会用！"],
+      "gloss": "I've used them since I was little!",
+      "need": [["从小"]],
+      "not": [ { "heard": ["不会"], "note": "不会 says you can't! You can: 我从小就用." } ],
+      "tip": "从小 cóngxiǎo = since childhood: 我从小就用 = I've used them since I was little.",
+      "ok": [
+        { "who": "wangdaye", "zh": "哟！那夹个花生给大家看看！", "en": "Oh ho! Let's see you pick up a peanut, then!", "fx": "laugh" },
+        { "narr": "One peanut, clean as you like. The table cheers. 🥜", "zh": "一颗花生，稳稳夹住了。", "prop": "🥜" },
+        { "sfx": "cheer" }
+      ],
+      "fail": [ { "who": "doudou", "zh": "你到底会不会呀？", "en": "So can you or can't you?" } ],
+      "miss": [ { "who": "nainai", "zh": "当然会！筷子也是跟我学的！", "en": "Of course they can! Learned that from me too!", "fx": "laugh" } ],
+      "levels": {
+        "1": { "answers": ["当然会！", "当然会用！", "会用，当然会！"], "need": [["当然会", "会用", "从小"]], "en": "Your six-year-old cousin asks if you can use chopsticks. Of course you can!", "gloss": "Of course I can!", "status": "live" },
+        "3": { "answers": ["从小就用，花生都能夹起来！", "我从小就用，夹花生都没问题！", "从小用到大，夹花生都不掉！"], "need": [["从小"], ["花生"]], "en": "Since you were little, and you can even pick up peanuts. Say so.",
+               "gloss": "Since I was little. I can even pick up peanuts!",
+               "tip": "都能…… = can even...: 花生都能夹起来 = I can even pick up peanuts, the classic chopstick test.", "status": "live" }
+      }
+    } },
+    { "who": "nainai", "zh": "瘦了瘦了！在外面是不是没好好吃饭？", "en": "So thin! You're not eating properly over there, are you?" },
+    { "who": "eryi", "zh": "哪儿瘦了？我看是胖了！脸都圆了！", "en": "Thin? Looks to me like you've put some on! Your face is all round!", "fx": "squint", "pace": "fast" },
+    { "say": {
+      "id": "weight",
+      "en": "二姨 says you've put on weight. Deflect: Grandma's cooking is just too good.",
+      "cue": "Dodge the weight question.",
+      "answers": ["奶奶做的菜太好吃了！", "奶奶做的饭太好吃了！", "都是奶奶做的菜太好吃！", "奶奶的菜太好吃了！"],
+      "gloss": "Grandma's cooking is just too good!",
+      "need": [["奶奶"], ["好吃"]],
+      "tip": "奶奶做的菜 = the food Grandma makes: 的 turns 奶奶做 into a description. Credit the cook and she'll forgive anything.",
+      "ok": [
+        { "who": "nainai", "zh": "好吃就多吃！来，再吃个鸡腿！", "en": "If it's good, eat more! Here, have another drumstick!", "fx": "give", "prop": "🍗" },
+        { "who": "eryi", "zh": "行行行，多吃点，多吃点！", "en": "Alright, alright. Eat up, eat up!", "fx": "laugh" }
+      ],
+      "fail": [ { "who": "eryi", "zh": "你看，不说话了，肯定胖了！", "en": "See? Gone quiet. Definitely put some on!", "fx": "laugh" } ],
+      "miss": [ { "who": "nainai", "zh": "胖什么胖！来，吃个鸡腿！", "en": "Weight, nonsense! Here, have a drumstick!", "fx": "give", "prop": "🍗" } ],
+      "levels": {
+        "1": { "answers": ["太好吃了！", "这菜太好吃了！", "太香了，好吃！"], "need": [["好吃"]], "gloss": "It's just too delicious!", "status": "live" },
+        "3": { "answers": ["都怪奶奶，做的菜太好吃了！", "没办法，奶奶做的菜太好吃了！", "怪奶奶，她做的菜太好吃了！"], "need": [["好吃"], ["怪奶奶", "没办法"]], "en": "二姨 says you've put on weight. Blame Grandma's cooking.",
+               "key": { "怪奶奶": "blame Grandma" }, "gloss": "Blame Grandma: her cooking's too good!",
+               "tip": "都怪…… = it's all ...'s fault: blame the cook, and the cook is delighted.", "status": "live" }
+      }
+    } },
+    { "who": "biaoge", "zh": "别光吃了！来，给大家表演一个！", "en": "Enough eating! Come on, do a turn for everyone!" },
+    { "who": "doudou", "zh": "表演一个！表演一个！", "en": "Perform! Perform!", "fx": "jump" },
+    { "say": {
+      "id": "perform",
+      "en": "The table wants a show. Offer to sing a song.",
+      "cue": "Your turn to perform!",
+      "answers": ["我唱首歌吧！", "那我唱首歌！", "我给大家唱首歌！", "我唱个歌吧！"],
+      "gloss": "I'll sing a song!",
+      "need": [["唱首", "唱一首", "唱个"]],
+      "key": { "唱首歌": "sing a song", "首": "(counts songs and poems)" },
+      "tip": "首 shǒu counts songs and poems: 唱首歌 = sing a song. 吧 makes it an offer.",
+      "alts": [
+        { "en": "Or: tell a joke instead", "answers": ["我讲个笑话！", "我给大家讲个笑话！", "讲个笑话吧！", "我说个笑话！"], "gloss": "I'll tell a joke!", "need": [["笑话"]],
+          "then": [
+            { "narr": "Your joke: a polar bear plucks out all his fur, then says: 'So cold!' 🐻‍❄️", "zh": "一只北极熊把毛全拔光了，说：好冷啊！" },
+            { "who": "nainai", "zh": "哈哈哈……好冷！再讲一遍！", "en": "Hahaha... so cold! Tell it again!", "fx": "laugh" },
+            { "who": "doudou", "zh": "再讲一遍！再讲一遍！", "en": "Again! Again!", "fx": "jump" },
+            { "end": "win", "en": "You tell it six more times. Grandma laughs till she cries, every single time. 😂", "zh": "你又讲了六遍，奶奶每次都笑出了眼泪。" }
+          ] }
+      ],
+      "ok": [ { "who": "biaoge", "zh": "好！大家鼓掌！", "en": "Yes! Everyone, give it up!", "fx": "laugh" } ],
+      "fail": [ { "who": "biaoge", "zh": "大声点！唱歌还是讲笑话？", "en": "Louder! A song, or a joke?" } ],
+      "miss": [
+        { "who": "biaoge", "zh": "不表演？那就罚你洗碗！", "en": "No show? Then you're on dish duty!", "fx": "laugh" },
+        { "end": "lose", "en": "Twenty dishes, fifteen people, one sink. They sing without you. 🍽️", "zh": "二十个盘子，一个水池。大家唱歌，你洗碗。" }
+      ],
+      "levels": {
+        "1": { "answers": ["我来唱！", "我唱歌！", "我来唱歌！"], "need": [["唱"]], "gloss": "I'll sing!",
+               "alts": [ { "of": 0, "answers": ["讲个笑话！", "我讲笑话！"], "gloss": "A joke!" } ], "status": "live" },
+        "3": { "answers": ["那我就献丑了，唱首歌！", "献丑了，我给大家唱首歌！", "那我就献个丑，唱一首吧！"], "need": [["献丑", "献个丑"], ["唱首", "唱一首", "唱个"]], "en": "The table wants a show. Humbly offer a song.",
+               "gloss": "Then I'll embarrass myself with a song!",
+               "tip": "献丑了 xiànchǒu le = (I'll) show off my lack of talent: the humble thing to say before you perform.",
+               "alts": [ { "of": 0, "answers": ["我五音不全，讲个笑话吧！", "唱歌就算了，我讲个笑话吧！"], "gloss": "I'm tone-deaf, so here's a joke instead!" } ], "status": "live" }
+      }
+    } },
+    { "narr": "You sing 'The Moon Represents My Heart'. By line two, all fifteen join in. Off key. Loud. 🌕", "zh": "你唱起了《月亮代表我的心》，全桌都跟着唱，调全跑了。" },
+    { "sfx": "cheer" },
+    { "who": "nainai", "zh": "唱得真好！奶奶都听哭了！", "en": "So beautiful! You've made Grandma cry!", "fx": "cry" },
+    { "end": "win", "en": "Twenty dishes, fifteen voices, not one in key. 大姑 posts the video: the family group has it in a minute, in four time zones. 🌕", "zh": "一分钟后，四个时区的亲戚都看到了。" }
+  ]
+}

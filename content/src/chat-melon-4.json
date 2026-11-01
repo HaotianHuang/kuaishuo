@@ -1,0 +1,175 @@
+{
+  "id": "melon-4",
+  "format": "chat",
+  "title": "视频",
+  "title_en": "The Video",
+  "level": 3,
+  "listen": 3,
+  "topics": ["home"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "melon", "ep": 4, "next": "老周 has read it. He's typing… He's still typing." },
+  "tags": ["吃瓜", "视频", "方阿姨"],
+  "setting": "金桂苑, Monday, 8 pm. The waltz video is everywhere, and a TV station wants 老周.",
+  "stage": "🍉",
+  "bg": ["#0f3a1e", "#3c9a4f"],
+  "chat": { "group": { "zh": "金桂苑业主群" }, "members": 128, "me": { "zh": "小邻居" }, "giveup": [
+    { "who": "hu", "zh": "小邻居不说话，就是同意上电视了。", "en": "Our young neighbour's gone quiet. That's a yes to the TV, then." },
+    { "end": "lose", "en": "By morning there's a camera crew outside 3号楼, and 老周 is hiding in the bike shed. Run that back. 🍉" }
+  ] },
+  "cast": {
+    "hu": { "name": "胡阿姨", "en": "5号楼: first to see everything", "emoji": "👩‍🦱", "voice": "f-mid" },
+    "wu": { "name": "吴阿姨", "en": "3号楼: knows someone who saw it", "emoji": "👩", "voice": "f-mid" },
+    "zhao": { "name": "赵奶奶", "en": "eighty, sends only sixty-second voice notes", "emoji": "👵", "voice": "f-old" },
+    "ting": { "name": "婷婷", "en": "老周's daughter", "emoji": "🙍", "voice": "f-young" },
+    "laozhou": { "name": "老周", "en": "3号楼: wishes the video would go away", "emoji": "👴", "voice": "m-old" },
+    "fang": { "name": "方阿姨", "en": "7号楼: the waltz partner whose knee went", "emoji": "👵", "voice": "f-mid" }
+  },
+  "steps": [
+    { "narr": "Monday evening. The estate's group chat." },
+    { "when": { "melon.ep3": "clap" }, "who": "hu", "kind": "photo", "art": "📱👏", "zh": "全网都在转：两百个人一起拍手！", "en": "It's all over the internet: two hundred people clapping along!", "clock": "20:01",
+      "else": [ { "who": "wu", "kind": "photo", "art": "📱🎤", "zh": "赵奶奶的独唱，有自己的粉丝页了！", "en": "赵奶奶's solo has its own fan page now!", "clock": "20:01" } ] },
+    { "when": { "melon.ep3": "clap" }, "who": "wu", "zh": "我拍得最响，你们看第三排！", "en": "I'm clapping loudest. Look at the third row!", "typing": 1,
+      "else": [ { "who": "zhao", "kind": "voice", "secs": 60, "zh": "粉丝们好！我是赵奶奶！", "en": "Hello, my fans! It's 赵奶奶!" } ] },
+    { "who": "hu", "zh": "大新闻：电视台要采访老周！", "en": "Big news: a TV station wants to interview 老周!", "typing": 1.5 },
+    { "who": "wu", "zh": "上电视！金桂苑要出名了！", "en": "On TV! 金桂苑's going to be famous!", "typing": 0.8 },
+    { "who": "ting", "zh": "我爸不想上电视。", "en": "My dad doesn't want to go on TV.", "typing": 2 },
+    { "who": "laozhou", "zh": "我不去。", "en": "I'm not going.", "typing": 4 },
+    { "who": "hu", "zh": "老周，机会难得啊！小邻居，你说是不是？", "mention": true, "en": "老周, it's a chance in a million! Young neighbour, isn't it?", "typing": 1 },
+    { "say": {
+      "id": "advise",
+      "en": "Back 老周 up: he shouldn't do the interview.",
+      "cue": "Advise him.",
+      "answers": ["周叔叔，别接受采访了。", "周叔叔，别接受采访。"],
+      "gloss": "Uncle Zhou, don't do the interview.",
+      "need": [["别接受"], ["采访"]],
+      "key": { "采访": "interview" },
+      "time": 30,
+      "tip": "接受 jiēshòu = accept: 接受采访 = give an interview. 周叔叔 is how you'd address 老周.",
+      "ok": [
+        { "who": "laozhou", "zh": "……谢谢。", "en": "...Thank you.", "typing": 3 },
+        { "who": "hu", "zh": "可是电视台的车已经在楼下了！", "en": "But the TV van's already downstairs!", "typing": 1 }
+      ],
+      "fail": [ { "who": "wu", "zh": "小邻居也觉得应该去，对吧？", "en": "Our young neighbour thinks he should go too, right?", "typing": 0.8 } ],
+      "levels": {
+        "2": {
+          "answers": ["别接受采访！", "别接受采访了。"],
+          "need": [["采访"], ["别"]],
+          "gloss": "Don't do the interview!",
+          "status": "live" },
+        "4": {
+          "answers": ["您不想去，就别接受采访了。"],
+          "need": [["不想去"], ["别接受"]],
+          "gloss": "If you don't want to, don't do the interview.",
+          "status": "live" }
+      }
+    } },
+    { "who": "wu", "zh": "我看老周就是害羞！", "en": "If you ask me, 老周's just shy!", "typing": 1 },
+    { "who": "hu", "zh": "就是，我下楼替他说去！", "en": "Exactly. I'll go down and speak for him!", "typing": 0.8 },
+    { "say": {
+      "id": "defend",
+      "en": "Tell the aunties: the man wants some peace.",
+      "cue": "Defend him.",
+      "answers": ["阿姨们，人家想安静。", "人家想安静，别打扰了。"],
+      "gloss": "Aunties, the man wants some peace.",
+      "need": [["人家"], ["想安静"]],
+      "time": 30,
+      "tip": "人家 rénjia = someone else, said kindly: 人家想安静 = he'd like some peace.",
+      "ok": [
+        { "who": "hu", "zh": "……好吧。", "en": "...All right.", "typing": 2 },
+        { "who": "wu", "kind": "sticker", "art": "🤐", "zh": "闭嘴了", "en": "Zipping it" },
+        { "who": "zhao", "kind": "voice", "secs": 60, "zh": "说得对！大家安静！让老周歇歇！", "en": "Quite right! Everyone hush! Let 老周 rest!" }
+      ],
+      "fail": [ { "who": "hu", "zh": "老周就是不好意思嘛！", "en": "老周's only being bashful!", "typing": 0.8 } ],
+      "levels": {
+        "2": {
+          "answers": ["人家想安静。", "他想安静。"],
+          "need": [["想安静"]],
+          "gloss": "He wants some peace.",
+          "status": "live" },
+        "4": {
+          "answers": ["阿姨们，人家想安静，让他歇歇吧。"],
+          "need": [["想安静"], ["歇歇"]],
+          "gloss": "Aunties, he wants some peace. Let him rest.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The group goes quiet. For almost a minute.", "hold": 2 },
+    { "who": "fang", "kind": "voice", "secs": 60, "zh": "老周，有句话我想跟你说：我喜欢你，一年了。", "en": "老周, there's something I want to tell you: I like you. I have for a year.", "clock": "20:14", "fx": "shake" },
+    { "narr": "Under it, the phone's 转文字, the voice note in text:", "zh": "老周，有句话我想跟你说：我喜欢你，一年了。" },
+    { "who": "hu", "zh": "？？？", "en": "???", "typing": 0.5 },
+    { "who": "zhao", "kind": "voice", "secs": 60, "zh": "字太小了，我看不清。她说的什么呀？", "en": "The writing's too small, I can't see it. What did she say?" },
+    { "say": {
+      "id": "read",
+      "en": "Read it for 赵奶奶: what did 方阿姨 say?",
+      "cue": "Read it out.",
+      "answers": ["她说她喜欢老周，一年了。", "方阿姨喜欢老周一年了！"],
+      "gloss": "She says she likes 老周, and has for a year.",
+      "need": [["喜欢"], ["一年"]],
+      "time": 30,
+      "tip": "喜欢 xǐhuan = like, be fond of. 一年了 = for a year now.",
+      "ok": [
+        { "who": "zhao", "kind": "voice", "secs": 60, "zh": "哎呀！！！", "en": "Oh my!!!" },
+        { "who": "wu", "zh": "我就知道！！！", "en": "I KNEW it!!!", "typing": 0.5 },
+        { "who": "hu", "kind": "sticker", "art": "🎉🎉🎉", "zh": "撒花", "en": "Confetti" }
+      ],
+      "fail": [ { "who": "zhao", "kind": "voice", "secs": 60, "zh": "说的什么呀？", "en": "What did she say?" } ],
+      "levels": {
+        "2": {
+          "answers": ["她喜欢老周！", "方阿姨喜欢老周！"],
+          "need": [["喜欢老周"]],
+          "gloss": "She likes 老周!",
+          "status": "live" },
+        "4": {
+          "answers": ["方阿姨说，她已经喜欢老周一年了。"],
+          "need": [["已经"], ["一年"]],
+          "gloss": "方阿姨 says she's liked 老周 for a whole year.",
+          "status": "live" }
+      }
+    } },
+    { "who": "fang", "zh": "……我是不是发错群了？", "en": "...Did I send that to the wrong chat?", "typing": 4 },
+    { "say": {
+      "id": "decide",
+      "en": "Tell 方阿姨 to recall it, quick, or tell her it was well said.",
+      "cue": "Recall it, or cheer?",
+      "answers": ["方阿姨，快撤回！", "方阿姨，快点撤回！"],
+      "gloss": "方阿姨, recall it, quick!",
+      "need": [["方阿姨"], ["撤回"]],
+      "key": { "撤回": "recall (a message)" },
+      "time": 30,
+      "tip": "撤回 chèhuí = recall, unsend: you get two minutes.",
+      "sets": { "melon.ep4": "recall" },
+      "ok": [
+        { "narr": "方阿姨 unsent a message.", "zh": "“方阿姨”撤回了一条消息", "kind": "system" },
+        { "who": "hu", "zh": "撤回了也没用，我们都听了三遍了。", "en": "No use recalling it. We've all listened three times.", "typing": 1 }
+      ],
+      "alts": [
+        { "en": "Or: well said!", "answers": ["说得好！", "方阿姨，说得好！"], "need": [["说得好"]], "gloss": "Well said!",
+          "sets": { "melon.ep4": "cheer" },
+          "then": [
+            { "who": "hu", "zh": "说得好！！！", "en": "Well said!!!", "typing": 0.5 },
+            { "who": "wu", "kind": "sticker", "art": "👏👏👏", "zh": "鼓掌", "en": "Applause" },
+            { "who": "zhao", "kind": "voice", "secs": 60, "zh": "方阿姨，我支持你！", "en": "方阿姨, I'm on your side!" }
+          ] }
+      ],
+      "fail": [ { "who": "fang", "zh": "怎么办，怎么办……", "en": "What do I do, what do I do...", "typing": 1 } ],
+      "levels": {
+        "2": {
+          "answers": ["快撤回！", "撤回！"],
+          "need": [["撤回"]],
+          "gloss": "Recall it, quick!",
+          "alts": [ { "of": 0, "answers": ["说得好！"], "need": [["说得好"]], "gloss": "Well said!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["方阿姨，两分钟内还能撤回，快！"],
+          "need": [["两分钟"], ["撤回"]],
+          "gloss": "方阿姨, you can still recall it within two minutes. Quick!",
+          "alts": [ { "of": 0, "answers": ["方阿姨，说得好！我们都支持你！"], "need": [["支持"], ["说得好"]], "gloss": "Well said, 方阿姨! We're all with you!" } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "melon.ep4": "recall" }, "end": "win", "en": "The voice note is gone. All hundred and twenty-eight of you heard it anyway. 🍉",
+      "else": [ { "end": "win", "en": "Forty-two thumbs-up under 方阿姨's voice note, and counting. 🍉" } ] }
+  ]
+}

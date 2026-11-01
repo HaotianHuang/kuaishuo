@@ -1,0 +1,156 @@
+{
+  "id": "night-shift-3",
+  "format": "scene",
+  "title": "一九九八",
+  "title_en": "1998",
+  "level": 3,
+  "listen": 3,
+  "topics": ["work"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "warn": "A haunted night shift: uncanny, then tender, no gore. It ends safe at dawn.",
+  "series": { "id": "night-shift", "ep": 3, "next": "Help me clock off." },
+  "tags": ["规则怪谈", "便利店", "一九九八"],
+  "setting": "The convenience store, your third night, midnight. The back office is unlocked for the first time.",
+  "stage": "📒",
+  "bg": ["#06080a", "#3a3020"],
+  "cast": {
+    "shouyinji": { "name": "收银机", "en": "the till", "emoji": "🧾", "voice": "f-young", "speed": 0.9 },
+    "hongyi": { "name": "老韩", "en": "the man in the red raincoat", "emoji": "🧥", "voice": "m-old", "speed": 0.9 },
+    "dianzhang": { "name": "店长", "en": "the manager", "emoji": "🧑‍💼", "voice": "f-mid" }
+  },
+  "steps": [
+    { "when": { "night-shift.ep2": "change" }, "narr": "On the counter: the three coins from 1998, back again, in a neat stack.", "prop": "🪙",
+      "else": [ { "narr": "By the door, the red raincoat hangs on a hook. Dry.", "prop": "🧥" } ] },
+    { "narr": "Night three. Midnight. You clock on." },
+    { "sfx": "ding" },
+    { "who": "shouyinji", "zh": "你来了。", "en": "You came." },
+    { "narr": "Rule three: if the till speaks, answer it." },
+    { "say": {
+      "id": "who",
+      "en": "Ask the till who it is, and what it wants to say.",
+      "cue": "Ask it.",
+      "answers": ["你是谁？你想说什么？", "你是谁？你要说什么？"],
+      "gloss": "Who are you? What do you want to say?",
+      "need": [["你是谁"], ["说什么"]],
+      "tip": "你想说什么？ = what do you want to say?",
+      "ok": [
+        { "who": "shouyinji", "zh": "后面。本子。", "en": "The back. The book.", "hold": 1 }
+      ],
+      "fail": [ { "who": "shouyinji", "zh": "你来了。你来了。", "en": "You came. You came.", "fx": "shake" } ],
+      "levels": {
+        "2": {
+          "answers": ["你是谁？", "你是谁呀？"],
+          "need": [["是谁"]],
+          "gloss": "Who are you?",
+          "status": "live" },
+        "4": {
+          "answers": ["你是谁？你到底想跟我说什么？"],
+          "need": [["到底"], ["跟我说"]],
+          "gloss": "Who are you? What is it you want to tell me?",
+          "tip": "到底 dàodǐ = in the end, really: 你到底想说什么？",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The back office door is open. On the shelf, under dust: a logbook. On the spine, 1998.", "prop": "📒" },
+    { "narr": "The first page. Read it aloud:", "zh": "七月三日，夜班，老韩。" },
+    { "say": {
+      "id": "read",
+      "en": "Read the logbook's line aloud.",
+      "cue": "Read it.",
+      "answers": ["七月三日，夜班，老韩。"],
+      "gloss": "The third of July. Night shift. 老韩.",
+      "need": [["七月三日"], ["老韩"]],
+      "tip": "七月三日 qīyuè sānrì = the third of July: month, then day.",
+      "ok": [ { "narr": "The handwriting. The same as the rules sheet, letter for letter." } ],
+      "fail": [ { "who": "shouyinji", "zh": "念。", "en": "Read it." } ],
+      "levels": {
+        "2": {
+          "answers": ["老韩，上夜班。", "上夜班的是老韩。"],
+          "need": [["老韩"]],
+          "gloss": "老韩, on the night shift.",
+          "status": "live" },
+        "4": {
+          "answers": ["一九九八年七月三日，夜班，老韩。"],
+          "need": [["一九九八"], ["七月三日"]],
+          "gloss": "The third of July, 1998. Night shift. 老韩.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Page after page, in the same hand:", "zh": "客人都看不见我了。" },
+    { "narr": "And the last page:", "zh": "我写了规则，让下一个人别怕。" },
+    { "narr": "The rules didn't keep you safe from him. They kept him out of sight, so nobody new would be frightened.", "hold": 2 },
+    { "sfx": "ding" },
+    { "who": "shouyinji", "zh": "他想让人看见他。", "en": "He wants someone to see him." },
+    { "say": {
+      "id": "want",
+      "en": "Ask the till: what does he want?",
+      "cue": "What does he want?",
+      "answers": ["他想要什么？", "那他想要什么？"],
+      "gloss": "What does he want?",
+      "need": [["想要什么"], ["他"]],
+      "tip": "想要 xiǎngyào = want.",
+      "ok": [
+        { "who": "shouyinji", "zh": "他想下班。", "en": "He wants to clock off.", "hold": 1 },
+        { "who": "shouyinji", "zh": "可是没人看见他。", "en": "But nobody sees him." }
+      ],
+      "fail": [ { "who": "shouyinji", "zh": "他想让人看见他。", "en": "He wants someone to see him." } ],
+      "levels": {
+        "2": {
+          "answers": ["他要什么？", "他想要什么？"],
+          "need": [["要什么"]],
+          "gloss": "What does he want?",
+          "status": "live" },
+        "4": {
+          "answers": ["他到底想要什么？我能帮他吗？"],
+          "need": [["帮他"], ["想要什么"]],
+          "gloss": "What does he really want? Can I help him?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Back at the till. The CCTV screen." },
+    { "sfx": "heartbeat" },
+    { "narr": "Three people at your counter again: two customers, and you. Rule four: when there are three on the monitor, don't look up." },
+    { "say": {
+      "id": "look",
+      "en": "Look up and see him, or keep to rule four.",
+      "cue": "Up, or down?",
+      "answers": ["我抬头。我想看见他。", "我抬头，我要看见他。"],
+      "gloss": "I'm looking up. I want to see him.",
+      "need": [["抬头"], ["看见他"]],
+      "tip": "抬头 táitóu = raise your head, look up.",
+      "sets": { "night-shift.ep3": "up" },
+      "ok": [
+        { "narr": "You look up. An old man in a red raincoat, the hood down at last." },
+        { "who": "hongyi", "zh": "……谢谢你看见我。", "en": "...Thank you for seeing me.", "pace": "slow", "hold": 2 }
+      ],
+      "alts": [
+        { "en": "Or: keep your head down", "answers": ["我不抬头。规则是为我好。", "我不抬头。"], "need": [["不抬头"]], "gloss": "I won't look up. The rules are for my sake.",
+          "sets": { "night-shift.ep3": "down" },
+          "then": [ { "narr": "You keep your eyes on the till. On the monitor, the man in the raincoat bows slightly, and waits." } ] }
+      ],
+      "fail": [ { "sfx": "heartbeat" } ],
+      "levels": {
+        "2": {
+          "answers": ["我抬头。", "我要抬头。"],
+          "need": [["抬头"]],
+          "gloss": "I'm looking up.",
+          "alts": [ { "of": 0, "answers": ["我不抬头。"], "need": [["不抬头"]], "gloss": "I won't look up." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["不管规则，我抬头，我要看见他。"],
+          "need": [["不管规则"], ["看见他"]],
+          "gloss": "Never mind the rules. I'm looking up. I want to see him.",
+          "alts": [ { "of": 0, "answers": ["规则是他写的，为我好，我不抬头。"], "need": [["他写的"], ["不抬头"]], "gloss": "He wrote the rules for my sake. I won't look up." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "On the monitor, 老韩 waves. He holds up a card:", "zh": "帮我下班。", "prop": "🪪", "hold": 2 },
+    { "narr": "6:00. Grey light. The milk van." },
+    { "who": "dianzhang", "zh": "早。……你看见老韩了？", "en": "Morning. ...You've seen 老韩?", "fx": "enter" },
+    { "who": "dianzhang", "zh": "我小时候，他给过我一个热包子。", "en": "When I was little, he gave me a hot 包子." },
+    { "when": { "night-shift.ep3": "up" }, "end": "win", "en": "You walk home in the daylight. For the first time, the shop doesn't frighten you. 🌅",
+      "else": [ { "end": "win", "en": "You walk home in the daylight, the card's three words going round your head. 🌅" } ] }
+  ]
+}

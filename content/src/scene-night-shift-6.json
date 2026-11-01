@@ -1,0 +1,166 @@
+{
+  "id": "night-shift-6",
+  "format": "scene",
+  "title": "下班",
+  "title_en": "Clocking Off",
+  "level": 3,
+  "listen": 3,
+  "topics": ["work"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "warn": "A haunted night shift that ends in a gentle goodbye. A death long ago is remembered, with no gore. It ends safe at dawn.",
+  "series": { "id": "night-shift", "ep": 6, "next": "Season one is over. The store has a new rule, in your handwriting: 别让人一个人等。" },
+  "tags": ["规则怪谈", "便利店", "下班"],
+  "setting": "The convenience store, your sixth night, 5:40 am. The sky over the car park is going grey.",
+  "stage": "🌅",
+  "bg": ["#06080a", "#4a4030"],
+  "cast": {
+    "shouyinji": { "name": "收银机", "en": "the till", "emoji": "🧾", "voice": "f-young", "speed": 0.9 },
+    "hongyi": { "name": "老韩", "en": "the night clerk from 1998", "emoji": "🧥", "voice": "m-old", "speed": 0.9 },
+    "pang": { "name": "庞经理", "en": "the 1998 manager, come at last", "emoji": "👴", "voice": "m-old", "speed": 0.85 },
+    "dianzhang": { "name": "店长", "en": "the manager", "emoji": "🧑‍💼", "voice": "f-mid" }
+  },
+  "steps": [
+    { "narr": "Tonight 老韩 isn't on the screen. He's behind the counter, beside you: an old man in a red raincoat, very tired." },
+    { "when": { "night-shift.ep5": "come" }, "narr": "5:59. At the door: 庞经理, in a 1998 uniform that's too big for him now.", "prop": "👔",
+      "else": [ { "narr": "庞经理 isn't coming. You have his words on a sticky note, word for word.", "prop": "📝" } ] },
+    { "when": { "night-shift.ep5": "come" }, "sfx": "ding",
+      "else": [ { "sfx": "heartbeat" } ] },
+    { "who": "hongyi", "zh": "交班，要做好。先点钱。", "en": "A handover has to be done properly. Count the till first.", "pace": "slow" },
+    { "narr": "The 1998 money, one more time: three hundred-yuan notes, two tens, seven ones, and a fifty-fen coin.", "prop": "💴" },
+    { "say": {
+      "id": "count",
+      "en": "Count the till aloud, and give the total.",
+      "cue": "The total?",
+      "answers": ["一共三百二十七块五。", "一共是三百二十七块五。"],
+      "gloss": "Three hundred and twenty-seven yuan fifty in all.",
+      "need": [["三百二十七"], ["块五"]],
+      "tip": "三百二十七块五 = ¥327.50, the same as night four.",
+      "ok": [ { "who": "hongyi", "zh": "对。一分不差。", "en": "Right. Not a fen out.", "pace": "slow", "hold": 1 } ],
+      "fail": [ { "who": "hongyi", "zh": "再数一遍。", "en": "Count it again.", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["三百二十七块。", "一共三百二十七块。"],
+          "need": [["三百二十七"]],
+          "gloss": "Three hundred and twenty-seven.",
+          "status": "live" },
+        "4": {
+          "answers": ["我数好了，一共三百二十七块五毛。"],
+          "need": [["数好了"], ["五毛"]],
+          "gloss": "I've counted it: three hundred and twenty-seven yuan fifty.",
+          "status": "live" }
+      }
+    } },
+    { "when": { "night-shift.ep5": "come" }, "narr": "庞经理 picks up the pen with a shaking hand, and writes his own name on the blank line.",
+      "else": [ { "narr": "You write 庞经理's name on the blank line, the way he asked you to." } ] },
+    { "narr": "The handover form. Read the line aloud.", "zh": "交班人：老韩。接班人：庞经理。", "prop": "📄" },
+    { "say": {
+      "id": "form",
+      "en": "Read the handover line aloud.",
+      "cue": "Read it.",
+      "answers": ["交班人老韩，接班人庞经理。", "交班人，老韩。接班人，庞经理。"],
+      "gloss": "Handing over: 老韩. Taking over: 庞经理.",
+      "need": [["接班人"], ["庞经理"]],
+      "tip": "交班人 hands the shift over. 接班人 takes it.",
+      "ok": [ { "narr": "The line isn't blank any more.", "hold": 2 } ],
+      "fail": [ { "who": "hongyi", "zh": "念。", "en": "Read it.", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["接班人，庞经理。", "接班人庞经理。"],
+          "need": [["庞经理"]],
+          "gloss": "Taking over: 庞经理.",
+          "status": "live" },
+        "4": {
+          "answers": ["交班表上写着：接班人，庞经理。"],
+          "need": [["写着"], ["庞经理"]],
+          "gloss": "The form says: taking over, 庞经理.",
+          "status": "live" }
+      }
+    } },
+    { "when": { "night-shift.ep5": "come" }, "who": "pang", "zh": "老韩，我来接班了。", "en": "老韩, I've come to take over.", "pace": "slow", "hold": 1,
+      "else": [ { "narr": "You read 庞经理's note aloud, word for word.", "zh": "老韩，我来接班了。对不起，我来晚了。" } ] },
+    { "when": { "night-shift.ep5": "come" }, "who": "pang", "zh": "对不起，我来晚了。", "en": "I'm sorry. I came too late.", "pace": "slow", "hold": 2,
+      "else": [ { "narr": "The fridges hum.", "hold": 2 } ] },
+    { "who": "hongyi", "zh": "……二十八年。", "en": "...Twenty-eight years.", "pace": "slow", "hold": 2 },
+    { "who": "hongyi", "zh": "不晚。", "en": "Not too late.", "pace": "slow", "hold": 2 },
+    { "narr": "On the CCTV, only two people now. The rules sheet beside the till is blank.", "prop": "📺" },
+    { "say": {
+      "id": "bye",
+      "en": "Say goodbye: 老韩 can clock off now.",
+      "cue": "Goodbye.",
+      "answers": ["老韩，您可以下班了。", "老韩，下班吧。"],
+      "gloss": "老韩, you can clock off now.",
+      "need": [["老韩"], ["可以下班", "下班吧"]],
+      "key": { "下班": "clock off" },
+      "tip": "下班 xiàbān = finish work, clock off. 可以 = may, can: you're allowed now.",
+      "ok": [
+        { "who": "hongyi", "zh": "……好。下班了。", "en": "...All right. Clocking off.", "pace": "slow", "hold": 2 },
+        { "who": "hongyi", "zh": "谢谢你。", "en": "Thank you.", "pace": "slow", "hold": 2 },
+        { "narr": "He takes off the red raincoat, folds it, and lays it on the counter. When you look up, he isn't there.", "hold": 3 },
+        { "sfx": "ding" },
+        { "who": "shouyinji", "zh": "谢谢光临。", "en": "Thank you for coming." }
+      ],
+      "alts": [
+        { "secret": true, "when": { "night-shift.ep2": "change" }, "en": "Give him his change, one last time", "answers": ["这是找您的钱。", "老韩，这是找您的钱。"], "need": [["找您的钱"]], "gloss": "Here's your change.",
+          "sets": { "night-shift.end": "change" },
+          "then": [
+            { "narr": "You put three coins on the counter, the way you did on night two." },
+            { "who": "hongyi", "zh": "……不用找了。", "en": "...Keep the change.", "pace": "slow", "hold": 3 },
+            { "narr": "He smiles. Then there are only the fridges, three coins, and the light coming in.", "hold": 3 },
+            { "end": "win", "en": "老韩's last words were 不用找了。 You keep the three coins in your pocket, always. Season one ends here. 🌅" }
+          ] }
+      ],
+      "fail": [ { "who": "hongyi", "zh": "……我可以走了吗？", "en": "...May I go now?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["您可以下班了。", "下班吧，老韩。"],
+          "need": [["可以下班", "下班吧"]],
+          "gloss": "You can clock off now.",
+          "status": "live" },
+        "4": {
+          "answers": ["老韩，交班做完了，您可以下班了。"],
+          "need": [["做完了"], ["可以下班"]],
+          "gloss": "老韩, the handover's done. You can clock off now.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "6:00. Grey light. The milk van." },
+    { "who": "dianzhang", "zh": "早。……这件雨衣是谁的？", "en": "Morning. ...Whose raincoat is this?", "fx": "enter" },
+    { "who": "dianzhang", "zh": "下个月排班，你还上夜班吗？", "en": "Next month's rota: are you still doing nights?" },
+    { "say": {
+      "id": "shift",
+      "en": "Keep working nights, or move to days.",
+      "cue": "Nights, or days?",
+      "answers": ["我还上夜班。", "我还是上夜班吧。"],
+      "gloss": "I'll stay on nights.",
+      "need": [["上夜班"]],
+      "tip": "夜班 yèbān = night shift. 白班 báibān = day shift.",
+      "sets": { "night-shift.end": "nights" },
+      "ok": [ { "who": "dianzhang", "zh": "好。夜里有你，我放心。", "en": "Good. With you on nights, I can stop worrying." } ],
+      "alts": [
+        { "en": "Or: move to days", "answers": ["我想上白班了。", "我想换白班了。"], "need": [["白班"]], "gloss": "I'd like to move to days.",
+          "key": { "白班": "day shift" },
+          "sets": { "night-shift.end": "days" },
+          "then": [ { "who": "dianzhang", "zh": "好。白天见。", "en": "All right. See you in the daytime." } ] }
+      ],
+      "fail": [ { "who": "dianzhang", "zh": "夜班还是白班？", "en": "Nights or days?" } ],
+      "levels": {
+        "2": {
+          "answers": ["夜班！", "还上夜班。"],
+          "need": [["夜班"]],
+          "gloss": "Nights!",
+          "alts": [ { "of": 0, "answers": ["白班！"], "need": [["白班"]], "gloss": "Days!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["我还上夜班，店里得有人在。"],
+          "need": [["有人在"], ["上夜班"]],
+          "gloss": "I'll stay on nights. Someone has to be here.",
+          "alts": [ { "of": 0, "answers": ["我想上白班了，晚上想睡觉。"], "need": [["睡觉"], ["白班"]], "gloss": "I'd like to move to days. I'd like to sleep at night." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "night-shift.end": "nights" }, "end": "win", "en": "You stay on nights. At three every morning, you make a hot soy milk and leave it on the counter. Season one ends here. 🌅",
+      "else": [ { "end": "win", "en": "Your first day shift: sunlight, schoolkids, noise. A folded red raincoat on the hook in the back. Season one ends here. 🌅" } ] }
+  ]
+}

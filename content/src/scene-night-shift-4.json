@@ -1,0 +1,156 @@
+{
+  "id": "night-shift-4",
+  "format": "scene",
+  "title": "交班",
+  "title_en": "Handover",
+  "level": 3,
+  "listen": 3,
+  "topics": ["work"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "warn": "A haunted night shift: tense, then tender, no gore. It ends safe at dawn.",
+  "series": { "id": "night-shift", "ep": 4, "next": "The 1998 manager's number is in the logbook. It still rings." },
+  "tags": ["规则怪谈", "便利店", "交班"],
+  "setting": "The convenience store, your fourth night, midnight. 老韩 wants to clock off, the 1998 way.",
+  "stage": "🧾",
+  "bg": ["#06080a", "#2a3a30"],
+  "cast": {
+    "shouyinji": { "name": "收银机", "en": "the till", "emoji": "🧾", "voice": "f-young", "speed": 0.9 },
+    "hongyi": { "name": "老韩", "en": "the night clerk from 1998", "emoji": "🧥", "voice": "m-old", "speed": 0.9 },
+    "dianzhang": { "name": "店长", "en": "the manager", "emoji": "🧑‍💼", "voice": "f-mid" }
+  },
+  "steps": [
+    { "when": { "night-shift.ep3": "up" }, "narr": "On the monitor, 老韩 can see you now. He waves. Tonight, you can hear him.", "prop": "📺",
+      "else": [ { "narr": "Tonight 老韩's voice comes out of the till's little speaker. You still haven't seen his face." } ] },
+    { "sfx": "ding" },
+    { "who": "shouyinji", "zh": "欢迎光临。", "en": "Welcome." },
+    { "who": "hongyi", "zh": "你又来了。", "en": "You came back.", "pace": "slow" },
+    { "say": {
+      "id": "how",
+      "en": "Ask 老韩 how you can help him.",
+      "cue": "How?",
+      "answers": ["老韩，我该怎么帮你？", "老韩，我怎么帮你？"],
+      "gloss": "老韩, how can I help you?",
+      "need": [["老韩"], ["怎么帮你"]],
+      "tip": "该 gāi = should: 我该怎么……？ = how should I ...?",
+      "ok": [
+        { "who": "hongyi", "zh": "交班。一九九八年的规矩。", "en": "A handover. The 1998 way.", "pace": "slow" },
+        { "who": "hongyi", "zh": "一起点钱，签交班表。", "en": "Count the till together, and sign the handover form.", "pace": "slow" }
+      ],
+      "fail": [ { "who": "hongyi", "zh": "……你说什么？", "en": "...What did you say?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["怎么帮你？", "我怎么帮你？"],
+          "need": [["怎么帮"]],
+          "gloss": "How can I help?",
+          "status": "live" },
+        "4": {
+          "answers": ["老韩，你说吧，我到底该怎么帮你？"],
+          "need": [["到底"], ["怎么帮你"]],
+          "gloss": "老韩, just tell me. How do I help you?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The till drawer slides open by itself. The 1998 kind of money: three hundred-yuan notes, two tens, seven ones, and a fifty-fen coin.", "prop": "💴" },
+    { "who": "hongyi", "zh": "你数。我听。", "en": "You count. I'll listen.", "pace": "slow" },
+    { "say": {
+      "id": "count",
+      "en": "Count the till aloud, and give the total.",
+      "cue": "The total?",
+      "answers": ["一共三百二十七块五。", "一共是三百二十七块五。"],
+      "gloss": "Three hundred and twenty-seven yuan fifty in all.",
+      "need": [["三百二十七"], ["块五"]],
+      "tip": "三百二十七块五 = ¥327.50: 块 for yuan, and the 毛 can drop off the end.",
+      "ok": [
+        { "who": "hongyi", "zh": "对。一分不差。", "en": "Right. Not a fen out.", "pace": "slow", "hold": 1 },
+        { "who": "hongyi", "zh": "一九九八年七月三日，也是这么多。", "en": "On the third of July, 1998, it was exactly this.", "pace": "slow" }
+      ],
+      "fail": [ { "who": "hongyi", "zh": "再数一遍。", "en": "Count it again.", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["三百二十七块。", "一共三百二十七块。"],
+          "need": [["三百二十七"]],
+          "gloss": "Three hundred and twenty-seven.",
+          "status": "live" },
+        "4": {
+          "answers": ["我数好了，一共三百二十七块五毛。"],
+          "need": [["数好了"], ["五毛"]],
+          "gloss": "I've counted it: three hundred and twenty-seven yuan fifty.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Under the drawer: a yellowed handover form. Read it aloud.", "zh": "交班人：老韩。接班人：", "prop": "📄" },
+    { "say": {
+      "id": "form",
+      "en": "Read the form aloud: who hands over, and who takes over.",
+      "cue": "Read it.",
+      "answers": ["交班人，老韩。接班人……", "交班人老韩，接班人……"],
+      "gloss": "Handing over: 老韩. Taking over: ...",
+      "need": [["交班人"], ["接班人"]],
+      "tip": "交班 = hand over a shift. 接班 = take it over. 人 = the person who does it.",
+      "ok": [ { "narr": "The line for 接班人 is blank. Waiting.", "hold": 2 } ],
+      "fail": [ { "who": "hongyi", "zh": "念。", "en": "Read it.", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["接班人……", "接班人？"],
+          "need": [["接班人"]],
+          "gloss": "Taking over: ...",
+          "status": "live" },
+        "4": {
+          "answers": ["交班表：交班人老韩，接班人空着。"],
+          "need": [["空着"], ["交班表"]],
+          "gloss": "The handover form: 老韩 hands over. The line for whoever takes over is blank.",
+          "tip": "空着 kòngzhe = left empty.",
+          "status": "live" }
+      }
+    } },
+    { "who": "hongyi", "zh": "有人签了，我就能走。", "en": "Once someone signs, I can go.", "pace": "slow", "hold": 1 },
+    { "who": "hongyi", "zh": "可是签的人……就接我的班。", "en": "But whoever signs... takes my shift.", "pace": "slow", "hold": 2 },
+    { "sfx": "heartbeat" },
+    { "say": {
+      "id": "sign",
+      "en": "Sign on to take over, or refuse and look for another way.",
+      "cue": "Sign, or not?",
+      "answers": ["老韩，你走吧，我来接班。", "你走吧，老韩，我来接班。"],
+      "gloss": "Go, 老韩. I'll take over.",
+      "need": [["你走吧"], ["我来接班"]],
+      "tip": "我来接班 = I'll take over (the shift).",
+      "sets": { "night-shift.ep4": "sign" },
+      "ok": [
+        { "narr": "You write your name on the line. Your hand doesn't shake." },
+        { "who": "hongyi", "zh": "……谢谢。", "en": "...Thank you.", "pace": "slow", "hold": 2 },
+        { "narr": "The pen is warm. Nothing else happens. The fridges hum." }
+      ],
+      "alts": [
+        { "en": "Or: there must be another way", "answers": ["不行，一定有别的办法。", "一定有别的办法。"], "need": [["别的办法"]], "gloss": "No. There has to be another way.",
+          "key": { "别的办法": "another way" },
+          "sets": { "night-shift.ep4": "refuse" },
+          "then": [
+            { "who": "hongyi", "zh": "……好。", "en": "...All right.", "pace": "slow", "hold": 1 },
+            { "who": "hongyi", "zh": "我等了二十多年。再等几天，也行。", "en": "I've waited more than twenty years. A few more days won't hurt.", "pace": "slow" }
+          ] }
+      ],
+      "fail": [ { "sfx": "heartbeat" } ],
+      "levels": {
+        "2": {
+          "answers": ["我来接班。", "我来接班吧。"],
+          "need": [["我来接班"]],
+          "gloss": "I'll take over.",
+          "alts": [ { "of": 0, "answers": ["有别的办法！"], "need": [["别的办法"]], "gloss": "There's another way!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["老韩，你走吧，我来接班，放心。"],
+          "need": [["放心"], ["我来接班"]],
+          "gloss": "Go, 老韩. I'll take over. Don't worry.",
+          "alts": [ { "of": 0, "answers": ["不行，我们一定能找到别的办法。"], "need": [["找到"], ["别的办法"]], "gloss": "No. We'll find another way, I know it." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "Inside the logbook's cover, in pencil: a phone number, and one word.", "zh": "店长，一九九八。", "prop": "📒" },
+    { "narr": "6:00. Grey light. The milk van." },
+    { "who": "dianzhang", "zh": "早。今天怎么这么安静？", "en": "Morning. Why's it so quiet today?", "fx": "enter" },
+    { "when": { "night-shift.ep4": "sign" }, "end": "win", "en": "You walk home in the daylight. You signed, and you're still you. The 1998 number is in your pocket. 🌅",
+      "else": [ { "end": "win", "en": "You walk home in the daylight, with a number from 1998 in your pocket. 🌅" } ] }
+  ]
+}

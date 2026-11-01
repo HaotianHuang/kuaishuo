@@ -1,0 +1,116 @@
+{
+  "id": "locked-out",
+  "format": "scene",
+  "title": "被锁在外面了",
+  "title_en": "Locked Out in Pyjamas",
+  "level": 2,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "tags": ["小区", "保安", "外卖"],
+  "write": ["锁", "地址"],
+  "setting": "Hangzhou, a housing compound, 11:40 pm, minus two degrees.",
+  "stage": "🚪",
+  "bg": ["#0f1a33", "#3b4f80"],
+  "cast": {
+    "guard": { "name": "保安师傅", "en": "the night guard, watching a drama on his phone", "emoji": "👮", "voice": "m-old" },
+    "auntie": { "name": "七楼阿姨", "en": "the auntie from the seventh floor", "emoji": "👵", "voice": "f-old" }
+  },
+  "steps": [
+    { "sfx": "door" },
+    { "narr": "Door slammed. Keys and phone inside. You're outside, in pyjamas. 🥶", "zh": "风把门关上了，钥匙和手机都锁在屋里了。", "prop": "🥡", "arrive": "guard" },
+    { "who": "guard", "zh": "年轻人，这么晚了，有什么事？", "en": "What's up, at this hour?" },
+    { "say": {
+      "id": "lockedout",
+      "en": "Tell him you're locked out.",
+      "answers": ["我被锁在外面了！", "我把自己锁在外面了。", "我进不了门了！", "门关上了，我进不去了！", "我被关在门外了。"],
+      "gloss": "I'm locked out!",
+      "need": [["锁", "进不去", "进不了", "关在"]],
+      "not": [ { "heard": ["没被锁", "没锁"], "note": "That says you're NOT locked out: 我被锁在外面了." } ],
+      "tip": "被锁在外面了 = got locked out. 进不去 = can't get in: a 不 in the middle (进不去, 吃不下) says you can't manage it.",
+      "mistakes": [ { "heard": ["锁了在外面"], "note": "了 goes at the very end: 我被锁在外面了." } ],
+      "ok": [ { "who": "guard", "zh": "钥匙忘屋里了？你住哪栋？", "en": "Left your keys inside? Which building are you in?" } ],
+      "fail": [ { "who": "guard", "zh": "啊？你慢点说。", "en": "Eh? Say that slower.", "fx": "squint" } ],
+      "cue": "Keys inside, door shut.",
+      "miss": [ { "who": "guard", "zh": "钥匙锁屋里了吧？住哪栋的？", "en": "Keys locked inside, right? Which building?", "fx": "squint" } ],
+      "levels": { "0": { "answers": ["进不去了！", "我进不去！", "锁外面了！"], "gloss": "I can't get in!", "tip": "进不去 = can't get in.", "status": "live" } }
+    } },
+    { "say": {
+      "id": "flat",
+      "en": "Tell him: Building Five, flat 802.",
+      "answers": ["我住五号楼八零二。", "五号楼，八零二。", "五栋八零二。", "我是五号楼八零二的。"],
+      "gloss": "I live in Building Five, flat 802.",
+      "need": [["五"], ["八零"], ["零二"]],
+      "tip": "号楼 = building number. Flat numbers go digit by digit: 八零二 bā líng èr. A 1 in them is usually said yāo.",
+      "mistakes": [ { "heard": ["八百零二"], "note": "Flat numbers go digit by digit: 八零二, not 八百零二." } ],
+      "ok": [ { "who": "guard", "zh": "五号楼八零二……你拿什么证明你住这儿？", "en": "Building Five, 802... and can you prove you live here?", "fx": "squint" } ],
+      "fail": [ { "who": "guard", "zh": "几号楼？几零几？", "en": "Which building? Flat what?" } ],
+      "cue": "Building 5, flat 802.",
+      "miss": [ { "who": "guard", "zh": "连自己住哪儿都说不清？", "en": "Can't even say where you live?", "fx": "squint" } ],
+      "levels": { "0": { "answers": ["五号楼，八零二！", "五号楼八零二。"], "gloss": "Building 5, flat 802!", "status": "live" } }
+    } },
+    { "narr": "Behind you, the auntie from the seventh floor is out walking her poodle. In a fur coat. 🐩", "zh": "七楼的阿姨正好出来遛狗。", "arrive": "auntie" },
+    { "say": {
+      "id": "prove",
+      "en": "Prove it: your address is on the takeaway slip.",
+      "answers": ["你看，外卖单上有我的地址！", "外卖单上写着我的地址。", "你看这个，上面有我家地址。", "外卖单上有地址，你看！"],
+      "gloss": "Look, my address is on the takeaway slip!",
+      "need": [["地址"]],
+      "tip": "证明 zhèngmíng = prove. 外卖单上 = on the takeaway slip: a thing becomes a place with 上 (on) after it.",
+      "mistakes": [ { "heard": ["地点"], "note": "地点 dìdiǎn is a place or venue. An address is 地址 dìzhǐ." } ],
+      "alts": [
+        { "en": "Or: ask the seventh-floor auntie to vouch for you", "answers": ["阿姨，您认识我吧？", "阿姨，您帮我证明一下！", "阿姨，您跟他说说！", "阿姨，您帮我说句话吧！"], "gloss": "Auntie, you know me, don't you?", "need": [["认识", "证明", "说说", "说句话"]],
+          "then": [
+            { "who": "auntie", "zh": "认识啊！八零二的，天天点外卖！", "en": "Course I do! 802. Orders takeaway every single day!", "fx": "laugh" },
+            { "who": "guard", "zh": "天天点外卖？单子给我看看。", "en": "Every day, eh? Let's see that slip." }
+          ] }
+      ],
+      "ok": [ { "who": "guard", "zh": "外卖单？拿来我看看。", "en": "The takeaway slip? Give it here." } ],
+      "fail": [ { "who": "guard", "zh": "口说无凭啊。", "en": "Anyone can say that." } ],
+      "cue": "Prove you live here.",
+      "miss": [
+        { "who": "guard", "zh": "证明不了？那我不能放你进去。", "en": "Can't prove it? Then I can't let you in.", "fx": "shake" },
+        { "end": "lose", "en": "You spend the night in the guard booth, sharing your malatang with the guard. 🥡", "zh": "那一夜，你和保安在亭子里分了一碗麻辣烫。" }
+      ],
+      "levels": { "0": { "answers": ["看，我的地址！", "你看，地址！", "有我的地址！"], "gloss": "Look, my address!", "alts": [{ "of": 0, "answers": ["认识我吗？", "您认识我吧？"], "gloss": "You know me, right?" }], "status": "live" } }
+    } },
+    { "who": "guard", "zh": "五号楼八零二，收货人……", "en": "Building Five, 802. Recipient...", "hold": 1 },
+    { "who": "guard", "zh": "“饿死了”？这是你？", "en": "'Starving2Death'? That's you?", "fx": "squint" },
+    { "say": {
+      "id": "username",
+      "en": "Own it, with dignity: that's your username.",
+      "answers": ["对……那是我的网名。", "是我，那是我网名。", "那是我的网名，别念了！", "对，就是我。", "对，那是我的昵称。"],
+      "gloss": "Yes... that's my username.",
+      "need": [["网名", "是我"]],
+      "not": [ { "heard": ["不是我"], "note": "不是我 denies it. Own it: 对，是我。" } ],
+      "tip": "网名 wǎngmíng = online name, username. 别念了 = stop reading it out!",
+      "ok": [ { "who": "guard", "zh": "哈哈哈！原来你就是“饿死了”！", "en": "Hahaha! So YOU'RE Starving2Death!", "fx": "laugh" } ],
+      "fail": [ { "who": "guard", "zh": "不是你？那这外卖是谁的？", "en": "Not you? Then whose takeaway is this?", "fx": "squint" } ],
+      "cue": "Own it.",
+      "miss": [ { "who": "guard", "zh": "不承认？行，我懂，我懂。", "en": "Not admitting it? Fine. I get it, I get it.", "fx": "laugh" } ],
+      "levels": { "0": { "answers": ["是我！", "对，是我。", "那是我！"], "gloss": "That's me!", "status": "live" } }
+    } },
+    { "who": "guard", "zh": "等等……八零二？", "en": "Hang on... 802?" },
+    { "sfx": "ding" },
+    { "who": "guard", "zh": "你上个月不是在我这里放了把备用钥匙吗？", "en": "Didn't you leave a spare key with me last month?", "fx": "give", "prop": "🔑" },
+    { "say": {
+      "id": "whynot",
+      "en": "He had your key all along. Ask why he didn't say so sooner!",
+      "answers": ["那您怎么不早说啊！", "您怎么不早说呀？", "您早说啊！", "那你不早说！"],
+      "gloss": "Then why didn't you say so sooner?!",
+      "need": [["早说"]],
+      "tip": "怎么不早说 = why didn't you say so sooner?: the cry of everyone who just did it the hard way.",
+      "alts": [
+        { "en": "Or: thank him and offer him half your malatang", "answers": ["谢谢师傅！麻辣烫分您一半！", "太谢谢了，请您吃麻辣烫！"], "gloss": "Thank you! Have half my malatang!", "need": [["麻辣烫"]],
+          "then": [ { "who": "guard", "zh": "我不吃辣。快回去吧，别冻感冒了！", "en": "I don't do spicy. Get inside before you freeze!", "fx": "laugh" } ] }
+      ],
+      "ok": [ { "who": "guard", "zh": "你也没问我啊！", "en": "You never asked!", "fx": "laugh" } ],
+      "fail": [ { "who": "guard", "zh": "拿着呀，还愣着干嘛？", "en": "Take it! What are you standing there for?" } ],
+      "cue": "He had it all along!",
+      "miss": [ { "who": "guard", "zh": "怎么，还嫌我拿得慢？", "en": "What, too slow for you, was I?", "fx": "squint" } ],
+      "levels": { "0": { "answers": ["怎么不早说！", "早说啊！", "您早说啊！"], "gloss": "Why didn't you say so?", "tip": "怎么不早说 = why didn't you say so sooner?", "alts": [{ "of": 0, "answers": ["分您一半！", "麻辣烫分您一半！"], "need": [["一半", "麻辣烫"]], "gloss": "Have half!" }], "status": "live" } }
+    } },
+    { "end": "win", "en": "Home at 11:58 pm. The malatang is cold. The username stays.", "zh": "十一点五十八，你终于进了家门。麻辣烫已经凉了。" }
+  ]
+}

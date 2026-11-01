@@ -1,0 +1,188 @@
+{
+  "id": "fake-ghosts-1",
+  "format": "scene",
+  "title": "火锅店的鬼",
+  "title_en": "The Hot-Pot Ghost",
+  "level": 2,
+  "listen": 2,
+  "topics": ["food"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "fake-ghosts", "ep": 1, "next": "A new note under the club's door: the next ghost is real." },
+  "tags": ["假鬼社", "火锅店", "破案"],
+  "setting": "老蒋火锅, Chengdu, 2 am, after closing. The Fake Ghost Club's first case, and yours.",
+  "stage": "🍲",
+  "bg": ["#1a0705", "#7a2416"],
+  "cast": {
+    "jiang": { "name": "蒋叔", "en": "the owner, in his apron, shaking", "emoji": "👨‍🍳", "voice": "m-old" },
+    "le": { "name": "阿乐", "en": "the club's loudest member", "emoji": "🙋", "voice": "m-young" },
+    "yu": { "name": "小雨", "en": "has read everything", "emoji": "🤓", "voice": "f-young" },
+    "baozi": { "name": "包子", "en": "the club's cat", "emoji": "🐱", "voice": "kid" },
+    "pan": { "name": "小潘", "en": "the night cook, in a hurry", "emoji": "🧑‍🍳", "voice": "m-young" },
+    "fang": { "name": "小芳", "en": "a delivery rider", "emoji": "🛵", "voice": "f-mid" }
+  },
+  "steps": [
+    { "who": "jiang", "zh": "又来了！你们听！", "en": "It's back! Listen!", "fx": "shake" },
+    { "narr": "A laugh, from the cold room. Then a ringtone.", "hold": 1 },
+    { "sfx": "ring" },
+    { "who": "le", "zh": "我不怕！我……有点怕。", "en": "I'm not scared! I'm... a bit scared." },
+    { "say": {
+      "id": "when",
+      "en": "Ask 蒋叔 when it started.",
+      "cue": "When did it start?",
+      "answers": ["什么时候开始的？", "这是什么时候开始的？", "从什么时候开始的？"],
+      "gloss": "When did it start?",
+      "need": [["什么时候"], ["开始"]],
+      "tip": "什么时候 shénme shíhou = when. ……开始的？ = (when) did it start?",
+      "ok": [ { "who": "jiang", "zh": "上个星期，每天两点。", "en": "Last week. Two o'clock, every night." } ],
+      "fail": [ { "who": "jiang", "zh": "你说啥？", "en": "You what?", "fx": "squint" } ],
+      "levels": {
+        "1": {
+          "answers": ["什么时候开始？", "什么时候？", "什么时候开始的？"],
+          "need": [["什么时候"]],
+          "gloss": "Since when?",
+          "status": "live" },
+        "3": {
+          "answers": ["这种情况是什么时候开始的？", "这事儿是从什么时候开始的？"],
+          "need": [["什么时候"], ["这种情况", "这事儿", "这事"]],
+          "gloss": "When did all this start?",
+          "tip": "这种情况 = this kind of thing. 这事儿 = this business (northern, chatty).",
+          "status": "live" }
+      }
+    } },
+    { "who": "pan", "zh": "蒋叔，我下班了！", "en": "Boss, I'm off!", "fx": "enter" },
+    { "sfx": "ring" },
+    { "narr": "His phone rings as he goes. The same ringtone." },
+    { "who": "pan", "zh": "我两点在家睡觉！", "en": "At two, I'm home asleep!", "fx": "leave" },
+    { "who": "fang", "zh": "外卖！蒋叔的宵夜。", "en": "Delivery! 蒋叔's late supper.", "fx": "enter" },
+    { "say": {
+      "id": "where",
+      "en": "Ask her where she is at two o'clock.",
+      "cue": "Where is she at two?",
+      "answers": ["两点你在哪儿？", "你两点在哪儿？", "两点的时候你在哪？"],
+      "gloss": "Where are you at two?",
+      "need": [["两点"], ["在哪"]],
+      "tip": "两点 liǎng diǎn = two o'clock (两, not 二, before 点). 在哪儿？ = where (are you)?",
+      "ok": [ { "who": "fang", "zh": "我在送外卖，你看订单。", "en": "Delivering. Look at my orders.", "fx": "give", "prop": "📱" } ],
+      "fail": [ { "who": "fang", "zh": "啊？问我？", "en": "Huh? Me?" } ],
+      "levels": {
+        "1": {
+          "answers": ["两点在哪？", "两点你在哪？", "你两点在哪？"],
+          "need": [["在哪"]],
+          "gloss": "Where at two?",
+          "status": "live" },
+        "3": {
+          "answers": ["每天两点的时候，你在哪儿？", "每天晚上两点，你一般在哪儿？"],
+          "need": [["每天"], ["在哪"]],
+          "gloss": "Every night at two, where are you?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "包子 creeps to the cold-room door, and hisses.", "prop": "" },
+    { "who": "baozi", "zh": "喵呜！", "en": "Mrrrow!", "fx": "angry" },
+    { "who": "yu", "zh": "鬼也有手机吗？", "en": "Do ghosts have phones?" },
+    { "say": {
+      "id": "trap",
+      "en": "Set the trap: call 小潘's phone!",
+      "cue": "Set the trap!",
+      "answers": ["打小潘的电话！", "给小潘打个电话！", "快打小潘的手机！"],
+      "gloss": "Call 小潘's phone!",
+      "need": [["打"], ["小潘"]],
+      "tip": "打电话 = make a call; 打小潘的电话 = call 小潘's phone.",
+      "ok": [ { "sfx": "ring" }, { "narr": "From inside the cold room.", "hold": 1 } ],
+      "fail": [ { "who": "yu", "zh": "鬼也有手机吗？", "en": "Do ghosts have phones?" } ],
+      "levels": {
+        "1": {
+          "answers": ["打小潘电话！", "打小潘的电话！", "给小潘打电话！"],
+          "need": [["打小潘", "给小潘打"]],
+          "key": { "打小潘": "call 小潘" },
+          "gloss": "Call 小潘!",
+          "status": "live" },
+        "3": {
+          "answers": ["别出声，打小潘的手机试试！", "嘘，打小潘的电话试试！"],
+          "need": [["小潘"], ["试试"]],
+          "gloss": "Shh. Try calling 小潘's phone!",
+          "tip": "……试试 = try ...ing: 打一下试试 = give it a try.",
+          "status": "live" }
+      }
+    } },
+    { "who": "le", "zh": "鬼是谁？", "en": "So who's the ghost?" },
+    { "say": {
+      "id": "accuse",
+      "en": "Name the ghost.",
+      "cue": "Who's the ghost?",
+      "answers": ["是小潘！", "鬼就是小潘！", "小潘就是鬼！"],
+      "gloss": "It's 小潘!",
+      "need": [["小潘"]],
+      "not": [
+        { "heard": ["小芳"], "note": "Her orders prove where she was at two. Whose phone rang in the cold room?" },
+        { "heard": ["蒋叔"], "note": "He's the one who called you in. Whose phone rang in the cold room?" }
+      ],
+      "tip": "就是 jiùshì = is none other than: 鬼就是小潘！",
+      "fail": [ { "who": "le", "zh": "谁？", "en": "Who?" } ],
+      "miss": [
+        { "narr": "Everyone looks where you're pointing: at 包子." },
+        { "who": "baozi", "zh": "喵？！", "en": "Mrow?!", "fx": "angry" },
+        { "who": "yu", "zh": "包子生气了。是小潘吧？", "en": "包子's offended. It's 小潘, surely?" }
+      ],
+      "levels": {
+        "1": {
+          "answers": ["小潘！", "是小潘！"],
+          "gloss": "小潘!",
+          "status": "live" },
+        "3": {
+          "answers": ["是小潘！他根本没回家！", "鬼就是小潘，他根本没回家！"],
+          "need": [["小潘"], ["没回家", "没在家"]],
+          "gloss": "It's 小潘! He never went home!",
+          "tip": "根本 gēnběn = at all: 根本没回家 = never went home at all.",
+          "status": "live" }
+      }
+    } },
+    { "who": "jiang", "zh": "小潘？他在冷库里？", "en": "小潘? He's in the cold room?" },
+    { "say": {
+      "id": "unmask",
+      "en": "Coax 小潘 out gently, or tell 蒋叔 straight.",
+      "cue": "Gently, or tell him?",
+      "answers": ["出来吧，我们不说出去。", "小潘，出来吧，我们不说出去。"],
+      "gloss": "Come out. We won't tell anyone.",
+      "need": [["出来"], ["不说出去", "不说"]],
+      "tip": "说出去 shuō chuqu = let it out, tell people. 不说出去 = we'll keep it to ourselves.",
+      "sets": { "fake-ghosts.hotpot": "gentle" },
+      "ok": [
+        { "who": "pan", "zh": "对不起……", "en": "I'm sorry...", "fx": "enter" },
+        { "who": "pan", "zh": "我拿辣椒，给我奶奶做酱。", "en": "I've been taking chillies, to make my grandma's sauce." }
+      ],
+      "alts": [
+        { "en": "Or: tell 蒋叔 straight", "answers": ["蒋叔，鬼在冷库里！", "蒋叔，鬼就在冷库里！"], "need": [["冷库"]], "gloss": "Boss, the ghost's in the cold room!",
+          "key": { "冷库": "the cold room" },
+          "sets": { "fake-ghosts.hotpot": "told" },
+          "then": [
+            { "sfx": "door" },
+            { "who": "pan", "zh": "对不起，蒋叔……", "en": "I'm sorry, boss...", "fx": "enter" },
+            { "who": "pan", "zh": "我拿辣椒，给我奶奶做酱。", "en": "I've been taking chillies, to make my grandma's sauce." }
+          ] }
+      ],
+      "fail": [ { "who": "jiang", "zh": "小潘？他在冷库里？", "en": "小潘? He's in the cold room?" } ],
+      "levels": {
+        "1": {
+          "answers": ["出来吧，没事。", "出来吧！", "小潘，出来吧！"],
+          "need": [["出来"]],
+          "gloss": "Come on out. It's OK.",
+          "alts": [ { "of": 0, "answers": ["鬼在冷库！", "鬼在冷库里！"], "need": [["冷库"]], "gloss": "The ghost's in the cold room!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["出来吧，我们保证不说出去。", "小潘，出来吧，我们保证不说出去。"],
+          "need": [["保证"], ["不说出去", "不说"]],
+          "gloss": "Come out. We promise we won't tell.",
+          "alts": [ { "of": 0, "answers": ["蒋叔，您的鬼就在冷库里！", "蒋叔，您要找的鬼就在冷库里！"], "need": [["冷库"], ["您"]], "gloss": "Boss, your ghost is right there in the cold room!" } ],
+          "status": "live" }
+      }
+    } },
+    { "who": "jiang", "zh": "你的酱？我尝尝。", "en": "Your sauce? Let me taste it.", "prop": "🌶️" },
+    { "who": "jiang", "zh": "好吃！放店里卖！", "en": "That's good! We'll sell it here!", "fx": "laugh" },
+    { "narr": "Back at the club: a note under the door.", "zh": "下一个鬼是真的。", "prop": "📝" },
+    { "when": { "fake-ghosts.hotpot": "gentle" }, "end": "win", "en": "小潘's sauce is on the menu by Friday, and nobody says how you found it. 🌶️",
+      "else": [ { "end": "win", "en": "蒋叔 tells every customer you caught his ghost. The sauce sells out anyway. 🌶️" } ] }
+  ]
+}

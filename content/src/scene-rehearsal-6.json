@@ -1,0 +1,161 @@
+{
+  "id": "rehearsal-6",
+  "format": "scene",
+  "title": "周日",
+  "title_en": "Sunday",
+  "level": 2,
+  "listen": 2,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "rehearsal", "ep": 6, "next": "Season one is over. 林老师 is taking bookings." },
+  "tags": ["彩排", "周日晚饭", "开心"],
+  "setting": "Your parents' real living room, Sunday, 7 pm. 林老师 is in the kitchen doorway, with a notepad.",
+  "stage": "🏠",
+  "bg": ["#22180e", "#b08040"],
+  "cast": {
+    "lin": { "name": "林老师", "en": "in the kitchen, taking notes; has never smiled", "emoji": "🧑‍🏫", "voice": "m-mid" },
+    "laoma": { "name": "老妈", "en": "your real mum", "emoji": "👩", "voice": "f-mid" },
+    "laoba": { "name": "老爸", "en": "your real dad", "emoji": "👨", "voice": "m-mid" }
+  },
+  "steps": [
+    { "when": { "rehearsal.ep5": "again" }, "who": "lin", "zh": "第十二次彩排。这次，是真的。", "en": "Rehearsal twelve. This time, it's real.",
+      "else": [
+        { "who": "laoma", "zh": "你爸也知道了。……差不多知道。", "en": "Your dad knows too. ...More or less." },
+        { "who": "laoba", "zh": "嗯。差不多。", "en": "Mm. More or less." }
+      ] },
+    { "narr": "The real living room. The real dinner. 林老师 in the kitchen doorway, pen ready." },
+    { "who": "laoma", "zh": "回来啦？瘦了！多吃点！", "en": "You're home! You've lost weight! Eat!", "fx": "enter", "prop": "🍲" },
+    { "narr": "Word for word what 老黄 said." },
+    { "say": {
+      "id": "quit",
+      "en": "Tell them: you've quit your job. Third time; you know this one.",
+      "cue": "Say it.",
+      "answers": ["爸，妈，我辞职了。", "爸妈，我把工作辞了。"],
+      "gloss": "Mum, Dad, I've quit my job.",
+      "need": [["爸妈"], ["辞职", "辞了"]],
+      "tip": "辞职 cízhí: episodes 2 and 5 were the rehearsals. This is the real one.",
+      "ok": [
+        { "who": "laoba", "zh": "……为什么？", "en": "...Why?", "hold": 1 },
+        { "narr": "Exactly what 老黄 said, in exactly that voice." }
+      ],
+      "fail": [ { "who": "laoma", "zh": "多吃点！", "en": "Eat up!" } ],
+      "levels": {
+        "1": {
+          "answers": ["我辞职了。", "爸妈，我辞职了。"],
+          "need": [["辞职", "辞了"]],
+          "gloss": "I've quit my job.",
+          "status": "live" },
+        "3": {
+          "answers": ["爸妈，跟你们说件事，我辞职了。"],
+          "need": [["说件事"], ["辞职", "辞了"]],
+          "gloss": "Mum, Dad, there's something I need to tell you: I've quit.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "plan",
+      "en": "Explain: you want to open your own shop.",
+      "cue": "The plan.",
+      "answers": ["我想自己开店。", "我想自己开个店。"],
+      "gloss": "I want to open my own shop.",
+      "need": [["自己开"], ["店"]],
+      "tip": "自己开店 = open your own shop.",
+      "ok": [
+        { "who": "laoma", "zh": "那……结婚呢？", "en": "And... what about getting married?" },
+        { "who": "lin", "zh": "经典问题。", "en": "The classic.", "fx": "enter" }
+      ],
+      "fail": [ { "who": "laoba", "zh": "那你以后怎么办？", "en": "Then what are you going to do?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我想开店。", "我想开个店。"],
+          "need": [["开店", "开个店"]],
+          "gloss": "I want to open a shop.",
+          "status": "live" },
+        "3": {
+          "answers": ["我想自己开店，计划都做好了。", "我想自己开个店，计划都做好了。"],
+          "need": [["计划"], ["自己开"]],
+          "gloss": "I want to open my own shop. The plan's all worked out.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "dodge",
+      "en": "Dodge it, one more time.",
+      "cue": "Dodge it.",
+      "answers": ["到时候再说吧。", "这个到时候再说吧。"],
+      "gloss": "We'll talk about it when the time comes.",
+      "need": [["到时候"], ["再说"]],
+      "tip": "到时候再说: the third time you've said it this season.",
+      "ok": [
+        { "who": "laoma", "zh": "又是到时候！", "en": "'When the time comes' again!" },
+        { "who": "laoba", "zh": "……孩子大了。", "en": "...The child's grown up." }
+      ],
+      "fail": [ { "who": "laoma", "zh": "结婚呢？", "en": "Getting married?" } ],
+      "levels": {
+        "1": {
+          "answers": ["到时候再说。", "以后再说吧。"],
+          "need": [["到时候", "以后再说"]],
+          "gloss": "We'll see.",
+          "status": "live" },
+        "3": {
+          "answers": ["妈，这事不急，到时候再说吧。"],
+          "need": [["不急"], ["到时候"]],
+          "gloss": "Mum, there's no hurry. We'll see when the time comes.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Every line, exactly as rehearsed. Too exactly." },
+    { "narr": "Your mum takes a folded script out of her pocket. Your dad has one too.", "prop": "📄" },
+    { "who": "laoma", "zh": "我们也练了。", "en": "We rehearsed too." },
+    { "who": "laoba", "zh": "练了三次。", "en": "Three times." },
+    { "who": "lin", "zh": "两边都是客户。", "en": "Both sides are clients." },
+    { "narr": "Your mum puts the script down on the table." },
+    { "who": "laoma", "zh": "这句，没练过。", "en": "This one, we didn't rehearse.", "pace": "slow", "hold": 1 },
+    { "who": "laoma", "zh": "你开心吗？", "en": "Are you happy?", "pace": "slow", "hold": 2 },
+    { "say": {
+      "id": "happy",
+      "en": "Answer her: you're happy, or you don't know yet but you want to try.",
+      "cue": "Are you?",
+      "answers": ["妈，我很开心。", "妈，我开心。"],
+      "gloss": "Mum, I'm happy.",
+      "need": [["妈"], ["开心"]],
+      "tip": "开心 kāixīn = happy, glad.",
+      "sets": { "rehearsal.ep6": "happy" },
+      "ok": [
+        { "who": "laoma", "zh": "……那就好。", "en": "...Then that's all right.", "hold": 1 },
+        { "who": "laoba", "zh": "吃饭。", "en": "Eat." }
+      ],
+      "alts": [
+        { "en": "Or: not yet, but you want to try", "answers": ["还不知道，但是我想试试。", "我还不知道，可是我想试试。"], "need": [["想试试"]], "gloss": "I don't know yet. But I want to try.",
+          "key": { "试试": "give it a try" },
+          "sets": { "rehearsal.ep6": "trying" },
+          "then": [
+            { "who": "laoma", "zh": "……试试好。妈支持你。", "en": "...Trying is good. I'm behind you." },
+            { "who": "laoba", "zh": "吃饭。", "en": "Eat." }
+          ] }
+      ],
+      "fail": [ { "who": "laoma", "zh": "你开心吗？", "en": "Are you happy?", "pace": "slow" } ],
+      "levels": {
+        "1": {
+          "answers": ["开心！", "很开心。"],
+          "need": [["开心"]],
+          "gloss": "Happy!",
+          "alts": [ { "of": 0, "answers": ["我想试试。"], "need": [["试试"]], "gloss": "I want to try." } ],
+          "status": "live" },
+        "3": {
+          "answers": ["妈，开心。这是我自己选的。"],
+          "need": [["自己选的"], ["开心"]],
+          "gloss": "Mum, I'm happy. I chose this myself.",
+          "alts": [ { "of": 0, "answers": ["还不知道，但是我真的想试试。"], "need": [["真的"], ["想试试"]], "gloss": "I don't know yet. But I really want to try." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "林老师 comes out of the kitchen and lays an envelope by every plate.", "prop": "🧾" },
+    { "who": "lin", "zh": "账单。每人一份。", "en": "Invoices. One each." },
+    { "narr": "He doesn't smile." },
+    { "when": { "rehearsal.ep6": "happy" }, "end": "win", "en": "Your dad gives you the biggest piece of fish, and says nothing at all. Season one ends here. 🧾",
+      "else": [ { "end": "win", "en": "Your mum writes a cheque for the shop on the back of 林老师's invoice. Season one ends here. 🧾" } ] }
+  ]
+}

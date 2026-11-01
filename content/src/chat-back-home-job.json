@@ -1,0 +1,196 @@
+{
+  "id": "back-home-job",
+  "format": "chat",
+  "title": "你到底做什么的？",
+  "title_en": "So What Do You Actually Do?",
+  "level": 2,
+  "topics": ["family", "work"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "back-home", "ep": 3, "next": "二姨 has already sent your photo to someone's mother." },
+  "tags": ["家族群", "工作", "修手机"],
+  "write": ["设计", "软件"],
+  "setting": "Grandma's house, the morning after the big lunch. The family group (23 members, four time zones) is awake, and 大姑 has news.",
+  "stage": "📱",
+  "bg": ["#3d0f1c", "#b33a4c"],
+  "chat": { "group": { "zh": "相亲相爱一家人" }, "members": 23, "me": { "zh": "小宝" }, "giveup": [
+    { "who": "dagu", "zh": "这孩子，问半天也不说话。", "en": "Honestly, this kid. Ask and ask, and not a word." },
+    { "who": "dagu", "zh": "那我就跟街坊们说你是修手机的了！", "en": "Fine. I'm telling the whole street you fix phones!" },
+    { "end": "lose", "en": "By lunch, word is out: you fix phones. There's a queue of broken phones at Grandma's door.", "zh": "奶奶家门口排起了长队。" }
+  ] },
+  "cast": {
+    "dagu": { "name": "大姑", "en": "your dad's eldest sister: runs the phone shop in town, wants the facts", "emoji": "👩‍💼", "voice": "f-mid" },
+    "nainai": { "name": "奶奶", "en": "your dad's mum: can't read the screen, so she sends voice notes", "emoji": "👵", "voice": "f-old" },
+    "biaoge": { "name": "表哥", "en": "your cousin, 大姑's son: drives a van", "emoji": "🧑", "voice": "m-young" },
+    "eryi": { "name": "二姨", "en": "your mum's second sister: the family matchmaker", "emoji": "👩‍🦱", "voice": "f-mid" },
+    "dabo": { "name": "大伯", "en": "your dad's eldest brother", "emoji": "👨‍🦳", "voice": "m-old" },
+    "sanshu": { "name": "三叔", "en": "your dad's younger brother: keeps fish", "emoji": "🧔", "voice": "m-mid" }
+  },
+  "steps": [
+    { "narr": "Breakfast at Grandma's, chopsticks in hand. The family group is buzzing.", "zh": "第二天早上，家族群炸了。" },
+    { "who": "dagu", "zh": "问清楚了！小宝是修手机的！", "en": "Mystery solved: 小宝 fixes phones!", "clock": "07:42", "typing": 1 },
+    { "who": "dagu", "zh": "回来跟大姑抢生意了！", "tail": "😂", "en": "Back home to steal my customers!", "typing": 0.8 },
+    { "who": "dabo", "kind": "photo", "art": "📱🕸️", "zh": "屏幕裂得像蜘蛛网", "en": "大伯's phone: the screen cracked like a spider's web.", "typing": 1.5 },
+    { "who": "sanshu", "kind": "photo", "art": "🍚📱", "zh": "一碗米里埋着一部手机", "en": "三叔's: a phone buried in a bowl of rice.", "typing": 1.5 },
+    { "say": {
+      "id": "notfix",
+      "en": "大姑 has told the whole family you fix phones. Type it: not fixing phones, designing software!",
+      "cue": "You don't fix phones!",
+      "reply": "type",
+      "answers": ["不是修手机，是设计软件！", "不是修手机，是做软件设计的！", "我不修手机，我设计软件！", "不是修手机啦，是做手机软件的！"],
+      "gloss": "Not fixing phones. Designing software!",
+      "need": [["设计软件", "做软件", "搞软件", "软件设计", "开发软件", "手机软件"]],
+      "time": 25,
+      "tip": "不是……，是…… = not …, but … : how you set someone straight. 软件 ruǎnjiàn = software, apps.",
+      "key": { "设计软件": "to design software" },
+      "decoys": ["记", "见"],
+      "ok": [
+        { "who": "dabo", "zh": "软件？软件是干啥的？", "en": "Software? And what's software when it's at home?", "typing": 1.5 },
+        { "who": "dagu", "zh": "说了半天，你到底做什么工作？", "en": "All this talk. So what's your actual job?", "typing": 1.2 }
+      ],
+      "fail": [ { "who": "dagu", "zh": "到底修不修手机啊？", "en": "So do you fix phones or not?", "typing": 1 } ],
+      "levels": {
+        "1": { "en": "Type it: you make software!", "answers": ["我是做软件的！", "是软件，不是修手机！", "做软件的！", "不是不是，是软件！"], "need": [["软件"]],
+               "gloss": "I make software!", "tip": "软件 ruǎnjiàn = software, apps (软 soft + 件 item). 我是做……的 = I work in … .", "status": "live" },
+        "3": { "en": "She says you're after her customers. Tell her, with a smile, you're not: you make software.",
+               "answers": ["不跟您抢生意，我做软件的！", "放心，不抢您生意，我是做软件的。", "我不跟大姑抢生意，我设计软件！", "大姑放心，我是做软件的，不抢您生意！"],
+               "need": [["做软件", "设计软件", "搞软件", "软件设计", "开发软件", "手机软件"], ["抢"]],
+               "gloss": "I'm not after your customers. I make software!",
+               "tip": "抢生意 qiǎng shēngyi = to steal someone's customers. 我做软件的 = I make software (做……的 again).",
+               "key": { "做软件": "to make software", "抢": "to steal (customers)" }, "time": 28, "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "job",
+      "en": "Hold to talk (chopsticks in one hand): tell 大姑 you work in design.",
+      "cue": "大姑 wants facts.",
+      "reply": "speak",
+      "answers": ["我是做设计的。", "我做设计的。", "我是搞设计的。", "我在公司做设计。"],
+      "gloss": "I work in design.",
+      "need": [["设计"]],
+      "time": 15,
+      "tip": "我是做……的 = I work in … : how people name a line of work (做设计的, 做外贸的). 设计 shèjì = design.",
+      "key": { "做设计": "to work in design" },
+      "ok": [ { "who": "dagu", "zh": "设计？设计啥？", "en": "Design? Design what?", "typing": 1 } ],
+      "fail": [ { "who": "dagu", "zh": "啥？说清楚点！", "en": "What? Say it properly!", "typing": 1 } ],
+      "levels": {
+        "1": { "answers": ["我是设计师。", "设计师。", "做设计的。", "我做设计。"], "need": [["设计"]], "mistakes": [],
+               "gloss": "I'm a designer.", "tip": "设计师 shèjìshī = designer (设计 design + 师 a professional, as in 老师).", "status": "live" },
+        "3": { "en": "Hold to talk: tell 大姑 you work in design, and that it's going well, so she needn't worry.",
+               "answers": ["做设计的，挺好的，您放心！", "我是做设计的，挺好的，别担心。", "做设计的，工作挺好，您放心吧。", "我是搞设计的，挺稳定的，您放心。"],
+               "need": [["做设计", "搞设计"], ["放心", "别担心", "挺好"]],
+               "gloss": "I'm in design. It's going well, don't worry!",
+               "tip": "您放心 nín fàngxīn = don't worry (lit. put your heart down): the answer to what a relative is really asking, is the kid OK?", "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "explain",
+      "en": "Explain what you design: the stuff everyone uses on their phones.",
+      "cue": "Explain apps.",
+      "reply": "type",
+      "answers": ["就是手机上用的那些。", "就是手机里用的那些东西。", "就是大家手机上用的那些。", "就是手机上用的那些软件。"],
+      "gloss": "You know, the things you use on your phone.",
+      "need": [["手机上", "手机里"]],
+      "time": 25,
+      "tip": "就是…… = it's just …, you know: how an explanation starts. 手机上用的那些 = the ones you use on your phone.",
+      "key": { "手机上": "on the phone" },
+      "decoys": ["鸡", "永"],
+      "ok": [
+        { "who": "dagu", "zh": "手机上的？", "en": "Phone stuff?", "typing": 1 },
+        { "who": "dagu", "zh": "那不还是手机嘛！", "en": "So it IS phones, then!", "typing": 1 }
+      ],
+      "fail": [ { "who": "dagu", "zh": "说点大姑听得懂的！", "en": "Say it so your auntie can follow!", "typing": 1 } ],
+      "levels": {
+        "1": { "en": "Explain: it's the stuff on your phone!", "answers": ["手机上的那些！", "手机上的！", "手机里的那些！", "就是手机上的！"], "need": [["手机上", "手机里"]],
+               "gloss": "The stuff on your phone!", "tip": "手机上 shǒujī shang = on the phone. 那些 nàxiē = those, the ones.", "status": "live" },
+        "3": { "en": "Explain with a wink: it's the stuff she scrolls on her phone all day.",
+               "answers": ["就是您手机上天天刷的那些！", "就是您每天在手机上用的那些！", "您手机上天天刷的那些，都是软件！", "就是您整天在手机上刷的那些！"],
+               "need": [["手机上", "手机里"], ["天天", "每天", "整天"]],
+               "gloss": "You know, the stuff you scroll on your phone all day!",
+               "tip": "刷 shuā = to scroll (lit. to brush): 刷手机, scrolling your phone. 天天 = every day, all the time.", "time": 28, "status": "live" }
+      }
+    } },
+    { "who": "sanshu", "zh": "掉鱼塘里了，在米里埋三天了。", "en": "Mine fell in the fish pond. It's been in the rice three days.", "typing": 1.2 },
+    { "who": "biaoge", "kind": "photo", "art": "📱🚐", "zh": "屏幕上一道车轮印", "en": "A tyre track straight across the screen. 表哥 ran it over with his own van.", "typing": 1.5 },
+    { "who": "nainai", "kind": "voice", "secs": 12, "zh": "宝贝，奶奶的手机也黑了，你快给奶奶看看。", "en": "Sweetheart, Grandma's phone has gone black too. Come and have a look for me.", "typing": 3 },
+    { "who": "dagu", "zh": "全家就指望你了！", "mention": true, "en": "The whole family's counting on you!", "typing": 0.8 },
+    { "say": {
+      "id": "fork",
+      "en": "Hold to talk: tell 奶奶 and everyone, honestly, that you really can't fix phones.",
+      "cue": "Four broken phones.",
+      "reply": "speak",
+      "answers": ["我真的不会修！", "我是真不会修啊！", "这个我真不会修。", "我真的修不了！"],
+      "gloss": "I really can't fix them!",
+      "need": [["不会修", "修不了", "真的不会", "真不会"]],
+      "not": [ { "heard": ["会修"], "note": "That says you CAN fix them. Can't is 不会修." } ],
+      "time": 15,
+      "tip": "不会 = can't, never learned how (会 is a skill you have). 真的 = really, honestly.",
+      "key": { "不会修": "can't fix (never learned how)" },
+      "mistakes": [ { "heard": ["不能修"], "note": "不能 means not allowed, or not possible. Never learned how is 不会: 我不会修." } ],
+      "alts": [
+        { "en": "Give it a go anyway",
+          "answers": ["我试试吧。", "那我试试。", "我试一下吧。", "行，我试试看。"],
+          "gloss": "I'll give it a go.",
+          "need": [["试试", "试一下", "试一试"]],
+          "then": [
+            { "who": "nainai", "kind": "voice", "secs": 5, "zh": "亮了亮了！宝贝真厉害！", "en": "It's on, it's on! My clever darling!", "typing": 4 },
+            { "who": "dabo", "zh": "关机再开机，就好了？", "en": "Off and on again, and that fixed it?", "typing": 1.5 },
+            { "who": "dagu", "zh": "以后你就是家里的技术员了！", "en": "From now on, you're the family's tech person!", "typing": 1.5 },
+            { "who": "sanshu", "zh": "那我米里的手机呢？", "en": "So what about my phone in the rice?", "typing": 1 },
+            { "end": "win", "en": "You held Grandma's power button for ten seconds. The group crowns you 家里的技术员, and by lunch three more phones are waiting, one of them full of rice.", "zh": "你成了家里的技术员。" }
+          ] }
+      ],
+      "ok": [
+        { "who": "dagu", "zh": "行吧。那你给大姑的店设计个牌子！", "en": "Fine. Then design a sign for my shop!", "typing": 1.5 },
+        { "who": "dagu", "zh": "旧的都褪色了。", "en": "The old one's faded to nothing.", "typing": 1 }
+      ],
+      "fail": [ { "who": "dagu", "zh": "说话呀，全家都等着呢！", "en": "Say something! The whole family's waiting!", "typing": 1 } ],
+      "levels": {
+        "1": { "en": "Hold to talk: tell them you can't!", "answers": ["我不会！", "不会修！", "我不会修！", "修不了！"], "need": [["不会", "修不了"]],
+               "gloss": "I can't!", "tip": "我不会 = I can't (I never learned how).", "status": "live" },
+        "3": { "en": "Hold to talk: say you can't fix them, and hand the job back to the expert, 大姑.",
+               "answers": ["我不会修，大姑您才是专家！", "修不了修不了，还得靠大姑！", "我真不会修，大姑才是专家！", "我不会修，您店里才能修！"],
+               "need": [["不会修", "修不了", "真的不会", "真不会"], ["大姑", "您"]],
+               "gloss": "I can't fix them. You're the expert, Auntie!",
+               "tip": "……才是专家 = … is the real expert: hand the job back to the pro, and flatter her while you're at it. 专家 zhuānjiā = expert.",
+               "key": { "大姑": "auntie (Dad's eldest sister)" },
+               "alts": [ { "of": 0, "answers": ["那我试试，修坏了别怪我！", "我试试吧，坏了可别怪我！", "行，我试试，不保证啊！"], "need": [["试试"]],
+                           "gloss": "I'll try. Don't blame me if I break it!" } ],
+               "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "sign",
+      "en": "A job you CAN do. Tell 大姑: no problem, leave it to you!",
+      "cue": "This you can do!",
+      "reply": "type",
+      "answers": ["没问题，包在我身上！", "包在我身上！", "没问题，交给我吧！", "放心，交给我！"],
+      "gloss": "No problem, leave it to me!",
+      "need": [["包在我身上", "交给我", "我来"]],
+      "time": 22,
+      "tip": "包在我身上 bāo zài wǒ shēnshang = leave it to me ('it's all on me'): the cheerful, confident yes. 交给我 = hand it over to me.",
+      "key": { "包在我身上": "leave it to me", "交给我": "leave it to me" },
+      "decoys": ["抱", "深"],
+      "ok": [
+        { "who": "nainai", "kind": "photo", "art": "🧻✏️", "zh": "餐巾纸上画的新招牌", "en": "Grandma's photo: your sketch for the new sign, on a paper napkin.", "typing": 2 },
+        { "who": "dagu", "zh": "好看！我这就找人做！", "en": "Love it! I'm having it made right now!", "typing": 1.2 }
+      ],
+      "fail": [ { "who": "dagu", "zh": "怎么，不愿意啊？", "en": "What, you don't want to?", "typing": 1 } ],
+      "levels": {
+        "1": { "en": "Tell her: no problem!", "answers": ["没问题！", "好的，交给我！", "行，没问题！", "包在我身上！"], "need": [["没问题", "包在我身上", "交给我", "我来", "好的", "行"]],
+               "gloss": "No problem!", "tip": "没问题 méi wèntí = no problem: the easy yes.", "status": "live" },
+        "3": { "en": "Tell her to leave it to you, and promise it'll look great.",
+               "answers": ["包在我身上，保证好看！", "交给我，保证让您满意！", "没问题，包在我身上，保证好看！", "放心交给我，保证比原来的好看！"],
+               "need": [["包在我身上", "交给我", "我来"], ["保证"]],
+               "gloss": "Leave it to me. It'll look great, I promise!",
+               "tip": "保证 bǎozhèng = I promise, guaranteed: 保证好看 = it'll look great, promise.", "time": 26, "status": "live" }
+      }
+    } },
+    { "who": "dagu", "kind": "photo", "art": "🏪✨", "zh": "店门口挂上了新招牌", "en": "Lunchtime: the new sign, already up over 大姑's shop.", "clock": "12:10", "typing": 2 },
+    { "who": "dagu", "zh": "我们家孩子设计的！都来看！", "en": "Designed by our kid! Come and see!", "typing": 1.2 },
+    { "who": "nainai", "kind": "voice", "secs": 7, "zh": "宝贝设计的，就是好看！", "en": "My darling designed it, so of course it's beautiful!", "typing": 3 },
+    { "who": "eryi", "zh": "这孩子真能干！有对象没有？", "en": "What a capable kid! Seeing anyone yet?", "typing": 1.5 },
+    { "end": "win", "en": "By lunch the sign is up, and 大姑 tells every customer who designed it. In the group, 二姨 has gone very quiet.", "zh": "大姑逢人就说：我们家孩子设计的！" }
+  ]
+}

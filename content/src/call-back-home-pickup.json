@@ -1,0 +1,164 @@
+{
+  "id": "back-home-pickup",
+  "format": "call",
+  "title": "表哥来接你",
+  "title_en": "The Pickup",
+  "level": 2,
+  "listen": 3,
+  "topics": ["family", "travel"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "back-home", "ep": 1, "next": "奶奶 has invited the whole street to lunch tomorrow. They all want to hear your Chinese." },
+  "tags": ["回老家", "接机", "表哥", "夜宵"],
+  "write": ["表哥", "回家"],
+  "setting": "The small airport in your parents' hometown, 10:40 pm. Fourteen hours from Toronto, you walk out under a sign: Exit 2.",
+  "stage": "🛬",
+  "bg": ["#0e1630", "#3b4f8c"],
+  "cast": {
+    "biaoge": { "name": "表哥", "en": "your cousin, 大姑's son: outside in his van, never stops talking", "emoji": "🧑", "voice": "m-young", "phone": true }
+  },
+  "call": {
+    "caller": "biaoge",
+    "name": { "zh": "表哥" },
+    "photo": "🚐",
+    "number": "138 0000 6688",
+    "label": { "zh": "手机" },
+    "clock": "22:40",
+    "patience": 4,
+    "silence": [
+      { "who": "biaoge", "zh": "喂？喂？听得见吗？", "en": "Hello? Hello? Can you hear me?" },
+      { "who": "biaoge", "zh": "喂？人呢？在就吱一声！", "en": "Hello? Where've you gone? If you're there, make a noise!" }
+    ],
+    "hangup": [
+      { "who": "biaoge", "zh": "算了算了，我进去找你！", "en": "Forget it, forget it, I'm coming in to find you!" },
+      { "end": "lose", "en": "He hung up and came in to find you. All of Arrivals now knows your name: he's shouting it." }
+    ],
+    "missed": [
+      { "who": "biaoge", "zh": "喂？接电话呀！我到了，在外面等你呢！", "en": "Hello? Pick up! I'm here, waiting outside!" }
+    ]
+  },
+  "steps": [
+    { "who": "biaoge", "zh": "喂？我在三号口！三号口！你人呢？", "en": "Hello? I'm at Exit 3! Exit 3! Where are you?", "peek": "free" },
+    { "narr": "The sign above your head says Exit 2." },
+    { "say": {
+      "id": "exit",
+      "en": "Your cousin is waiting at Exit 3. The sign above you says Exit 2. Tell him.",
+      "cue": "Different exit!",
+      "answers": ["我在二号，不是三号！", "不是三号，我在二号！", "我在二号出口，不在三号！", "我在二号，你走错了！", "表哥，我在二号，不是三号！"],
+      "gloss": "I'm at 2, not 3!",
+      "need": [["二号"], ["三号", "走错"]],
+      "key": { "二号": "number 2", "三号": "number 3" },
+      "mistakes": [{ "heard": ["两号"], "note": "A number that names something is 二号, never 两号: 两 is for counting (两个)." }],
+      "time": 10,
+      "tip": "Exits go by number: 二号出口 = Exit 2 (二, never 两, in a name). 不是三号 = not 3.",
+      "ok": [ { "who": "biaoge", "zh": "二号？哎呀，走错了走错了！", "en": "Two? Oh no, wrong one, wrong one!", "pace": "fast", "fx": "jump" } ],
+      "fail": [ { "who": "biaoge", "zh": "啊？几号？几号口？", "en": "What? Which number? Which exit?" } ],
+      "levels": {
+        "1": { "answers": ["二号出口！", "二号！", "二号口！", "我在二号出口！", "到了到了，二号口！"], "need": [["二号"]],
+               "en": "Your cousin is waiting at Exit 3. The sign above you says Exit 2. Tell him your exit.",
+               "gloss": "Exit 2!", "tip": "二号出口 = Exit 2.", "status": "live" },
+        "3": { "answers": ["我在二号，你是不是走错了？", "二号出口，你是不是走错了？", "我在二号出口，你走错了吧？", "你是不是走错了？我在二号。"],
+               "need": [["二号"], ["走错"]],
+               "en": "Your cousin is waiting at Exit 3. The sign above you says Exit 2. Tell him, and ask, gently, if he's at the wrong one.",
+               "gloss": "I'm at 2. Are you at the wrong one?", "tip": "你是不是走错了？ = have you gone to the wrong one? Asking is gentler than 你走错了 (you're wrong).", "status": "live" }
+      }
+    } },
+    { "who": "biaoge", "zh": "你别动啊，我进去接你！", "en": "Don't move, I'm coming in to get you!" },
+    { "who": "biaoge", "zh": "行李多不多？我帮你拿，我帮你拿！", "en": "Lots of bags? I'll carry them, I'll carry them!", "pace": "fast" },
+    { "say": {
+      "id": "bags",
+      "en": "He wants to come in and carry your bags. No need: you can manage.",
+      "cue": "You've got this.",
+      "answers": ["不用不用，我拿得动。", "不用，我自己拿就行。", "不用不用，我一个人拿得动！", "不用了，我自己能拿。"],
+      "gloss": "No, no, I can manage it.",
+      "need": [["不用"], ["拿得动", "自己"]],
+      "key": { "拿得动": "can carry (it)" },
+      "time": 10,
+      "tip": "不用不用 = no need, no need: twice makes it a warm no. 拿得动 = can carry it (拿不动 = can't).",
+      "ok": [ { "who": "biaoge", "zh": "行行行，那我把车开到二号口！", "en": "Fine, fine, I'll bring the van round to Exit 2, then!" } ],
+      "fail": [ { "who": "biaoge", "zh": "啊？要我进去是吧？马上！", "en": "What? You want me to come in? On my way!" } ],
+      "levels": {
+        "1": { "answers": ["不用不用！", "不用了！", "不用，谢谢！"], "need": [["不用"]],
+               "en": "He wants to come in and carry your bags. No need.",
+               "gloss": "No need, no need!", "tip": "不用不用 = no need: said twice, it's friendly, not cold.", "status": "live" },
+        "3": { "answers": ["不用麻烦了，我自己来就行。", "不用麻烦你了，我拿得动。", "真不用麻烦，我自己来就行。"],
+               "need": [["不用麻烦"], ["自己", "拿得动"]],
+               "en": "He wants to come in and carry your bags. Turn him down politely: no need to go to any trouble.",
+               "gloss": "Don't go to any trouble, I can manage.", "tip": "不用麻烦了 = don't go to any trouble: the polite no to help. 我自己来就行 = I'll manage myself.", "status": "live" }
+      }
+    } },
+    { "who": "biaoge", "zh": "哎，饿不饿？礼物带了没？奶奶六点就开始等了！", "en": "Hey, are you hungry? Did you bring the presents? Grandma's been waiting since six!", "pace": "fast" },
+    { "who": "biaoge", "zh": "对了对了，有对象了没有？", "en": "Oh, and, and: got a partner yet?" },
+    { "say": {
+      "id": "dating",
+      "en": "He's asking if you're seeing anyone. You're not: say so, and tell him to stop asking.",
+      "cue": "Don't take the bait.",
+      "answers": ["还没有，别问了！", "还没有，别问啦！", "没有啦，别问了！", "还没呢，别问了！", "没有没有，你别问了！"],
+      "gloss": "Not yet. Stop asking!",
+      "need": [["没有", "没呢"], ["别问", "再说", "不着急", "不急", "别操心", "缘分"]],
+      "not": [{ "heard": ["有了", "有对象"], "note": "That says you DO have someone, and the whole family will know by midnight. Dodge it: 还没有！" }],
+      "time": 10,
+      "tip": "还没有 = not yet. 别问了 = stop asking: said with a laugh to family, it's playful, not rude.",
+      "silence": [
+        { "who": "biaoge", "zh": "不吭声？那就是有了！", "en": "Not a peep? So that's a yes!" },
+        { "who": "biaoge", "zh": "快说快说，好不好看？哪儿的人？", "en": "Come on, come on: good-looking? Where are they from?" }
+      ],
+      "hangup": [
+        { "who": "biaoge", "zh": "行，我这就告诉二姨去！", "en": "Right, I'm telling 二姨 this minute!" },
+        { "end": "lose", "en": "He hung up to tell 二姨. By the time you reach the van, the family group chat is congratulating you on a partner you don't have." }
+      ],
+      "ok": [ { "who": "biaoge", "zh": "好好好，不问了！反正明天二姨会问的。", "en": "OK, OK, I'll drop it! 二姨 will ask you tomorrow anyway.", "fx": "laugh" } ],
+      "fail": [ { "who": "biaoge", "zh": "啊？有了？谁啊谁啊？", "en": "What? You have? Who? Who?" } ],
+      "levels": {
+        "1": { "answers": ["没有没有！", "没有啦！", "还没有！", "还没呢！"], "need": [["没有", "没呢"]],
+               "en": "He's asking if you're seeing anyone. You're not.",
+               "gloss": "No, no, I haven't!", "tip": "没有没有 = no, no: said twice, it's a laughing brush-off.", "status": "live" },
+        "3": { "answers": ["还没呢，到时候再说吧。", "还没有，不着急。", "还没呢，你就别操心了。", "没有啦，缘分还没到呢。"],
+               "need": [["没有", "没呢"], ["再说", "不着急", "不急", "别操心", "缘分"]],
+               "en": "He's asking if you're seeing anyone. You're not: dodge it, there's no rush.",
+               "gloss": "Not yet. We'll see when the time comes.", "tip": "到时候再说吧 = we'll see when the time comes: the classic dodge for any family question.", "status": "live" }
+      }
+    } },
+    { "who": "biaoge", "zh": "那咱们先回家，还是先去吃夜宵？", "en": "So: home first, or a late-night snack first?" },
+    { "say": {
+      "id": "choice",
+      "en": "奶奶 has been waiting since six. Tell him: home first, Grandma's waiting.",
+      "cue": "Your call.",
+      "answers": ["先回家吧，奶奶等着呢。", "回家吧，别让奶奶等了。", "先回家，奶奶还等着呢。", "还是先回家吧，奶奶在等。"],
+      "gloss": "Home first. Grandma's waiting.",
+      "need": [["回家", "回去"], ["奶奶"]],
+      "time": 10,
+      "tip": "先……吧 = let's … first. 奶奶等着呢 = Grandma's waiting: 着呢 says it's going on right now.",
+      "silence": [
+        { "who": "biaoge", "zh": "喂？回家还是吃夜宵？说句话呀！", "en": "Hello? Home or food? Say something!" },
+        { "who": "biaoge", "zh": "不说话我就替你定了啊！", "en": "Say nothing and I'll decide for you!" }
+      ],
+      "hangup": [
+        { "who": "biaoge", "zh": "行，听我的，吃夜宵去！", "en": "Right, my call: food it is!" },
+        { "end": "lose", "en": "He decided for you: crayfish first, then 奶奶's soup at home. You're in bed by three, extremely full." }
+      ],
+      "alts": [
+        { "en": "Go for a late-night snack", "answers": ["先吃夜宵！", "先去吃夜宵吧！", "吃宵夜吧，饿死了！", "饿了，先吃东西吧！", "先吃夜宵，再回家看奶奶！", "吃完夜宵再回家吧！"], "gloss": "Late-night snack first!",
+          "need": [["吃夜宵", "吃宵夜", "吃东西", "吃点", "先吃", "吃完夜宵"]],
+          "then": [
+            { "who": "biaoge", "zh": "好嘞！我知道一家小龙虾，绝了！", "en": "You got it! I know a crayfish place. Unbeatable!", "pace": "fast", "fx": "laugh" },
+            { "who": "biaoge", "zh": "我妈他们都在那儿……啊不是，就咱俩！", "en": "My mum and everyone are already th... I mean, no! Just the two of us!" },
+            { "end": "win", "en": "The crayfish stall, twenty minutes later: the whole family already at the table, gloves on, chopsticks up. An ambush. 奶奶 has brought her soup in a flask.", "zh": "小龙虾摊上，全家人早就坐好了。" }
+          ] }
+      ],
+      "ok": [ { "who": "biaoge", "zh": "好嘞！奶奶炖了一锅鸡汤，从八点热到现在！", "en": "You got it! Grandma's made a whole pot of chicken soup. She's kept it hot since eight!", "pace": "fast" } ],
+      "fail": [ { "who": "biaoge", "zh": "啊？回家还是吃夜宵？你说清楚！", "en": "What? Home or food? Make up your mind!" } ],
+      "levels": {
+        "1": { "answers": ["先回家吧！", "回家吧！", "先回家！"], "need": [["回家", "回去"]],
+               "en": "奶奶 has been waiting since six. Tell him: home first.",
+               "gloss": "Home first!", "tip": "先回家吧 = let's go home first (先 = first).", "status": "live" },
+        "3": { "answers": ["改天吧，今天先回家看奶奶。", "改天再吃，先回家陪奶奶。", "下次吧，奶奶还等着呢，先回家。"],
+               "need": [["改天", "下次"], ["回家", "回去"]],
+               "en": "奶奶 has been waiting since six. Turn down the snack for another night: home to Grandma first.",
+               "gloss": "Another night. Tonight, home to Grandma.", "tip": "改天吧 = another day: the soft way to turn down an invitation. 看奶奶 = go and see Grandma.", "status": "live" }
+      }
+    } },
+    { "end": "win", "en": "Twenty minutes later: 奶奶 at the gate in her winter coat, waiting since six, with a pot of chicken soup kept hot since eight.", "zh": "奶奶穿着大衣，在门口等你。" }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "id": "melon-3",
+  "format": "scene",
+  "title": "周六",
+  "title_en": "Saturday",
+  "level": 3,
+  "listen": 3,
+  "topics": ["celebrations", "home"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "melon", "ep": 3, "next": "The video is in every group chat in the district. 老周's phone won't stop ringing." },
+  "tags": ["吃瓜", "才艺比赛", "华尔兹"],
+  "setting": "金桂苑's square, Saturday, 7 pm. The talent show.",
+  "stage": "💃",
+  "bg": ["#0f3a1e", "#d8a73a"],
+  "cast": {
+    "hu": { "name": "胡阿姨", "en": "5号楼: first to see everything", "emoji": "👩‍🦱", "voice": "f-mid" },
+    "wu": { "name": "吴阿姨", "en": "3号楼: knows someone who saw it", "emoji": "👩", "voice": "f-mid" },
+    "zhao": { "name": "赵奶奶", "en": "eighty, and tonight, front row", "emoji": "👵", "voice": "f-old" },
+    "ting": { "name": "婷婷", "en": "老周's daughter", "emoji": "🙍", "voice": "f-young" },
+    "laozhou": { "name": "老周", "en": "3号楼: in his suit", "emoji": "👴", "voice": "m-old" }
+  },
+  "steps": [
+    { "when": { "melon.ep2": "me" }, "narr": "Saturday night. You're in the suit. It's slightly too big.", "prop": "🕴️",
+      "else": [ { "narr": "Saturday night. 婷婷 is in the dress. You're in the wings, holding the speaker.", "prop": "🔊" } ] },
+    { "narr": "The square. Two hundred neighbours on folding stools. One stage light." },
+    { "sfx": "cheer" },
+    { "who": "laozhou", "zh": "音箱……不响了。", "en": "The speaker... it's not working." },
+    { "narr": "The speaker is dead.", "hold": 1 },
+    { "who": "hu", "zh": "怎么回事？！", "en": "What's going on?!", "pace": "fast" },
+    { "who": "wu", "zh": "是不是没电了？", "en": "Has the battery gone?", "pace": "fast" },
+    { "who": "zhao", "zh": "我早说了，这事儿不简单。", "en": "I said all along there was more to this." },
+    { "say": {
+      "id": "speaker",
+      "en": "Ask the crowd: does anyone have a speaker?",
+      "cue": "Anyone?",
+      "answers": ["谁有音箱？借我们用一下！", "大家谁有音箱？借一下！", "谁有音箱？急用！"],
+      "gloss": "Does anyone have a speaker? Lend it to us!",
+      "need": [["谁有", "谁家有"], ["音箱"]],
+      "key": { "音箱": "speaker" },
+      "tip": "音箱 yīnxiāng = a (loud)speaker. 借……用一下 = borrow ... for a moment.",
+      "ok": [ { "narr": "Silence. Then a phone torch. Then twenty. Nobody has a speaker." } ],
+      "fail": [ { "who": "hu", "zh": "小邻居说什么？", "en": "What's our young neighbour saying?" } ],
+      "levels": {
+        "2": {
+          "answers": ["谁有音箱？", "有音箱吗？"],
+          "need": [["音箱"]],
+          "gloss": "Anyone got a speaker?",
+          "status": "live" },
+        "4": {
+          "answers": ["各位邻居，谁家有音箱，借来救个急！", "各位邻居，谁家有音箱？救个急！"],
+          "need": [["各位"], ["救个急"]],
+          "gloss": "Neighbours! Whose home has a speaker? Help us out!",
+          "tip": "救个急 jiù ge jí = help out in a pinch.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "sing",
+      "en": "Improvise: no music? Then we sing it ourselves.",
+      "cue": "Sing it!",
+      "answers": ["没音乐，我们自己唱吧！", "我们自己唱吧！大家一起！", "那我们自己唱吧！"],
+      "gloss": "No music? Then let's sing it ourselves!",
+      "need": [["自己唱"], ["我们", "大家"]],
+      "tip": "自己 zìjǐ = ourselves: 我们自己唱.",
+      "ok": [
+        { "who": "laozhou", "zh": "……好。", "en": "...All right." },
+        { "narr": "老周 hums the first bar. Alone. It is very quiet." }
+      ],
+      "fail": [ { "who": "wu", "zh": "唱什么？", "en": "Sing what?" } ],
+      "levels": {
+        "2": {
+          "answers": ["自己唱吧！", "我们自己唱！"],
+          "need": [["自己唱"]],
+          "gloss": "Sing it ourselves!",
+          "status": "live" },
+        "4": {
+          "answers": ["没音乐不要紧，我们自己唱！", "没有音乐不要紧，我们自己唱！"],
+          "need": [["不要紧"], ["自己唱"]],
+          "gloss": "No music? Doesn't matter. We'll sing it ourselves!",
+          "tip": "不要紧 bú yàojǐn = it doesn't matter.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Then, from the front row: 胡阿姨." },
+    { "who": "hu", "zh": "啦——啦啦，啦啦……", "en": "La, la-la, la-la..." },
+    { "who": "wu", "zh": "啦——啦啦……", "en": "La, la-la..." },
+    { "who": "zhao", "zh": "啦——", "en": "La..." },
+    { "narr": "The three aunties are humming the waltz. Then the whole square is." },
+    { "sfx": "cheer" },
+    { "say": {
+      "id": "announce",
+      "en": "Take the mic and announce the dance.",
+      "cue": "Announce it.",
+      "answers": ["下面请欣赏：华尔兹！", "下面请欣赏，老周的华尔兹！"],
+      "gloss": "And now: the waltz!",
+      "need": [["下面"], ["华尔兹"]],
+      "tip": "下面请欣赏…… = and now, please enjoy ...: every Chinese stage, ever.",
+      "ok": [ { "narr": "They dance. Two hundred neighbours hum. Nobody misses the speaker." } ],
+      "fail": [ { "who": "hu", "zh": "快说呀！", "en": "Go on, say it!" } ],
+      "levels": {
+        "2": {
+          "answers": ["请欣赏华尔兹！", "下面，华尔兹！"],
+          "need": [["华尔兹"]],
+          "gloss": "The waltz!",
+          "status": "live" },
+        "4": {
+          "answers": ["下面有请老周，带来华尔兹！", "下面有请老周，为大家带来华尔兹！"],
+          "need": [["有请"], ["华尔兹"]],
+          "gloss": "And now, 老周, with the waltz!",
+          "tip": "有请 yǒu qǐng = please welcome.",
+          "status": "live" }
+      }
+    } },
+    { "who": "laozhou", "zh": "她会喜欢的。", "en": "She'd have loved this." },
+    { "who": "hu", "zh": "小邻居，接下来呢？", "en": "Young neighbour, what next?" },
+    { "say": {
+      "id": "next",
+      "en": "Lead the clapping, or hand the mic to 赵奶奶.",
+      "cue": "Clap, or the mic?",
+      "answers": ["大家一起拍手！", "来，大家一起拍手！"],
+      "gloss": "Everyone, clap along!",
+      "need": [["大家"], ["拍手"]],
+      "key": { "拍手": "clap" },
+      "tip": "拍手 pāishǒu = clap (your hands).",
+      "sets": { "melon.ep3": "clap" },
+      "ok": [ { "sfx": "cheer" }, { "narr": "Two hundred pairs of hands, on the beat. Mostly." } ],
+      "alts": [
+        { "en": "Or: hand the mic to 赵奶奶", "answers": ["赵奶奶，您来！", "赵奶奶，话筒给您！"], "need": [["赵奶奶"], ["您"]], "gloss": "赵奶奶, over to you!",
+          "sets": { "melon.ep3": "mic" },
+          "then": [
+            { "who": "zhao", "zh": "我年轻的时候……", "en": "When I was young..." },
+            { "narr": "赵奶奶 sings the next verse. Sixty seconds exactly." },
+            { "sfx": "cheer" }
+          ] }
+      ],
+      "fail": [ { "who": "hu", "zh": "接下来呢？", "en": "What next?" } ],
+      "levels": {
+        "2": {
+          "answers": ["大家拍手！", "一起拍手！"],
+          "need": [["拍手"]],
+          "gloss": "Clap!",
+          "alts": [ { "of": 0, "answers": ["赵奶奶，您来！"], "need": [["赵奶奶"]], "gloss": "赵奶奶, you!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["掌声在哪里？大家一起拍手！", "大家跟着节奏，一起拍手！"],
+          "need": [["掌声", "节奏"], ["拍手"]],
+          "gloss": "Let's hear it! Everyone, clap along!",
+          "alts": [ { "of": 0, "answers": ["赵奶奶，这一段非您莫属！", "这一段非您莫属，赵奶奶请！"], "need": [["非您莫属"], ["赵奶奶"]], "gloss": "赵奶奶, this verse could only be yours!" } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "melon.ep3": "clap" }, "end": "win", "en": "The video is online before the last note: two hundred people clapping, slightly off the beat. 📱",
+      "else": [ { "end": "win", "en": "赵奶奶's verse goes round every group chat in the district. Sixty seconds exactly. 📱" } ] }
+  ]
+}

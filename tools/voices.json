@@ -1,0 +1,76 @@
+{
+  "_": "Role → Kokoro voices, picked by tools/cast.py from pitch and how clearly a recogniser understands them. model reads the answers you must say; narrator reads Chinese captions. Recast at 02:30 from tools/recast.py: voices that garbled short lines in both recognisers (zf_024, zm_037, zm_031, zf_075) were dropped.",
+  "roles": {
+    "f-old": [
+      "zf_079",
+      "zf_046",
+      "zf_099",
+      "zf_094"
+    ],
+    "f-mid": [
+      "zf_047",
+      "zf_023",
+      "zf_036"
+    ],
+    "f-young": [
+      "zf_001",
+      "zf_071",
+      "zf_042"
+    ],
+    "kid": [
+      "zf_072",
+      "zf_085",
+      "zf_092"
+    ],
+    "m-old": [
+      "zm_098",
+      "zm_014",
+      "zm_029",
+      "zm_033"
+    ],
+    "m-mid": [
+      "zm_009",
+      "zm_013",
+      "zm_015"
+    ],
+    "m-young": [
+      "zm_057",
+      "zm_056",
+      "zm_012",
+      "zm_053"
+    ]
+  },
+  "model": "zf_004",
+  "narrator": "zm_030",
+  "elevenlabs": {
+    "_": "Only for --engine=elevenlabs (ELEVENLABS_MODEL=eleven_v4, the bake-off's pick: docs/v2/voices.md §2). stand_in: each Kokoro voice → a native mainland Mandarin voice from the ElevenLabs Voice Library (used straight from the library, so no voice slots), same role, so casting and the world's pinned voices carry over. A stopgap until the casting step (§3) designs a voice per character: the library has no native old or child voices, so f-old and m-old are its deepest, most mature middle-aged voices and kid its lightest young women.",
+    "stand_in": {
+      "zf_079": "rtRocV7drsrJFSQPxlD3",
+      "zf_046": "Iqi0ix5WGtiSXX9VDZB4",
+      "zf_099": "0H4ruoQ81Ei2FCwjW5j1",
+      "zf_094": "4AfodMgwXps9oZFhHzoj",
+      "zf_047": "V3z1DARAbkkTVEx5lmEl",
+      "zf_023": "5eoK8NqMBsMdqUmImHNs",
+      "zf_036": "YxbjaPemDJV2xlfvkiIG",
+      "zf_001": "ByhETIclHirOlWnWKhHc",
+      "zf_071": "tOuLUAIdXShmWH7PEUrU",
+      "zf_042": "GgmlugwQ4LYXBbEXENWm",
+      "zf_072": "5qr5FEpvZGzmVOPBS55W",
+      "zf_085": "NchRhc5KPgHwZagz6MrZ",
+      "zf_092": "ggacvEjbmpoSuEinfFWs",
+      "zm_098": "WuLq5z7nEcrhppO0ZQJw",
+      "zm_014": "pU9NaAwkoR3v0Mrg3uKz",
+      "zm_029": "cwzmKSYMCC9Aym1ymCnt",
+      "zm_033": "D9bZgM9Er0PhIxuW9Jqa",
+      "zm_009": "DowyQ68vDpgFYdWVGjc3",
+      "zm_013": "W8lBaQb9YIoddhxfQNLP",
+      "zm_015": "EttSxNTvxX50EUdRPQQl",
+      "zm_057": "MI36FIkp9wRP7cpWKPTl",
+      "zm_056": "5mZxJZhSmJTjL7GoYfYI",
+      "zm_012": "BWN0mOtkGHghA3CYFzFK",
+      "zm_053": "lt7GBaCoAHWbT7JSZ5Xs",
+      "zf_004": "Ca5bKgudqKJzq8YRFoAz",
+      "zm_030": "4VZIsMPtgggwNg7OXbPY"
+    }
+  }
+}

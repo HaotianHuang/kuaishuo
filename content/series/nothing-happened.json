@@ -1,0 +1,67 @@
+{
+  "id": "nothing-happened",
+  "title": "没什么事",
+  "title_en": "Nothing Happened",
+  "eps": 6,
+  "audience": "all",
+  "levels": [
+    1,
+    3
+  ],
+  "genre": "comedy",
+  "home": {
+    "name": "面馆",
+    "en": "the same noodle shop in Shanghai, the same table"
+  },
+  "cast": {
+    "feng": {
+      "name": "阿峰",
+      "en": "overthinks everything",
+      "emoji": "😰",
+      "voice": "m-young",
+      "tts": "zm_012"
+    },
+    "mei": {
+      "name": "小美",
+      "en": "has a theory for everything",
+      "emoji": "💁",
+      "voice": "f-young",
+      "tts": "zf_071"
+    },
+    "qin": {
+      "name": "老秦",
+      "en": "calm, and wrong",
+      "emoji": "😌",
+      "voice": "m-mid",
+      "tts": "zm_015"
+    },
+    "tian": {
+      "name": "甜甜",
+      "en": "knows someone who knows",
+      "emoji": "🙆",
+      "voice": "f-young",
+      "tts": "zf_042"
+    },
+    "fuwuyuan": {
+      "name": "服务员",
+      "en": "the hot-pot waiter, who has seen everything",
+      "emoji": "🧑‍🍳",
+      "voice": "f-mid",
+      "tts": "zf_036"
+    },
+    "ayi": {
+      "name": "阿姨",
+      "en": "first in the bakery queue: has been here since six",
+      "emoji": "👩‍🦳",
+      "voice": "f-old",
+      "tts": "zf_099"
+    },
+    "naren": {
+      "name": "那个人",
+      "en": "says 嗯, mostly",
+      "emoji": "🧥",
+      "voice": "f-young",
+      "tts": "zf_001"
+    }
+  }
+}

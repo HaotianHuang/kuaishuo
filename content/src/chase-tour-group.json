@@ -1,0 +1,168 @@
+{
+  "id": "tour-group",
+  "format": "chase",
+  "title": "我不是你们团的！",
+  "title_en": "Not in Your Group!",
+  "level": 0,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "tags": ["旅游团", "西安", "认错人", "饺子"],
+  "write": ["不是", "自己", "再见"],
+  "setting": "Outside the Terracotta Army museum, Xi'an, noon.",
+  "stage": "🏛️",
+  "bg": ["#3a1c0c", "#a3542a"],
+  "cast": {
+    "guide": { "name": "导游", "en": "the tour guide, with a megaphone", "emoji": "📣", "voice": "f-mid", "speed": 0.85 },
+    "uncle": { "name": "大爷", "en": "a man from the tour group", "emoji": "👴", "voice": "m-old", "speed": 0.85 }
+  },
+  "chase": {
+    "name": "旅游团", "en": "a tour guide and her group", "emoji": "🚩", "who": "guide",
+    "start": 20, "close": 1, "gain": 10, "loss": 4, "max": 25,
+    "caught": [
+      { "who": "guide", "zh": "抓到你了！", "en": "Got you!" },
+      { "narr": "She links her arm through yours. You're on the tour now.", "zh": "你现在是团员了。" },
+      { "end": "lose", "en": "Caught. You spend the afternoon on the tour: the city wall, a dumpling banquet and a new WeChat group.", "zh": "你跟团玩了一下午。" }
+    ]
+  },
+  "steps": [
+    { "narr": "Xi'an, noon. Your new red cap matches a whole tour group's.", "zh": "你戴着红帽子……" },
+    { "who": "guide", "zh": "你是我们团的吧？", "en": "You're with our group, right?" },
+    { "say": {
+      "id": "no",
+      "obstacle": "📣",
+      "en": "Tell her: no!",
+      "answers": ["不是！", "不是不是！", "不是，我不是！", "我不是！"],
+      "gloss": "No!",
+      "need": [["不是"]],
+      "tip": "不是 búshì = no, not so: the answer to any question with 是 in it, said or not. 是 alone would be yes.",
+      "ok": [ { "who": "guide", "zh": "帽子一样啊！", "en": "Same cap, though!", "fx": "squint" } ],
+      "fail": [ { "who": "guide", "zh": "大点声！", "en": "Speak up!" } ],
+      "levels": { "1": {
+        "answers": ["不是不是！", "不是不是，我不是！", "不是不是不是！"],
+        "need": [["不是不是"]],
+        "gloss": "No, no!",
+        "tip": "Doubled, 不是不是 is a quick, flustered 'no, no!': natural, never rude.",
+        "status": "live" } }
+    } },
+    { "say": {
+      "id": "notme",
+      "obstacle": "🧢",
+      "en": "Insist: you're not one of them!",
+      "answers": ["我不是！", "我不是啊！", "我真的不是！", "我不是你们团的！"],
+      "gloss": "I'm not!",
+      "need": [["不是"]],
+      "tip": "我不是 = I'm not (one of them). All of it: 我不是你们团的 = I'm not in your group.",
+      "ok": [ { "narr": "She isn't listening. The group sweeps you along.", "zh": "大家拉着你走。" } ],
+      "fail": [ { "who": "guide", "zh": "那就是我们的人！", "en": "Then you're one of us!" } ],
+      "levels": { "1": {
+        "answers": ["不是你们团的！", "我不是你们团的！", "我不是这个团的！", "不是，我不是你们团的！"],
+        "need": [["你们团", "这个团"]],
+        "key": { "你们团": "your (tour) group", "这个团": "this (tour) group" },
+        "gloss": "I'm not in your group!",
+        "tip": "团 tuán = a (tour) group. 你们团的 = one of your group: the 的 makes it 'one of'.",
+        "status": "live" } }
+    } },
+    { "who": "uncle", "zh": "耳机给你！", "en": "Here, your earpiece!", "fx": "give" },
+    { "say": {
+      "id": "earpiece",
+      "obstacle": "🎧",
+      "en": "Turn it down: no thanks!",
+      "answers": ["不用了！", "不用不用！", "不用了，谢谢！", "不要了！", "不了不了！"],
+      "gloss": "No thanks!",
+      "need": [["不用", "不要", "不了"]],
+      "tip": "不用了 bú yòng le = no thanks, no need: how to turn down anything you're handed.",
+      "mistakes": [ { "heard": ["不客气", "不用谢"], "note": "不客气 and 不用谢 both mean 'you're welcome'. To turn something down: 不用了." } ],
+      "ok": [ { "who": "uncle", "zh": "免费的！", "en": "It's free!", "fx": "laugh" } ],
+      "fail": [ { "who": "uncle", "zh": "戴上吧！", "en": "Go on, put it on!" } ],
+      "levels": { "1": {
+        "answers": ["真的不用了！", "谢谢，真的不用了！", "真不用了！", "谢谢，不用了！", "不用了，谢谢！"],
+        "need": [["真的不用", "真不用", "谢谢不用", "不用了谢谢"]],
+        "gloss": "Really, there's no need!",
+        "tip": "真的 zhēnde = really: 真的不用了 = honestly, I don't need it.",
+        "status": "live" } }
+    } },
+    { "who": "guide", "zh": "跟我走！", "en": "Follow me!" },
+    { "say": {
+      "id": "myself",
+      "obstacle": "🚌",
+      "en": "Say you'll go on your own!",
+      "answers": ["我自己走！", "我自己去！", "我自己走就行！", "我一个人走！"],
+      "gloss": "I'll go on my own!",
+      "need": [["自己", "一个人"]],
+      "tip": "自己 zìjǐ = by myself, on my own. 我自己走 = I'll make my own way.",
+      "ok": [ { "who": "guide", "zh": "走丢了怎么办？", "en": "And what if you get lost?" } ],
+      "fail": [ { "who": "guide", "zh": "快跟上！", "en": "Keep up!" } ],
+      "levels": { "1": {
+        "answers": ["我自己走就行！", "不用，我自己走就行！", "我自己去就行！", "我自己走就好！"],
+        "need": [["自己走就行", "自己去就行", "自己走就好", "自己去就好", "自己走就可以"]],
+        "key": { "自己走就行": "(I'll) be fine going on my own" },
+        "gloss": "I'll be fine on my own!",
+        "tip": "…就行 jiù xíng = …will do: 我自己走就行 = I'll be fine on my own, thanks.",
+        "status": "live" } }
+    } },
+    { "narr": "Roll call. She counts you in, again.", "zh": "又点名了！" },
+    { "say": {
+      "id": "notme2",
+      "again": "notme",
+      "obstacle": "📋",
+      "en": "Again: you're really not one of them!",
+      "answers": ["真不是！", "我真不是！", "我真的不是！", "我真不是你们团的！", "我都说了不是！"],
+      "gloss": "Really, I'm not!",
+      "need": [["不是"]],
+      "tip": "真 zhēn = really: 真不是 = really not! Put 真 right before what you mean: 我真不是, 我真不会.",
+      "ok": [ { "who": "guide", "zh": "好好好，出发！", "en": "Yes, yes, of course. Off we go!" } ],
+      "fail": [ { "who": "guide", "zh": "三十个，齐了！", "en": "Thirty. Everyone's here!" } ],
+      "levels": { "1": {
+        "answers": ["我都说了不是！", "我说了不是！", "都说了我不是！", "我都说了我不是！"],
+        "need": [["说了不是", "说了我不是"]],
+        "key": { "说了不是": "said (I'm) not", "说了我不是": "said I'm not" },
+        "gloss": "I told you, I'm not!",
+        "tip": "都说了 dōu shuō le = I've already said: 我都说了不是 = I told you, I'm not!",
+        "status": "live" } }
+    } },
+    { "narr": "The exit gate. Your chance!", "zh": "前面就是出口！" },
+    { "say": {
+      "id": "bye",
+      "obstacle": "🚪",
+      "en": "Wave goodbye!",
+      "gain": 12,
+      "answers": ["再见！", "拜拜！", "再见再见！", "大家再见！"],
+      "gloss": "Bye!",
+      "need": [["再见", "拜拜"]],
+      "tip": "再见 zàijiàn = goodbye, literally 'see again'. 拜拜, bye-bye, is just as common.",
+      "ok": [ { "who": "guide", "zh": "等等！", "en": "Wait!" } ],
+      "fail": [ { "who": "guide", "zh": "去哪儿？", "en": "Where are you off to?" } ],
+      "levels": { "1": {
+        "answers": ["大家再见！", "大家再见啦！", "大家拜拜！", "各位再见！"],
+        "need": [["大家再见", "大家拜拜", "各位再见"]],
+        "gloss": "Bye, everyone!",
+        "tip": "大家 dàjiā = everyone: 大家再见 = bye, everyone! 各位 gèwèi is a politer 'everyone'.",
+        "status": "live" } }
+    } },
+    { "narr": "She catches you at the gate, holding a box of dumplings.", "zh": "她拿着一盒饺子。", "finale": true },
+    { "who": "guide", "zh": "一起吃吧！", "en": "Come and eat with us!", "fx": "give" },
+    { "say": {
+      "id": "yes",
+      "en": "Say yes to the dumplings!",
+      "answers": ["一起吃！", "好啊！", "好！", "好啊好啊！", "行啊！", "好的，谢谢！"],
+      "gloss": "Let's eat together!",
+      "need": [["好", "行", "一起吃"]],
+      "not": [
+        { "heard": ["不用", "不要", "不了"], "note": "That turns them down! She's offering dumplings: 好啊！" },
+        { "heard": ["你好"], "note": "你好 is hello. To say yes: 好啊！" }
+      ],
+      "tip": "一起吃 = eat together. 好啊 hǎo a (sure, happily!) works too; 好吧 would be a reluctant OK.",
+      "ok": [ { "sfx": "cheer" }, { "who": "guide", "zh": "来，拍照！", "en": "Right, photo time!" } ],
+      "fail": [ { "who": "guide", "zh": "饺子，热的！", "en": "Dumplings! Hot ones!" } ],
+      "levels": { "1": {
+        "answers": ["好啊，一起吃！", "好啊好啊，一起吃！", "行啊，一起吃吧！", "好，一起吃！"],
+        "need": [["好", "行"], ["一起吃"]],
+        "gloss": "Sure, let's eat together!",
+        "tip": "一起 yìqǐ = together: 一起吃 = eat together. 一起 + any verb: 一起走, 一起拍.",
+        "status": "live" } }
+    } },
+    { "end": "win", "en": "Got away? Not quite. You're front row in the group photo, holding the flag.", "zh": "合影里，你站第一排。" }
+  ]
+}

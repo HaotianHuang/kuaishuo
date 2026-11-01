@@ -1,0 +1,159 @@
+{
+  "id": "summer-3",
+  "format": "scene",
+  "title": "妈妈来了",
+  "title_en": "Mum Arrives",
+  "level": 3,
+  "listen": 4,
+  "topics": ["family"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "summer", "ep": 3, "next": "Friday morning. 小敏 has filled in the form, and won't show anyone." },
+  "tags": ["北京", "母女", "夜车"],
+  "setting": "A hotel lobby in 北京, midnight. 小姨 has come on the night train.",
+  "stage": "🌙",
+  "bg": ["#0d1a2e", "#5a4a7a"],
+  "cast": {
+    "xiaomin": { "name": "小敏", "en": "your cousin, eighteen", "emoji": "👧", "voice": "f-young" },
+    "xiaoyi": { "name": "小姨", "en": "小敏's mother: furious, and frightened", "emoji": "👩", "voice": "f-mid" },
+    "yifu": { "name": "姨父", "en": "小敏's father, at home, on the phone", "emoji": "👨", "voice": "m-mid", "phone": true }
+  },
+  "steps": [
+    { "when": { "summer.ep2": "home" }, "who": "xiaomin", "zh": "走远了也能回家……走远了也能回家。", "en": "'You can go far and still come home'... You can go far and still come home.",
+      "else": [ { "who": "xiaomin", "zh": "我还是不知道。可是我想知道。", "en": "I still don't know. But I want to." } ] },
+    { "narr": "Midnight. The hotel lobby. The night train is in." },
+    { "sfx": "door" },
+    { "who": "xiaoyi", "zh": "小敏呢？！电话也不接！", "en": "Where's 小敏?! She won't even answer her phone!", "fx": "enter", "pace": "fast" },
+    { "who": "xiaoyi", "zh": "你们两个孩子，跑这么远！", "en": "The two of you, running off this far!", "pace": "fast" },
+    { "who": "xiaoyi", "zh": "北京这么大，丢了怎么办？出事了怎么办？", "en": "北京's enormous! What if you got lost? What if something happened?", "pace": "fast" },
+    { "who": "xiaoyi", "zh": "我一晚上没睡！", "en": "I haven't slept all night!", "pace": "fast" },
+    { "say": {
+      "id": "calm",
+      "en": "Calm her down. Get her to sit.",
+      "cue": "Calm her.",
+      "answers": ["小姨，您别急，先坐下。", "小姨您别急，坐下喝口水。", "您别急，先坐下歇歇。"],
+      "gloss": "Don't worry, Auntie. Sit down first.",
+      "need": [["别急", "消消气"], ["坐"]],
+      "tip": "您别急 = please don't worry: 您 for an elder, even a furious one.",
+      "ok": [ { "narr": "She sits. Her hands don't stop moving." } ],
+      "fail": [ { "who": "xiaoyi", "zh": "小敏呢？！", "en": "Where's 小敏?!", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["小姨，您别急！", "您别急。"],
+          "need": [["别急", "消消气"]],
+          "gloss": "Don't worry, Auntie!",
+          "status": "live" },
+        "4": {
+          "answers": ["小姨，您先消消气，坐下慢慢说。", "小姨，先消消气，坐下慢慢说。"],
+          "need": [["消消气"], ["慢慢说"]],
+          "gloss": "Auntie, let the anger out a little. Sit, and tell me slowly.",
+          "tip": "消消气 xiāoxiao qì = calm down (let the anger go).",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaoyi", "zh": "她爸也不管！就让她跑来北京！", "en": "And her dad does nothing! Just lets her run off to 北京!", "pace": "fast" },
+    { "say": {
+      "id": "explain",
+      "en": "Explain: she only came to look. Nothing's decided.",
+      "cue": "Just looking.",
+      "answers": ["她只是来看看，还没决定。", "小敏只是来看看，还没决定呢。"],
+      "gloss": "She only came to have a look. She hasn't decided.",
+      "need": [["只是来看看"], ["没决定", "还没一撇"]],
+      "tip": "只是 zhǐshì = only, merely. 还没决定 = hasn't decided yet.",
+      "ok": [
+        { "who": "xiaoyi", "zh": "……", "en": "...", "hold": 2 },
+        { "who": "xiaoyi", "zh": "你出来一下。", "en": "Come outside a moment.", "pace": "slow" }
+      ],
+      "fail": [ { "who": "xiaoyi", "zh": "她跑来干什么？", "en": "What's she run off here for?", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["她只是来看看。", "只是来看看。"],
+          "need": [["只是来看看"]],
+          "gloss": "She just came to look.",
+          "status": "live" },
+        "4": {
+          "answers": ["她只是来看看，八字还没一撇呢。", "小敏只是来看看，八字还没一撇。"],
+          "need": [["八字还没一撇"], ["来看看"]],
+          "gloss": "She only came to look. Nothing's even started.",
+          "tip": "八字还没一撇 = the character 八 hasn't got its first stroke: nothing's settled at all.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Outside. A 北京 street at midnight, warm, and nearly empty." },
+    { "who": "xiaoyi", "zh": "我十八岁的时候，也想走。", "en": "When I was eighteen, I wanted to leave too.", "pace": "slow" },
+    { "who": "xiaoyi", "zh": "我妈说不行。她说，她会想我。", "en": "My mother said no. She said she'd miss me.", "pace": "slow" },
+    { "who": "xiaoyi", "zh": "我现在……也是一样。", "en": "And now... it's the same with me.", "pace": "slow", "hold": 2 },
+    { "who": "xiaoyi", "zh": "其实我想让她去。我以为，她爸不让。", "en": "The truth is, I want her to go. I thought her dad wouldn't let her.", "pace": "slow" },
+    { "narr": "Footsteps. 小敏, in her pyjamas." },
+    { "who": "xiaomin", "zh": "妈……", "en": "Mum..." },
+    { "who": "xiaoyi", "zh": "你怎么不跟我说！", "en": "Why didn't you tell me!", "pace": "fast" },
+    { "who": "xiaomin", "zh": "你从来不听！", "en": "You never listen!", "pace": "fast" },
+    { "say": {
+      "id": "listen",
+      "en": "Stop them both: listen to me.",
+      "cue": "Both of you.",
+      "answers": ["你们俩都听我说。", "你们俩先听我说。", "等等，你们俩都听我说！"],
+      "gloss": "Both of you, listen to me.",
+      "need": [["听我说"], ["你们俩", "你们"]],
+      "tip": "你们俩 nǐmen liǎ = the two of you. 听我说 = hear me out.",
+      "ok": [ { "narr": "They stop. They both look at you." } ],
+      "fail": [ { "who": "xiaoyi", "zh": "你从小就这样！", "en": "You've always been like this!", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["听我说！", "你们听我说。"],
+          "need": [["听我说"]],
+          "gloss": "Listen to me!",
+          "status": "live" },
+        "4": {
+          "answers": ["你们俩先停一下，听我说一句。", "你们俩都停一下，听我说一句。"],
+          "need": [["停一下"], ["听我说"]],
+          "gloss": "Both of you, stop a moment. Let me say one thing.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "next",
+      "en": "Call 姨父 so they can talk, or let 小敏 speak first.",
+      "cue": "Call, or 小敏?",
+      "answers": ["我们给姨父打个电话吧。", "给姨父打个电话吧。"],
+      "gloss": "Let's call 姨父.",
+      "need": [["姨父"], ["打个电话", "打电话"]],
+      "tip": "给……打电话 = call (someone): 给姨父打个电话.",
+      "sets": { "summer.ep3": "call" },
+      "ok": [
+        { "sfx": "ring" },
+        { "who": "yifu", "zh": "喂？", "en": "Hello?" },
+        { "who": "xiaoyi", "zh": "……你也想让她去？", "en": "...You want her to go too?" },
+        { "who": "yifu", "zh": "……嗯。", "en": "...Mm.", "hold": 2 },
+        { "who": "xiaoyi", "zh": "我也是。", "en": "So do I.", "pace": "slow" }
+      ],
+      "alts": [
+        { "en": "Or: let 小敏 speak", "answers": ["让小敏自己说吧。", "让小敏先说吧。"], "need": [["让小敏"], ["说"]], "gloss": "Let 小敏 say it herself.",
+          "sets": { "summer.ep3": "xiaomin" },
+          "then": [
+            { "who": "xiaomin", "zh": "妈。我想去北京。", "en": "Mum. I want to go to 北京." },
+            { "who": "xiaomin", "zh": "我会回家的。", "en": "I'll come home.", "hold": 1 },
+            { "who": "xiaoyi", "zh": "……好。", "en": "...All right.", "pace": "slow" }
+          ] }
+      ],
+      "fail": [ { "who": "xiaomin", "zh": "你说呀。", "en": "Go on, say it." } ],
+      "levels": {
+        "2": {
+          "answers": ["给姨父打电话吧。", "打给姨父吧。"],
+          "need": [["姨父"]],
+          "gloss": "Call 姨父.",
+          "alts": [ { "of": 0, "answers": ["让小敏说吧。"], "need": [["让小敏"]], "gloss": "Let 小敏 talk." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["一家人的事，我们给姨父打个电话。", "一家人的事，给姨父打个电话吧。"],
+          "need": [["一家人"], ["姨父"]],
+          "gloss": "It's a family matter. Let's call 姨父.",
+          "alts": [ { "of": 0, "answers": ["解铃还须系铃人，让小敏自己说。"], "need": [["解铃还须系铃人"], ["让小敏"]], "gloss": "Whoever tied the bell unties it: let 小敏 say it." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "summer.ep3": "call" }, "end": "win", "en": "One in the morning: three people on one phone call, all saying the same thing at last. 📞",
+      "else": [ { "end": "win", "en": "小姨 holds 小敏's hand all the way up in the lift. Neither says a word. 🌙" } ] }
+  ]
+}

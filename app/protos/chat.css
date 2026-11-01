@@ -1,0 +1,300 @@
+/* Chats (聊): WeChat on the phone. Light, like the app as most people know it; the card's own colours only tint the
+   chat list under the caption, the photos and the closing line. */
+.ks-chat { --wx-bg: #ededed; --wx-bar: #f7f7f7; --wx-green: #95ec69; --wx-brand: #07c160; --wx-text: #191919; --wx-mute: #8c8c8c; --wx-red: #fa5151; --wx-link: #576b95; background: var(--wx-bg); color: var(--wx-text); }
+.ks-chat .ks-zh rt { color: #666; }
+.ks-chat .ks-w:hover, .ks-chat .ks-w:active { background: rgba(0, 0, 0, 0.07); }
+.ks-chat .ks-en { color: #888; font-size: 14px; }
+.ks-chat .ks-cap, .ks-chat .ks-rail { color: var(--paper); }
+/* the app's back button, on WeChat's light top bar: light too */
+body:has(.ks-chat-in) .ks-back { background: rgba(0, 0, 0, 0.07); color: var(--wx-text, #191919); backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+/* ---------- the chat list ---------- */
+.ks-chat-list { position: absolute; inset: 0; display: flex; flex-direction: column; background: #fff; }
+.ks-chat-list::after { content: ''; position: absolute; inset: 50% 0 0; background: linear-gradient(to bottom, transparent, var(--c1) 72%); opacity: 0.95; pointer-events: none; }
+.ks-chat-lhead { position: relative; flex: none; display: grid; place-items: center; height: 46px; padding-top: var(--safe-t); background: var(--wx-bg); font-size: 17px; }
+.ks-chat-lhead i { position: absolute; right: var(--safe-r); bottom: 8px; font-style: normal; font-size: 24px; line-height: 1; color: #222; }
+.ks-chat-search { flex: none; padding: 0 10px 10px; background: var(--wx-bg); }
+.ks-chat-search span { display: block; padding: 7px; border-radius: 6px; background: #fff; color: #b2b2b2; font-size: 15px; text-align: center; }
+.ks-chat-search span::before { content: '⌕ '; }
+.ks-chat-row { position: relative; flex: none; display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 12px; align-items: center; width: 100%; box-sizing: border-box; padding: 12px var(--safe-r) 12px var(--safe-l); border: 0; background: #fff; color: var(--wx-text); text-align: left; }
+.ks-chat-row + .ks-chat-row::before { content: ''; position: absolute; top: 0; left: calc(var(--safe-l) + 60px); right: 0; border-top: 1px solid #ececec; }
+.ks-chat-row .ks-chat-av { width: 48px; height: 48px; font-size: 28px; }
+.ks-chat-row-t { min-width: 0; display: grid; gap: 2px; }
+.ks-chat-row-t b { font-weight: 500; font-size: 17px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ks-chat-row-t span { font-size: 14px; color: #a3a3a3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ks-chat-row time { align-self: start; margin-top: 3px; font-size: 12px; color: #b2b2b2; }
+.ks-chat-badge { position: absolute; left: calc(var(--safe-l) + 38px); top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 9px; background: var(--wx-red); color: #fff; font-size: 12px; line-height: 18px; text-align: center; }
+.ks-chat-row-new { cursor: pointer; }
+.ks-chat-row-new:active { background: #ececec; }
+.ks-chat-row-in { animation: ks-chat-row-in 0.5s ease-out; }
+.ks-chat-row-in .ks-chat-badge { animation: ks-chat-pop 0.4s 0.35s both; }
+@keyframes ks-chat-row-in { from { transform: translateY(-12px); opacity: 0; } }
+@keyframes ks-chat-pop { from { transform: scale(0); } 60% { transform: scale(1.3); } }
+.ks-chat-tap { align-self: center; margin: 14px 0 0; padding: 7px 16px; border-radius: 99px; background: var(--wx-brand); color: #fff; font-size: 14px; font-weight: 600; animation: ks-chat-bob 1.4s ease-in-out infinite; pointer-events: none; }
+@keyframes ks-chat-bob { 50% { transform: translateY(-5px); } }
+
+/* ---------- the conversation ---------- */
+.ks-chat-room { position: absolute; inset: 0; display: none; flex-direction: column; background: var(--wx-bg); }
+.ks-chat-in .ks-chat-room { display: flex; }
+.ks-chat-in .ks-chat-list { display: none; }
+.ks-chat-in:not([data-state=done]) .ks-cap, .ks-chat-in:not([data-state=done]) .ks-rail { display: none; }
+.ks-chat-top { position: relative; flex: none; display: grid; place-items: center; height: 48px; padding: var(--safe-t) 64px 0; background: var(--wx-bg); border-bottom: 1px solid #dcdcdc; }
+.ks-chat-title { display: flex; align-items: baseline; justify-content: center; max-width: 100%; overflow: hidden; white-space: nowrap; font-size: 17px; font-weight: 600; }
+.ks-chat-title .ks-zh { line-height: 1.3; }
+.ks-chat-typing { display: none; font-weight: 500; }
+.ks-chat-is-typing .ks-chat-name { display: none; }
+.ks-chat-is-typing .ks-chat-typing { display: inline; }
+.ks-chat-loud { position: absolute; right: calc(var(--safe-r) - 8px); bottom: 4px; width: 40px; height: 40px; padding: 8px; border: 0; background: none; color: #222; }
+.ks-chat-loud svg { width: 24px; height: 24px; }
+.ks-chat-loud[aria-pressed=false] { color: #9a9a9a; }
+.ks-chat-log { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: auto; padding: 10px 12px 18px; }
+/* while it plays, the log doesn't scroll (a swipe belongs to the feed): the newest messages sit on the input bar and
+   older ones fade out at the top. The whole chat can be scrolled back on the end screen. */
+.ks-chat-in:not([data-state=done]) .ks-chat-log { overflow: hidden; }
+.ks-chat-in:not([data-state=done]) .ks-chat-log.ks-chat-full { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 64px); mask-image: linear-gradient(to bottom, transparent, #000 64px); }
+.ks-chat[data-state=done] .ks-chat-log { padding-bottom: calc(var(--ks-chat-over, 320px) + 16px); }
+.ks-chat-msg, .ks-chat-sys, .ks-chat-time, .ks-chat-story { flex: none; animation: ks-chat-in 0.22s ease-out; }
+@keyframes ks-chat-in { from { opacity: 0; transform: translateY(8px); } }
+.ks-chat-msg { display: flex; align-items: flex-start; gap: 10px; margin: 7px 0 9px; }
+.ks-chat-mine { flex-direction: row-reverse; }
+.ks-chat-av { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 5px; overflow: hidden; background: #ddd; font-size: 24px; line-height: 1; }
+.ks-chat-av svg { display: block; width: 100%; height: 100%; }
+.ks-chat-av-grid { grid-template-columns: 1fr 1fr; gap: 1px; padding: 2px; box-sizing: border-box; background: #dcdcdc; }
+.ks-chat-av-grid i { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 2px; background: #f6f6f6; font-style: normal; font-size: 0.55em; }
+.ks-chat-body { min-width: 0; max-width: calc(100% - 100px); display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.ks-chat-mine .ks-chat-body { align-items: flex-end; }
+.ks-chat-from { margin: -3px 0 0 2px; font-size: 12px; color: var(--wx-mute); }
+.ks-chat-bub { position: relative; box-sizing: border-box; max-width: 100%; padding: 7px 12px; border: 0; border-radius: 6px; background: #fff; color: var(--wx-text); font-size: 20px; line-height: 1.5; text-align: left; overflow-wrap: anywhere; cursor: pointer; }
+.ks-chat-bub::before, .ks-chat-pkt::before { content: ''; position: absolute; top: 13px; left: -6px; border: 6px solid transparent; border-left: 0; border-right-color: #fff; }
+.ks-chat-mine .ks-chat-bub { background: var(--wx-green); }
+.ks-chat-mine .ks-chat-bub::before { left: auto; right: -6px; border: 6px solid transparent; border-right: 0; border-left-color: var(--wx-green); }
+.ks-chat-bub .ks-zh, .ks-chat-trans .ks-zh { line-height: 1.75; }
+.ks-chat-bub .ks-en { margin-top: 0; }
+.ks-chat-mine .ks-en { color: rgba(0, 0, 0, 0.5); }
+.ks-chat-at { color: var(--wx-link); }
+.ks-chat-tail { margin-left: 3px; }
+.ks-chat-stars { font-size: 12px; line-height: 1; letter-spacing: 1px; color: #e0a800; }
+.ks-chat-stars i { font-style: normal; color: #cfcfcf; }
+.ks-chat-skipped .ks-chat-bub { opacity: 0.55; }
+/* a typo struck through in your own bubble, put right in the next one (*辣) */
+.ks-chat-zh s { color: #8a8a8a; text-decoration: line-through 2px var(--wx-red); }
+/* sent too late: WeChat's red ! beside a bubble that didn't arrive */
+.ks-chat-bounced .ks-chat-bub { opacity: 0.75; }
+.ks-chat-bang { position: absolute; top: 50%; right: calc(100% + 10px); width: 20px; height: 20px; margin-top: -10px; border-radius: 50%; background: var(--wx-red); color: #fff; font: 700 14px/20px var(--body); font-style: normal; text-align: center; }
+
+/* voice notes: heard first, read on 转文字 */
+.ks-chat-vn { display: flex; align-items: center; gap: 6px; width: calc(84px + var(--secs, 2) * 4px); min-height: 41px; font-size: 16px; }
+.ks-chat-mine .ks-chat-vn { justify-content: flex-end; }
+.ks-chat-wave { flex: none; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.ks-chat-wave circle { fill: currentColor; stroke: none; }
+.ks-chat-mine .ks-chat-wave { transform: scaleX(-1); }
+.ks-chat-playing .ks-chat-wave path:nth-of-type(1) { animation: ks-chat-w1 0.9s steps(1) infinite; }
+.ks-chat-playing .ks-chat-wave path:nth-of-type(2) { animation: ks-chat-w2 0.9s steps(1) infinite; }
+@keyframes ks-chat-w1 { 0% { opacity: 0; } 33% { opacity: 1; } }
+@keyframes ks-chat-w2 { 0% { opacity: 0; } 66% { opacity: 1; } }
+.ks-chat-secs { position: absolute; top: 50%; left: calc(100% + 8px); transform: translateY(-50%); color: #7a7a7a; font-size: 15px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ks-chat-mine .ks-chat-secs { left: auto; right: calc(100% + 8px); }
+.ks-chat-dot { position: absolute; top: 3px; left: calc(100% + 9px); width: 8px; height: 8px; border-radius: 50%; background: var(--wx-red); }
+.ks-chat-dot ~ .ks-chat-secs, .ks-chat-secs:has(~ .ks-chat-dot) { top: auto; bottom: 2px; transform: none; }
+.ks-chat-stt { border: 0; background: none; padding: 2px 2px 0; font-size: 13px; color: var(--wx-link); }
+.ks-chat-trans { box-sizing: border-box; max-width: 100%; padding: 6px 12px; border-radius: 6px; background: rgba(255, 255, 255, 0.72); font-size: 20px; animation: ks-chat-in 0.2s ease-out; cursor: pointer; }
+.ks-chat-mine .ks-chat-trans { align-self: flex-end; max-width: 78%; background: #cdf5b6; font-size: 18px; text-wrap: pretty; }
+
+/* stickers, photos, articles */
+.ks-chat-stk { display: grid; justify-items: center; max-width: 100%; padding: 4px 0; cursor: pointer; }
+.ks-chat-stk .ks-chat-art { font-size: calc(96px / (1 + (var(--n, 1) - 1) * 0.45)); line-height: 1.1; }
+.ks-chat-stk-zh { position: relative; margin-top: -20px; max-width: 100%; text-align: center; font-size: 24px; font-weight: 900; color: #fff; line-height: 1.3 !important; text-shadow: 0 0 2px #000, 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000; }
+.ks-chat-stk-zh rt { color: #fff; text-shadow: 0 0 3px #000; }
+.ks-chat-pic { display: grid; place-items: center; width: 172px; height: 132px; padding: 0; border: 0; border-radius: 6px; background: linear-gradient(150deg, var(--c2), var(--c1)); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06); cursor: zoom-in; }
+.ks-chat-pic .ks-chat-art { font-size: 50px; letter-spacing: 2px; filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3)); }
+.ks-chat-pic-cap { max-width: 240px; font-size: 18px; color: #555; cursor: pointer; }
+.ks-chat-pic-cap .ks-zh { line-height: 1.7; }
+.ks-chat-link { box-sizing: border-box; width: 260px; max-width: 100%; padding: 10px 12px 0; border-radius: 6px; background: #fff; cursor: pointer; }
+.ks-chat-link-t { font-size: 18px; font-weight: 600; line-height: 1.5; }
+.ks-chat-link-t .ks-zh { line-height: 1.7; }
+.ks-chat-link-m { display: grid; grid-template-columns: minmax(0, 1fr) 52px; gap: 8px; align-items: center; margin: 4px 0 8px; }
+.ks-chat-link-m .ks-chat-art { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 4px; background: #f2f2f2; font-size: 24px; }
+.ks-chat-link-m .ks-en { font-size: 13px; }
+.ks-chat-link-f { padding: 6px 0 7px; border-top: 1px solid #efefef; font-size: 12px; color: #a0a0a0; }
+
+/* red packets */
+.ks-chat-pkt { position: relative; display: grid; grid-template-columns: 30px minmax(0, 1fr); column-gap: 10px; align-items: center; width: 236px; max-width: 100%; box-sizing: border-box; padding: 12px 12px 0; border: 0; border-radius: 6px; background: #fa9d3b; color: #fff; text-align: left; cursor: pointer; }
+.ks-chat-pkt::before { border-right-color: #fa9d3b; }
+.ks-chat-pkt-ic { position: relative; width: 30px; height: 38px; border-radius: 4px; background: #f15b4a; }
+.ks-chat-pkt-ic::after { content: ''; position: absolute; left: 9px; top: 9px; width: 12px; height: 12px; border-radius: 50%; background: #fbd38d; }
+.ks-chat-pkt-t { font-size: 17px; line-height: 1.4; }
+.ks-chat-pkt-t .ks-zh { line-height: 1.6; }
+.ks-chat-pkt .ks-zh rt { color: rgba(255, 255, 255, 0.8); }
+.ks-chat-pkt-got { display: block; font-size: 13px; opacity: 0.9; }
+.ks-chat-pkt-f { grid-column: 1 / -1; margin: 10px -12px 0; padding: 4px 12px 5px; border-top: 1px solid rgba(255, 255, 255, 0.3); font-size: 12px; color: rgba(255, 255, 255, 0.88); }
+.ks-chat-pkt-done { background: #fbd3a6; }
+.ks-chat-pkt-done::before { border-right-color: #fbd3a6; }
+
+/* WeChat's grey lines, and the narrator's */
+.ks-chat-time { align-self: center; margin: 12px 0 4px; font-size: 13px; color: #a6a6a6; }
+.ks-chat-sys { align-self: center; max-width: 88%; margin: 8px 0; color: #8c8c8c; font-size: 17px; text-align: center; cursor: pointer; }
+.ks-chat-sys .ks-zh { line-height: 1.6; }
+.ks-chat-sys .ks-en { font-size: 13px; color: #a3a3a3; }
+.ks-chat-sys-pkt .ks-chat-sys-zh::before { content: '🧧 '; }
+.ks-chat-story { align-self: center; box-sizing: border-box; max-width: 94%; margin: 4px 0 10px; padding: 10px 14px; border-radius: 14px; background: rgba(30, 30, 30, 0.8); color: #fff; text-align: center; cursor: pointer; }
+.ks-chat-story .ks-zh { font-size: 20px; line-height: 1.75; }
+.ks-chat-story .ks-zh rt { color: #cfcfcf; }
+.ks-chat-story-en { font-size: 14px; line-height: 1.4; color: #e2e2e2; }
+.ks-chat-story-end { margin-top: 14px; background: linear-gradient(135deg, var(--c1), var(--c2)); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18); }
+.ks-chat-story-lose { background: linear-gradient(135deg, #2b2b2b, #7d2626); }
+.ks-chat-gone { animation: ks-chat-gone 0.34s ease-in forwards; }
+@keyframes ks-chat-gone { to { opacity: 0; transform: scale(0.9); } }
+.ks-chat-jolt { animation: ks-shake 0.4s; }
+.ks-chat-fast, .ks-chat-fast * { animation: none !important; transition: none !important; }
+
+/* ---------- the input bar ---------- */
+.ks-chat-bar { position: relative; z-index: 3; flex: none; background: var(--wx-bar); border-top: 1px solid #e3e3e3; }
+.ks-chat-idle { display: flex; align-items: center; gap: 10px; padding: 8px 10px calc(8px + var(--safe-b)); }
+.ks-chat-ic { flex: none; display: grid; place-items: center; width: 30px; height: 30px; color: #1a1a1a; font-size: 25px; line-height: 1; }
+.ks-chat-ic svg { width: 30px; height: 30px; }
+.ks-chat-field { flex: 1; height: 40px; border-radius: 5px; background: #fff; }
+.ks-chat-bar:has(.ks-ask) { border-top: 0; }
+.ks-chat-bar:has(.ks-ask) .ks-chat-idle { display: none; }
+/* while you talk: WeChat's grey recording box in the middle of the screen */
+.ks-chat-rec { position: absolute; z-index: 6; left: 50%; top: 42%; transform: translate(-50%, -50%); display: none; justify-items: center; gap: 10px; width: 150px; padding: 18px 0 14px; border-radius: 14px; background: rgba(40, 40, 40, 0.86); color: #fff; pointer-events: none; }
+.ks-chat:has(.ks-ask--chat.ks-listening) .ks-chat-rec { display: grid; }
+.ks-chat-rec > svg { width: 46px; height: 46px; }
+.ks-chat-rec div { display: flex; align-items: flex-end; gap: 4px; height: 22px; }
+.ks-chat-rec i { width: 4px; height: 6px; border-radius: 2px; background: var(--wx-green); animation: ks-chat-vol 0.8s ease-in-out infinite; }
+.ks-chat-rec i:nth-child(2) { animation-delay: 0.12s; } .ks-chat-rec i:nth-child(3) { animation-delay: 0.24s; } .ks-chat-rec i:nth-child(4) { animation-delay: 0.36s; } .ks-chat-rec i:nth-child(5) { animation-delay: 0.48s; }
+@keyframes ks-chat-vol { 50% { height: 22px; } }
+.ks-chat-rec b { font-size: 14px; font-weight: 500; }
+.ks-chat-rec small { margin-top: -8px; font-size: 12px; opacity: 0.75; }
+
+/* ---------- your turn: ask() as WeChat's input bar (mission on top, the keyboard row at the bottom) ---------- */
+.ks-ask--chat { position: relative; inset: auto; z-index: 3; width: 100%; max-height: min(64vh, 560px); box-sizing: border-box; padding: 10px 12px calc(10px + var(--safe-b)); gap: 8px; border: 0; border-radius: 0; background: var(--wx-bar); color: var(--wx-text); box-shadow: 0 -1px 0 #e3e3e3; backdrop-filter: none; -webkit-backdrop-filter: none; animation: ks-chat-up 0.22s ease-out; }
+@keyframes ks-chat-up { from { transform: translateY(14px); opacity: 0.4; } }
+.ks-ask--chat .ks-ask-label { color: var(--wx-brand); font-size: 11px; }
+.ks-ask--chat .ks-ask-clock { width: 34px; height: 34px; margin: -4px 0 -6px; }
+.ks-ask--chat .ks-ring-bg { stroke: #e0e0e0; }
+.ks-ask--chat .ks-ring { stroke: var(--wx-brand); }
+.ks-ask--chat .ks-ask-clock b { font-size: 13px; color: #333; }
+.ks-ask--chat.ks-hurry .ks-ring { stroke: var(--wx-red); }
+.ks-ask--chat.ks-hurry .ks-ask-clock b { color: var(--wx-red); }
+.ks-ask--chat .ks-ask-mission { padding: 8px 10px; border-radius: 6px; background: #e8e8e8; color: #2a2a2a; font-size: 16px; font-weight: 600; line-height: 1.35; text-wrap: pretty; }
+/* a cue reads big: the Chinese above says the rest; the first Hint spells the mission out */
+.ks-ask--chat .ks-ask-cue { font-size: 22px; font-weight: 800; line-height: 1.25; color: #111; background: #e3f6ea; box-shadow: inset 3px 0 0 var(--wx-brand); }
+.ks-ask--chat .ks-ask-alts { color: #8a8a8a; }
+.ks-ask--chat .ks-ask-alts em { border-color: #c4c4c4; background: #fff; color: #333; }
+.ks-ask--chat .ks-frame, .ks-ask--chat .ks-help-full { font-size: 22px; color: #222; }
+.ks-ask--chat .ks-frame-key { color: #a86a00; }
+.ks-ask--chat .ks-heard { color: #888; }
+.ks-ask--chat .ks-heard span, .ks-ask--chat .ks-interim { color: #222; }
+.ks-ask--chat .ks-note, .ks-ask--chat .ks-warn { color: #9a5f00; }
+.ks-ask--chat .ks-note-tone b, .ks-ask--chat .ks-note i { color: #1a1a1a; }
+.ks-ask--chat .ks-ask-tools { order: 1; }
+.ks-ask--chat .ks-ask-input { order: 2; }
+.ks-ask--chat .ks-ask-tools { gap: 6px; flex-wrap: nowrap; }
+.ks-ask--chat .ks-tool { flex: none; padding: 5px 9px; border-color: #d0d0d0; background: #fff; color: #333; font-size: 12.5px; }
+.ks-ask--chat .ks-modes { background: #e4e4e4; }
+.ks-ask--chat .ks-mode { color: #8a8a8a; }
+.ks-ask--chat .ks-mode[aria-selected=true] { background: #fff; color: #111; box-shadow: inset 0 0 0 1.5px var(--wx-brand); }
+/* speak: 按住 说话, a press to start (chat.js); in English first, for a learner who can't read WeChat's yet */
+.ks-ask--chat .ks-mic { position: relative; display: grid; place-items: center; width: 100%; height: 44px; padding: 0; border-radius: 6px; background: #fff; color: var(--wx-text); touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.ks-ask--chat .ks-mic svg, .ks-ask--chat .ks-mic::before { display: none; }
+.ks-ask--chat .ks-mic span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.ks-ask--chat .ks-mic::after { content: 'Hold to talk  ·  按住 说话'; font-size: 17px; font-weight: 600; }
+.ks-ask--chat.ks-listening .ks-mic { background: #d6d6d6; }
+.ks-ask--chat.ks-listening .ks-mic::after { content: 'Tap when done  ·  说完 点一下'; }
+.ks-chat-holding .ks-ask--chat.ks-listening .ks-mic::after { content: 'Let go to send  ·  松开 发送'; }
+/* type: the field and 发送 */
+.ks-ask--chat .ks-type input { height: 42px; box-sizing: border-box; padding: 0 12px; border: 0; border-radius: 6px; background: #fff; color: var(--wx-text); font-size: 18px; }
+.ks-ask--chat .ks-type input::placeholder { color: #b5b5b5; }
+.ks-ask--chat .ks-type input:focus-visible { outline: 2px solid var(--wx-brand); outline-offset: 0; }
+.ks-ask--chat .ks-type button { flex: none; padding: 0 14px; border-radius: 6px; background: var(--wx-brand); color: #fff; font-size: 0; }
+.ks-ask--chat .ks-type button::after { content: '发送'; font-size: 16px; font-weight: 600; }
+/* tiles, say-and-check, the verdict */
+.ks-ask--chat .ks-tiles-line { min-height: 44px; border-radius: 6px; background: #fff; }
+.ks-ask--chat .ks-tiles-ph { color: #b0b0b0; }
+.ks-ask--chat .ks-tiles-pool { margin-top: 8px; }
+.ks-ask--chat .ks-tile { border: 1px solid #dadada; background: #fff; color: var(--wx-text); box-shadow: 0 2px 0 #d4d4d4; }
+.ks-ask--chat .ks-tile-in { border-color: #7fd655; background: var(--wx-green); box-shadow: 0 2px 0 #72c64b; }
+.ks-ask--chat .ks-tile:disabled { opacity: 0.25; }
+.ks-ask--chat .ks-self p, .ks-ask--chat .ks-self-q { color: #666; }
+.ks-ask--chat .ks-self .ks-btn { background: var(--wx-brand); color: #fff; }
+.ks-ask--chat .ks-self .ks-btn-quiet { background: #e4e4e4; color: #333; }
+.ks-ask--chat .ks-stars i { color: #dedede; }
+.ks-ask--chat .ks-win-said { font-size: 24px; }
+.ks-ask--chat .ks-m-ok, .ks-ask--chat .ks-m-homo { color: #06a058; }
+.ks-ask--chat .ks-m-tone { color: #bf7a00; }
+.ks-ask--chat .ks-model { color: #777; }
+.ks-ask--chat .ks-model-zh { color: #222; }
+.ks-ask--chat .ks-tip { background: #ebebeb; color: #333; }
+.ks-ask--chat .ks-next { background: var(--wx-brand); color: #fff; }
+.ks-ask--chat.ks-timeout { box-shadow: 0 -2px 0 var(--wx-red); }
+.ks-ask--chat.ks-timeout .ks-ask-mission { background: #fde4e4; color: var(--wx-red); }
+
+/* ---------- overlays: a photo opened, a red packet ---------- */
+.ks-chat-view { position: absolute; inset: 0; z-index: 9; display: grid; place-content: center; justify-items: center; gap: 14px; padding: 0 var(--safe-r) 0 var(--safe-l); background: rgba(0, 0, 0, 0.92); color: #fff; text-align: center; animation: ks-chat-in 0.2s; cursor: zoom-out; }
+.ks-chat-view .ks-chat-art { font-size: 112px; line-height: 1.1; }
+.ks-chat-view-zh { font-size: 24px; }
+.ks-chat-view .ks-zh rt { color: #bbb; }
+.ks-chat-view .ks-en { color: #ccc; font-size: 15px; }
+.ks-chat-env-bg { position: absolute; inset: 0; z-index: 9; display: grid; place-items: center; background: rgba(0, 0, 0, 0.6); animation: ks-chat-in 0.2s; }
+.ks-chat-env { position: relative; width: min(300px, 82%); height: min(430px, 74%); border-radius: 14px; overflow: hidden; background: #e2513f; color: #fbe3bd; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); perspective: 600px; }
+.ks-chat-env-top { position: absolute; z-index: 1; inset: 0 0 30% 0; display: grid; align-content: start; justify-items: center; gap: 8px; padding-top: 40px; border-radius: 0 0 50% 50% / 0 0 14% 14%; background: #ec5e4c; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18); transition: transform 0.5s ease-in; }
+.ks-chat-env-top .ks-chat-av { width: 44px; height: 44px; font-size: 26px; background: rgba(255, 255, 255, 0.2); }
+.ks-chat-env-top b { font-size: 17px; font-weight: 600; }
+.ks-chat-env-msg { padding: 0 22px; font-size: 22px; text-align: center; }
+.ks-chat-env-msg .ks-zh { line-height: 1.7; }
+.ks-chat-env .ks-zh rt { color: #f7c9a8; }
+.ks-chat-coin { position: absolute; z-index: 2; left: 50%; top: 70%; width: 88px; height: 88px; margin: -44px 0 0 -44px; padding: 0; border: 0; border-radius: 50%; background: #e8b86b; color: #3a2a12; font: 38px/1 'Songti SC', 'STSong', serif; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); }
+.ks-chat-env-sealed .ks-chat-coin { filter: grayscale(1); opacity: 0.55; cursor: not-allowed; }
+.ks-chat-env-note { position: absolute; z-index: 2; left: 0; right: 0; bottom: 12px; margin: 0; padding: 0 18px; font-size: 14px; text-align: center; color: #fde2bf; }
+.ks-chat-env-bg:not(.ks-chat-env-sealed) .ks-chat-env-note { visibility: hidden; }
+.ks-chat-env-res { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 6px; opacity: 0; transition: opacity 0.35s 0.3s; }
+.ks-chat-env-res b { font-size: 46px; font-weight: 700; color: #fde3a7; }
+.ks-chat-env-res span { font-size: 14px; color: #fbd5b5; }
+.ks-chat-env-res span:first-child { font-size: 17px; color: #fde3a7; }
+.ks-chat-spark { position: absolute; left: 50%; top: 50%; margin: -10px 0 0 -7px; font-style: normal; font-size: 20px; color: #ffe08a; opacity: 0; }
+.ks-chat-env-opened .ks-chat-spark { animation: ks-chat-spark 0.9s 0.35s ease-out both; }
+@keyframes ks-chat-spark { 0% { opacity: 1; transform: rotate(var(--a)) translateY(-20px) scale(0.4); } 100% { opacity: 0; transform: rotate(var(--a)) translateY(-120px) scale(1.2); } }
+.ks-chat-env-spin .ks-chat-coin { animation: ks-chat-spin 0.85s cubic-bezier(0.4, 0, 0.6, 1); }
+@keyframes ks-chat-spin { to { transform: rotateY(1080deg); } }
+.ks-chat-env-opened .ks-chat-env-top { transform: translateY(-104%); }
+.ks-chat-env-opened .ks-chat-coin { opacity: 0; transition: opacity 0.2s; }
+.ks-chat-env-opened .ks-chat-env-res { opacity: 1; }
+.ks-chat-env-opened .ks-chat-env-res b { animation: ks-chat-pop 0.5s 0.35s both; }
+.ks-chat-env-out { opacity: 0; transition: opacity 0.25s; }
+
+/* ---------- chat over ---------- */
+.ks-chat[data-state=done] .ks-chat-room::after { content: ''; position: absolute; inset: 0; z-index: 5; background: rgba(0, 0, 0, 0.42); pointer-events: none; }
+.ks-chat[data-state=done] .ks-cap { display: none; }
+.ks-chat[data-state=done] .ks-rail { display: none; }
+.ks-chat-over { position: absolute; z-index: 8; left: 0; right: 0; bottom: 0; max-height: 84%; overflow: hidden; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 18px var(--safe-r) calc(16px + var(--safe-b)) var(--safe-l); border-radius: 18px 18px 0 0; background: #fff; color: var(--wx-text); box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25); animation: ks-up 0.3s ease-out; }
+.ks-chat-over-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.ks-chat-over-head b { font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1; color: var(--wx-brand); }
+.ks-chat-over-head > span:not(.ks-chat-over-stars) { font-weight: 600; color: #666; }
+.ks-chat-over-stars { margin-left: auto; font-size: 28px; line-height: 1; letter-spacing: 2px; color: #e2e2e2; }
+.ks-chat-over-stars .ks-on { color: var(--gold); display: inline-block; animation: ks-chat-star 0.4s calc(var(--i) * 0.22s + 0.2s) both; }
+@keyframes ks-chat-star { from { transform: scale(0.2) rotate(-30deg); opacity: 0; } }
+.ks-chat-over-list { flex: 0 1 auto; min-height: 0; overflow: hidden; display: grid; gap: 8px; margin: 0; padding: 0 0 18px; list-style: none; -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent); }
+.ks-chat-said-missed { background: #fdecec; box-shadow: inset 3px 0 0 var(--wx-red); }
+.ks-chat-said-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wx-red); }
+.ks-chat-said-you { font-size: 14px; color: #777; }
+.ks-chat-said-you span { font-size: 17px; color: #333; }
+.ks-chat-said-you mark { background: #ffe58f; color: #111; border-radius: 3px; padding: 0 1px; }
+.ks-chat-over-lose .ks-chat-over-head b { color: var(--wx-red); }
+.ks-chat-said { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 10px; align-items: center; padding: 8px 10px; border-radius: 10px; background: #f4f4f4; }
+.ks-chat-said-play { width: 40px; height: 40px; border: 0; border-radius: 50%; background: var(--wx-green); font-size: 17px; }
+.ks-chat-said-t { min-width: 0; }
+.ks-chat-said-t .ks-zh { font-size: 19px; line-height: 1.7; }
+.ks-chat-said-en { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; line-height: 1.35; color: #777; }
+.ks-chat-said-en span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ks-chat-said-en b { white-space: nowrap; color: #e0a800; }
+.ks-chat-said-en i { font-style: normal; color: #ddd; }
+.ks-chat-over-row { flex: none; display: flex; justify-content: flex-end; gap: 10px; }
+.ks-chat-again { background: #efefef; color: #222; }
+.ks-chat-next { background: var(--wx-brand); color: #fff; }
+.ks-chat-over .ks-list-more { color: var(--wx-green); }
+.ks-ask--chat .ks-others { color: #8a8a8a; }
+.ks-ask--chat .ks-other { border-color: #c4c4c4; background: #fff; color: #333; }
+.ks-ask--chat .ks-other[aria-pressed=true], .ks-ask--chat .ks-other[aria-pressed=true]::after { border-color: var(--wx-brand); color: var(--wx-brand); }
+
+/* the pixel art (art.js): portraits in place of the emoji, square as WeChat's are */
+.ks-chat-av-art .ks-face, .ks-chat-av-grid i .ks-face { border-radius: 0; }

@@ -1,0 +1,117 @@
+{
+  "id": "hotpot-spicy",
+  "format": "scene",
+  "title": "说好的微辣呢",
+  "title_en": "So Much for Mild",
+  "level": 1,
+  "topics": ["food"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "tags": ["火锅", "重庆", "不要香菜"],
+  "write": ["微辣", "香菜", "牛奶"],
+  "setting": "Chongqing, a hotpot place under a flyover, 9:30 pm.",
+  "stage": "🍲",
+  "bg": ["#4a0d0d", "#b3261e"],
+  "cast": {
+    "waiter": { "name": "服务员", "en": "a waiter in a red apron", "emoji": "💁‍♀️", "voice": "f-young" },
+    "bro": { "name": "邻桌大哥", "en": "the big guy at the next table", "emoji": "🧔", "voice": "m-mid" }
+  },
+  "steps": [
+    { "who": "waiter", "zh": "特辣锅底来了，慢慢吃哈！", "en": "One extra-hot broth! Enjoy!", "fx": "give" },
+    { "narr": "You ordered mild. One bite of tripe, and your mouth's on fire. 🔥", "zh": "你点的可是微辣！一口毛肚下去，嘴巴像着火了。" },
+    { "say": {
+      "id": "toohot",
+      "en": "Call the waiter back. It's far too spicy!",
+      "answers": ["服务员！太辣了！", "太辣了，受不了！", "服务员，这也太辣了吧！", "辣死我了！"],
+      "gloss": "Excuse me! It's way too spicy!",
+      "need": [["辣"]],
+      "tip": "太……了 = too...: 太辣了 = way too spicy. 辣死我了 = 'the spice is killing me', the standard exaggeration.",
+      "mistakes": [ { "heard": ["太热", "很热"], "note": "热 rè is hot as in temperature. Hot as in spicy is 辣 là." } ],
+      "ok": [ { "who": "waiter", "zh": "太辣了？你点的就是特辣呀。", "en": "Too spicy? Extra hot is what you ordered.", "fx": "squint" } ],
+      "fail": [ { "who": "waiter", "zh": "要加菜吗？", "en": "Want to order more?" } ],
+      "cue": "Your mouth's on fire!",
+      "miss": [
+        { "who": "bro", "zh": "辣？喝口汤压一压！", "en": "Spicy? Have some broth, that'll calm it!", "fx": "laugh" },
+        { "narr": "You sip the broth. It does not calm it.", "zh": "你喝了一口汤，更辣了。" }
+      ],
+      "levels": { "0": { "answers": ["太辣了！", "好辣！", "辣死了！"], "gloss": "It's way too spicy!", "tip": "太辣了 = too spicy! 太…了 is \"too…\".", "status": "live" } }
+    } },
+    { "say": {
+      "id": "ordered",
+      "en": "Tell her what you ordered was mild, not extra hot.",
+      "answers": ["我点的是微辣，不是特辣！", "我点的是微辣！", "不对，我要的是微辣。", "我点的微辣呀！", "这不是我点的！"],
+      "gloss": "I ordered mild, not extra hot!",
+      "need": [["微辣", "不是我点的", "上错", "点错"]],
+      "tip": "我点的是…… = what I ordered was... 微辣 wēilà = mild, 中辣 = medium, 特辣 tèlà = extra hot.",
+      "mistakes": [ { "heard": ["订的"], "note": "订 dìng is for booking a table or a ticket. Ordering food is 点 diǎn." } ],
+      "ok": [
+        { "who": "waiter", "zh": "哎呀，上错了！这锅是隔壁桌的！", "en": "Oh no, wrong pot! This one's for the next table!", "fx": "shake" },
+        { "who": "bro", "zh": "难怪！我这锅一点都不辣！", "en": "No wonder! Mine isn't spicy at all!", "fx": "angry" }
+      ],
+      "fail": [ { "who": "waiter", "zh": "你点的什么？我看看单子。", "en": "What did you order? Let me check the slip." } ],
+      "cue": "Not what you ordered!",
+      "miss": [
+        { "who": "waiter", "zh": "特辣就特辣嘛，吃吧！", "en": "Extra hot's extra hot. Eat up!", "fx": "laugh" },
+        { "end": "lose", "en": "You finish the extra-hot pot, in tears. The next table films the whole thing. 📱", "zh": "你含着泪吃完了一锅特辣，隔壁桌全程录像。" }
+      ],
+      "levels": { "0": { "answers": ["我点的微辣！", "我要微辣的！", "我要微辣！", "点错了！", "上错了！"], "gloss": "I ordered mild!", "tip": "我点的微辣 = I ordered mild (点 diǎn = order food). 微辣 wēilà = mildly spicy, the lowest heat on a Chongqing menu.", "status": "live" } }
+    } },
+    { "narr": "The pot goes. The burning stays. 😭", "zh": "锅端走了，可嘴还麻着，眼泪直流。" },
+    { "say": {
+      "id": "milk",
+      "en": "Quick! Ask for milk!",
+      "answers": ["快，来瓶牛奶！", "有牛奶吗？快！", "服务员，来杯牛奶！", "有冰水吗？", "来杯水！"],
+      "gloss": "Quick, a bottle of milk!",
+      "need": [["牛奶", "水"]],
+      "tip": "来 + measure word + thing is how you order: 来瓶牛奶 = a bottle of milk, please. 有……吗 = have you got...?",
+      "mistakes": [ { "heard": ["奶牛"], "note": "奶牛 nǎiniú is a dairy cow. Milk is the other way round: 牛奶 niúnǎi." } ],
+      "alts": [
+        { "en": "Or: fight fire with an ice-cold beer", "answers": ["来瓶冰啤酒！", "有冰啤酒吗？"], "gloss": "A bottle of ice-cold beer!", "need": [["啤酒"]],
+          "then": [ { "who": "bro", "zh": "冰啤酒配火锅，会吃！来，走一个！", "en": "Ice-cold beer with hotpot: you know your stuff! Cheers!", "fx": "laugh", "prop": "🍺" } ] }
+      ],
+      "ok": [ { "who": "waiter", "zh": "牛奶没有，给你拿瓶豆奶！", "en": "No milk, but I'll grab you a soy milk!", "fx": "give", "prop": "🥛" } ],
+      "fail": [ { "who": "waiter", "zh": "啊？要啥？", "en": "Huh? Want what?" } ],
+      "cue": "Milk! Now!",
+      "miss": [ { "who": "waiter", "zh": "啊？再加点辣？好嘞！", "en": "Huh? More chilli? You got it!", "fx": "give" } ],
+      "levels": { "0": { "answers": ["牛奶！", "要牛奶！", "来瓶水！"], "gloss": "Milk!", "alts": [{ "of": 0, "answers": ["冰啤酒！", "啤酒！", "来瓶啤酒！"], "gloss": "An ice-cold beer!" }], "status": "live" } }
+    } },
+    { "who": "waiter", "zh": "油碟来了！香菜给你多放点哈？", "en": "Here's your oil dip! Extra coriander, yeah?" },
+    { "say": {
+      "id": "coriander",
+      "en": "No coriander. None. Not one leaf.",
+      "answers": ["不要香菜！", "别放香菜，谢谢！", "千万别放香菜！", "香菜不要！", "不要放香菜！", "香菜就不用了，谢谢。"],
+      "gloss": "No coriander!",
+      "need": [["香菜"], ["不要", "别", "不用"]],
+      "tip": "不要香菜 = no coriander: possibly the most useful sentence in China. 千万别…… = whatever you do, don't...",
+      "mistakes": [ { "heard": ["没有香菜"], "note": "没有香菜 means 'there's no coriander'. To refuse it: 不要香菜, or 别放香菜." } ],
+      "ok": [
+        { "who": "waiter", "zh": "好，不放香菜。", "en": "Got it, no coriander." },
+        { "who": "bro", "zh": "不要？给我！我最爱香菜了！", "en": "You don't want it? Give it here! I love the stuff!", "fx": "laugh" }
+      ],
+      "fail": [ { "who": "waiter", "zh": "那我多放点哈。", "en": "I'll pile it on, then.", "fx": "give" } ],
+      "cue": "Not the green stuff!",
+      "miss": [ { "who": "waiter", "zh": "好嘞，香菜给你双份！", "en": "Right, a double helping of coriander!", "fx": "give", "prop": "🌿" } ]
+    } },
+    { "sfx": "pop" },
+    { "narr": "Your mild pot arrives at last. It is every bit as red as the first one. 🌶️", "zh": "你的微辣锅终于来了，跟刚才那锅一样红。" },
+    { "say": {
+      "id": "callthismild",
+      "en": "Look at the pot. Ask her: you call this mild?",
+      "answers": ["这也叫微辣？", "这是微辣？你确定？", "这也算微辣？", "这哪儿是微辣啊！", "这根本不是微辣！"],
+      "gloss": "You call this mild?",
+      "need": [["微辣"]],
+      "tip": "这也叫……？ = you call this...?: pure disbelief. 这哪儿是…… = this is no...",
+      "alts": [
+        { "en": "Or: give up and ask for plain broth", "answers": ["算了，换成清汤吧。", "能换成清汤锅吗？", "算了，给我换个清汤锅吧。"], "gloss": "Forget it, switch it to plain broth.", "need": [["清汤"]],
+          "then": [ { "who": "bro", "zh": "在重庆吃清汤锅？朋友，你是来喝汤的吧！", "en": "Plain broth, in Chongqing? Friend, did you come here for soup?", "fx": "laugh" } ] }
+      ],
+      "ok": [ { "who": "waiter", "zh": "对呀！重庆的微辣，就是这样的嘛。", "en": "Sure is! That's what mild looks like in Chongqing.", "fx": "laugh" } ],
+      "fail": [ { "who": "waiter", "zh": "怎么了？还有啥问题？", "en": "What's up? Something else wrong?" } ],
+      "cue": "THIS is mild?",
+      "miss": [ { "who": "waiter", "zh": "看啥呢？微辣的，放心吃！", "en": "What are you staring at? It's mild, tuck in!", "fx": "laugh" } ],
+      "levels": { "0": { "answers": ["这是微辣？", "这叫微辣？", "微辣？", "这不是微辣！"], "gloss": "This is mild?", "alts": [{ "of": 0, "answers": ["要清汤！", "换清汤！", "清汤吧！"], "gloss": "Plain broth, please!" }], "status": "live" } }
+    } },
+    { "end": "win", "en": "Chongqing, lesson one: 'mild' here is everyone else's extra hot. Keep the soy milk close.", "zh": "在重庆，微辣就是外地的特辣。" }
+  ]
+}

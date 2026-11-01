@@ -1,0 +1,184 @@
+{
+  "id": "expectations-3",
+  "format": "scene",
+  "title": "律师",
+  "title_en": "The Lawyer",
+  "level": 3,
+  "listen": 3,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "expectations", "ep": 3, "next": "深圳, 2004. The new flat looks over a city being built, and there's a note on the table: 别问。" },
+  "tags": ["远大前程", "律师", "舅舅"],
+  "setting": "舅舅's boat workshop on the 珠江 delta, 2004. You're eighteen, with tar on your hands. A black car stops outside.",
+  "stage": "⚖️",
+  "bg": ["#10141a", "#5a6a7a"],
+  "cast": {
+    "jiujiu": { "name": "舅舅", "en": "your uncle: quiet, awkward, on your side", "emoji": "👨", "voice": "m-mid" },
+    "jiuma": { "name": "舅妈", "en": "your aunt: strict, never cruel", "emoji": "👩", "voice": "f-mid" },
+    "jia": { "name": "贾律师", "en": "a lawyer from 深圳: precise, and cold", "emoji": "💼", "voice": "m-mid", "speed": 0.95 }
+  },
+  "steps": [
+    { "when": { "expectations.ep2": "return" }, "narr": "Six years of Saturdays at the villa on the hill. You win at chess now, sometimes. 小雪 still won't look at you.", "prop": "♟️",
+      "else": [ { "narr": "You never went back to the villa. Last spring 何小姐 sent for you anyway, and you played chess in silence.", "prop": "🕰️" } ] },
+    { "narr": "2004. 舅舅's boat workshop. Tar, sawdust, and the radio on low." },
+    { "narr": "A black car stops outside. A lawyer in a grey suit steps over the nets without touching them." },
+    { "who": "jia", "zh": "你就是那个孩子。", "en": "So you're the child.", "fx": "enter" },
+    { "who": "jia", "zh": "我姓贾，律师，从深圳来。", "en": "My name is 贾. A lawyer, from 深圳." },
+    { "who": "jia", "zh": "有人愿意出钱，让你去深圳读书，过另一种生活。", "en": "Someone is willing to pay for you to study in 深圳, and live a different life." },
+    { "who": "jia", "zh": "条件只有一个：永远不要问，是谁。", "en": "There is one condition. You never ask who.", "hold": 1 },
+    { "say": {
+      "id": "who",
+      "en": "Ask anyway: who's paying?",
+      "cue": "Who?",
+      "answers": ["是谁出的钱？", "请问，是谁出的钱？"],
+      "gloss": "Who's paying?",
+      "need": [["是谁"], ["出的钱"]],
+      "tip": "出钱 chū qián = put up the money. 是谁出的钱？ = who is it that's paying?",
+      "ok": [
+        { "who": "jia", "zh": "第一个问题，就违反了条件。", "en": "Your very first question breaks the condition.", "hold": 1 },
+        { "who": "jia", "zh": "我当没听见。", "en": "I'll treat it as unheard." }
+      ],
+      "fail": [ { "who": "jia", "zh": "你有问题吗？", "en": "Do you have a question?" } ],
+      "levels": {
+        "2": {
+          "answers": ["是谁？", "是谁出的钱？"],
+          "need": [["是谁"]],
+          "gloss": "Who is it?",
+          "status": "live" },
+        "4": {
+          "answers": ["贾律师，请问到底是谁出的钱？"],
+          "need": [["到底"], ["出的钱"]],
+          "gloss": "贾律师, who exactly is paying?",
+          "status": "live" }
+      }
+    } },
+    { "who": "jia", "zh": "再问一次，一切取消。你听清楚了吗？", "en": "Ask again, and it's all off. Is that clear?" },
+    { "say": {
+      "id": "agree",
+      "en": "Agree to the condition: you won't ask.",
+      "cue": "Agree.",
+      "answers": ["听清楚了，我不问。", "我明白，我不问。"],
+      "gloss": "Clear. I won't ask.",
+      "need": [["不问"], ["清楚", "明白"]],
+      "tip": "我不问 = I won't ask. 听清楚了 = heard you clearly.",
+      "ok": [
+        { "who": "jia", "zh": "很好。下个月一号，去深圳。", "en": "Good. On the first of next month, you go to 深圳." },
+        { "who": "jia", "zh": "钱每个月会到。不够，找我。", "en": "Money will arrive every month. If it isn't enough, come to me." }
+      ],
+      "fail": [ { "who": "jia", "zh": "清楚，还是不清楚？", "en": "Clear, or not clear?" } ],
+      "levels": {
+        "2": {
+          "answers": ["我不问。", "好，我不问。"],
+          "need": [["不问"]],
+          "gloss": "I won't ask.",
+          "status": "live" },
+        "4": {
+          "answers": ["听清楚了，我保证，我不问。"],
+          "need": [["保证"], ["不问"]],
+          "gloss": "Clear. I promise I won't ask.",
+          "tip": "保证 bǎozhèng = promise, guarantee.",
+          "status": "live" }
+      }
+    } },
+    { "who": "jiujiu", "zh": "……贾律师，喝杯茶吧？", "en": "...Will you have a cup of tea, 贾律师?", "fx": "enter" },
+    { "who": "jia", "zh": "不用。", "en": "No need." },
+    { "narr": "You're sure you know who it is. There's only one rich person you've ever met. Ask, without asking." },
+    { "say": {
+      "id": "he",
+      "en": "Ask after 何小姐: is she well?",
+      "cue": "Ask after her.",
+      "answers": ["何小姐最近好吗？", "贾律师，何小姐最近好吗？"],
+      "gloss": "Is 何小姐 well these days?",
+      "need": [["何小姐"], ["好吗"]],
+      "tip": "最近 zuìjìn = lately. ……好吗？ asks after someone.",
+      "ok": [
+        { "who": "jia", "zh": "……何小姐，也是我的客户。", "en": "...何小姐 is also a client of mine.", "hold": 1 },
+        { "who": "jia", "zh": "我不能说更多。", "en": "I can say no more." },
+        { "narr": "贾律师 doesn't say no.", "hold": 1 },
+        { "who": "jia", "zh": "她让我告诉你：小雪下个月出国。", "en": "She asked me to tell you: 小雪 goes abroad next month.", "hold": 2 }
+      ],
+      "fail": [ { "who": "jia", "zh": "还有别的事吗？", "en": "Is there anything else?" } ],
+      "levels": {
+        "2": {
+          "answers": ["何小姐好吗？", "何小姐呢？"],
+          "need": [["何小姐"]],
+          "gloss": "And 何小姐?",
+          "status": "live" },
+        "4": {
+          "answers": ["我不问是谁。何小姐最近还好吗？"],
+          "need": [["我不问"], ["还好吗"]],
+          "gloss": "I won't ask who. Is 何小姐 keeping well?",
+          "status": "live" }
+      }
+    } },
+    { "who": "jia", "zh": "一号。别迟到。", "en": "The first. Don't be late.", "fx": "leave" },
+    { "narr": "The car goes. 舅舅 stands in the doorway, wiping his hands on a rag that's dirtier than they are." },
+    { "who": "jiujiu", "zh": "深圳……好啊。好啊。", "en": "深圳... that's good. That's good." },
+    { "who": "jiujiu", "zh": "我不会说话。你别笑我。", "en": "I'm no good with words. Don't laugh at me." },
+    { "who": "jiujiu", "zh": "你从小就聪明。比我强。", "en": "You were always the clever one. Cleverer than me.", "hold": 2 },
+    { "say": {
+      "id": "back",
+      "en": "Tell 舅舅 you'll come back.",
+      "cue": "Promise him.",
+      "answers": ["舅舅，我会回来的。", "舅舅，我一定会回来的。"],
+      "gloss": "舅舅, I'll come back.",
+      "need": [["舅舅"], ["会回来"]],
+      "tip": "会……的 = will, for certain: 我会回来的.",
+      "ok": [
+        { "who": "jiujiu", "zh": "……好。", "en": "...Good.", "hold": 2 },
+        { "narr": "舅舅 wipes his hands on his apron, twice, and hugs you: badly, and very hard.", "hold": 2 },
+        { "who": "jiujiu", "zh": "舅舅为你骄傲。", "en": "I'm proud of you.", "pace": "slow", "hold": 1 }
+      ],
+      "fail": [ { "who": "jiujiu", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "2": {
+          "answers": ["我会回来的。", "舅舅，我会回来。"],
+          "need": [["会回来"]],
+          "gloss": "I'll come back.",
+          "status": "live" },
+        "4": {
+          "answers": ["舅舅，不管去哪儿，我都会回来的。"],
+          "need": [["不管"], ["回来的"]],
+          "gloss": "舅舅, wherever I go, I'll come back.",
+          "tip": "不管……都…… = no matter ..., still ...",
+          "status": "live" }
+      }
+    } },
+    { "who": "jiuma", "zh": "律师说下个月？你怎么想？", "en": "The lawyer said next month? What do you think?", "fx": "enter" },
+    { "say": {
+      "id": "go",
+      "en": "Go to 深圳 at once, or ask for a day to think.",
+      "cue": "Go, or a day?",
+      "answers": ["我去深圳。", "舅妈，我去深圳。"],
+      "gloss": "I'm going to 深圳.",
+      "need": [["去深圳"]],
+      "tip": "去深圳 = go to 深圳: said plainly, it's a decision.",
+      "sets": { "expectations.ep3": "go" },
+      "ok": [ { "who": "jiuma", "zh": "……行李我给你收拾。", "en": "...I'll pack your things.", "hold": 1 } ],
+      "alts": [
+        { "en": "Or: ask for a day to think", "answers": ["让我想一天。", "让我再想一天。"], "need": [["想一天"]], "gloss": "Let me think for a day.",
+          "sets": { "expectations.ep3": "think" },
+          "then": [ { "who": "jiuma", "zh": "想吧。今晚我做你爱吃的。", "en": "Think, then. Tonight I'll make your favourite." } ] }
+      ],
+      "fail": [ { "who": "jiuma", "zh": "去不去？", "en": "Going or not?" } ],
+      "levels": {
+        "2": {
+          "answers": ["去深圳！", "我去深圳。"],
+          "need": [["深圳"]],
+          "gloss": "深圳!",
+          "alts": [ { "of": 0, "answers": ["让我想一天。"], "need": [["想一天"]], "gloss": "Let me think for a day." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["我决定了，下个月就去深圳。"],
+          "need": [["决定了"], ["去深圳"]],
+          "gloss": "I've decided. I'm going to 深圳 next month.",
+          "alts": [ { "of": 0, "answers": ["这么大的事，让我想一天。"], "need": [["这么大的事"], ["想一天"]], "gloss": "It's a big thing. Let me think for a day." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "expectations.ep3": "go" }, "end": "win", "en": "The first of the month. A bus north, a bag 舅妈 packed twice, and 舅舅 waving long after you can see him. 🚌",
+      "else": [ { "end": "win", "en": "One night on the jetty, thinking. In the morning you pack anyway, and 舅舅 pretends not to cry. 🚌" } ] }
+  ]
+}

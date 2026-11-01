@@ -1,0 +1,154 @@
+{
+  "id": "chuanyue-2",
+  "format": "scene",
+  "title": "东市",
+  "title_en": "The East Market",
+  "level": 0,
+  "listen": 0,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "chuanyue", "ep": 2, "next": "In the east market, someone is selling phone cases carved from jade." },
+  "tags": ["穿越", "长安", "客栈"],
+  "setting": "长安, the next evening. The man with the coin once stayed at an inn near the west market.",
+  "stage": "🏮",
+  "bg": ["#1f1206", "#9a5a22"],
+  "cast": {
+    "aman": { "name": "阿满", "en": "sells 胡饼 by a clay oven", "emoji": "🫓", "voice": "f-young", "speed": 0.85 },
+    "dianjia": { "name": "店家", "en": "keeps the inn", "emoji": "🏮", "voice": "f-mid", "speed": 0.85 },
+    "xunye": { "name": "巡夜人", "en": "a night guard on the curfew watch", "emoji": "🔦", "voice": "m-old", "speed": 0.85 }
+  },
+  "steps": [
+    { "when": { "chuanyue.ep1": "stay" }, "narr": "Evening. 阿满 presses a warm 胡饼 and a lantern into your hands.", "prop": "🏮",
+      "else": [
+        { "who": "aman", "zh": "你不听话！", "en": "You don't listen!", "fx": "squint" },
+        { "who": "aman", "zh": "走吧，我带你去。", "en": "Come on. I'll take you." }
+      ] },
+    { "who": "aman", "zh": "他住过这儿。", "en": "He stayed here once." },
+    { "narr": "An inn. Lanterns, a counter, and a woman counting coins." },
+    { "who": "dianjia", "zh": "住店吗？", "en": "Want a room?" },
+    { "say": {
+      "id": "where",
+      "en": "Ask where he is: the man who dressed like you.",
+      "cue": "Where is he?",
+      "answers": ["他在哪儿？", "他在哪里？"],
+      "gloss": "Where is he?",
+      "need": [["在哪"]],
+      "tip": "他在哪儿？ = where is he? 在 zài = be at.",
+      "ok": [
+        { "who": "dianjia", "zh": "穿得怪的人？", "en": "The one in strange clothes?" },
+        { "who": "dianjia", "zh": "走了。", "en": "Gone." },
+        { "who": "dianjia", "zh": "留了这个。", "en": "He left this.", "prop": "📜" }
+      ],
+      "fail": [ { "who": "dianjia", "zh": "住店吗？", "en": "A room?" } ],
+      "levels": {
+        "1": {
+          "answers": ["请问，他在哪儿？", "请问他住在哪儿？"],
+          "need": [["请问"]],
+          "gloss": "Excuse me, where is he?",
+          "status": "live" },
+        "2": {
+          "answers": ["请问，那个外地人在哪儿？", "请问，外地人住在哪儿？"],
+          "need": [["外地人"], ["在哪"]],
+          "gloss": "Excuse me: where's the man from out of town?",
+          "tip": "外地人 wàidìrén = someone not from here.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "A folded paper. You open it.", "prop": "📜" },
+    { "say": {
+      "id": "what",
+      "en": "Ask what this is.",
+      "cue": "What's this?",
+      "answers": ["这是什么？", "这是什么呀？"],
+      "gloss": "What's this?",
+      "need": [["这是什么"]],
+      "tip": "什么 shénme = what. 这是什么？ = what is this?",
+      "ok": [
+        { "narr": "Characters. But simplified ones, the kind you learned. Nobody in 长安 writes like this." },
+        { "who": "dianjia", "zh": "我看不懂。", "en": "I can't read it." }
+      ],
+      "fail": [ { "who": "dianjia", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "1": {
+          "answers": ["这是什么字？", "这些是什么字？"],
+          "need": [["什么字"]],
+          "gloss": "What characters are these?",
+          "status": "live" },
+        "2": {
+          "answers": ["这是什么字？写的什么？", "这是什么？写的什么字？"],
+          "need": [["写的"], ["什么字"]],
+          "gloss": "What characters are these? What does it say?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The note:", "zh": "我在东市。别相信……", "prop": "📜" },
+    { "narr": "The rest is torn off." },
+    { "who": "dianjia", "zh": "写的什么？", "en": "What does it say?" },
+    { "say": {
+      "id": "read",
+      "en": "Read her the place.",
+      "cue": "Where is he?",
+      "answers": ["东市。", "在东市！"],
+      "gloss": "The east market.",
+      "need": [["东市"]],
+      "key": { "东市": "the east market" },
+      "tip": "东 dōng = east. 市 shì = market. 长安 had two: 东市 and 西市.",
+      "ok": [ { "who": "aman", "zh": "东市？很远！", "en": "The east market? That's far!" } ],
+      "fail": [ { "who": "dianjia", "zh": "写的什么？", "en": "What does it say?" } ],
+      "levels": {
+        "1": {
+          "answers": ["他在东市！", "他在东市。"],
+          "need": [["在东市"]],
+          "gloss": "He's in the east market!",
+          "status": "live" },
+        "2": {
+          "answers": ["他说他在东市！", "他说，他在东市。"],
+          "need": [["他说"], ["在东市"]],
+          "gloss": "He says he's in the east market!",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "drum" },
+    { "who": "dianjia", "zh": "宵禁了！别出去！", "en": "Curfew! Don't go out!" },
+    { "who": "dianjia", "zh": "巡夜的会抓人。", "en": "The night guards arrest people." },
+    { "say": {
+      "id": "when",
+      "en": "Go now, in the dark, or wait for the gates at dawn.",
+      "cue": "Now, or tomorrow?",
+      "answers": ["现在去！", "现在！"],
+      "gloss": "Now!",
+      "need": [["现在"]],
+      "tip": "现在 xiànzài = now.",
+      "sets": { "chuanyue.ep2": "now" },
+      "ok": [
+        { "narr": "The street, dark. A lantern swings towards you." },
+        { "who": "xunye", "zh": "站住！谁？", "en": "Halt! Who's there?" },
+        { "narr": "You blow out your lantern, and run east." }
+      ],
+      "alts": [
+        { "en": "Or: at dawn", "answers": ["明天去。", "明天。"], "need": [["明天"]], "gloss": "Tomorrow.",
+          "sets": { "chuanyue.ep2": "dawn" },
+          "then": [ { "who": "dianjia", "zh": "好。睡吧。", "en": "Good. Sleep." } ] }
+      ],
+      "fail": [ { "who": "dianjia", "zh": "别出去！", "en": "Don't go out!" } ],
+      "levels": {
+        "1": {
+          "answers": ["我现在就去！", "现在就去！"],
+          "need": [["现在就去"]],
+          "gloss": "I'm going right now!",
+          "alts": [ { "of": 0, "answers": ["明天早上去。"], "need": [["明天早上"]], "gloss": "Tomorrow morning." } ],
+          "status": "live" },
+        "2": {
+          "answers": ["等不了，我现在就去！", "我等不了，现在就去！"],
+          "need": [["等不了"], ["现在"]],
+          "gloss": "I can't wait. I'm going now!",
+          "alts": [ { "of": 0, "answers": ["太晚了，明天早上再去。"], "need": [["太晚"], ["明天早上"]], "gloss": "It's too late. I'll go in the morning." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "chuanyue.ep2": "now" }, "end": "win", "en": "The east market at night: shutters, shutters, and one light still burning. 🏮",
+      "else": [ { "end": "win", "en": "The dawn drums. The gates open, and you're first through, running east. 🌅" } ] }
+  ]
+}

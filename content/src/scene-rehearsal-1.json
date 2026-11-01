@@ -1,0 +1,141 @@
+{
+  "id": "rehearsal-1",
+  "format": "scene",
+  "title": "押金",
+  "title_en": "The Deposit",
+  "level": 2,
+  "listen": 2,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "rehearsal", "ep": 1, "next": "林老师 has built your parents' living room. Your mother is played by a man called 老黄." },
+  "tags": ["彩排", "押金", "房东"],
+  "setting": "彩排工作室, a warehouse on the edge of town, 2 pm. Tomorrow you ask your landlord for your deposit.",
+  "stage": "🎬",
+  "bg": ["#1d1d22", "#5b5a66"],
+  "cast": {
+    "lin": { "name": "林老师", "en": "runs the studio; has never smiled", "emoji": "🧑‍🏫", "voice": "m-mid" },
+    "feng": { "name": "冯阿姨", "en": "your landlord, played by an actor", "emoji": "👩‍🦳", "voice": "f-old" }
+  },
+  "steps": [
+    { "narr": "A warehouse. Inside it, your landlord's kitchen, full size. Down to the cat." },
+    { "who": "lin", "zh": "押金，五千。明天下午三点。", "en": "Deposit: five thousand. Tomorrow, 3 pm." },
+    { "who": "lin", "zh": "开始。", "en": "Begin." },
+    { "who": "feng", "zh": "来来来，先喝茶！", "en": "Come in, come in, have some tea first!", "fx": "give", "prop": "🍵" },
+    { "say": {
+      "id": "ask",
+      "en": "Ask her when she'll return your deposit.",
+      "cue": "Ask about the deposit.",
+      "answers": ["阿姨，押金什么时候退？", "押金什么时候能退？", "我的押金什么时候退？"],
+      "gloss": "Auntie, when will you return the deposit?",
+      "need": [["押金"], ["什么时候", "哪天"]],
+      "tip": "押金 yājīn = deposit. 退 tuì = give back (money): 退押金.",
+      "ok": [ { "who": "feng", "zh": "吃个苹果！刚洗的。", "en": "Have an apple! Just washed it.", "fx": "give", "prop": "🍎" } ],
+      "fail": [ { "who": "feng", "zh": "喝茶喝茶！", "en": "Drink your tea!" } ],
+      "levels": {
+        "1": {
+          "answers": ["押金能退吗？", "押金呢？", "押金什么时候退？"],
+          "need": [["押金"]],
+          "gloss": "Can I have my deposit back?",
+          "status": "live" },
+        "3": {
+          "answers": ["那五千块押金，您看哪天能退？", "阿姨，五千块押金，您看什么时候退？"],
+          "need": [["五千"], ["哪天", "什么时候"]],
+          "gloss": "So the five thousand: which day can you return it?",
+          "tip": "您看…… = what do you think...: a soft way to push.",
+          "status": "live" }
+      }
+    } },
+    { "who": "lin", "zh": "她在转移话题。再说。", "en": "She's changing the subject. Again." },
+    { "say": {
+      "id": "contract",
+      "en": "Point out it's in the contract.",
+      "cue": "It's in the contract.",
+      "answers": ["合同上写着呢。", "合同上写得清清楚楚。", "合同上写着要退的。"],
+      "gloss": "It's written in the contract.",
+      "need": [["合同"]],
+      "tip": "合同 hétong = contract. ……写着呢 = it says so (right there).",
+      "ok": [ { "who": "feng", "zh": "我有个亲戚，单身，加个微信？", "en": "I've a relative, single. Shall I give you their WeChat?", "fx": "give", "prop": "📱" } ],
+      "fail": [ { "who": "feng", "zh": "合同？什么合同？", "en": "Contract? What contract?" } ],
+      "levels": {
+        "1": {
+          "answers": ["看合同！", "合同上有。", "合同写着呢。"],
+          "gloss": "Look at the contract!",
+          "status": "live" },
+        "3": {
+          "answers": ["合同上写着，退房就退押金。", "合同上写得很清楚，退房就退押金。"],
+          "need": [["合同"], ["退押金"]],
+          "gloss": "The contract says: move out, deposit back.",
+          "tip": "……就…… = as soon as..., then...: 退房就退押金.",
+          "status": "live" }
+      }
+    } },
+    { "who": "lin", "zh": "拒绝。", "en": "Decline." },
+    { "say": {
+      "id": "refuse",
+      "en": "Turn it down, politely.",
+      "cue": "Politely, no.",
+      "answers": ["不用了，谢谢阿姨。", "不用了，谢谢。", "真不用了，谢谢！"],
+      "gloss": "No need, thank you, Auntie.",
+      "need": [["不用"]],
+      "tip": "不用了 = no need: the polite no to anything offered.",
+      "fail": [ { "who": "feng", "zh": "加个微信嘛！", "en": "Go on, add them!" } ],
+      "levels": {
+        "1": {
+          "answers": ["不用了！", "不用，谢谢。"],
+          "gloss": "No, thanks!",
+          "status": "live" },
+        "3": {
+          "answers": ["不用了阿姨，咱们先说押金。", "不用了，谢谢，咱们先说押金吧。"],
+          "need": [["不用"], ["先说"]],
+          "gloss": "No need, Auntie. Let's talk about the deposit first.",
+          "tip": "咱们先说…… = let's talk about ... first: back to the point.",
+          "status": "live" }
+      }
+    } },
+    { "who": "feng", "zh": "等一下。", "en": "Hold on.", "prop": "" },
+    { "who": "feng", "zh": "其实，我就是冯阿姨。", "en": "Actually, I am 冯阿姨.", "hold": 2 },
+    { "who": "feng", "zh": "我在练怎么不退你押金。", "en": "I've been rehearsing how not to give you your deposit." },
+    { "who": "lin", "zh": "两边都是客户。", "en": "You are both clients." },
+    { "who": "lin", "zh": "继续吗？", "en": "Shall we continue?" },
+    { "say": {
+      "id": "go-on",
+      "en": "Stop the act, or go again.",
+      "cue": "Stop, or again?",
+      "answers": ["我们都别演了。", "大家都别演了。", "都别演了吧。"],
+      "gloss": "Let's all stop acting.",
+      "need": [["别演"]],
+      "key": { "别演": "stop acting" },
+      "tip": "演 yǎn = act, perform. 别演了 = stop acting.",
+      "sets": { "rehearsal.deposit": "straight" },
+      "ok": [
+        { "who": "feng", "zh": "……好吧。明天退你。", "en": "...Fine. You'll have it tomorrow." },
+        { "who": "lin", "zh": "收费照旧。", "en": "Fees as usual." }
+      ],
+      "alts": [
+        { "en": "Or: go again", "answers": ["再来一遍。", "再来一次。", "从头再来。"], "need": [["再来"]], "gloss": "Again.",
+          "sets": { "rehearsal.deposit": "again" },
+          "then": [
+            { "who": "lin", "zh": "好。从喝茶开始。", "en": "Good. From the tea." },
+            { "who": "feng", "zh": "来来来，先喝茶！", "en": "Come in, come in, have some tea first!", "fx": "give", "prop": "🍵" }
+          ] }
+      ],
+      "fail": [ { "who": "lin", "zh": "继续吗？", "en": "Shall we continue?" } ],
+      "levels": {
+        "1": {
+          "answers": ["别演了。", "都别演了。"],
+          "gloss": "Stop acting.",
+          "status": "live" },
+        "3": {
+          "answers": ["我们都别演了，有话直说吧。", "大家都别演了，有话直说。"],
+          "need": [["别演"], ["直说"]],
+          "gloss": "Let's all stop acting and just say it.",
+          "alts": [ { "of": 0, "answers": ["再来一遍，这次我不喝茶。", "再来一遍，这次我不喝茶了。"], "need": [["再来"], ["不喝茶"]], "gloss": "Again. This time I'm not having the tea." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "rehearsal.deposit": "straight" }, "end": "win", "en": "Five thousand, back tomorrow. 林老师 invoices you both. 🧾",
+      "else": [ { "end": "win", "en": "Round two. The tea is still hot. The cat has not moved. 🐈" } ] }
+  ]
+}

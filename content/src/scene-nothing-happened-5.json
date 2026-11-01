@@ -1,0 +1,135 @@
+{
+  "id": "nothing-happened-5",
+  "format": "scene",
+  "title": "群名",
+  "title_en": "The Group Name",
+  "level": 2,
+  "listen": 2,
+  "topics": ["food"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "nothing-happened", "ep": 5, "next": "那个人 has joined the group and changed its name." },
+  "tags": ["没什么事", "群名", "面馆"],
+  "setting": "The noodle shop, Saturday, 1 pm, the same table. The group chat still has no name.",
+  "stage": "🍜",
+  "bg": ["#2a1a10", "#c47a3a"],
+  "cast": {
+    "feng": { "name": "阿峰", "en": "overthinks everything", "emoji": "😰", "voice": "m-young" },
+    "mei": { "name": "小美", "en": "has a theory for everything", "emoji": "💁", "voice": "f-young" },
+    "qin": { "name": "老秦", "en": "calm, and wrong (usually)", "emoji": "😌", "voice": "m-mid" },
+    "tian": { "name": "甜甜", "en": "knows someone who knows", "emoji": "🙆", "voice": "f-young" }
+  },
+  "steps": [
+    { "when": { "nothing-happened.ep4": "keep" }, "narr": "阿峰 is wearing the jacket. He hasn't taken it off since Monday.", "prop": "🧥",
+      "else": [ { "narr": "那个人 walks past the window in one of the two jackets. 阿峰 has bought a new jacket. It's the same one. He swears it's an accident.", "prop": "🧥" } ] },
+    { "who": "mei", "zh": "群名，今天必须定下来。", "en": "The group name. We're settling it today.", "pace": "fast" },
+    { "who": "mei", "zh": "我说：面馆四人组。", "en": "I say: The Noodle Shop Four." },
+    { "who": "qin", "zh": "没什么事。", "en": "Nothing Happened." },
+    { "who": "tian", "zh": "我朋友说，叫“吃了吗”。", "en": "A friend of mine says: Eaten Yet?" },
+    { "who": "feng", "zh": "……嗯。", "en": "...嗯.", "hold": 1 },
+    { "who": "mei", "zh": "“嗯”不是名字！", "en": "嗯 is not a name!", "fx": "shake" },
+    { "say": {
+      "id": "vote",
+      "en": "Settle it: stop arguing, take a vote.",
+      "cue": "Vote!",
+      "answers": ["别吵了，投票吧！", "投票吧！"],
+      "gloss": "Stop arguing. Let's vote!",
+      "need": [["投票"]],
+      "key": { "投票": "vote" },
+      "tip": "投票 tóupiào = vote. 别吵了 = stop arguing.",
+      "ok": [
+        { "narr": "Four phones. Four votes. Everyone votes for their own name." },
+        { "who": "mei", "zh": "……一比一比一比一。", "en": "...One, one, one and one.", "hold": 1 },
+        { "who": "mei", "zh": "你来定！", "en": "You decide!" }
+      ],
+      "fail": [ { "who": "mei", "zh": "那你说怎么办？", "en": "So what do you suggest?" } ],
+      "levels": {
+        "1": {
+          "answers": ["投票！", "投票吧！"],
+          "need": [["投票"]],
+          "gloss": "Vote!",
+          "status": "live" },
+        "3": {
+          "answers": ["别吵了，大家投票吧！"],
+          "need": [["大家"], ["别吵了"]],
+          "gloss": "Stop arguing, everyone. Let's vote!",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "name",
+      "en": "Cast the deciding vote: call it 没什么事.",
+      "cue": "Name it.",
+      "answers": ["就叫没什么事吧！", "叫没什么事吧！"],
+      "gloss": "Let's call it 没什么事!",
+      "need": [["没什么事"]],
+      "tip": "就叫……吧 = let's just call it ...",
+      "ok": [
+        { "who": "qin", "zh": "我就说嘛。", "en": "Told you so." },
+        { "who": "mei", "zh": "……行吧。", "en": "...Fine." }
+      ],
+      "fail": [ { "who": "mei", "zh": "叫什么？", "en": "Call it what?" } ],
+      "levels": {
+        "1": {
+          "answers": ["没什么事！", "叫没什么事！"],
+          "need": [["没什么事"]],
+          "gloss": "没什么事!",
+          "status": "live" },
+        "3": {
+          "answers": ["我觉得，就叫没什么事吧！"],
+          "need": [["我觉得"], ["没什么事"]],
+          "gloss": "I think we just call it 没什么事!",
+          "status": "live" }
+      }
+    } },
+    { "who": "feng", "zh": "那……要不要把那个人拉进来？", "en": "So... should we add them to the group?" },
+    { "who": "mei", "zh": "拉进来，以后就不能在群里说那个人了！", "en": "Add them, and we can never talk about them in the group again!", "pace": "fast" },
+    { "who": "tian", "zh": "我朋友说，拉人要先问大家。", "en": "A friend of mine says you ask everyone before you add someone.", "pace": "fast" },
+    { "sfx": "message" },
+    { "narr": "老秦's phone lights up on the table. A message from 那个人:", "zh": "表哥，他今天穿什么？", "prop": "📱" },
+    { "who": "mei", "zh": "……表哥？", "en": "...Cousin?", "hold": 1 },
+    { "who": "qin", "zh": "我们是表亲。", "en": "We're cousins.", "hold": 1 },
+    { "who": "qin", "zh": "“嗯”就是“好”。是我教的。", "en": "嗯 means yes. That was my advice.", "hold": 2 },
+    { "who": "feng", "zh": "你……一直在帮我们？", "en": "You've... been helping us all along?", "fx": "faint" },
+    { "who": "mei", "zh": "老秦，你又说对了。", "en": "老秦, you're right again." },
+    { "who": "feng", "zh": "那……拉不拉？", "en": "So... do we add them?" },
+    { "say": {
+      "id": "add",
+      "en": "Add them to the group, or keep it to the four of you.",
+      "cue": "Add, or four?",
+      "answers": ["拉进来吧！", "把那个人拉进来吧！"],
+      "gloss": "Add them!",
+      "need": [["拉进来"]],
+      "key": { "拉进来": "add (to a group chat)" },
+      "tip": "拉 lā = pull: 拉进来 = pull someone into the group chat.",
+      "sets": { "nothing-happened.ep5": "add" },
+      "ok": [
+        { "narr": "阿峰 types with one finger.", "zh": "“阿峰”邀请“那个人”加入了群聊" },
+        { "who": "feng", "zh": "……嗯。", "en": "...嗯." }
+      ],
+      "alts": [
+        { "en": "Or: just the four of us", "answers": ["就我们四个吧。", "还是我们四个吧。"], "need": [["我们四个"]], "gloss": "Just the four of us.",
+          "sets": { "nothing-happened.ep5": "four" },
+          "then": [ { "who": "qin", "zh": "好。那我继续当中间人。", "en": "Fine. I'll keep on being the go-between." } ] }
+      ],
+      "fail": [ { "who": "feng", "zh": "拉不拉？", "en": "Add them or not?" } ],
+      "levels": {
+        "1": {
+          "answers": ["拉进来！", "拉进来吧！"],
+          "need": [["拉进来"]],
+          "gloss": "Add them!",
+          "alts": [ { "of": 0, "answers": ["四个！", "就四个！"], "need": [["四个"]], "gloss": "Four!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["拉进来吧，以后就是五个人了！"],
+          "need": [["拉进来"], ["五个人"]],
+          "gloss": "Add them. From now on there are five of us!",
+          "alts": [ { "of": 0, "answers": ["先别拉，就我们四个吧。"], "need": [["先别拉"], ["我们四个"]], "gloss": "Not yet. Just the four of us." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "nothing-happened.ep5": "add" }, "end": "win", "en": "Five members. Nobody dares post anything for an hour. 🍜",
+      "else": [ { "end": "win", "en": "Four members, one go-between, and a group called 没什么事. 🍜" } ] }
+  ]
+}

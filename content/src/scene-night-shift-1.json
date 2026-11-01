@@ -1,0 +1,212 @@
+{
+  "id": "night-shift-1",
+  "format": "scene",
+  "title": "规则",
+  "title_en": "The Rules",
+  "level": 3,
+  "listen": 3,
+  "topics": ["work"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "warn": "A haunted night shift: dread and one scare, no gore. It ends safe at dawn.",
+  "series": { "id": "night-shift", "ep": 1, "next": "Rule five is in fresh ink: he knows you." },
+  "tags": ["规则怪谈", "便利店", "夜班"],
+  "setting": "A 24-hour convenience store on an empty road, 11:58 pm. Your first night alone. The last clerk left a rules sheet.",
+  "stage": "🏪",
+  "bg": ["#04080a", "#1e3b3a"],
+  "cast": {
+    "shouyinji": { "name": "收银机", "en": "the till", "emoji": "🧾", "voice": "f-young", "speed": 0.9 },
+    "hongyi": { "name": "红雨衣", "en": "a customer in a red raincoat", "emoji": "🧥", "voice": "m-old", "speed": 0.9 },
+    "siji": { "name": "司机", "en": "a night taxi driver", "emoji": "🚕", "voice": "m-mid" },
+    "dianzhang": { "name": "店长", "en": "the manager", "emoji": "🧑‍💼", "voice": "f-mid" }
+  },
+  "steps": [
+    { "narr": "11:58 pm. The fridges hum. Rain on an empty road." },
+    { "sfx": "ding" },
+    { "who": "shouyinji", "zh": "欢迎光临。", "en": "Welcome." },
+    { "narr": "Nobody came in. Taped to the till, the last clerk's sheet:", "prop": "📋" },
+    { "narr": "Rule one.", "zh": "一、两点以后，只卖热的。" },
+    { "narr": "Rule two.", "zh": "二、穿红雨衣的客人，不要找零。" },
+    { "narr": "Rule three.", "zh": "三、如果收银机说话，要回答它。" },
+    { "narr": "Rule four.", "zh": "四、监控里有三个人的时候，别抬头。" },
+    { "narr": "You call the manager. It rings out." },
+    { "narr": "1:56 am. A taxi driver, a regular by the look of it, puts a rice ball on the counter.", "prop": "🍙" },
+    { "who": "siji", "zh": "就这个。", "en": "Just this." },
+    { "say": {
+      "id": "heat",
+      "en": "Serve him: does he want it heated?",
+      "cue": "Heat it?",
+      "answers": ["这个饭团要不要加热？", "饭团要不要加热？"],
+      "gloss": "Shall I heat the rice ball?",
+      "need": [["要不要"], ["加热"]],
+      "tip": "加热 jiārè = heat up. 要不要……？ = do you want ...?",
+      "ok": [
+        { "who": "siji", "zh": "热一下吧。谢谢。", "en": "Heat it, yes. Thanks." },
+        { "sfx": "ding" }
+      ],
+      "fail": [ { "who": "siji", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "2": {
+          "answers": ["要加热吗？", "饭团要加热吗？"],
+          "need": [["加热"]],
+          "gloss": "Heat it up?",
+          "status": "live" },
+        "4": {
+          "answers": ["您好，饭团要不要帮您加热一下？", "饭团要不要帮您加热一下？"],
+          "need": [["帮您"], ["要不要"]],
+          "gloss": "Would you like me to heat the rice ball for you?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "2:01. He comes back with a can of iced cola.", "prop": "🥤" },
+    { "say": {
+      "id": "cold",
+      "en": "Refuse him politely: after two, hot things only.",
+      "cue": "Rule one.",
+      "answers": ["不好意思，两点以后只卖热的。", "抱歉，两点以后只卖热的。"],
+      "gloss": "Sorry. After two, we only sell hot things.",
+      "need": [["两点以后"], ["热的"]],
+      "tip": "……以后 = after ...: 两点以后 = after two o'clock. 只 zhǐ = only.",
+      "ok": [
+        { "who": "siji", "zh": "……两点了？", "en": "...Is it two already?", "hold": 1 },
+        { "who": "siji", "zh": "你看过规则了。好。", "en": "You've read the rules. Good." },
+        { "who": "siji", "zh": "上一个，不听。", "en": "The last one didn't listen.", "pace": "slow" },
+        { "sfx": "door" }
+      ],
+      "fail": [ { "who": "siji", "zh": "多少钱？", "en": "How much?" } ],
+      "levels": {
+        "2": {
+          "answers": ["不好意思，只卖热的。", "两点以后只卖热的。"],
+          "need": [["只卖热的"]],
+          "gloss": "Sorry, hot things only.",
+          "status": "live" },
+        "4": {
+          "answers": ["两点以后，不管什么都只卖热的。", "抱歉，两点以后不管什么都只卖热的。"],
+          "need": [["不管"], ["只卖热的"]],
+          "gloss": "After two, whatever it is, we only sell hot things.",
+          "tip": "不管……都…… = no matter what ..., still ...",
+          "status": "live" }
+      }
+    } },
+    { "narr": "3:00 exactly. The door opens without the chime." },
+    { "who": "hongyi", "zh": "你好。一杯热豆浆。", "en": "Good evening. One hot soy milk.", "fx": "enter", "pace": "slow" },
+    { "narr": "A red raincoat, hood up. It's pouring outside, and the raincoat is dry." },
+    { "narr": "Seven yuan. A ten-yuan note, so old the colours have gone.", "prop": "💴" },
+    { "who": "hongyi", "zh": "找我三块，谢谢。", "en": "Three back, thank you.", "pace": "slow" },
+    { "say": {
+      "id": "change",
+      "en": "Rule two. Refuse the change, politely.",
+      "cue": "Rule two.",
+      "answers": ["不好意思，今天不找零。", "对不起，今天不找零。"],
+      "gloss": "Sorry, no change today.",
+      "need": [["不找零"], ["今天"]],
+      "key": { "找零": "give change" },
+      "tip": "找零 zhǎolíng = give change. 不找零 = no change given.",
+      "ok": [
+        { "who": "hongyi", "zh": "……", "en": "...", "hold": 2 },
+        { "who": "hongyi", "zh": "你很懂规矩。", "en": "You know the rules.", "pace": "slow" },
+        { "who": "hongyi", "zh": "上一个，找了。", "en": "The last one gave change.", "pace": "slow", "hold": 1 },
+        { "narr": "The door closes. Where the raincoat stood, the floor is dry." }
+      ],
+      "fail": [ { "who": "hongyi", "zh": "找我三块。", "en": "Three back.", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["不好意思，不找零。", "对不起，不找零。"],
+          "need": [["不找零"]],
+          "gloss": "Sorry, no change.",
+          "status": "live" },
+        "4": {
+          "answers": ["不好意思，不管多少，今天都不找零。", "对不起，不管多少，今天都不找零。"],
+          "need": [["不管多少"], ["今天"]],
+          "gloss": "Sorry: however much it is, no change today.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "4:12. Nobody in the shop." },
+    { "sfx": "ding" },
+    { "who": "shouyinji", "zh": "你是谁？", "en": "Who are you?", "fx": "shake" },
+    { "narr": "Rule three: if the till speaks, answer it." },
+    { "say": {
+      "id": "till",
+      "en": "Answer the till: you're the new clerk.",
+      "cue": "Answer it.",
+      "answers": ["我是新来的店员。", "我是新来的店员，今晚值班。"],
+      "gloss": "I'm the new clerk.",
+      "need": [["新来的"], ["店员"]],
+      "tip": "新来的 = newly arrived: the new one. 店员 diànyuán = shop assistant.",
+      "ok": [
+        { "who": "shouyinji", "zh": "……新来的。", "en": "...The new one.", "hold": 1 },
+        { "who": "shouyinji", "zh": "如果你是店员，就看收银机。", "en": "If you are the clerk, then look at the till." },
+        { "who": "shouyinji", "zh": "别看别的。", "en": "Don't look at anything else." }
+      ],
+      "fail": [ { "who": "shouyinji", "zh": "你是谁？你是谁？", "en": "Who are you? Who are you?", "fx": "shake" } ],
+      "levels": {
+        "2": {
+          "answers": ["我是新来的。", "我是新来的店员。"],
+          "need": [["新来的"]],
+          "gloss": "I'm the new one.",
+          "status": "live" },
+        "4": {
+          "answers": ["我是今晚值班的店员，新来的。", "我是新来的店员，今晚值班。"],
+          "need": [["值班"], ["新来的"]],
+          "gloss": "I'm the clerk on duty tonight. The new one.",
+          "tip": "值班 zhíbān = be on duty.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The CCTV screen by the till. You look at it, because it isn't up.", "prop": "📺" },
+    { "narr": "On the screen: three people at your counter. Two customers. And you." },
+    { "narr": "In front of you, the counter is empty.", "hold": 2 },
+    { "sfx": "heartbeat" },
+    { "narr": "Rule four: when there are three people on the monitor, don't look up." },
+    { "say": {
+      "id": "look",
+      "en": "Keep your head down, or look up and see who it is.",
+      "cue": "Down, or up?",
+      "answers": ["不管是谁，我都不看。", "我不看。不管是谁，我都不看。"],
+      "gloss": "Whoever it is, I won't look.",
+      "need": [["不管是谁"], ["不看"]],
+      "tip": "不管是谁，我都…… = whoever it is, I still ...",
+      "sets": { "night-shift.ep1": "down" },
+      "ok": [
+        { "narr": "You stare at the till until your eyes water. Something stands at the counter for a long time." },
+        { "sfx": "ding" },
+        { "who": "shouyinji", "zh": "欢迎下次光临。", "en": "Please come again." },
+        { "narr": "On the monitor: just you." }
+      ],
+      "alts": [
+        { "en": "Or: look up", "answers": ["我要看看是谁。", "我看看是谁。"], "need": [["看看是谁"]], "gloss": "I'm going to see who it is.",
+          "sets": { "night-shift.ep1": "up" },
+          "then": [
+            { "narr": "You look up. Nobody." },
+            { "narr": "On the monitor: two customers, and you, looking up.", "hold": 2 },
+            { "sfx": "buzz" },
+            { "narr": "The screen flickers. Then it's just you." }
+          ] }
+      ],
+      "fail": [ { "sfx": "heartbeat" } ],
+      "levels": {
+        "2": {
+          "answers": ["我不看。", "我不看，我不看。"],
+          "need": [["不看"]],
+          "gloss": "I won't look.",
+          "alts": [ { "of": 0, "answers": ["我看看是谁。"], "need": [["是谁"]], "gloss": "Let me see who it is." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["不管是谁，除非天亮，我都不看。"],
+          "need": [["除非天亮"], ["不看"]],
+          "gloss": "Whoever it is, I won't look till it's light.",
+          "tip": "除非 chúfēi = unless: 除非天亮 = not until it's light.",
+          "alts": [ { "of": 0, "answers": ["规则是死的，我要看看是谁。"], "need": [["规则"], ["看看是谁"]], "gloss": "Rules are only rules. I'm going to see who it is." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "6:00. Grey light. The milk van. The fridges hum, the way fridges do." },
+    { "who": "dianzhang", "zh": "早。", "en": "Morning.", "fx": "enter" },
+    { "who": "dianzhang", "zh": "不错，上一个只干了一晚。", "en": "Not bad. The last one only lasted a night." },
+    { "narr": "She hands you a hot 包子. On the back of the rules sheet, in fresh ink:", "zh": "五、他认识你。", "prop": "📋" },
+    { "when": { "night-shift.ep1": "down" }, "end": "win", "en": "You walk home in the daylight, and don't look back once. 🌅",
+      "else": [ { "end": "win", "en": "You walk home in the daylight. At the corner, you look back. The shop is just a shop. 🌅" } ] }
+  ]
+}

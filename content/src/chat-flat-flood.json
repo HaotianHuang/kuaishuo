@@ -1,0 +1,132 @@
+{
+  "id": "flat-flood",
+  "format": "chat",
+  "title": "家里发大水了",
+  "title_en": "The Flat Is Flooding",
+  "level": 2,
+  "topics": ["home", "animals"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "tags": ["室友", "救急", "猫"],
+  "write": ["厨房", "关"],
+  "setting": "Hotpot across town, 9:40 pm. Your roommate is home with your black cat, Meiqiu.",
+  "stage": "🌊",
+  "bg": ["#0b3a5b", "#1f8fbf"],
+  "chat": { "with": "dalu", "giveup": [
+    { "who": "dalu", "zh": "算了，指望不上你！", "en": "Forget it, you're no help at all!" },
+    { "who": "dalu", "kind": "photo", "art": "🌊🚪🌊", "zh": "水已经流到楼道里了", "en": "The water has reached the stairwell." },
+    { "end": "lose", "en": "By the time you get home, downstairs is flooded too. Meiqiu watches it all from the fridge.", "zh": "楼下也被淹了。" }
+  ] },
+  "cast": {
+    "dalu": { "is": "daliu", "name": "大刘", "en": "your roommate", "emoji": "🧔", "voice": "m-young" }
+  },
+  "steps": [
+    { "narr": "You're at hotpot across town when your phone starts buzzing. And buzzing.", "zh": "你在外面吃火锅，手机一直在震。" },
+    { "sfx": "buzz" },
+    { "who": "dalu", "zh": "救命！！！", "en": "HELP!!!", "clock": "21:40", "typing": 0.5, "fx": "shake" },
+    { "who": "dalu", "zh": "家里全是水！", "en": "There's water all over the flat!", "typing": 0.6 },
+    { "who": "dalu", "kind": "photo", "art": "🌊🛋️🩴", "zh": "客厅地上全是水，拖鞋都漂起来了", "en": "The living-room floor under water. The slippers are floating.", "typing": 1.2 },
+    { "say": {
+      "id": "calm",
+      "en": "Calm him down, and ask where the water's coming from.",
+      "cue": "Calm him down!",
+      "reply": "speak",
+      "answers": ["别慌！水是从哪儿来的？", "别急，哪儿漏水了？", "别着急，水从哪儿来的？", "冷静！哪里在漏水？"],
+      "gloss": "Don't panic! Where's the water coming from?",
+      "need": [["别慌", "别急", "别着急", "冷静"], ["哪儿", "哪里", "哪"]],
+      "time": 15,
+      "tip": "别慌 biéhuāng = don't panic. 从哪儿来的 = where's it coming from. 漏水 = leak.",
+      "ok": [
+        { "who": "dalu", "kind": "voice", "secs": 5, "zh": "不知道啊！我刚到家，到处都是水！", "en": "No idea! I just got home and there's water everywhere!", "typing": 2.5 }
+      ],
+      "fail": [ { "who": "dalu", "zh": "人呢？？？", "en": "Hello??? Where'd you go???", "typing": 0.5 } ],
+      "levels": { "0": { "en": "Ask him where the water's coming from.", "cue": "Where's it coming from?", "answers": ["哪儿来的水？", "别慌！哪儿来的？", "水哪儿来的？"], "need": [["哪儿", "哪里", "哪"]], "gloss": "Where's the water coming from?", "status": "live" } }
+    } },
+    { "say": {
+      "id": "valve",
+      "en": "Tell him to turn the water off first!",
+      "cue": "Water off, now!",
+      "reply": "type",
+      "answers": ["先把水关了！", "快把水关掉！", "先关水！", "赶紧把总阀关了！"],
+      "gloss": "Turn the water off first!",
+      "need": [["关"], ["水", "阀"]],
+      "time": 20,
+      "tip": "先把水关了: 先 = first, 把 puts the water before the verb, 关 = switch off (开 is on).",
+      "decoys": ["开", "官"],
+      "mistakes": [ { "heard": ["水开", "开水"], "note": "开 is on, 关 is off. (And 开水 is boiling water.)" } ],
+      "ok": [
+        { "who": "dalu", "zh": "怎么关？？", "en": "How??", "typing": 0.6 },
+        { "who": "dalu", "zh": "总阀在哪儿？我找不到！", "en": "Where's the main valve? I can't find it!", "typing": 1.2 }
+      ],
+      "fail": [ { "who": "dalu", "zh": "水越来越多了！快点啊！", "en": "The water keeps rising! Hurry!", "typing": 0.8 } ],
+      "levels": { "0": { "answers": ["关水！", "把水关了！", "快关水！"], "gloss": "Turn the water off!", "status": "live" } }
+    } },
+    { "say": {
+      "id": "sink",
+      "en": "Tell him: it's under the kitchen sink.",
+      "cue": "Tell him where!",
+      "reply": "speak",
+      "answers": ["在厨房水池下面！", "厨房水池底下！", "就在厨房水槽下面。", "厨房洗碗池下面！"],
+      "gloss": "It's under the kitchen sink!",
+      "need": [["厨房"], ["下面", "底下", "下边"]],
+      "time": 15,
+      "tip": "在……下面 = under … . 水池 = the sink (水槽 too). 底下 means the same as 下面.",
+      "ok": [
+        { "who": "dalu", "kind": "voice", "secs": 3, "zh": "找到了！关上了！", "en": "Found it! It's off!", "typing": 3 },
+        { "who": "dalu", "zh": "水停了", "en": "The water's stopped.", "typing": 0.8 },
+        { "who": "dalu", "zh": "等等，煤球呢？", "en": "Wait. Where's Meiqiu?", "typing": 1.5 }
+      ],
+      "fail": [ { "who": "dalu", "zh": "哪儿？？我找遍了都没有！", "en": "Where?? I've looked everywhere!", "typing": 0.8 } ],
+      "levels": { "0": { "answers": ["水池下面！", "在厨房！", "厨房水池下面！", "水池底下！"], "need": [["厨房", "水池", "水槽"]], "gloss": "Under the sink!", "status": "live" } }
+    } },
+    { "who": "dalu", "kind": "photo", "art": "🐈‍⬛🧊", "zh": "煤球蹲在冰箱顶上，一脸无辜", "en": "Meiqiu, crouched on top of the fridge, looking innocent.", "typing": 2 },
+    { "who": "dalu", "zh": "它在上面死活不肯下来", "en": "It's up there and it will NOT come down.", "typing": 1.2 },
+    { "say": {
+      "id": "cat",
+      "en": "Tell him to leave the cat: it'll come down by itself.",
+      "cue": "Forget the cat!",
+      "reply": "type",
+      "answers": ["别管它，它自己会下来的。", "先别管猫了，它会自己下来的。", "不用管它，它自己会下来。"],
+      "gloss": "Leave it. It'll come down by itself.",
+      "need": [["别管", "不用管"], ["下来"]],
+      "time": 20,
+      "tip": "别管它 = leave it be. 自己会……的 = will … on its own (the 的 makes it a reassurance).",
+      "alts": [
+        { "en": "Tell him to tempt it down with a cat treat",
+          "answers": ["拿猫条把它哄下来。", "用猫条把它骗下来！", "给它个猫条，它就下来了。"],
+          "gloss": "Tempt it down with a cat treat.",
+          "need": [["猫条", "零食", "罐头"]],
+          "then": [
+            { "who": "dalu", "kind": "voice", "secs": 4, "zh": "下来了！直接跳进水里了！", "en": "It's down! Jumped straight into the water!", "typing": 3 },
+            { "who": "dalu", "kind": "sticker", "art": "🙀", "zh": "炸毛了", "en": "Fur: fully exploded." }
+          ] }
+      ],
+      "ok": [ { "who": "dalu", "zh": "行吧，那我先拖地", "en": "Fine. I'll start mopping, then.", "typing": 1.2 } ],
+      "fail": [ { "who": "dalu", "zh": "那它要是一直不下来呢？", "en": "And what if it never comes down?", "typing": 1 } ],
+      "levels": { "0": { "answers": ["别管它！", "不用管它！", "别管猫！"], "need": [["别管", "不用管"]], "gloss": "Leave it!", "alts": [{ "of": 0, "answers": ["用猫条！", "给它猫条！", "拿猫条！", "给它零食！"], "gloss": "Use a cat treat!" }], "status": "live" } }
+    } },
+    { "who": "dalu", "zh": "完了，楼下阿姨来敲门了", "en": "Oh no. The lady from downstairs is at the door.", "typing": 2 },
+    { "who": "dalu", "zh": "说她家天花板在滴水", "en": "She says her ceiling's dripping.", "typing": 1.2 },
+    { "who": "dalu", "zh": "你快回来吧！！", "en": "Please come home!!", "typing": 0.6 },
+    { "say": {
+      "id": "taxi",
+      "en": "Tell him you're getting a taxi home right now.",
+      "cue": "You're on your way!",
+      "reply": "speak",
+      "answers": ["我马上打车回去！", "我现在就打车回来。", "等我，我马上回去！", "我这就打车回家。"],
+      "gloss": "I'm getting a taxi home right now!",
+      "need": [["回去", "回来", "回家"]],
+      "time": 15,
+      "tip": "打车 = take a taxi (or a ride-hail). 回去 = go back, from where you are; 回来, from his side, is fine too.",
+      "ok": [ { "who": "dalu", "zh": "好！快点！", "en": "OK! Hurry!", "typing": 0.5 } ],
+      "fail": [ { "who": "dalu", "zh": "你到底回不回来？", "en": "Are you coming home or not?", "typing": 0.8 } ],
+      "levels": { "0": { "answers": ["马上回来！", "我马上回去！", "马上回家！"], "gloss": "I'll be right back!", "status": "live" } }
+    } },
+    { "who": "dalu", "zh": "破案了！", "en": "Mystery solved!", "clock": "22:05", "typing": 1 },
+    { "who": "dalu", "kind": "photo", "art": "📹🐈‍⬛🚰", "zh": "监控里，煤球用爪子把水龙头打开了", "en": "Pet-cam footage: Meiqiu turning the tap on with one paw.", "typing": 2 },
+    { "who": "dalu", "zh": "是它干的！！", "en": "IT did this!!", "typing": 0.6 },
+    { "who": "dalu", "kind": "sticker", "art": "😾", "zh": "离谱", "en": "Unbelievable." },
+    { "end": "win", "en": "You get home to a soaked flat, a fruit basket to buy for downstairs, and Meiqiu asleep on the only dry spot: the fridge.", "zh": "煤球趴在冰箱顶上，睡得正香。" }
+  ]
+}

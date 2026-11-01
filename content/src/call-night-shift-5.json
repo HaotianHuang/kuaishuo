@@ -1,0 +1,193 @@
+{
+  "id": "night-shift-5",
+  "format": "call",
+  "title": "庞经理",
+  "title_en": "Manager Pang",
+  "level": 3,
+  "listen": 3,
+  "topics": ["work"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "warn": "A haunted night shift: a sad phone call about a death long ago, told gently, no gore. It ends safe.",
+  "series": { "id": "night-shift", "ep": 5, "next": "Six o'clock. An old man is walking slowly towards the store, in a 1998 uniform." },
+  "tags": ["规则怪谈", "一九九八", "庞经理"],
+  "setting": "The convenience store, your fifth night. At three you rang the number in the logbook, and nobody answered. At four, it rings back.",
+  "stage": "☎️",
+  "bg": ["#06080a", "#2a3038"],
+  "cast": {
+    "pang": { "name": "庞经理", "en": "the store manager in 1998, an old man now", "emoji": "👴", "voice": "m-old", "speed": 0.85, "phone": true }
+  },
+  "call": {
+    "caller": "pang", "photo": "👴", "number": "0571 8602 1998", "label": { "zh": "座机" }, "clock": "04:00", "patience": 8,
+    "silence": [
+      { "who": "pang", "zh": "……喂？还在吗？", "en": "...Hello? Are you still there?" },
+      { "who": "pang", "zh": "是不是……打错了？", "en": "Did you... get the wrong number?" }
+    ],
+    "hangup": [
+      { "who": "pang", "zh": "……算了。别再打来了。", "en": "...Never mind. Don't call again." },
+      { "end": "lose", "en": "The line goes dead. At six, nobody comes. Run that back." }
+    ],
+    "missed": [ { "who": "pang", "zh": "刚才……是谁打的电话？", "en": "Who... called this number just now?" } ]
+  },
+  "steps": [
+    { "say": {
+      "id": "hello",
+      "en": "Pick up, and ask: is this 庞经理?",
+      "cue": "Pick up.",
+      "answers": ["喂，您是庞经理吗？", "喂，是庞经理吗？"],
+      "gloss": "Hello, is that 庞经理?",
+      "need": [["庞经理"]],
+      "tip": "经理 jīnglǐ = manager. 庞 Páng is his surname.",
+      "ok": [
+        { "who": "pang", "zh": "……这个号码，二十多年没人打了。", "en": "...Nobody's rung this number in more than twenty years.", "pace": "slow" },
+        { "who": "pang", "zh": "你是谁？你在哪儿打的？", "en": "Who are you? Where are you calling from?", "pace": "slow" },
+        { "narr": "You tell him: the night shift. The store." },
+        { "who": "pang", "zh": "那家店……还开着？", "en": "That store... is still open?", "pace": "slow", "hold": 1 }
+      ],
+      "fail": [ { "who": "pang", "zh": "喂？谁啊？", "en": "Hello? Who is it?" } ],
+      "levels": {
+        "2": {
+          "answers": ["庞经理？", "是庞经理吗？"],
+          "need": [["庞经理"]],
+          "gloss": "庞经理?",
+          "status": "live" },
+        "4": {
+          "answers": ["喂，您好，请问是庞经理吗？"],
+          "need": [["请问"], ["庞经理"]],
+          "gloss": "Hello, good evening. Is that 庞经理, please?",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "remember",
+      "en": "Ask him: does he remember 老韩?",
+      "cue": "老韩?",
+      "answers": ["您还记得老韩吗？", "庞经理，您还记得老韩吗？"],
+      "gloss": "Do you still remember 老韩?",
+      "need": [["记得"], ["老韩"]],
+      "tip": "还记得 = still remember: 还 hái = still.",
+      "ok": [
+        { "narr": "A long silence. You can hear him breathing.", "hold": 2 },
+        { "who": "pang", "zh": "……你……你见过他？", "en": "...You... you've seen him?", "pace": "slow" }
+      ],
+      "fail": [ { "who": "pang", "zh": "你想问什么？", "en": "What are you asking?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["记得老韩吗？", "老韩，您记得吗？"],
+          "need": [["老韩"]],
+          "gloss": "Remember 老韩?",
+          "status": "live" },
+        "4": {
+          "answers": ["您还记得一九九八年的老韩吗？"],
+          "need": [["一九九八"], ["老韩"]],
+          "gloss": "Do you remember 老韩, from 1998?",
+          "status": "live" }
+      }
+    } },
+    { "when": { "night-shift.ep4": "sign" }, "narr": "You tell him: the handover form has your name on it now.",
+      "else": [ { "narr": "You tell him: the handover form is still blank." } ] },
+    { "when": { "night-shift.ep4": "sign" }, "who": "pang", "zh": "什么？！你签了？！", "en": "What?! You signed it?!", "fx": "shake",
+      "else": [ { "who": "pang", "zh": "……那就好。那就好。", "en": "...Good. That's good.", "pace": "slow" } ] },
+    { "who": "pang", "zh": "他还在等。", "en": "He's still waiting.", "pace": "slow", "hold": 1 },
+    { "say": {
+      "id": "what",
+      "en": "Ask him, gently: what happened that morning?",
+      "cue": "Gently.",
+      "answers": ["那天早上发生了什么？", "那天早上，发生了什么？"],
+      "gloss": "What happened that morning?",
+      "need": [["那天早上"], ["发生了什么"]],
+      "key": { "发生": "happen" },
+      "tip": "发生 fāshēng = happen. 发生了什么？ = what happened?",
+      "ok": [
+        { "who": "pang", "zh": "一九九八年七月三日。早上六点，该接班了。", "en": "The third of July, 1998. Six in the morning, time for the handover.", "pace": "slow" },
+        { "who": "pang", "zh": "那天接班的，是我自己。", "en": "That day, the one taking over was me.", "pace": "slow", "hold": 1 },
+        { "who": "pang", "zh": "我迟到了。四十分钟。", "en": "I was late. Forty minutes.", "pace": "slow", "hold": 2 },
+        { "who": "pang", "zh": "我到的时候，他坐在柜台后面，像睡着了一样。", "en": "When I got there, he was sitting behind the counter, as if he'd fallen asleep.", "pace": "slow", "hold": 2 },
+        { "who": "pang", "zh": "心脏不好。他从来没跟我说过。", "en": "A weak heart. He never once told me.", "pace": "slow" },
+        { "who": "pang", "zh": "钱，一分不差。接班人那一行，空着。", "en": "The till was right to the fen. The line for whoever took over was blank.", "pace": "slow", "hold": 2 },
+        { "who": "pang", "zh": "二十八年了，我再也没进过那家店。", "en": "In twenty-eight years, I've never set foot in that store again.", "pace": "slow" }
+      ],
+      "fail": [ { "who": "pang", "zh": "……我不想说。", "en": "...I don't want to talk about it.", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["发生了什么？", "那天发生了什么？"],
+          "need": [["发生了什么"]],
+          "gloss": "What happened?",
+          "status": "live" },
+        "4": {
+          "answers": ["您慢慢说，那天早上发生了什么？"],
+          "need": [["慢慢说"], ["那天早上"]],
+          "gloss": "Take your time. What happened that morning?",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "fault",
+      "en": "Tell him: it wasn't his fault.",
+      "cue": "Comfort him.",
+      "answers": ["庞经理，这不是您的错。", "这不是您的错。"],
+      "gloss": "庞经理, it wasn't your fault.",
+      "need": [["不是"], ["您的错"]],
+      "tip": "错 cuò = fault, mistake: 这不是您的错 = this isn't your fault.",
+      "ok": [
+        { "narr": "On the line, an old man crying, very quietly.", "hold": 2 },
+        { "who": "pang", "zh": "他等了我二十八年。", "en": "He's waited twenty-eight years for me.", "pace": "slow", "hold": 1 },
+        { "who": "pang", "zh": "我现在……还能做什么？", "en": "What... can I still do now?", "pace": "slow" }
+      ],
+      "fail": [ { "who": "pang", "zh": "是我的错。", "en": "It was my fault.", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["不是您的错。", "不是你的错。"],
+          "need": [["不是"], ["的错"]],
+          "gloss": "It's not your fault.",
+          "status": "live" },
+        "4": {
+          "answers": ["庞经理，那天的事，不是您的错。"],
+          "need": [["那天的事"], ["不是"]],
+          "gloss": "庞经理, what happened that day wasn't your fault.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "decide",
+      "en": "Ask him to come and take over from 老韩, or offer to tell 老韩 for him.",
+      "cue": "Come, or a message?",
+      "answers": ["庞经理，您来接他的班吧。", "您来接他的班吧。"],
+      "gloss": "庞经理, come and take over from him.",
+      "need": [["来接"], ["他的班"]],
+      "tip": "接他的班 = take over his shift: the handover, at last.",
+      "sets": { "night-shift.ep5": "come" },
+      "ok": [
+        { "who": "pang", "zh": "……我？我七十六了。", "en": "...Me? I'm seventy-six.", "pace": "slow", "hold": 2 },
+        { "who": "pang", "zh": "……好。六点，我来。", "en": "...All right. Six o'clock. I'll come.", "pace": "slow" }
+      ],
+      "alts": [
+        { "en": "Or: tell 老韩 for him", "answers": ["我替您跟他说。", "我替您跟老韩说。"], "need": [["替您"], ["跟他说", "跟老韩说"]], "gloss": "I'll tell him for you.",
+          "key": { "替您": "for you" },
+          "sets": { "night-shift.ep5": "message" },
+          "then": [
+            { "who": "pang", "zh": "……谢谢你。", "en": "...Thank you.", "pace": "slow", "hold": 1 },
+            { "who": "pang", "zh": "你跟他说：对不起，我来晚了。", "en": "Tell him: I'm sorry. I came too late.", "pace": "slow", "hold": 2 }
+          ] }
+      ],
+      "fail": [ { "who": "pang", "zh": "我还能做什么？", "en": "What can I still do?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["您来接班吧。", "您来接他的班吧。"],
+          "need": [["来接"]],
+          "gloss": "Come and take over.",
+          "alts": [ { "of": 0, "answers": ["我替您说。"], "need": [["替您"]], "gloss": "I'll tell him for you." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["庞经理，六点，您来接他的班吧。"],
+          "need": [["六点"], ["他的班"]],
+          "gloss": "庞经理, six o'clock: come and take over from him.",
+          "alts": [ { "of": 0, "answers": ["您放心，我替您跟老韩说。"], "need": [["放心"], ["替您"]], "gloss": "Don't worry. I'll tell 老韩 for you." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "night-shift.ep5": "come" }, "end": "win", "en": "4:40. 庞经理 hangs up to look for his old uniform. The fridges hum. 🌅",
+      "else": [ { "end": "win", "en": "4:40. You write 庞经理's sorry on a sticky note, and put it on the till. 🌅" } ] }
+  ]
+}

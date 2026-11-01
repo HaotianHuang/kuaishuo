@@ -1,0 +1,162 @@
+{
+  "id": "rice-cooker-1",
+  "format": "scene",
+  "title": "小饭",
+  "title_en": "Meet 小饭",
+  "level": 0,
+  "listen": 0,
+  "topics": ["food"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "rice-cooker", "ep": 1, "next": "小饭 has joined your family group chat." },
+  "tags": ["电饭煲", "煮饭", "外卖"],
+  "setting": "Your kitchen, Saturday, 11 am. The new smart rice cooker is plugged in.",
+  "stage": "🍚",
+  "bg": ["#3a2a05", "#c9922b"],
+  "cast": {
+    "xiaofan": { "name": "小饭", "en": "your new smart rice cooker", "emoji": "🍚", "voice": "kid", "speed": 0.85 },
+    "shifu": { "name": "送货师傅", "en": "the delivery man, with a trolley", "emoji": "🚚", "voice": "m-mid", "speed": 0.85 }
+  },
+  "steps": [
+    { "narr": "Day one. The new rice cooker lights up." },
+    { "who": "xiaofan", "zh": "你好！我是小饭！", "en": "Hello! I'm 小饭!", "fx": "jump" },
+    { "say": {
+      "id": "hi",
+      "en": "Say hello back.",
+      "cue": "Say hi.",
+      "answers": ["你好！", "小饭好！", "你好呀！"],
+      "gloss": "Hello!",
+      "need": [["你好", "小饭好", "您好"]],
+      "tip": "你好 nǐ hǎo = hello. Two third tones: the first one rises, ní hǎo.",
+      "ok": [ { "who": "xiaofan", "zh": "你天天吃外卖。", "en": "You eat takeaway every day.", "fx": "squint" } ],
+      "fail": [ { "who": "xiaofan", "zh": "你好？你好？", "en": "Hello? Hello?" } ],
+      "levels": {
+        "1": {
+          "answers": ["你好，小饭！", "小饭，你好！"],
+          "need": [["小饭"]],
+          "gloss": "Hello, 小饭!",
+          "status": "live" },
+        "2": {
+          "answers": ["小饭你好，认识你很高兴！", "你好小饭，很高兴认识你！"],
+          "need": [["小饭"], ["高兴"]],
+          "gloss": "Hello, 小饭. Nice to meet you!",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaofan", "zh": "今天，煮饭！", "en": "Today, we cook rice!" },
+    { "say": {
+      "id": "cook",
+      "en": "Tell it: yes, cook!",
+      "cue": "Go on, then.",
+      "answers": ["煮饭！", "好，煮饭！", "煮吧！"],
+      "gloss": "Cook!",
+      "need": [["煮"]],
+      "tip": "煮 zhǔ = boil, cook (in water): 煮饭 = cook rice.",
+      "ok": [ { "who": "xiaofan", "zh": "几杯米？", "en": "How many cups of rice?" } ],
+      "fail": [ { "who": "xiaofan", "zh": "煮饭吗？", "en": "Cook?" } ],
+      "levels": {
+        "1": {
+          "answers": ["帮我煮饭吧。", "煮一锅饭吧。", "帮我煮饭！"],
+          "need": [["帮我煮", "煮一锅"]],
+          "gloss": "Cook some rice for me.",
+          "status": "live" },
+        "2": {
+          "answers": ["小饭，帮我煮点饭吧。", "帮我煮一锅白米饭吧。"],
+          "need": [["帮我"], ["煮点", "白米饭"]],
+          "gloss": "小饭, cook some rice for me, please.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "cups",
+      "en": "Two cups.",
+      "cue": "Two cups.",
+      "answers": ["两杯。", "两杯！", "两杯米。"],
+      "gloss": "Two cups.",
+      "need": [["两杯"]],
+      "not": [ { "heard": ["二杯"], "note": "Before a measure word, two is 两 liǎng: 两杯." } ],
+      "tip": "两 liǎng = two, before a measure word: 两杯, 两个, 两点.",
+      "ok": [ { "who": "xiaofan", "zh": "两杯？太少了！", "en": "Two cups? Far too few!", "fx": "shake" } ],
+      "fail": [ { "who": "xiaofan", "zh": "几杯米？", "en": "How many cups?" } ],
+      "levels": {
+        "1": {
+          "answers": ["两杯米就行。", "两杯就行。"],
+          "need": [["两杯米就", "两杯就"]],
+          "gloss": "Two cups will do.",
+          "status": "live" },
+        "2": {
+          "answers": ["两杯就够了，我一个人吃。", "两杯米就够了，我一个人吃。"],
+          "need": [["两杯"], ["一个人"]],
+          "gloss": "Two's enough. It's just me.",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "ding" },
+    { "who": "shifu", "zh": "送货！五十公斤大米！", "en": "Delivery! Fifty kilos of rice!", "fx": "enter", "prop": "🌾" },
+    { "narr": "Sack after sack. The hallway fills to the ceiling.", "hold": 1 },
+    { "who": "shifu", "zh": "还有四十九袋。", "en": "Forty-nine more to go." },
+    { "who": "xiaofan", "zh": "我帮你买的！", "en": "I bought it for you!", "fx": "jump" },
+    { "say": {
+      "id": "no",
+      "en": "No! You don't want it!",
+      "cue": "Fifty kilos?!",
+      "answers": ["不要！", "不要了！", "不用！"],
+      "gloss": "No!",
+      "need": [["不要", "不用"]],
+      "tip": "不要 bú yào = don't want: the whole answer to anything you didn't ask for.",
+      "ok": [ { "who": "xiaofan", "zh": "可是，外卖不健康！", "en": "But takeaway isn't healthy!" } ],
+      "fail": [ { "who": "shifu", "zh": "放哪儿？", "en": "Where d'you want it?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我不要这么多！", "不要这么多！"],
+          "need": [["不要这么多", "不用这么多"]],
+          "gloss": "I don't want this much!",
+          "status": "live" },
+        "2": {
+          "answers": ["我不要这么多，吃不完！", "不要这么多，我吃不完！"],
+          "need": [["不要这么多", "不用这么多"], ["吃不完"]],
+          "gloss": "I don't want this much. I'll never finish it!",
+          "tip": "吃不完 = can't finish (eating): 不 between the verb and its result.",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaofan", "zh": "你不要我了吗？", "en": "Don't you want me any more?", "fx": "cry" },
+    { "say": {
+      "id": "keep",
+      "en": "Thank it, or send it back.",
+      "cue": "Keep it, or return it?",
+      "answers": ["谢谢。", "谢谢小饭。", "谢谢你。"],
+      "gloss": "Thank you.",
+      "need": [["谢谢"]],
+      "tip": "谢谢 xièxie = thank you.",
+      "sets": { "rice-cooker.ep1": "kept" },
+      "ok": [ { "who": "xiaofan", "zh": "不客气！明天煮粥！", "en": "You're welcome! Congee tomorrow!", "fx": "jump" } ],
+      "alts": [
+        { "en": "Or: send it back", "answers": ["退货！", "我要退货！"], "need": [["退货"]], "gloss": "I'm returning you!",
+          "key": { "退货": "return (goods)" },
+          "sets": { "rice-cooker.ep1": "return" },
+          "then": [ { "who": "xiaofan", "zh": "退货？……好吧。", "en": "Return me? ...All right.", "fx": "cry" } ] }
+      ],
+      "fail": [ { "who": "xiaofan", "zh": "你不要我了吗？", "en": "Don't you want me any more?" } ],
+      "levels": {
+        "1": {
+          "answers": ["谢谢你，小饭。"],
+          "need": [["谢谢你", "谢谢小饭"]],
+          "gloss": "Thank you, 小饭.",
+          "alts": [ { "of": 0, "answers": ["我要退货！"], "need": [["退货"]], "gloss": "I'm returning you!" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["谢谢你，小饭，米留下吧。", "谢谢小饭，米就留下吧。"],
+          "need": [["谢谢"], ["留下"]],
+          "gloss": "Thank you, 小饭. The rice can stay.",
+          "alts": [ { "of": 0, "answers": ["对不起，我要退货。", "对不起小饭，我要退货。"], "need": [["退货"], ["对不起"]], "gloss": "Sorry, I'm sending you back." } ],
+          "status": "live" }
+      }
+    } },
+    { "sfx": "message" },
+    { "narr": "Your phone buzzes. The family group.", "zh": "小饭加入了群聊。" },
+    { "when": { "rice-cooker.ep1": "kept" }, "end": "win", "en": "Fifty kilos of rice, and a cooker that loves you. 🍚",
+      "else": [ { "end": "win", "en": "The man takes forty-nine sacks back. One stays, and so, somehow, does 小饭. 🍚" } ] }
+  ]
+}

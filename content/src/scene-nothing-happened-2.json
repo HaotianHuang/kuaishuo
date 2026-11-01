@@ -1,0 +1,193 @@
+{
+  "id": "nothing-happened-2",
+  "format": "scene",
+  "title": "鸳鸯锅",
+  "title_en": "Split Pot",
+  "level": 2,
+  "listen": 3,
+  "topics": ["food", "dating"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "nothing-happened", "ep": 2, "next": "嗯。 Again." },
+  "tags": ["火锅", "买单", "嗯"],
+  "setting": "A hot-pot place in Shanghai, 8 pm. An emergency meeting.",
+  "stage": "🍲",
+  "bg": ["#3a0b06", "#c0391f"],
+  "cast": {
+    "feng": { "name": "阿峰", "en": "overthinks everything", "emoji": "😰", "voice": "m-young" },
+    "mei": { "name": "小美", "en": "has a theory for everything", "emoji": "💁", "voice": "f-young" },
+    "qin": { "name": "老秦", "en": "calm, and wrong", "emoji": "😌", "voice": "m-mid" },
+    "tian": { "name": "甜甜", "en": "knows someone who knows", "emoji": "🙆", "voice": "f-young" },
+    "fuwuyuan": { "name": "服务员", "en": "the hot-pot waiter, who has seen everything", "emoji": "🧑‍🍳", "voice": "f-mid" }
+  },
+  "steps": [
+    { "narr": "Emergency hot pot. Now there are two replies: 嗯 and 哦." },
+    { "when": { "nothing-happened.ep1": "call" }, "who": "feng", "zh": "我妈又发了三个哦。", "en": "Mum's sent three more 哦.", "prop": "📱",
+      "else": [ { "who": "feng", "zh": "我等了。整整六个小时。", "en": "I waited. Six hours exactly.", "prop": "📱" } ] },
+    { "who": "feng", "zh": "我终于给那个人发消息了。", "en": "I've finally messaged them." },
+    { "who": "qin", "zh": "发了什么？", "en": "Saying what?", "pace": "fast" },
+    { "who": "feng", "zh": "在吗？", "en": "'You there?'" },
+    { "who": "mei", "zh": "在吗是最差的开头。", "en": "'You there?' is the worst opener there is.", "pace": "fast" },
+    { "who": "fuwuyuan", "zh": "几位？吃什么锅？", "en": "How many? Which pot?", "fx": "enter" },
+    { "say": {
+      "id": "order",
+      "en": "Order the split pot.",
+      "cue": "Which pot?",
+      "answers": ["来个鸳鸯锅！", "要一个鸳鸯锅！", "鸳鸯锅，谢谢！"],
+      "gloss": "A split pot, please!",
+      "need": [["鸳鸯锅"]],
+      "key": { "鸳鸯锅": "split pot (spicy and plain)" },
+      "tip": "鸳鸯锅 yuānyāng guō = the split hot pot: one side spicy, one side not. 来个…… = we'll have a ...",
+      "ok": [
+        { "who": "fuwuyuan", "zh": "好嘞！", "en": "Coming up!" },
+        { "who": "mei", "zh": "辣的这边是我的。", "en": "The spicy side is mine.", "pace": "fast" },
+        { "who": "qin", "zh": "清汤是我的。", "en": "The plain side's mine.", "pace": "fast" },
+        { "who": "tian", "zh": "我朋友说，中间那条线是大家的。", "en": "My friend says the line in the middle belongs to everyone.", "pace": "fast" }
+      ],
+      "fail": [ { "who": "fuwuyuan", "zh": "吃什么锅？", "en": "Which pot?" } ],
+      "levels": {
+        "1": {
+          "answers": ["鸳鸯锅！", "来个鸳鸯锅。"],
+          "gloss": "Split pot!",
+          "status": "live" },
+        "3": {
+          "answers": ["来个鸳鸯锅，一边辣一边不辣。", "鸳鸯锅，一边辣的一边清汤。"],
+          "need": [["鸳鸯锅"], ["一边"]],
+          "gloss": "A split pot: one side spicy, one side not.",
+          "tip": "一边……一边…… = one side ..., the other side ...",
+          "status": "live" }
+      }
+    } },
+    { "narr": "One piece of 毛肚 left. Four pairs of chopsticks.", "prop": "🥢" },
+    { "say": {
+      "id": "tripe",
+      "en": "Claim the last 毛肚.",
+      "cue": "It's yours!",
+      "answers": ["这块毛肚是我的！", "毛肚是我的！", "最后一块毛肚是我的！"],
+      "gloss": "This tripe is mine!",
+      "need": [["毛肚"]],
+      "tip": "毛肚 máodǔ = beef tripe: the hot-pot classic. ……是我的 = ... is mine.",
+      "ok": [
+        { "narr": "老秦 has already eaten it." },
+        { "who": "qin", "zh": "嗯，好吃。", "en": "Mm. Delicious.", "pace": "fast" }
+      ],
+      "fail": [ { "who": "mei", "zh": "毛肚是我的！", "en": "The tripe's mine!", "pace": "fast" } ],
+      "levels": {
+        "1": {
+          "answers": ["毛肚是我的！", "我的毛肚！"],
+          "gloss": "My tripe!",
+          "status": "live" },
+        "3": {
+          "answers": ["最后一块毛肚，谁也别跟我抢！", "最后一块毛肚，谁都别跟我抢！"],
+          "need": [["毛肚"], ["别跟我抢"]],
+          "gloss": "The last tripe: nobody fight me for it!",
+          "tip": "抢 qiǎng = grab, snatch: 别跟我抢 = don't fight me for it.",
+          "status": "live" }
+      }
+    } },
+    { "who": "feng", "zh": "还没回。我是不是该再发一条？", "en": "Still nothing. Should I send another?", "prop": "📱" },
+    { "say": {
+      "id": "dont",
+      "en": "Stop him: don't send another!",
+      "cue": "Don't!",
+      "answers": ["别再发了！", "千万别再发了！", "别发了，等着吧。"],
+      "gloss": "Don't send any more!",
+      "need": [["别再发", "别发"]],
+      "tip": "别再…… = don't ... again: 别再发了.",
+      "ok": [
+        { "who": "feng", "zh": "好……不发。", "en": "OK... I won't.", "prop": "" },
+        { "who": "qin", "zh": "嗯就是好的意思。", "en": "嗯 means yes.", "pace": "fast" }
+      ],
+      "fail": [ { "who": "feng", "zh": "我再发一条？", "en": "One more?" } ],
+      "levels": {
+        "1": {
+          "answers": ["别发了！", "别再发了！"],
+          "gloss": "Don't!",
+          "status": "live" },
+        "3": {
+          "answers": ["别再发了，发多了显得你很急。", "别再发了，发多了就显得太急了。"],
+          "need": [["别再发"], ["很急", "太急"]],
+          "gloss": "Don't send more. Too many and you look desperate.",
+          "tip": "显得 xiǎnde = come across as: 显得很急.",
+          "status": "live" }
+      }
+    } },
+    { "who": "fuwuyuan", "zh": "买单吗？", "en": "Ready for the bill?" },
+    { "who": "qin", "zh": "我去一下洗手间。", "en": "Just popping to the toilet.", "fx": "leave" },
+    { "who": "mei", "zh": "每次都这样！", "en": "Every single time!", "pace": "fast" },
+    { "say": {
+      "id": "pay",
+      "en": "Claim the bill.",
+      "cue": "Your treat.",
+      "answers": ["我来买单！", "这次我来买单。", "我买单！"],
+      "gloss": "I'll get the bill!",
+      "need": [["买单", "我来"]],
+      "key": { "买单": "pay the bill" },
+      "tip": "买单 mǎidān = pay the bill. 我来 = let me (do it).",
+      "ok": [
+        { "who": "fuwuyuan", "zh": "不用了，已经买过了。", "en": "No need. It's already been paid.", "hold": 1 }
+      ],
+      "fail": [ { "who": "fuwuyuan", "zh": "谁买单？", "en": "Who's paying?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我买单！", "我来！"],
+          "gloss": "Me!",
+          "status": "live" },
+        "3": {
+          "answers": ["老秦你别跑，这次我来买单！", "别跑了老秦，今天我来买单！"],
+          "need": [["别跑"], ["买单"]],
+          "gloss": "Don't run off, 老秦. This one's on me!",
+          "status": "live" }
+      }
+    } },
+    { "who": "fuwuyuan", "zh": "那边那位，早就帮你们买了。", "en": "That one over there paid for you ages ago." },
+    { "narr": "At the next table, alone, all evening: 那个人. A small wave.", "hold": 2 },
+    { "who": "tian", "zh": "……我那个朋友，就是那个人。", "en": "...My friend who knows. It was them all along.", "pace": "fast" },
+    { "who": "mei", "zh": "什么？！", "en": "WHAT?!" },
+    { "who": "feng", "zh": "完了完了。", "en": "That's it. It's over.", "fx": "faint" },
+    { "who": "mei", "zh": "快！怎么办？", "en": "Quick! What do we do?", "pace": "fast" },
+    { "say": {
+      "id": "hello",
+      "en": "Tell 阿峰 to go over and say hello, or to play it cool.",
+      "cue": "Hello, or cool?",
+      "answers": ["过去打个招呼！", "快过去打招呼！", "去打个招呼吧！"],
+      "gloss": "Go over and say hello!",
+      "need": [["打招呼", "打个招呼"]],
+      "key": { "打招呼": "say hello" },
+      "tip": "打招呼 dǎ zhāohu = say hello, greet someone.",
+      "sets": { "nothing-happened.ep2": "hello" },
+      "ok": [
+        { "who": "feng", "zh": "……好。", "en": "...OK." },
+        { "narr": "阿峰 stands up. Sits down. Stands up." }
+      ],
+      "alts": [
+        { "en": "Or: play it cool", "answers": ["假装没看见。", "装没看见吧。", "假装没看见！"], "need": [["没看见"]], "gloss": "Pretend you didn't see.",
+          "key": { "没看见": "didn't see" },
+          "sets": { "nothing-happened.ep2": "cool" },
+          "then": [
+            { "narr": "Four people stare very hard at the hot pot." },
+            { "who": "qin", "zh": "我回来了。谁买的单？", "en": "I'm back. Who paid?", "fx": "enter", "pace": "fast" }
+          ] }
+      ],
+      "fail": [ { "who": "mei", "zh": "快！怎么办？", "en": "Quick! What do we do?" } ],
+      "levels": {
+        "1": {
+          "answers": ["打招呼！", "去打招呼！"],
+          "gloss": "Say hi!",
+          "alts": [ { "of": 0, "answers": ["没看见！", "装没看见。"], "need": [["没看见"]], "gloss": "Didn't see!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["别躲了，快过去打个招呼！", "别躲了，过去打个招呼吧！"],
+          "need": [["别躲"], ["打招呼", "打个招呼"]],
+          "gloss": "Stop hiding. Go over and say hello!",
+          "alts": [ { "of": 0, "answers": ["淡定，假装什么都没看见。", "淡定，就当没看见。"], "need": [["淡定"], ["没看见"]], "gloss": "Stay cool. Pretend you saw nothing." } ],
+          "status": "live" }
+      }
+    } },
+    { "sfx": "message" },
+    { "narr": "阿峰's phone lights up. 那个人 has replied:", "zh": "嗯。", "prop": "📱" },
+    { "when": { "nothing-happened.ep2": "hello" }, "end": "win", "en": "阿峰 gets as far as the next table and says 嗯. So does 那个人. It's a start. 🍲",
+      "else": [ { "end": "win", "en": "On the way out, 那个人 leaves one piece of 毛肚 on your table. 老秦 eats it. 🍲" } ] }
+  ]
+}

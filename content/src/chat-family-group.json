@@ -1,0 +1,143 @@
+{
+  "id": "family-group",
+  "format": "chat",
+  "title": "相亲相爱一家人",
+  "title_en": "One Big Loving Family",
+  "level": 3,
+  "topics": ["family"],
+  "audience": "heritage",
+  "hook": 3,
+  "status": "live",
+  "tags": ["家族群", "红包", "长辈"],
+  "write": ["谣言", "健康"],
+  "setting": "Saturday, 7:02 am. The family group chat is up before you are.",
+  "stage": "🧧",
+  "bg": ["#5a0f12", "#c8312b"],
+  "chat": { "group": { "zh": "相亲相爱一家人" }, "members": 23, "me": { "zh": "小宝" }, "giveup": [
+    { "who": "mama", "zh": "这孩子，又不回消息！", "en": "Honestly, this child never answers!" },
+    { "narr": "Mum removed you from the group chat.", "zh": "你被“妈妈”移出群聊", "kind": "system" },
+    { "end": "lose", "en": "Removed from the family group by your own mum. Your cousin gets your dumplings.", "zh": "饺子都给表弟吃了。" }
+  ] },
+  "cast": {
+    "waipo": { "is": "waipo", "name": "外婆", "en": "your grandma, Mum's mum", "emoji": "👵", "voice": "f-old" },
+    "sanyi": { "is": "sanyi", "name": "三姨", "en": "your aunt on Mum's side", "emoji": "💁‍♀️", "voice": "f-mid" },
+    "mama": { "is": "mama", "name": "妈妈", "en": "your mum", "emoji": "👩", "voice": "f-mid" },
+    "dajiu": { "is": "dajiu", "name": "大舅", "en": "your uncle, Mum's eldest brother", "emoji": "👨‍🦳", "voice": "m-old" },
+    "xiaokai": { "is": "xiaokai", "name": "小凯", "en": "your younger cousin", "emoji": "🧑", "voice": "m-young" }
+  },
+  "steps": [
+    { "narr": "Saturday, 7:02 am. Your phone lights up: the family group chat has exploded again.", "zh": "家族群又炸了。" },
+    { "who": "waipo", "kind": "sticker", "art": "🌹🍵🌅", "zh": "早上好！天天开心！", "en": "Good morning! Be happy every day!", "clock": "07:02" },
+    { "who": "sanyi", "kind": "link", "art": "💧⚠️", "zh": "震惊！隔夜水千万别喝，很多人还不知道！", "en": "SHOCKING! Never drink water that's stood overnight. So many people still don't know!", "typing": 2 },
+    { "who": "sanyi", "zh": "大家快看看，太吓人了！", "en": "Everyone read this, it's terrifying!", "typing": 1.5 },
+    { "who": "mama", "zh": "你懂得多，这是真的吗？", "mention": true, "en": "You know about these things. Is it true?", "typing": 2 },
+    { "say": {
+      "id": "rumour",
+      "en": "Tell your aunt, nicely, that it's a rumour: don't believe it.",
+      "cue": "Kill the rumour.",
+      "reply": "type",
+      "answers": ["三姨，这是谣言，别信哈。", "三姨，这个是假的，别信。", "这是谣言，别转了！", "假的假的，别信！"],
+      "gloss": "Auntie, that's a rumour. Don't believe it.",
+      "need": [["谣言", "假的"]],
+      "time": 22,
+      "tip": "谣言 yáoyán = rumour, fake news. 别信 = don't believe it. A 哈 on the end keeps it friendly to an elder.",
+      "decoys": ["摇", "严"],
+      "ok": [
+        { "who": "sanyi", "zh": "怎么可能是谣言？", "en": "How could it be a rumour?", "typing": 1 },
+        { "who": "sanyi", "zh": "人家专家说的！", "tail": "🙂", "en": "An expert said so!", "typing": 1 },
+        { "who": "sanyi", "kind": "voice", "secs": 6, "zh": "你们年轻人就是不信，等出了事就晚了。", "en": "You young people never believe anything. By the time something happens, it'll be too late.", "typing": 3 }
+      ],
+      "fail": [ { "who": "sanyi", "zh": "看吧，小宝都没意见", "en": "See? Even Xiao Bao agrees.", "typing": 1.5 } ],
+      "levels": {
+        "2": { "answers": ["这是假的，别信哈！", "三姨，这是假的！", "假的，别信！", "这是谣言，别信！"], "gloss": "It's fake, don't believe it!",
+               "tip": "假的 jiǎ de = fake, not true. 别信 = don't believe it; the 哈 keeps it friendly.", "key": { "假的": "fake, not true" }, "status": "live" },
+        "4": { "en": "Tell your aunt, nicely, that it's a rumour: it was debunked long ago.",
+               "answers": ["三姨，这是谣言，早就辟谣了！", "三姨，这是假的，早就辟谣了。", "这是谣言，官方早辟谣了，别信哈！", "假的假的，人家早就辟谣了！"],
+               "gloss": "Auntie, it's a rumour. It was debunked ages ago!", "need": [["谣言", "假的"], ["辟谣", "辟过谣", "澄清"]], "time": 26,
+               "tip": "辟谣 pìyáo = debunk a rumour (官方辟谣 = officially debunked). 早就……了 = … long ago.", "status": "live" }
+      }
+    } },
+    { "who": "mama", "zh": "好了好了，大清早的别吵了", "en": "All right, all right, no arguing this early in the morning.", "typing": 2 },
+    { "who": "mama", "zh": "妈刚发了个朋友圈，快去点赞！", "mention": true, "en": "I just posted on Moments. Go and like it!", "typing": 2 },
+    { "who": "mama", "kind": "photo", "art": "💃🏆", "zh": "妈妈举着广场舞比赛的奖杯", "en": "Mum holding up a trophy from a square-dancing contest.", "typing": 1 },
+    { "say": {
+      "id": "like", "key": {"点了": "tapped Like"},
+      "en": "Tell Mum you've liked it, and that the photo looks great.",
+      "cue": "Mum wants a like.",
+      "reply": "type",
+      "answers": ["点了点了！拍得真好看！", "已经点赞了！妈你真棒！", "赞了！拍得太好看了！", "点赞了，妈妈真厉害！"],
+      "gloss": "Done, done! The photo looks great!",
+      "need": [["点了", "赞"], ["好看", "棒", "厉害", "漂亮", "真美", "好美", "太美"]],
+      "time": 22,
+      "tip": "点赞 = like a post. 点了点了 = done, done! 拍得真好看: verb + 得 + how it came out (the photo turned out great).",
+      "decoys": ["的", "电"],
+      "ok": [ { "who": "mama", "zh": "这还差不多", "tail": "😁", "en": "That's more like it.", "typing": 1 } ],
+      "fail": [ { "who": "mama", "zh": "连个赞都不给妈点", "tail": "😢", "en": "Can't even give your own mum a like.", "typing": 1.5 } ],
+      "levels": {
+        "2": { "answers": ["点赞了！照片真好看！", "点了点了！真好看！", "赞了！妈妈真棒！", "已经点赞了！真漂亮！"], "gloss": "Liked it! The photo looks great!",
+               "tip": "点赞 diǎn zàn = like a post. 照片真好看 = the photo looks really good.", "status": "live" },
+        "4": { "en": "Tell Mum you've liked it and the photo looks great. Then: that's my mum, a true champion!",
+               "answers": ["点了点了！拍得真好看，不愧是我妈！", "赞了！妈你太厉害了，不愧是冠军！", "点赞了！真漂亮，不愧是我妈！", "点了点了！太棒了，不愧是我妈！"],
+               "gloss": "Done, done! The photo looks great. That's my mum!", "need": [["点了", "赞"], ["好看", "棒", "厉害", "漂亮", "真美", "好美", "太美"], ["不愧"]], "time": 28,
+               "tip": "不愧是…… = every inch a …, as you'd expect of …: 不愧是我妈 = that's my mum! 拍得真好看 = the photo came out great.", "status": "live" }
+      }
+    } },
+    { "who": "dajiu", "kind": "packet", "zh": "说句好听的，才能领！", "packet": { "amount": 0.88, "gate": "bless" }, "en": "Say something nice, then you can open it!", "typing": 2 },
+    { "who": "dajiu", "zh": "谁说得好听，红包就是谁的！", "en": "Whoever says the nicest thing gets the red packet!", "typing": 2 },
+    { "who": "xiaokai", "zh": "谢谢大舅！", "en": "Thanks, Uncle!", "typing": 0.4 },
+    { "who": "dajiu", "zh": "就这？太敷衍了！", "en": "That's it? Way too half-hearted!", "typing": 1.2 },
+    { "say": {
+      "id": "bless",
+      "en": "Beat your cousin: thank your uncle by his title, and wish him good health.",
+      "cue": "Out-bless your cousin!",
+      "reply": "type",
+      "answers": ["谢谢大舅！祝您身体健康！", "谢谢大舅，祝您万事如意！", "祝大舅身体健康，越活越年轻！", "谢谢大舅！祝大舅财源滚滚！"],
+      "gloss": "Thank you, Uncle! Wishing you good health!",
+      "need": [["大舅"], ["祝"]],
+      "time": 26,
+      "tip": "Title first (大舅 = Mum's eldest brother), then a wish: 祝您身体健康 = wishing you good health. 您 is the respectful 你.",
+      "decoys": ["叔", "就"],
+      "mistakes": [ { "heard": ["叔叔", "大叔"], "note": "叔叔 is Dad's side, or any grown man. Mum's brother is 舅舅, and the eldest is 大舅." } ],
+      "ok": [
+        { "narr": "You opened Uncle's red packet.", "zh": "你领取了大舅的红包", "kind": "system" },
+        { "who": "xiaokai", "zh": "多少多少？", "en": "How much? How much?", "typing": 0.5 },
+        { "who": "dajiu", "zh": "哈哈，礼轻情意重嘛！", "en": "Ha! It's the thought that counts!", "typing": 1.5 },
+        { "who": "xiaokai", "zh": "八毛八哈哈哈哈哈", "en": "Eighty-eight cents, hahahaha!", "typing": 0.8 }
+      ],
+      "fail": [ { "who": "dajiu", "zh": "再想想，说点好听的！", "en": "Try again: say something nice!", "typing": 1 } ],
+      "levels": {
+        "4": { "en": "Out-bless your cousin: wish your uncle, by his title, good health and every success.",
+               "answers": ["祝大舅身体健康，万事如意！", "谢谢大舅！祝您身体健康，万事如意！", "祝大舅身体健康，心想事成！", "谢谢大舅，祝您财源滚滚，万事如意！"],
+               "gloss": "Wishing you good health, Uncle, and may everything go your way!", "need": [["大舅"], ["祝"], ["万事如意", "心想事成", "财源滚滚", "步步高升", "越活越年轻"]], "time": 28,
+               "tip": "万事如意 = may everything go as you wish; 心想事成 = may your wishes come true. Strung after 身体健康, they make the full 吉祥话.", "status": "live" }
+      }
+    } },
+    { "who": "waipo", "kind": "voice", "secs": 9, "zh": "小宝啊，过年回不回来呀？外婆给你包饺子。", "en": "Xiao Bao, are you coming home for New Year? Grandma will make you dumplings.", "clock": "07:31", "typing": 5 },
+    { "narr": "Grandma nudged you.", "zh": "外婆拍了拍你", "kind": "system", "fx": "shake" },
+    { "who": "mama", "zh": "外婆看不清字，你给她发语音", "en": "Grandma can't read the screen. Send her a voice message.", "typing": 1.5 },
+    { "say": {
+      "id": "home",
+      "en": "Hold to talk: tell Grandma yes, you're coming home, and you miss her.",
+      "cue": "Answer Grandma.",
+      "reply": "speak",
+      "answers": ["回来！外婆，我好想你！", "外婆，我回来！我想你了！", "一定回来！外婆，我好想您！", "回！外婆我想死你了！"],
+      "gloss": "I'm coming! Grandma, I miss you so much!",
+      "need": [["回"], ["想"]],
+      "time": 15,
+      "tip": "我好想你 = I miss you so much (好 = so). 想死你了, 'missing you to death', is warmer still.",
+      "ok": [
+        { "who": "waipo", "kind": "voice", "secs": 5, "zh": "好好好！外婆给你包三百个饺子！", "en": "Good, good, good! Grandma will make you three hundred dumplings!", "typing": 4 },
+        { "who": "mama", "zh": "看把外婆高兴的", "tail": "😂", "en": "Look how happy you've made Grandma.", "typing": 1.5 }
+      ],
+      "fail": [ { "who": "waipo", "kind": "voice", "secs": 3, "zh": "小宝？外婆听不见呀。", "en": "Xiao Bao? Grandma can't hear you.", "typing": 3 } ],
+      "levels": {
+        "4": { "en": "Hold to talk: tell Grandma you're definitely coming home, and you miss her even in your dreams.",
+               "answers": ["一定回！外婆，我做梦都想您！", "肯定回来！外婆，我做梦都想您！", "回！外婆，我做梦都想吃您包的饺子！", "一定回去！外婆，我梦里都想您！"],
+               "gloss": "Definitely! Grandma, I miss you even in my dreams!", "need": [["回"], ["想"], ["做梦", "梦里"]],
+               "tip": "做梦都想…… = miss (or want) … even in your dreams. 一定 = definitely.", "status": "live" }
+      }
+    } },
+    { "who": "waipo", "kind": "voice", "secs": 60, "zh": "喂？喂？这个怎么关啊？", "en": "Hello? Hello? How do I turn this off?", "typing": 6 },
+    { "end": "win", "en": "Grandma's last voice message runs the full sixty seconds: the telly, the dog, and 'how do I turn this off?' The whole group loses it.", "zh": "外婆的语音又是六十秒。" }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "id": "driver-chat",
+  "format": "chat",
+  "title": "我在门口",
+  "title_en": "I'm by the Door",
+  "level": 0,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "tags": ["打车", "机场", "接机"],
+  "write": ["门口", "师傅"],
+  "setting": "Chongqing Jiangbei airport, arrivals, 11 pm. Your driver is messaging you in the ride-hailing app.",
+  "stage": "🚕",
+  "bg": ["#151a33", "#b0620f"],
+  "chat": { "with": "wang", "giveup": [
+    { "who": "wang", "zh": "那我先走了啊。", "en": "I'll head off, then." },
+    { "narr": "Your driver cancelled the trip.", "zh": "司机已取消行程", "kind": "system" },
+    { "end": "lose", "en": "He drove off without you. The next car is forty minutes away, so you get to know arrivals very well.", "zh": "司机走了。" }
+  ] },
+  "cast": {
+    "wang": { "name": "王师傅", "en": "your driver", "emoji": "🚕", "voice": "m-mid", "speed": 0.85 }
+  },
+  "steps": [
+    { "narr": "11 pm, Chongqing airport. You're outside door 3, in a red jacket.", "zh": "晚上十一点，机场。" },
+    { "who": "wang", "zh": "到了！这儿不能停车！", "en": "I'm here! And I can't stop here!", "clock": "23:04", "typing": 0.8, "fx": "shake" },
+    { "who": "wang", "zh": "你穿什么衣服？", "en": "What are you wearing?", "typing": 0.8 },
+    { "say": {
+      "id": "red",
+      "en": "He's asking what you're wearing. Tell him: red!",
+      "cue": "Help him spot you.",
+      "reply": "tiles",
+      "answers": ["红衣服！", "红色的！", "穿红衣服！", "红外套！"],
+      "gloss": "I'm in red!",
+      "need": [["红"]],
+      "tip": "红 hóng = red. 衣服 yīfu = clothes: 红衣服, red clothes, is how you'd say what you've got on.",
+      "decoys": ["黄", "洪"],
+      "ok": [
+        { "who": "wang", "kind": "photo", "art": "🌶️🧍", "zh": "一个大红辣椒", "en": "A giant red chilli with legs: someone in a hotpot-restaurant costume, handing out flyers.", "typing": 1.5 },
+        { "who": "wang", "zh": "是你吗？", "en": "Is this you?", "typing": 0.6 }
+      ],
+      "fail": [ { "who": "wang", "zh": "什么颜色？", "en": "What colour?", "typing": 0.6 } ],
+      "levels": { "1": {
+        "en": "Tell him you're wearing red.",
+        "answers": ["我穿红衣服。", "我穿着红衣服。", "我穿的是红衣服。", "我穿红色的。"],
+        "need": [["穿红", "穿着红", "穿的是红"]],
+        "gloss": "I'm wearing red.",
+        "tip": "穿 chuān = to wear (clothes, shoes): 我穿红衣服 = I'm wearing red.",
+        "key": { "穿红": "wearing red", "穿红衣服": "wearing red (clothes)" },
+        "reply": "type", "time": 20, "status": "live" } }
+    } },
+    { "say": {
+      "id": "notme",
+      "en": "That's a giant chilli! Tell him it isn't you.",
+      "cue": "Wrong person!",
+      "reply": "tiles",
+      "answers": ["不是我！", "不是！", "不是不是！", "那不是我！"],
+      "gloss": "That's not me!",
+      "need": [["不是"]],
+      "not": [ { "heard": ["是我"], "note": "That says it IS you. Put 不 in front: 不是我！" } ],
+      "tip": "不是我 bú shì wǒ = it's not me. 不 before 是 turns 'it is' into 'it isn't' (and says bú before a fourth tone).",
+      "mistakes": [ { "heard": ["没是"], "note": "没 is for 'didn't' and 'haven't'. For 'it isn't', use 不: 不是我！" } ],
+      "decoys": ["没", "事"],
+      "ok": [ { "who": "wang", "zh": "那你在哪儿？", "en": "Then where are you?", "typing": 0.6 } ],
+      "fail": [ { "who": "wang", "zh": "是不是你啊？", "en": "Is it you or not?", "typing": 0.6 } ],
+      "levels": { "1": {
+        "en": "Tell him: no, that's not you!",
+        "answers": ["师傅，那不是我！", "不是我，那不是我！", "那不是我！", "那个不是我！"],
+        "need": [["那不是", "那个不是", "这不是", "这个不是"]],
+        "not": [ { "heard": ["是我"], "note": "That says it IS you. Put 不 in: 那不是我！" } ],
+        "gloss": "Driver, that's not me!",
+        "tip": "那不是我 = that isn't me (那 nà = that). 师傅 shīfu = what you call a driver.",
+        "key": { "那不是": "that isn't" },
+        "reply": "type", "time": 20, "status": "live" } }
+    } },
+    { "say": {
+      "id": "door",
+      "en": "Tell him where you are: by the door.",
+      "cue": "Tell him where!",
+      "reply": "tiles",
+      "answers": ["我在门口！", "在门口！", "门口！", "我在出口！"],
+      "gloss": "I'm by the door!",
+      "need": [["门口", "出口"]],
+      "tip": "门口 ménkǒu = by the door (门 door + 口 mouth, opening). 我在…… = I'm at … .",
+      "decoys": ["们", "问"],
+      "ok": [ { "who": "wang", "zh": "哪个门？", "en": "Which door?", "typing": 0.6 } ],
+      "fail": [ { "who": "wang", "zh": "喂？人呢？", "en": "Hello? Where'd you go?", "typing": 0.6 } ],
+      "levels": { "1": {
+        "en": "Tell him you're right here, at the exit.",
+        "answers": ["我在出口这儿。", "我在门口这儿。", "我就在出口这里。", "我在出口这边。"],
+        "need": [["出口这儿", "出口这里", "出口这边", "门口这儿", "门口这里", "门口这边"]],
+        "gloss": "I'm right here at the exit.",
+        "tip": "在……这儿 = right here at … (这儿 zhèr = here). 出口 chūkǒu = exit, the way out.",
+        "key": { "出口这儿": "here at the exit" },
+        "reply": "type", "time": 20, "status": "live" } }
+    } },
+    { "say": {
+      "id": "gate",
+      "en": "Which door? Tell him: door 3.",
+      "cue": "The sign says 3.",
+      "reply": "tiles",
+      "answers": ["三号门！", "三号！", "在三号门！", "三号门这儿！"],
+      "gloss": "Door three!",
+      "need": [["三号"]],
+      "tip": "三号门 sān hào mén = door number three: 号 hào marks a number.",
+      "key": { "三号": "number three" },
+      "decoys": ["山", "好"],
+      "ok": [
+        { "who": "wang", "kind": "voice", "secs": 3, "zh": "我就在三号门！", "en": "I'm right at door 3!", "typing": 2 },
+        { "who": "wang", "kind": "photo", "art": "🙋‍♂️🪧", "zh": "牌子上是你的名字", "en": "Your driver, grinning, holding up a sign: your name, in characters a foot tall.", "typing": 2 },
+        { "who": "wang", "zh": "看到我了吗？", "en": "See me now?", "typing": 0.8 }
+      ],
+      "fail": [ { "who": "wang", "zh": "几号门啊？", "en": "Which number?", "typing": 0.6 } ],
+      "levels": { "1": {
+        "en": "Tell him: outside door 3.",
+        "answers": ["三号门外面。", "就在三号门外面。", "三号门，出来就是。", "三号门外边。"],
+        "need": [["三号门外", "三号门出来"]],
+        "not": [ { "heard": ["里面", "里边"], "note": "里面 is inside. He's out on the road: 外面 wàimian, outside." } ],
+        "gloss": "Outside door three.",
+        "tip": "外面 wàimian = outside. 三号门，出来就是 = door 3, right there as you come out.",
+        "key": { "三号门外": "outside door three", "三号门外面": "outside door three" },
+        "reply": "type", "time": 20, "status": "live" } }
+    } },
+    { "say": {
+      "id": "thanks",
+      "en": "There he is, under your name! Thank him: drivers are called 师傅 (shīfu).",
+      "cue": "There he is!",
+      "reply": "tiles",
+      "answers": ["谢谢师傅！", "师傅，谢谢！", "谢了师傅！", "谢谢你，师傅！"],
+      "gloss": "Thanks, driver!",
+      "need": [["师傅", "谢谢", "谢了", "多谢"]],
+      "tip": "师傅 shīfu = what you call a driver (or any skilled worker): 'master'. 谢谢师傅！ is the thank-you every driver hears.",
+      "mistakes": [ { "heard": ["师父"], "typed": true, "note": "师父 is a master who teaches you a craft. A driver is 师傅: the same sound, another 傅." } ],
+      "decoys": ["父", "诗"],
+      "ok": [ { "who": "wang", "zh": "快上车！", "en": "Hop in, quick!", "typing": 0.6 } ],
+      "fail": [ { "who": "wang", "zh": "这儿！这儿！", "en": "Here! Over here!", "typing": 0.5, "fx": "shake" } ],
+      "levels": { "1": {
+        "en": "You can see him! Say so, and thank him.",
+        "answers": ["看到了，谢谢！", "看到了，谢谢师傅！", "看到你了，谢谢！", "看见了，谢了师傅！"],
+        "need": [["看到", "看见"]],
+        "gloss": "I see you! Thanks!",
+        "tip": "看到了 kàndào le = I can see you now (了: it's happened). Add 师傅 for the driver: 看到了，谢谢师傅！",
+        "reply": "type", "time": 20, "status": "live" } }
+    } },
+    { "end": "win", "en": "He was at door 3 the whole time, ten metres away, under your name in characters a foot tall. Half the arrivals hall now knows your name.", "zh": "大家都认识你了。" }
+  ]
+}

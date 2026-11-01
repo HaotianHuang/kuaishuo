@@ -1,0 +1,166 @@
+{
+  "id": "melon-2",
+  "format": "chat",
+  "title": "华尔兹",
+  "title_en": "The Waltz",
+  "level": 3,
+  "listen": 3,
+  "topics": ["home"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "melon", "ep": 2, "next": "Saturday. Two hundred neighbours, and the speaker won't play." },
+  "tags": ["吃瓜", "才艺比赛", "华尔兹"],
+  "setting": "金桂苑, Thursday, 9 pm. The talent show is on Saturday.",
+  "stage": "🍉",
+  "bg": ["#0f3a1e", "#3c9a4f"],
+  "chat": { "group": { "zh": "金桂苑业主群" }, "members": 128, "me": { "zh": "小邻居" }, "giveup": [
+    { "who": "hu", "zh": "小邻居不说话，就是同意了。", "en": "Our young neighbour's gone quiet. That's a yes, then." },
+    { "end": "lose", "en": "By morning your name is on the programme, in red. Run that back. 🍉" }
+  ] },
+  "cast": {
+    "hu": { "name": "胡阿姨", "en": "5号楼: first to see everything", "emoji": "👩‍🦱", "voice": "f-mid" },
+    "wu": { "name": "吴阿姨", "en": "3号楼: knows someone who saw it", "emoji": "👩", "voice": "f-mid" },
+    "zhao": { "name": "赵奶奶", "en": "eighty, sends only sixty-second voice notes", "emoji": "👵", "voice": "f-old" },
+    "ting": { "name": "婷婷", "en": "老周's daughter", "emoji": "🙍", "voice": "f-young" },
+    "laozhou": { "name": "老周", "en": "3号楼: learning to waltz", "emoji": "👴", "voice": "m-old" }
+  },
+  "steps": [
+    { "narr": "Thursday night. The estate's group chat." },
+    { "when": { "melon.dance": "kept" }, "who": "hu", "zh": "我发现，小邻居每天七点也出门……", "en": "I've noticed our young neighbour goes out at seven every evening too...", "clock": "21:02",
+      "else": [ { "who": "zhao", "kind": "voice", "secs": 60, "zh": "老周加油！方阿姨加油！金桂苑第一！", "en": "Go 老周! Go 方阿姨! 金桂苑 number one!", "clock": "21:02" } ] },
+    { "when": { "melon.dance": "kept" }, "who": "wu", "zh": "穿得还挺好看。", "en": "Rather nicely dressed, too.", "typing": 1,
+      "else": [ { "who": "hu", "kind": "sticker", "art": "📣🎀", "zh": "啦啦队已成立", "en": "Cheer squad: formed" } ] },
+    { "who": "hu", "zh": "坏消息：方阿姨膝盖不行了，跳不了了。", "en": "Bad news: 方阿姨's knee has gone. She can't dance.", "typing": 1.5 },
+    { "who": "wu", "kind": "photo", "art": "🗳️", "zh": "投票：谁替方阿姨跳？小邻居，十二票。", "en": "Vote: who replaces 方阿姨? Young neighbour: twelve votes.", "typing": 1 },
+    { "who": "hu", "zh": "小邻居，你票最多！", "mention": true, "en": "Young neighbour, you've got the most votes!", "typing": 0.8 },
+    { "say": {
+      "id": "refuse",
+      "en": "Politely refuse: you really can't dance.",
+      "cue": "Say no, nicely.",
+      "answers": ["我真的不会跳舞，别投我了。", "谢谢大家，可我真的不会跳舞。", "我真的不会跳，大家别投我。"],
+      "gloss": "I really can't dance. Please don't vote for me.",
+      "need": [["不会跳"], ["真的", "别投"]],
+      "key": { "不会跳": "can't dance" },
+      "time": 30,
+      "tip": "不会 bú huì = can't (never learned): 我不会跳舞.",
+      "ok": [
+        { "who": "wu", "zh": "不会可以学嘛！", "en": "You can learn!", "typing": 1 },
+        { "who": "zhao", "kind": "voice", "secs": 60, "zh": "我年轻的时候跳得可好了，我教你。", "en": "I was a wonderful dancer in my day. I'll teach you." }
+      ],
+      "fail": [ { "who": "hu", "zh": "小邻居同意了！", "en": "Our young neighbour agrees!", "typing": 0.6 } ],
+      "levels": {
+        "2": {
+          "answers": ["我不会跳舞！", "我真的不会跳舞。"],
+          "need": [["不会跳"]],
+          "gloss": "I can't dance!",
+          "status": "live" },
+        "4": {
+          "answers": ["谢谢大家抬举，可我真的不会跳舞。", "谢谢大家抬举，我是真的不会跳舞。"],
+          "need": [["抬举"], ["不会跳"]],
+          "gloss": "You flatter me, everyone, but I truly can't dance.",
+          "tip": "抬举 táiju = think highly of: 谢谢大家抬举, the modest way out.",
+          "status": "live" }
+      }
+    } },
+    { "who": "laozhou", "zh": "小邻居，就一首，好不好？", "mention": true, "en": "Young neighbour: just one song, please?", "typing": 2 },
+    { "say": {
+      "id": "one",
+      "en": "Negotiate: one song only.",
+      "cue": "One song. Only one.",
+      "answers": ["好吧，我只跳一首。", "那我只跳一首，就一首。", "只跳一首，多了不行。"],
+      "gloss": "All right. One song, and only one.",
+      "need": [["只跳"], ["一首"]],
+      "time": 30,
+      "tip": "首 shǒu = the measure word for songs: 一首歌. 只 zhǐ = only.",
+      "ok": [ { "who": "laozhou", "zh": "一首就够了。", "en": "One is all it takes.", "typing": 2 } ],
+      "fail": [ { "who": "laozhou", "zh": "就一首？", "en": "Just one?", "typing": 1 } ],
+      "levels": {
+        "2": {
+          "answers": ["只跳一首！", "就跳一首。"],
+          "need": [["一首"]],
+          "gloss": "One song!",
+          "status": "live" },
+        "4": {
+          "answers": ["丑话说在前头，我只跳一首。", "丑话说在前面，我只跳一首。"],
+          "need": [["丑话"], ["一首"]],
+          "gloss": "Let's be clear from the start: one song, no more.",
+          "tip": "丑话说在前头 = say the ugly words first: set your terms up front.",
+          "status": "live" }
+      }
+    } },
+    { "who": "ting", "zh": "……", "en": "...", "typing": 3 },
+    { "say": {
+      "id": "recruit",
+      "en": "Better idea: get 婷婷 to do it.",
+      "cue": "What about 婷婷?",
+      "answers": ["婷婷，你来吧！你跳得肯定比我好。", "婷婷，要不你来吧？"],
+      "gloss": "婷婷, you do it! You'd be better than me, surely.",
+      "need": [["婷婷"], ["你来"]],
+      "time": 30,
+      "tip": "你来吧 = you do it, you take it: handing something over.",
+      "ok": [ { "who": "ting", "zh": "我？我不行……", "en": "Me? I couldn't...", "typing": 2 } ],
+      "fail": [ { "who": "wu", "zh": "婷婷？她忙。", "en": "婷婷? She's busy.", "typing": 1 } ],
+      "levels": {
+        "2": {
+          "answers": ["婷婷，你来吧！", "婷婷来！"],
+          "need": [["婷婷"]],
+          "gloss": "婷婷, you do it!",
+          "status": "live" },
+        "4": {
+          "answers": ["肥水不流外人田，婷婷，你来吧！", "婷婷，肥水不流外人田，你来吧！"],
+          "need": [["肥水"], ["你来"]],
+          "gloss": "Keep it in the family, 婷婷. You do it!",
+          "tip": "肥水不流外人田 = good water doesn't flow to other people's fields: keep a good thing in the family.",
+          "status": "live" }
+      }
+    } },
+    { "who": "ting", "zh": "我妈以前最爱跳华尔兹。她走了三年了。", "en": "My mum loved to waltz. She's been gone three years.", "typing": 3 },
+    { "who": "ting", "zh": "我爸是为她学的。他谁也没说。", "en": "Dad's learning it for her. He never told anyone.", "typing": 2.5 },
+    { "narr": "The group goes quiet. For once." },
+    { "who": "zhao", "kind": "voice", "secs": 4, "zh": "……好孩子。", "en": "...Good girl." },
+    { "who": "hu", "zh": "小邻居，你说呢？", "mention": true, "en": "Young neighbour, what do you say?", "typing": 2 },
+    { "say": {
+      "id": "who",
+      "en": "Dance it yourself, or ask 婷婷 to dance with her dad.",
+      "cue": "You, or 婷婷?",
+      "answers": ["好，我跳！我现在就去学。", "我跳！我今晚就开始学。"],
+      "gloss": "All right, I'll dance! I'll start learning now.",
+      "need": [["我跳"], ["学"]],
+      "key": { "我跳": "I'll dance" },
+      "time": 30,
+      "tip": "就 jiù = right away: 我现在就去.",
+      "sets": { "melon.ep2": "me" },
+      "ok": [
+        { "who": "laozhou", "zh": "谢谢你，小邻居。明晚七点，公园。", "en": "Thank you, young neighbour. Tomorrow, seven, the park.", "typing": 2 },
+        { "who": "hu", "kind": "sticker", "art": "🍉👏", "zh": "吃瓜群众已就位", "en": "The audience is in position" }
+      ],
+      "alts": [
+        { "en": "Or: 婷婷 dances with her dad", "answers": ["婷婷，你陪你爸跳吧。", "婷婷，你去陪你爸跳吧。"], "need": [["陪你爸"], ["跳"]], "gloss": "婷婷, dance with your dad.",
+          "key": { "陪你爸": "with your dad" },
+          "sets": { "melon.ep2": "tingting" },
+          "then": [
+            { "who": "ting", "zh": "……好。爸，我陪你跳。", "en": "...OK. Dad, I'll dance with you.", "typing": 3 },
+            { "who": "laozhou", "zh": "好。", "en": "All right.", "typing": 4 }
+          ] }
+      ],
+      "fail": [ { "who": "hu", "zh": "小邻居，你说呢？", "en": "Young neighbour, what do you say?", "typing": 1 } ],
+      "levels": {
+        "2": {
+          "answers": ["我跳！", "好，我跳！"],
+          "need": [["我跳"]],
+          "gloss": "I'll dance!",
+          "alts": [ { "of": 0, "answers": ["婷婷，你陪你爸跳！", "你陪你爸跳吧！"], "need": [["陪你爸"]], "gloss": "Dance with your dad!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["我跳！不会可以学，我今晚就练。", "好，我跳，不会就学，今晚就练。"],
+          "need": [["我跳"], ["今晚"]],
+          "gloss": "I'll dance! I'll learn. Starting tonight.",
+          "alts": [ { "of": 0, "answers": ["婷婷，这支舞，应该你陪你爸跳。", "婷婷，这支舞该你陪你爸跳。"], "need": [["这支舞"], ["陪你爸"]], "gloss": "婷婷, this dance should be yours, with your dad." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "melon.ep2": "me" }, "end": "win", "en": "Friday, 7 pm, the park: 老周 teaches you the waltz. You step on his foot twice. He doesn't mind. 💃",
+      "else": [ { "end": "win", "en": "老周 sends a thumbs-up. A minute later, a second one. 💃" } ] }
+  ]
+}

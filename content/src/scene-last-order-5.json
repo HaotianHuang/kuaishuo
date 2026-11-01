@@ -1,0 +1,152 @@
+{
+  "id": "last-order-5",
+  "format": "scene",
+  "title": "接人",
+  "title_en": "A Different Order",
+  "level": 1,
+  "listen": 1,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "last-order", "ep": 5, "next": "陈爷爷 sees who is at the door, and says: 我不害怕了。" },
+  "tags": ["最后一单", "朵朵", "接人"],
+  "setting": "Evening, a week after the typhoon. A strange order in the app: not food. A person, at the airport bus stop.",
+  "stage": "🧳",
+  "bg": ["#141a24", "#4a6a8a"],
+  "cast": {
+    "duoduo": { "name": "朵朵", "en": "陈爷爷's granddaughter, home from abroad", "emoji": "🧳", "voice": "f-young" },
+    "liu": { "name": "刘奶奶", "en": "blind, fifth floor, sharp as a tack", "emoji": "👵", "voice": "f-old" },
+    "qishou": { "name": "骑手", "en": "another rider", "emoji": "🛵", "voice": "m-young" }
+  },
+  "steps": [
+    { "narr": "A strange order in the app. Not food: a pickup, at the airport bus stop. The note:", "zh": "接人：朵朵。请派那个留下来的骑手。", "prop": "📱" },
+    { "narr": "Then a message from 小何, on the ward:", "zh": "陈爷爷摔了一下，没事。他一个人在医院。", "hold": 1 },
+    { "when": { "last-order.ep4": "me" }, "narr": "On your way down the stairs, 刘奶奶's door opens a crack.",
+      "else": [ { "narr": "At the lights, three riders from the group wave you through." } ] },
+    { "when": { "last-order.ep4": "me" }, "who": "liu", "zh": "是你！加油！", "en": "It's you! Go on!",
+      "else": [ { "who": "qishou", "zh": "去吧！", "en": "Go!" } ] },
+    { "narr": "The airport bus stop. A young woman with a suitcase, searching every face." },
+    { "say": {
+      "id": "hello",
+      "en": "Ask her: are you 朵朵?",
+      "cue": "Is it her?",
+      "answers": ["是朵朵吗？", "你是朵朵吗？"],
+      "gloss": "Are you 朵朵?",
+      "need": [["是朵朵"]],
+      "tip": "是……吗？ = are you ...?",
+      "ok": [
+        { "who": "duoduo", "zh": "是你！那天晚上……", "en": "It's you! That night...", "fx": "laugh" },
+        { "who": "duoduo", "zh": "谢谢你陪我爷爷。", "en": "Thank you for staying with my grandpa." }
+      ],
+      "fail": [ { "who": "duoduo", "zh": "你是……骑手？", "en": "Are you... the rider?" } ],
+      "levels": {
+        "0": {
+          "answers": ["朵朵？"],
+          "need": [["朵朵"]],
+          "gloss": "朵朵?",
+          "status": "live" },
+        "2": {
+          "answers": ["您好，是朵朵吗？"],
+          "need": [["您好"]],
+          "gloss": "Hello, are you 朵朵?",
+          "status": "live" }
+      }
+    } },
+    { "who": "duoduo", "zh": "我爷爷呢？", "en": "Where's my grandpa?" },
+    { "say": {
+      "id": "hospital",
+      "en": "Tell her: grandpa's in hospital. Gently.",
+      "cue": "Tell her.",
+      "answers": ["爷爷在医院。"],
+      "gloss": "Grandpa's in hospital.",
+      "need": [["爷爷"]],
+      "not": [ { "heard": ["不在"], "note": "He is in hospital: 在医院." } ],
+      "tip": "医院 yīyuàn = hospital. 在 = is at.",
+      "ok": [
+        { "who": "duoduo", "zh": "医院？！", "en": "Hospital?!", "fx": "shake" },
+        { "narr": "You tell her: a small fall, nothing broken, and 小何 is with him." }
+      ],
+      "fail": [ { "who": "duoduo", "zh": "他在哪儿？", "en": "Where is he?" } ],
+      "levels": {
+        "0": {
+          "answers": ["在医院。"],
+          "need": [["医院"]],
+          "gloss": "In hospital.",
+          "status": "live" },
+        "2": {
+          "answers": ["别急，爷爷在医院，没事。"],
+          "need": [["别急"]],
+          "gloss": "Don't worry. Grandpa's in hospital, and he's fine.",
+          "status": "live" }
+      }
+    } },
+    { "who": "duoduo", "zh": "那个备注，是我写的。", "en": "That note on the order: I wrote it.", "pace": "slow" },
+    { "who": "duoduo", "zh": "他不会说他害怕。", "en": "He'll never say he's scared.", "pace": "slow", "hold": 1 },
+    { "who": "duoduo", "zh": "我怕……我又来晚了。", "en": "I'm afraid... I'm too late again.", "pace": "slow", "hold": 2 },
+    { "say": {
+      "id": "come",
+      "en": "Guide her: get on, follow me!",
+      "cue": "Come on!",
+      "answers": ["上车，跟我来！"],
+      "gloss": "Get on, come with me!",
+      "need": [["上车"]],
+      "tip": "上车 = get on (a vehicle). 跟我来 = come with me.",
+      "ok": [
+        { "narr": "Her suitcase on your footboard, her arms round your waist. Off." },
+        { "sfx": "honk" }
+      ],
+      "fail": [ { "who": "duoduo", "zh": "怎么走？", "en": "Which way?" } ],
+      "levels": {
+        "0": {
+          "answers": ["跟我来！"],
+          "need": [["跟我"]],
+          "gloss": "Follow me!",
+          "status": "live" },
+        "2": {
+          "answers": ["上车，跟我来，不会晚的！"],
+          "need": [["不会晚"]],
+          "gloss": "Get on, come with me. You won't be late!",
+          "status": "live" }
+      }
+    } },
+    { "who": "duoduo", "zh": "先去哪儿？", "en": "Where first?" },
+    { "say": {
+      "id": "where",
+      "en": "Straight to the hospital, or stop for congee first.",
+      "cue": "Straight, or congee?",
+      "answers": ["直接去医院！"],
+      "gloss": "Straight to the hospital!",
+      "need": [["直接"]],
+      "tip": "直接 zhíjiē = straight, directly.",
+      "sets": { "last-order.ep5": "straight" },
+      "ok": [ { "narr": "Every light turns green. Or you pretend it did." } ],
+      "alts": [
+        { "en": "Or: congee first", "answers": ["先买粥！", "先买碗粥！"], "need": [["先买"]], "gloss": "Get congee first!",
+          "key": { "粥": "congee" },
+          "sets": { "last-order.ep5": "congee" },
+          "then": [
+            { "narr": "A congee stall by the hospital gate, still open." },
+            { "who": "duoduo", "zh": "我小时候最爱喝这个。", "en": "This was my favourite when I was little." }
+          ] }
+      ],
+      "fail": [ { "who": "duoduo", "zh": "去哪儿？", "en": "Where to?" } ],
+      "levels": {
+        "0": {
+          "answers": ["去医院！"],
+          "need": [["去医院"]],
+          "gloss": "Hospital!",
+          "alts": [ { "of": 0, "answers": ["买粥！"], "need": [["粥"]], "gloss": "Congee!" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["别停，直接去医院！"],
+          "need": [["别停"]],
+          "gloss": "Don't stop. Straight to the hospital!",
+          "alts": [ { "of": 0, "answers": ["先买碗粥，你最爱喝的。"], "need": [["最爱"]], "gloss": "Congee first: your favourite." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "last-order.ep5": "straight" }, "end": "win", "en": "The hospital lift. Third floor. 朵朵 runs the last ten metres. 🛵",
+      "else": [ { "end": "win", "en": "Third floor, with a bowl of congee held very carefully in both hands. 🛵" } ] }
+  ]
+}

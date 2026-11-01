@@ -1,0 +1,142 @@
+{
+  "id": "carol-3",
+  "format": "scene",
+  "title": "第三位客人",
+  "title_en": "The Third Visitor",
+  "level": 3,
+  "listen": 3,
+  "topics": ["celebrations"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "carol", "ep": 3, "next": "You wake at your desk. 11:40 pm, 除夕. Twenty minutes to midnight." },
+  "tags": ["春节颂歌", "除夕", "明年"],
+  "setting": "The office, the small hours of 除夕 night. The lift is humming upward. The third visitor doesn't speak.",
+  "stage": "🕯️",
+  "bg": ["#0a0a12", "#3a3a5a"],
+  "cast": {
+    "laoma": { "name": "老妈", "en": "your mother, next year", "emoji": "👩", "voice": "f-mid" },
+    "laoba": { "name": "老爸", "en": "your father, next year", "emoji": "👨", "voice": "m-mid" }
+  },
+  "steps": [
+    { "when": { "carol.ep2": "home" }, "narr": "Last time, the visitor took you home. You keep seeing that one clean pair of chopsticks.",
+      "else": [ { "narr": "The last thing you remember is 弟弟's glass of orange juice, raised to you." } ] },
+    { "sfx": "ding" },
+    { "narr": "The lift doors open by themselves. Inside: a tall figure in a long grey coat, its face hidden under a hood. It says nothing." },
+    { "narr": "It points at your phone. The date on the screen flickers, and changes: next year's 除夕.", "prop": "📱", "hold": 1 },
+    { "say": {
+      "id": "when",
+      "en": "Ask the silent visitor: is this next year's 除夕?",
+      "cue": "Next year?",
+      "answers": ["这是明年的除夕吗？", "是明年的除夕吗？"],
+      "gloss": "Is this next year's 除夕?",
+      "need": [["明年"], ["除夕"]],
+      "tip": "明年 míngnián = next year. 的 joins it to 除夕: next year's 除夕.",
+      "ok": [ { "narr": "It nods, once. The office is gone." } ],
+      "fail": [ { "narr": "The visitor waits. It has all the time in the world." } ],
+      "levels": {
+        "2": {
+          "answers": ["明年？", "是明年吗？"],
+          "need": [["明年"]],
+          "gloss": "Next year?",
+          "status": "live" },
+        "4": {
+          "answers": ["你要带我去看明年的除夕吗？"],
+          "need": [["带我去看"], ["明年的除夕"]],
+          "gloss": "You're taking me to see next year's 除夕?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Your parents' flat, next year. The gala on, the sound off. Two bowls on the table. Two pairs of chopsticks." },
+    { "who": "laoma", "zh": "孩子今年也不回来了。", "en": "Our child isn't coming this year either.", "pace": "slow", "hold": 1 },
+    { "who": "laoba", "zh": "不摆了。摆了也没用。", "en": "No more setting the bowl. What's the use.", "pace": "slow", "hold": 2 },
+    { "narr": "There's no third bowl. There's no third chair either. Someone has moved it to the balcony." },
+    { "say": {
+      "id": "late",
+      "en": "Plead with the visitor: is there still time?",
+      "cue": "Still time?",
+      "answers": ["还来得及吗？", "现在还来得及吗？"],
+      "gloss": "Is there still time?",
+      "need": [["还来得及"]],
+      "key": { "来得及": "there's still time" },
+      "tip": "来得及 = there's time (to do it). 来不及 = too late.",
+      "ok": [ { "narr": "The visitor says nothing. It only points again, somewhere else." } ],
+      "fail": [ { "narr": "The visitor doesn't move." } ],
+      "levels": {
+        "2": {
+          "answers": ["来得及吗？"],
+          "need": [["来得及"]],
+          "gloss": "Is there time?",
+          "status": "live" },
+        "4": {
+          "answers": ["告诉我，现在还来得及吗？"],
+          "need": [["告诉我"], ["还来得及"]],
+          "gloss": "Tell me: is there still time?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Your office, next year. 小葛's desk is bare, her nameplate gone. A sticky note on the screen.", "zh": "我回老家了。祝您新年快乐。小葛", "prop": "📝" },
+    { "narr": "On your desk, your phone rings. And rings. The screen says who it is.", "zh": "老妈" },
+    { "sfx": "ring" },
+    { "narr": "Nobody is there to answer it. Nobody has been there for a long time.", "hold": 2 },
+    { "say": {
+      "id": "change",
+      "en": "Promise it: you'll change.",
+      "cue": "Promise.",
+      "answers": ["我改，我一定改。", "我改，一定改。"],
+      "gloss": "I'll change. I promise I'll change.",
+      "need": [["我改"], ["一定改"]],
+      "tip": "一定 yídìng = definitely: 一定改 = I will change, for sure.",
+      "ok": [
+        { "narr": "The ringing stops." },
+        { "narr": "The visitor lowers its hand, and for the first time, holds something out to you: your own phone.", "hold": 1 }
+      ],
+      "fail": [ { "sfx": "ring" } ],
+      "levels": {
+        "2": {
+          "answers": ["我改！", "我改。"],
+          "need": [["我改"]],
+          "gloss": "I'll change!",
+          "status": "live" },
+        "4": {
+          "answers": ["我改，从今天开始，我一定改。"],
+          "need": [["从今天开始"], ["一定改"], ["我改"]],
+          "gloss": "I'll change. From today on, I'll change.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "first",
+      "en": "Go home now, or call your mum first.",
+      "cue": "Home, or call?",
+      "answers": ["我现在就回家。"],
+      "gloss": "I'm going home right now.",
+      "need": [["现在就回家"]],
+      "tip": "现在就 = right now: 就 says no waiting.",
+      "sets": { "carol.ep3": "home" },
+      "ok": [ { "narr": "The visitor nods. Everything goes white." } ],
+      "alts": [
+        { "en": "Or: call mum first", "answers": ["先给我妈打个电话。"], "need": [["先给我妈"], ["打个电话"]], "gloss": "I'll call my mum first.",
+          "sets": { "carol.ep3": "call" },
+          "then": [ { "narr": "You press call. It rings once. Then everything goes white." } ] }
+      ],
+      "fail": [ { "narr": "The visitor waits, holding out the phone." } ],
+      "levels": {
+        "2": {
+          "answers": ["我回家！", "现在回家！"],
+          "need": [["回家"]],
+          "gloss": "I'm going home!",
+          "alts": [ { "of": 0, "answers": ["给我妈打电话！"], "need": [["电话"]], "gloss": "Call my mum!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["不等了，我现在就回家。"],
+          "need": [["不等了"], ["现在就回家"]],
+          "gloss": "No more waiting. I'm going home right now.",
+          "alts": [ { "of": 0, "answers": ["等一下，我要先给我妈打个电话。"], "need": [["等一下"], ["先给我妈"], ["打个电话"]], "gloss": "Wait. First I'm going to call my mum." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "carol.ep3": "home" }, "end": "win", "en": "You wake at your desk. 11:40 pm, 除夕. You're already putting on your coat. 🕯️",
+      "else": [ { "end": "win", "en": "You wake at your desk. 11:40 pm, 除夕. Your phone is in your hand, and it's ringing out. 🕯️" } ] }
+  ]
+}

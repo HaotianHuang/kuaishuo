@@ -1,0 +1,137 @@
+{
+  "id": "hotel-wakeup",
+  "format": "call",
+  "title": "凌晨五点",
+  "title_en": "Five in the Morning",
+  "level": 2,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 3,
+  "status": "live",
+  "tags": ["酒店", "叫醒服务", "推销"],
+  "write": ["叫醒", "稍等"],
+  "setting": "A hotel in Xi'an, 5:00 am. You checked in at two and can't remember your room number.",
+  "stage": "🛏️",
+  "bg": ["#0a0f24", "#2a3f80"],
+  "cast": {
+    "desk": { "name": "前台", "en": "the front desk, wide awake", "emoji": "🛎️", "voice": "f-young", "phone": true }
+  },
+  "call": {
+    "caller": "desk",
+    "name": { "zh": "前台" },
+    "photo": "🛎️",
+    "number": "8000",
+    "label": { "zh": "酒店内线" },
+    "clock": "05:00",
+    "patience": 5,
+    "silence": [
+      { "who": "desk", "zh": "喂？您好？请问能听到吗？", "en": "Hello? Hello? Can you hear me?" },
+      { "who": "desk", "zh": "您好？您是不是又睡着了？", "en": "Hello? Have you fallen asleep again?" }
+    ],
+    "hangup": [
+      { "who": "desk", "zh": "那我十分钟以后再给您打。", "en": "I'll try you again in ten minutes, then." },
+      { "end": "lose", "en": "She hung up. At 5:10 the phone rings again." }
+    ]
+  },
+  "steps": [
+    { "who": "desk", "zh": "您好，早上好！这里是前台。", "en": "Hello, good morning! This is the front desk.", "peek": "free" },
+    { "who": "desk", "zh": "现在是早上五点整，这是您的叫醒服务。", "en": "It's exactly five o'clock. This is your wake-up call." },
+    { "say": {
+      "id": "notme",
+      "en": "It's five in the morning. Tell her you never asked for a wake-up call.",
+      "cue": "You never booked a wake-up call.",
+      "answers": ["啊？我没订叫醒服务啊。", "我没要叫醒啊……", "什么？我没让你们叫我啊。", "我没订过这个啊。", "你打错了吧？"],
+      "gloss": "Huh? I never booked a wake-up call.",
+      "need": [["没订", "没有订", "没预订", "没要", "没有要", "没让", "没叫", "打错", "不需要"]],
+      "time": 10,
+      "tip": "没订 = didn't book. 没 + verb says it never happened: 我没订 = I never booked it.",
+      "mistakes": [
+        { "heard": ["不订"], "note": "不订 means you won't book it. For something that never happened, use 没: 我没订." },
+        { "heard": ["不要叫醒"], "note": "That says you don't want one now. She thinks you booked it: tell her 我没订 (I never booked it)." }
+      ],
+      "ok": [ { "who": "desk", "zh": "是吗？请问是八零八房间吗？", "en": "Really? This is room 808, isn't it?" } ],
+      "fail": [ { "who": "desk", "zh": "不好意思，您说什么？", "en": "Sorry, what was that?" } ],
+      "levels": { "0": { "answers": ["我没订！", "没订啊！", "打错了！"], "gloss": "I didn't book it!", "tip": "没订 = didn't book.", "status": "live" } }
+    } },
+    { "say": {
+      "id": "wait",
+      "en": "She's asking if you're in room 808. You can't remember: ask her to hold on while you check.",
+      "cue": "You need a moment.",
+      "answers": ["稍等一下，我看看。", "等一下，我看一下房卡。", "您稍等，我找找房卡。", "稍等，我看看房间号。", "等等，我看看房卡。"],
+      "gloss": "Hold on a moment, let me check.",
+      "need": [["稍等", "等一下", "等等", "等会"]],
+      "time": 10,
+      "tip": "稍等一下 = hold on a moment (稍 = slightly): the polite way to put someone on pause. 房卡 = key card.",
+      "ok": [ { "who": "desk", "zh": "好的，不着急。", "en": "Of course, take your time." } ],
+      "fail": [ { "who": "desk", "zh": "喂？是八零八吗？", "en": "Hello? Is this 808?" } ],
+      "levels": { "0": { "answers": ["稍等！", "等一下！", "等等！"], "gloss": "One moment!", "status": "live" } }
+    } },
+    { "narr": "You fumble for the key card on the bedside table. It says 806." },
+    { "say": {
+      "id": "room",
+      "en": "Your key card says 806. Tell her you're in 806, not 808.",
+      "cue": "Set her straight.",
+      "answers": ["不是，我是八零六。", "我是八零六的，不是八零八。", "您打错了，这是八零六。", "我这是八零六房间。"],
+      "gloss": "No, I'm in 806.",
+      "need": [["八零"], ["零六"]],
+      "not": [{ "heard": ["不是八零六"], "note": "That says you're NOT in 806. Tell her: 我是八零六。" }],
+      "time": 10,
+      "tip": "Room numbers are read digit by digit: 八零六 bā líng liù. 您打错了 = you've got the wrong number.",
+      "mistakes": [ { "heard": ["八百"], "note": "Room numbers go digit by digit: 八零六 (eight, zero, six), not 八百零六 (eight hundred and six)." } ],
+      "ok": [ { "who": "desk", "zh": "哎呀，不好意思，打错了！", "en": "Oh dear, I'm so sorry, wrong room!" } ],
+      "fail": [ { "who": "desk", "zh": "那您是几号房间？", "en": "Which room are you in, then?" } ],
+      "levels": { "0": { "answers": ["八零六！", "我是八零六！", "我八零六！"], "gloss": "806!", "status": "live" } }
+    } },
+    { "who": "desk", "zh": "不过，既然您已经醒了……", "en": "Still, since you're awake anyway..." },
+    { "who": "desk", "zh": "今天早餐打八折，要不要给您来一份？", "en": "Breakfast is twenty percent off today. Shall I put you down for one?", "pace": "fast" },
+    { "say": {
+      "id": "nothanks",
+      "en": "She's selling you breakfast, at five in the morning. Say no thanks.",
+      "cue": "Whatever it is: no.",
+      "answers": ["不用了，谢谢。", "不用不用，我想再睡会儿。", "谢谢，不需要。", "不了，谢谢您。", "不要了，谢谢。"],
+      "gloss": "No, thank you.",
+      "need": [["不用", "不需要", "不了", "不要"]],
+      "time": 10,
+      "tip": "不用了，谢谢 = no, thank you: the polite no to any sales pitch. 打八折 = you pay eight tenths, so 20% off.",
+      "silence": [
+        { "who": "desk", "zh": "您不说话，我就当您同意了啊？", "en": "If you don't say anything, I'll take that as a yes?" },
+        { "who": "desk", "zh": "喂？那我就给您下单了？", "en": "Hello? I'll go ahead and order it, then?" }
+      ],
+      "hangup": [
+        { "who": "desk", "zh": "好的！早餐五点半送到您房间！", "en": "Lovely! Breakfast will be at your door at half past five!" },
+        { "end": "lose", "en": "Silence means yes, apparently. Breakfast arrives at 5:30." }
+      ],
+      "alts": [
+        { "en": "Give in and order it", "answers": ["行吧，来一份。", "那来一份吧。"], "gloss": "Oh, go on then, I'll have one.", "need": [["来一份", "要一份"]],
+          "then": [
+            { "who": "desk", "zh": "好嘞！五点半给您送到房间！", "en": "Great! It'll be at your door at half past five!", "fx": "laugh" },
+            { "end": "win", "en": "Breakfast arrives at 5:30. You eat roujiamo in the dark, wide awake. Room 808 sleeps on.", "zh": "五点半，早餐到了。你彻底醒了。" }
+          ] }
+      ],
+      "ok": [
+        { "who": "desk", "zh": "别呀，我们有小笼包、豆浆、油条，还有肉夹馍！", "en": "Oh, don't say that! We've got xiaolongbao, soy milk, youtiao, and roujiamo!", "pace": "fast" },
+        { "who": "desk", "zh": "打完折才五十九！", "en": "Only fifty-nine after the discount!" }
+      ],
+      "fail": [ { "who": "desk", "zh": "那我给您订上了啊？", "en": "So I'll book you in, shall I?" } ],
+      "levels": { "0": { "answers": ["不用了！", "不用不用！", "不需要！"], "gloss": "No thanks!", "alts": [{ "of": 0, "answers": ["来一份！", "要一份！"], "gloss": "I'll have one!" }], "status": "live" } }
+    } },
+    { "say": {
+      "id": "bye",
+      "en": "Tell her you're going back to sleep, and that's that.",
+      "cue": "End the call.",
+      "answers": ["我要再睡会儿，先这样吧。", "真不用了，我睡了，就这样吧。", "那就这样吧，我挂了。", "不用了，我再睡会儿，拜拜。"],
+      "gloss": "I'm going back to sleep. Let's leave it there.",
+      "need": [["这样", "挂了", "拜拜", "睡觉", "再睡", "睡了"]],
+      "not": [{ "heard": ["不要再睡", "不睡了"], "note": "That says you DON'T want more sleep. You do: 我要再睡会儿。" }],
+      "time": 10,
+      "tip": "先这样吧 = let's leave it there for now: the soft way to end a call. 再睡会儿 = sleep a bit longer.",
+      "ok": [
+        { "who": "desk", "zh": "好的，不打扰您休息了！", "en": "Of course! I'll let you get some rest!" },
+        { "who": "desk", "zh": "那六点我再打给您，提醒您吃早餐！", "en": "I'll call you again at six, then, to remind you about breakfast!", "fx": "laugh" }
+      ],
+      "fail": [ { "who": "desk", "zh": "您说什么？是要订早餐吗？", "en": "Sorry? Was that a yes to breakfast?" } ],
+      "levels": { "0": { "answers": ["我要睡了！", "我再睡会儿！", "我要睡觉！"], "gloss": "I'm going back to sleep!", "tip": "我要睡了 = I'm off to sleep: 要……了 = about to.", "status": "live" } }
+    } },
+    { "end": "win", "en": "You win. Until six o'clock sharp, when the phone rings again.", "zh": "六点整，电话又响了。" }
+  ]
+}

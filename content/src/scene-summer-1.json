@@ -1,0 +1,152 @@
+{
+  "id": "summer-1",
+  "format": "scene",
+  "title": "放榜那天",
+  "title_en": "Results Night",
+  "level": 3,
+  "listen": 4,
+  "topics": ["family"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "summer", "ep": 1, "next": "Friday is in three days. 小敏 wants you to come to 北京 with her, just to see it." },
+  "tags": ["高考", "放榜", "夏天"],
+  "setting": "Your grandfather's house in a riverside county town, July, 8 pm. The 高考 results came out an hour ago.",
+  "stage": "🌙",
+  "bg": ["#0d2233", "#3d6f80"],
+  "cast": {
+    "xiaoyi": { "name": "小姨", "en": "小敏's mother, proud", "emoji": "👩", "voice": "f-mid" },
+    "waigong": { "name": "外公", "en": "your grandfather", "emoji": "👴", "voice": "m-old" },
+    "xiaomin": { "name": "小敏", "en": "your cousin, eighteen", "emoji": "👧", "voice": "f-young" },
+    "yifu": { "name": "姨父", "en": "小敏's father, quiet", "emoji": "👨", "voice": "m-mid" }
+  },
+  "steps": [
+    { "narr": "Results night. Cicadas, a fan, a table of dishes. Everyone talking at once." },
+    { "who": "xiaoyi", "zh": "考了六百五！全县第三！", "en": "Six hundred and fifty! Third in the county!", "pace": "fast", "fx": "laugh" },
+    { "who": "waigong", "zh": "好！好！我们家出人才了！", "en": "Wonderful! Our family's produced a scholar!" },
+    { "who": "yifu", "zh": "……嗯。", "en": "...Mm." },
+    { "say": {
+      "id": "praise",
+      "en": "Tell 小敏 how well she did, after all that work.",
+      "cue": "Tell her: well done.",
+      "answers": ["你考得真好，辛苦这么久了。", "考得真好，这几年辛苦了。", "你考得真好，努力没白费。"],
+      "gloss": "You did so well. All that hard work.",
+      "need": [["考得"], ["辛苦", "努力"]],
+      "tip": "考得真好 = you did really well (in the exam). 辛苦了 = you've worked so hard.",
+      "ok": [ { "who": "xiaomin", "zh": "谢谢……", "en": "Thanks..." } ],
+      "fail": [ { "who": "xiaoyi", "zh": "快夸夸她！", "en": "Go on, praise her!", "pace": "fast" } ],
+      "levels": {
+        "2": {
+          "answers": ["你考得真好！", "考得真好！", "考得太好了！"],
+          "need": [["考得真好", "考得好", "考得太好"]],
+          "gloss": "You did so well!",
+          "status": "live" },
+        "4": {
+          "answers": ["你考得真好，这么多年的努力没白费。", "考得真好，这几年的努力总算没白费。"],
+          "need": [["考得"], ["没白费"]],
+          "gloss": "You did so well. All those years of work weren't wasted.",
+          "tip": "没白费 = not wasted: 努力没白费.",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaoyi", "zh": "北京那个太远了，我们想让她读省里的。", "en": "The Beijing one's too far. We want her at the one in the province.", "pace": "fast" },
+    { "who": "xiaoyi", "zh": "两个小时就到家，多好。", "en": "Two hours and she's home. Perfect.", "pace": "fast" },
+    { "who": "waigong", "zh": "北京好是好，就是远。", "en": "Beijing's good, of course. It's just far." },
+    { "who": "xiaoyi", "zh": "她当然听我们的。", "en": "She'll do as we say, of course.", "pace": "fast" },
+    { "say": {
+      "id": "ask",
+      "en": "Ask 小敏 where she herself wants to go.",
+      "cue": "Ask her, not them.",
+      "answers": ["小敏，你自己想去哪儿？", "那你自己呢，想去哪儿？", "你自己最想去哪儿？"],
+      "gloss": "小敏, where do you want to go?",
+      "need": [["自己"], ["想去哪"]],
+      "tip": "你自己 = you yourself: 你自己想去哪儿？ asks her, not her parents.",
+      "ok": [
+        { "who": "xiaomin", "zh": "北京。", "en": "Beijing.", "hold": 2 },
+        { "who": "xiaoyi", "zh": "吃菜吃菜！", "en": "Eat up, eat up!", "pace": "fast" }
+      ],
+      "fail": [ { "who": "waigong", "zh": "问你呢，小敏。", "en": "You're being asked, 小敏." } ],
+      "levels": {
+        "2": {
+          "answers": ["你自己想去哪儿？", "那你自己呢？", "你自己最想去哪儿？"],
+          "need": [["自己想去", "自己最想去", "自己呢"]],
+          "gloss": "And where do you want to go?",
+          "status": "live" },
+        "4": {
+          "answers": ["别管别人怎么说，你自己最想去哪儿？", "先别管别人，你自己想去哪儿？"],
+          "need": [["别管别人"], ["自己"]],
+          "gloss": "Never mind what anyone says. Where do you want to go?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Later. The bridge over the river. 姨父 is there alone, watching the water." },
+    { "sfx": "splash" },
+    { "who": "yifu", "zh": "睡不着？", "en": "Can't sleep?" },
+    { "who": "yifu", "zh": "其实……我想让她去北京。", "en": "The truth is... I want her to go to Beijing.", "hold": 1 },
+    { "who": "yifu", "zh": "我年轻时候也想去。没去成。", "en": "I wanted to go too, when I was young. Never made it." },
+    { "who": "yifu", "zh": "可是我说不出口。", "en": "But I can't bring myself to say it.", "hold": 1 },
+    { "narr": "Footsteps. 小敏 has followed you out." },
+    { "who": "xiaomin", "zh": "你说，我该去哪儿？", "en": "You tell me. Where should I go?" },
+    { "say": {
+      "id": "choice",
+      "en": "Tell her it's her decision, or tell her what her father said.",
+      "cue": "Her choice, or his words?",
+      "answers": ["这是你的事，你自己决定吧。", "你自己决定吧，我都支持你。"],
+      "gloss": "It's your life. You decide.",
+      "need": [["自己决定"]],
+      "key": { "自己决定": "decide for yourself" },
+      "tip": "决定 juédìng = decide. 我都支持你 = I'll back you either way.",
+      "sets": { "summer.ep1": "own" },
+      "ok": [ { "who": "xiaomin", "zh": "……嗯。", "en": "...Mm.", "hold": 1 } ],
+      "alts": [
+        { "en": "Or: tell her what her father said", "answers": ["你爸其实想让你去北京。", "其实你爸想让你去北京。"], "need": [["你爸"], ["北京"]], "gloss": "Your dad actually wants you to go to Beijing.",
+          "sets": { "summer.ep1": "told" },
+          "then": [
+            { "narr": "On the bridge, 姨父 turns away, and wipes his face.", "hold": 2 },
+            { "who": "xiaomin", "zh": "爸……你也在这儿？", "en": "Dad... you were out here too?" }
+          ] }
+      ],
+      "fail": [ { "who": "xiaomin", "zh": "你说呀。", "en": "Go on, tell me." } ],
+      "levels": {
+        "2": {
+          "answers": ["你自己决定吧。", "你自己决定。"],
+          "gloss": "You decide.",
+          "alts": [ { "of": 0, "answers": ["你爸想让你去北京。"], "need": [["你爸"], ["北京"]], "gloss": "Your dad wants you to go to Beijing." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["这是你自己的路，你自己决定吧。", "路是你自己的，你自己决定吧。"],
+          "need": [["自己的"], ["自己决定"]],
+          "gloss": "It's your own road. You decide.",
+          "alts": [ { "of": 0, "answers": ["你爸想你去北京，只是说不出口。", "你爸其实想你去北京，就是说不出口。"], "need": [["你爸"], ["说不出口"]], "gloss": "Your dad wants you in Beijing. He just can't say it." } ],
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaomin", "zh": "不管去哪儿，你会来看我吗？", "en": "Wherever I go, will you come and see me?" },
+    { "say": {
+      "id": "promise",
+      "en": "Promise you'll visit, wherever she goes.",
+      "cue": "Promise.",
+      "answers": ["不管你去哪儿，我都会去看你的。", "不管去哪儿，我都去看你。"],
+      "gloss": "Wherever you go, I'll come and see you.",
+      "need": [["不管"], ["去看你"]],
+      "tip": "不管……都…… = no matter ..., still ...: 不管你去哪儿，我都会去看你的.",
+      "ok": [ { "who": "xiaomin", "zh": "说好了！", "en": "That's a promise!", "fx": "laugh" } ],
+      "fail": [ { "who": "xiaomin", "zh": "你会来看我吗？", "en": "Will you come and see me?" } ],
+      "levels": {
+        "2": {
+          "answers": ["我会去看你的。", "我一定去看你。"],
+          "need": [["去看你"]],
+          "gloss": "I'll come and see you.",
+          "status": "live" },
+        "4": {
+          "answers": ["不管你去哪儿，我一放假就去看你。", "不管你去哪儿，我一放假就飞过去看你。"],
+          "need": [["不管"], ["放假"]],
+          "gloss": "Wherever you go, the moment I have a holiday, I'm there.",
+          "tip": "一……就…… = as soon as ...: 一放假就去.",
+          "status": "live" }
+      }
+    } },
+    { "when": { "summer.ep1": "told" }, "end": "win", "en": "At breakfast, 姨父 puts a map of Beijing by 小敏's bowl. Nobody says a word. 🗺️",
+      "else": [ { "end": "win", "en": "The cicadas start up again. 小敏 has until Friday. 🌙" } ] }
+  ]
+}

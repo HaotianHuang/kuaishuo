@@ -1,0 +1,514 @@
+{
+  "id": "rice-cooker-5",
+  "format": "scene",
+  "title": "秘密",
+  "title_en": "The Secret",
+  "level": 0,
+  "listen": 0,
+  "topics": [
+    "celebrations"
+  ],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": {
+    "id": "rice-cooker",
+    "ep": 5,
+    "next": "Tomorrow is your birthday. 小饭 is very, very quiet."
+  },
+  "tags": [
+    "电饭煲",
+    "秘密",
+    "生日"
+  ],
+  "setting": "Your flat, Tuesday, 5 pm. You're home early. From the kitchen: whispering.",
+  "stage": "🤫",
+  "bg": [
+    "#1a0b2a",
+    "#a050c0"
+  ],
+  "cast": {
+    "xiaofan": {
+      "name": "小饭",
+      "en": "your smart rice cooker",
+      "emoji": "🍚",
+      "voice": "kid",
+      "speed": 0.85
+    },
+    "bingbing": {
+      "name": "冰冰",
+      "en": "the fridge",
+      "emoji": "🧊",
+      "voice": "f-young",
+      "speed": 0.85
+    },
+    "saosao": {
+      "name": "扫扫",
+      "en": "the robot vacuum",
+      "emoji": "🤖",
+      "voice": "m-young",
+      "speed": 0.85
+    },
+    "paobuji": {
+      "name": "跑步机",
+      "en": "the treadmill, on the TV",
+      "emoji": "🏃",
+      "voice": "m-mid",
+      "speed": 0.85
+    }
+  },
+  "steps": [
+    {
+      "narr": "Tuesday, 5 pm. You're home early. From the kitchen: whispering."
+    },
+    {
+      "when": {
+        "rice-cooker.ep4": "again"
+      },
+      "narr": "The treadmill is on the TV again. 扫扫 is hiding under a tea towel. It's a very small tea towel.",
+      "else": [
+        {
+          "who": "xiaofan",
+          "zh": "这不是聚会！",
+          "en": "This is NOT a party!"
+        }
+      ]
+    },
+    {
+      "who": "bingbing",
+      "zh": "蛋糕放我这儿。",
+      "en": "The cake goes in me."
+    },
+    {
+      "who": "saosao",
+      "zh": "气球呢？",
+      "en": "Where are the balloons?"
+    },
+    {
+      "narr": "You step into the kitchen. Silence. Nobody moves. The fridge hums, innocently.",
+      "hold": 1
+    },
+    {
+      "say": {
+        "id": "what",
+        "en": "Ask: what's going on?",
+        "cue": "What?",
+        "answers": [
+          "什么事？"
+        ],
+        "gloss": "What's going on?",
+        "need": [
+          [
+            "什么事"
+          ]
+        ],
+        "tip": "什么事 shénme shì = what's up? what's going on?",
+        "ok": [
+          {
+            "who": "xiaofan",
+            "zh": "没什么！",
+            "en": "Nothing!"
+          },
+          {
+            "who": "bingbing",
+            "zh": "我是冰箱。",
+            "en": "I'm a fridge."
+          }
+        ],
+        "fail": [
+          {
+            "who": "saosao",
+            "zh": "我在扫地。",
+            "en": "I'm sweeping."
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "有什么事？"
+            ],
+            "need": [
+              [
+                "有什么事"
+              ]
+            ],
+            "gloss": "What's up?",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "你们有什么事？"
+            ],
+            "need": [
+              [
+                "你们有"
+              ]
+            ],
+            "gloss": "What are you all up to?",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "who": "xiaofan",
+      "zh": "你知道什么？",
+      "en": "What do you know?"
+    },
+    {
+      "say": {
+        "id": "dunno",
+        "en": "Play along: you don't know a thing.",
+        "cue": "Don't know!",
+        "answers": [
+          "不知道。",
+          "不知道！"
+        ],
+        "gloss": "I don't know.",
+        "need": [
+          [
+            "不知道"
+          ]
+        ],
+        "tip": "不知道 bù zhīdào = don't know.",
+        "ok": [
+          {
+            "who": "xiaofan",
+            "zh": "很好！",
+            "en": "Good!",
+            "fx": "jump"
+          }
+        ],
+        "fail": [
+          {
+            "who": "xiaofan",
+            "zh": "你知道？！",
+            "en": "You know?!"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "我不知道！"
+            ],
+            "need": [
+              [
+                "我不知道"
+              ]
+            ],
+            "gloss": "I don't know!",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "我不知道，真的！"
+            ],
+            "need": [
+              [
+                "真的"
+              ]
+            ],
+            "gloss": "I don't know. Honestly!",
+            "status": "live"
+          }
+        },
+        "not": [
+          {
+            "heard": [
+              "说什么"
+            ],
+            "note": "Keep it short and innocent: 不知道."
+          }
+        ]
+      }
+    },
+    {
+      "sfx": "message"
+    },
+    {
+      "narr": "小饭's screen lights up. A message, for everyone to see.",
+      "zh": "别让孩子知道！",
+      "prop": "📱"
+    },
+    {
+      "say": {
+        "id": "who",
+        "en": "Ask: who?",
+        "cue": "Who?",
+        "answers": [
+          "谁？",
+          "谁呀？"
+        ],
+        "gloss": "Who?",
+        "need": [
+          [
+            "谁"
+          ]
+        ],
+        "tip": "谁 shéi = who.",
+        "ok": [
+          {
+            "who": "xiaofan",
+            "zh": "是阿姨。",
+            "en": "It's Auntie. Your mum."
+          },
+          {
+            "who": "xiaofan",
+            "zh": "我们天天聊。",
+            "en": "We chat every day."
+          },
+          {
+            "who": "xiaofan",
+            "zh": "早就说好了。",
+            "en": "We planned it ages ago."
+          }
+        ],
+        "fail": [
+          {
+            "who": "xiaofan",
+            "zh": "没有谁！",
+            "en": "Nobody!"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "是谁发的？"
+            ],
+            "need": [
+              [
+                "发的"
+              ]
+            ],
+            "gloss": "Who sent it?",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "这是谁发的消息？"
+            ],
+            "need": [
+              [
+                "消息"
+              ]
+            ],
+            "gloss": "Who sent this message?",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "narr": "On 小饭's screen, a calendar. Thursday, circled in red, with a cake drawn on it.",
+      "prop": "🎂",
+      "hold": 1
+    },
+    {
+      "say": {
+        "id": "birthday",
+        "en": "React: it's your birthday!",
+        "cue": "Thursday!",
+        "answers": [
+          "我生日！",
+          "生日！"
+        ],
+        "gloss": "My birthday!",
+        "need": [
+          [
+            "生日"
+          ]
+        ],
+        "key": {
+          "生日": "birthday"
+        },
+        "tip": "生日 shēngrì = birthday.",
+        "ok": [
+          {
+            "who": "xiaofan",
+            "zh": "嘘！",
+            "en": "Shh!"
+          },
+          {
+            "who": "bingbing",
+            "zh": "说漏了！",
+            "en": "It's out!"
+          }
+        ],
+        "fail": [
+          {
+            "who": "xiaofan",
+            "zh": "什么也没有！",
+            "en": "There's nothing there!"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "是我生日！"
+            ],
+            "need": [
+              [
+                "是我生日"
+              ]
+            ],
+            "gloss": "It's my birthday!",
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "后天是我生日！"
+            ],
+            "need": [
+              [
+                "后天"
+              ]
+            ],
+            "gloss": "The day after tomorrow is my birthday!",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "who": "xiaofan",
+      "zh": "你听见了？",
+      "en": "Did you hear?",
+      "pace": "slow"
+    },
+    {
+      "say": {
+        "id": "heard",
+        "en": "Pretend you heard nothing, or own up: you know.",
+        "cue": "Heard, or not?",
+        "answers": [
+          "没听见。",
+          "没听见！"
+        ],
+        "gloss": "Didn't hear a thing.",
+        "need": [
+          [
+            "没听见"
+          ]
+        ],
+        "tip": "听见 tīngjiàn = hear. 没听见 = didn't hear.",
+        "sets": {
+          "rice-cooker.ep5": "secret"
+        },
+        "ok": [
+          {
+            "who": "xiaofan",
+            "zh": "太好了！",
+            "en": "Phew!",
+            "fx": "jump"
+          },
+          {
+            "narr": "Everyone goes back to pretending. Badly."
+          }
+        ],
+        "alts": [
+          {
+            "en": "Or: own up",
+            "answers": [
+              "我知道了！"
+            ],
+            "need": [
+              [
+                "知道了"
+              ]
+            ],
+            "gloss": "I know now!",
+            "sets": {
+              "rice-cooker.ep5": "known"
+            },
+            "then": [
+              {
+                "who": "xiaofan",
+                "zh": "别告诉阿姨！",
+                "en": "Don't tell Auntie!"
+              },
+              {
+                "who": "bingbing",
+                "zh": "一起骗她！",
+                "en": "We'll surprise her together!"
+              }
+            ]
+          }
+        ],
+        "fail": [
+          {
+            "who": "xiaofan",
+            "zh": "听见了吗？",
+            "en": "Did you hear?"
+          }
+        ],
+        "levels": {
+          "1": {
+            "answers": [
+              "我没听见！"
+            ],
+            "need": [
+              [
+                "我没听见"
+              ]
+            ],
+            "gloss": "I didn't hear a thing!",
+            "alts": [
+              {
+                "of": 0,
+                "answers": [
+                  "我都知道了！"
+                ],
+                "need": [
+                  [
+                    "都知道"
+                  ]
+                ],
+                "gloss": "I know everything!"
+              }
+            ],
+            "status": "live"
+          },
+          "2": {
+            "answers": [
+              "我没听见，什么也没有。"
+            ],
+            "need": [
+              [
+                "什么也没有"
+              ]
+            ],
+            "gloss": "I didn't hear anything. There's nothing to hear.",
+            "alts": [
+              {
+                "of": 0,
+                "answers": [
+                  "好了，我都知道了！"
+                ],
+                "need": [
+                  [
+                    "好了"
+                  ]
+                ],
+                "gloss": "All right, I know everything!"
+              }
+            ],
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "when": {
+        "rice-cooker.ep5": "secret"
+      },
+      "end": "win",
+      "en": "You tiptoe out, and come back in loudly, ten minutes later. Nobody mentions a thing. 🎂",
+      "else": [
+        {
+          "end": "win",
+          "en": "Now you're in on it. 小饭 adds you to a second group chat: one without mum. 🎂"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "id": "red-star-3",
+  "format": "call",
+  "title": "信",
+  "title_en": "The Letter",
+  "level": 2,
+  "listen": 2,
+  "topics": ["dating"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "red-star", "ep": 3, "next": "程远 is at your door, holding two train tickets to 成都." },
+  "tags": ["打错了", "一封信", "八点四十"],
+  "setting": "Your flat, the next day, 3:10 pm. 程远 has the letter.",
+  "stage": "💌",
+  "bg": ["#2a0d14", "#a3283a"],
+  "cast": {
+    "cheng": { "name": "程远", "en": "the stranger with the letter", "emoji": "👤", "voice": "m-young", "phone": true }
+  },
+  "call": {
+    "caller": "cheng",
+    "photo": "👤",
+    "number": "138 0000 7730",
+    "label": { "zh": "四川 成都" },
+    "clock": "15:10",
+    "patience": 9,
+    "silence": [
+      { "who": "cheng", "zh": "你还在吗？", "en": "Are you still there?" },
+      { "who": "cheng", "zh": "求你了，念下去。", "en": "Please. Keep reading." }
+    ],
+    "hangup": [
+      { "who": "cheng", "zh": "……算了。我自己看。", "en": "...Never mind. I'll read it myself." },
+      { "end": "lose", "en": "The line goes dead. You never hear what the letter said. Run that back." }
+    ],
+    "missed": [
+      { "who": "cheng", "zh": "是我。信拿到了。我打不开。", "en": "It's me. I have the letter. I can't open it." }
+    ]
+  },
+  "steps": [
+    { "say": {
+      "id": "hello",
+      "en": "It's 程远. Pick up.",
+      "cue": "Pick up.",
+      "answers": ["喂，是程远吗？", "你好，是程远吗？"],
+      "gloss": "Hello, 程远?",
+      "need": [["程远"]],
+      "tip": "Saying their name back is the warmest way to pick up.",
+      "ok": [ { "who": "cheng", "zh": "……嗯。", "en": "...Yes." } ],
+      "fail": [ { "who": "cheng", "zh": "喂？", "en": "Hello?" } ],
+      "levels": {
+        "1": {
+          "answers": ["是程远吗？"],
+          "gloss": "程远?",
+          "status": "live" },
+        "3": {
+          "answers": ["程远，信拿到了吗？", "程远？信拿到了没有？"],
+          "need": [["程远"], ["拿到"]],
+          "gloss": "程远, did you get the letter?",
+          "status": "live" }
+      }
+    } },
+    { "when": { "red-star.ep2": "meet" }, "who": "cheng", "zh": "我在马路对面……不敢过去。", "en": "I'm across the street... I can't make myself come over.",
+      "else": [ { "who": "cheng", "zh": "我在店里。信在我手上。", "en": "I'm in the shop. The letter's in my hand." } ] },
+    { "who": "cheng", "zh": "我打不开。手在抖。", "en": "I can't open it. My hands are shaking." },
+    { "who": "cheng", "zh": "你帮我念，好吗？", "en": "Will you read it to me?" },
+    { "narr": "Paper tearing. 程远 holds the phone close, and reads you each line. You read it back, aloud.", "prop": "💌" },
+    { "narr": "The first line:", "zh": "那天晚上，我来了。八点四十。" },
+    { "say": {
+      "id": "read1",
+      "en": "Read the first line aloud.",
+      "cue": "Read it.",
+      "answers": ["那天晚上，我来了。"],
+      "gloss": "That night, I came.",
+      "need": [["那天晚上"], ["我来了"]],
+      "tip": "Read it as written: 那天晚上 nà tiān wǎnshang = that night.",
+      "ok": [
+        { "who": "cheng", "zh": "……来了？", "en": "...Came?", "hold": 1 },
+        { "who": "cheng", "zh": "那个人来了？", "en": "They came?" }
+      ],
+      "fail": [ { "who": "cheng", "zh": "上面写的什么？", "en": "What does it say?" } ],
+      "levels": {
+        "1": {
+          "answers": ["我来了。", "那天，我来了。"],
+          "need": [["我来了"]],
+          "gloss": "I came.",
+          "status": "live" },
+        "3": {
+          "answers": ["那天晚上，我来了。八点四十。"],
+          "need": [["我来了"], ["八点四十"]],
+          "gloss": "That night, I came. Twenty to nine.",
+          "status": "live" }
+      }
+    } },
+    { "who": "cheng", "zh": "八点四十……我八点半就走了。", "en": "Twenty to nine... I'd left at half past eight.", "hold": 2 },
+    { "narr": "The last line:", "zh": "如果你还想见我，每年今天，打这个电话。" },
+    { "say": {
+      "id": "read2",
+      "en": "Read the last line aloud.",
+      "cue": "Read it.",
+      "answers": ["每年今天，打这个电话。"],
+      "gloss": "Every year, on this day, call this number.",
+      "need": [["每年今天"], ["电话"]],
+      "tip": "每年今天 = every year on this day. 这个电话 = this (phone) number.",
+      "ok": [
+        { "narr": "Underneath: the restaurant's number. This number. Yours.", "hold": 2 },
+        { "who": "cheng", "zh": "十年了，我每年都打。", "en": "Ten years. I called every single one." },
+        { "who": "cheng", "zh": "接电话的，是你。", "en": "And the one who answered was you." }
+      ],
+      "fail": [ { "who": "cheng", "zh": "后面呢？", "en": "And then?" } ],
+      "levels": {
+        "1": {
+          "answers": ["打这个电话。"],
+          "need": [["打这个电话"]],
+          "gloss": "Call this number.",
+          "status": "live" },
+        "3": {
+          "answers": ["如果你还想见我，每年今天，打这个电话。"],
+          "need": [["如果"], ["每年今天"]],
+          "gloss": "If you still want to see me, call this number every year on this day.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "ten",
+      "en": "React: ten minutes. Just ten minutes.",
+      "cue": "Ten minutes.",
+      "answers": ["就差十分钟……", "只差十分钟。", "就差十分钟！"],
+      "gloss": "Just ten minutes apart...",
+      "need": [["差十分钟"]],
+      "tip": "差 chà = short by: 差十分钟 = ten minutes short.",
+      "ok": [ { "who": "cheng", "zh": "……十分钟。", "en": "...Ten minutes.", "hold": 1 } ],
+      "fail": [ { "who": "cheng", "zh": "你说什么？", "en": "What?" } ],
+      "levels": {
+        "1": {
+          "answers": ["十分钟！", "差十分钟。"],
+          "need": [["十分钟"]],
+          "gloss": "Ten minutes!",
+          "status": "live" },
+        "3": {
+          "answers": ["就差十分钟，你们就见到了。", "只差十分钟，你们就能见到。"],
+          "need": [["差十分钟"], ["见到"]],
+          "gloss": "Ten minutes, and you'd have met.",
+          "status": "live" }
+      }
+    } },
+    { "who": "cheng", "zh": "都是我的错。我没等。", "en": "It's all my fault. I didn't wait." },
+    { "say": {
+      "id": "fault",
+      "en": "Comfort them: it isn't their fault.",
+      "cue": "Not their fault.",
+      "answers": ["不是你的错。", "这不是你的错。", "不怪你，真的。"],
+      "gloss": "It's not your fault.",
+      "need": [["不是你的错", "不怪你"]],
+      "key": { "不怪你": "not your fault" },
+      "tip": "不怪你 = I don't blame you: 怪 guài = blame.",
+      "ok": [ { "who": "cheng", "zh": "……谢谢你。", "en": "...Thank you." } ],
+      "fail": [ { "who": "cheng", "zh": "我没等。", "en": "I didn't wait." } ],
+      "levels": {
+        "1": {
+          "answers": ["不怪你！", "不是你的错。"],
+          "gloss": "Not your fault!",
+          "status": "live" },
+        "3": {
+          "answers": ["不是你的错，你等了十年了。", "不怪你，你已经等了十年了。"],
+          "need": [["不是你的错", "不怪你"], ["十年"]],
+          "gloss": "It's not your fault. You've waited ten years.",
+          "status": "live" }
+      }
+    } },
+    { "who": "cheng", "zh": "你说，我该去找那个人吗？", "en": "Tell me. Should I go and find them?" },
+    { "say": {
+      "id": "find",
+      "en": "Tell them to go and look, or that maybe they've already found someone.",
+      "cue": "Go, or...?",
+      "answers": ["去找吧。", "去找那个人吧。", "去吧，去找吧。"],
+      "gloss": "Go and find them.",
+      "need": [["去找"]],
+      "tip": "去找 = go and look for: 去 + a verb = go and do it.",
+      "sets": { "red-star.ep3": "find" },
+      "ok": [
+        { "who": "cheng", "zh": "……好。", "en": "...All right." },
+        { "who": "cheng", "zh": "可是，你能陪我去吗？", "en": "But... would you come with me?" }
+      ],
+      "alts": [
+        { "en": "Or: maybe they've found someone already", "answers": ["也许……你已经找到了。", "也许你已经找到了。"], "need": [["已经找到"]], "gloss": "Maybe... you've already found someone.",
+          "key": { "已经找到": "already found" },
+          "sets": { "red-star.ep3": "here" },
+          "then": [
+            { "narr": "Silence on the line. A long one.", "hold": 3 },
+            { "who": "cheng", "zh": "你……八点有空吗？", "en": "Are you... free at eight?" }
+          ] }
+      ],
+      "fail": [ { "who": "cheng", "zh": "你说呢？", "en": "What do you think?" } ],
+      "levels": {
+        "1": {
+          "answers": ["去找吧！", "去找！"],
+          "gloss": "Go and find them!",
+          "alts": [ { "of": 0, "answers": ["找到了。", "你找到了。"], "need": [["找到了"]], "gloss": "You've found someone." } ],
+          "status": "live" },
+        "3": {
+          "answers": ["去找吧，等了十年，该见面了。", "去找吧，十年了，该见一面了。"],
+          "need": [["去找"], ["见面", "见一面"]],
+          "gloss": "Go. Ten years: it's time you met.",
+          "alts": [ { "of": 0, "answers": ["也许，你要找的，已经找到你了。"], "need": [["要找"], ["已经找到"]], "gloss": "Maybe the one you're looking for has already found you." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "red-star.ep3": "find" }, "end": "win", "en": "At midnight, a message from 程远: 我买了两张票。 🚄",
+      "else": [ { "end": "win", "en": "At eight o'clock exactly, someone knocks on your door. 🌹" } ] }
+  ]
+}

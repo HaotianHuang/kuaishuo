@@ -1,0 +1,191 @@
+{
+  "id": "fake-ghosts-2",
+  "format": "scene",
+  "title": "包厢",
+  "title_en": "The KTV Room",
+  "level": 2,
+  "listen": 2,
+  "topics": ["food"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "fake-ghosts", "ep": 2, "next": "The note says the library, after closing." },
+  "tags": ["假鬼社", "KTV", "破案"],
+  "setting": "An all-night KTV, Chengdu, 2:30 am. The note said the next ghost is real.",
+  "stage": "🎤",
+  "bg": ["#140726", "#5a1f86"],
+  "cast": {
+    "le": { "name": "阿乐", "en": "the club's loudest member", "emoji": "🙋", "voice": "m-young" },
+    "yu": { "name": "小雨", "en": "has read everything", "emoji": "🤓", "voice": "f-young" },
+    "guo": { "name": "果果", "en": "films it all", "emoji": "📹", "voice": "f-young" },
+    "baozi": { "name": "包子", "en": "the club's cat", "emoji": "🐱", "voice": "kid" },
+    "he": { "name": "何经理", "en": "the manager: tired, and sure it's haunted", "emoji": "👔", "voice": "m-mid" },
+    "xu": { "name": "老许", "en": "a regular: the king of songs", "emoji": "🎤", "voice": "m-old" },
+    "deng": { "name": "邓阿姨", "en": "the night cleaner", "emoji": "🧹", "voice": "f-old" }
+  },
+  "steps": [
+    { "when": { "fake-ghosts.hotpot": "gentle" }, "narr": "On the club's table: a jar of 小潘's chilli sauce, and the note.", "prop": "🌶️",
+      "else": [ { "who": "le", "zh": "蒋叔跟整条街说，是我们抓的鬼！", "en": "蒋叔 has told the whole street we caught his ghost!", "fx": "laugh" } ] },
+    { "narr": "An all-night KTV. Room 8 sings by itself at three. Always the same old song." },
+    { "who": "le", "zh": "这次……是真的吧？", "en": "This time... it's real, isn't it?", "fx": "shake" },
+    { "narr": "In the hall, a cleaner mops the floor, humming an old tune.", "prop": "🧹" },
+    { "who": "he", "zh": "八号包厢，没人订，每天自己唱。", "en": "Room 8. No booking, and every night it sings by itself." },
+    { "say": {
+      "id": "when",
+      "en": "Ask the manager what time it starts singing.",
+      "cue": "What time?",
+      "answers": ["几点开始唱的？", "一般几点开始？", "每天几点开始唱？"],
+      "gloss": "What time does it start?",
+      "need": [["几点"]],
+      "tip": "几点 jǐ diǎn = what time: 几点开始？",
+      "ok": [ { "who": "he", "zh": "三点整。唱完一首就停。", "en": "Three on the dot. One song, then it stops." } ],
+      "fail": [ { "who": "he", "zh": "啊？", "en": "Eh?" } ],
+      "levels": {
+        "1": {
+          "answers": ["几点？", "几点开始？"],
+          "gloss": "What time?",
+          "status": "live" },
+        "3": {
+          "answers": ["每天晚上几点开始唱的？", "一般每天几点开始唱？"],
+          "need": [["几点"], ["每天"]],
+          "gloss": "What time does it start, every night?",
+          "status": "live" }
+      }
+    } },
+    { "who": "xu", "zh": "我是这儿的歌王！八号是我的包厢！", "en": "I'm the king of songs here! Room 8 is my room!", "fx": "enter" },
+    { "who": "xu", "zh": "三点？我早回家睡觉了。", "en": "Three o'clock? I'm home in bed by then." },
+    { "say": {
+      "id": "key",
+      "en": "Ask who has a key to room 8.",
+      "cue": "Who has a key?",
+      "answers": ["谁有八号的钥匙？", "谁有钥匙？", "八号包厢谁有钥匙？"],
+      "gloss": "Who has a key to room 8?",
+      "need": [["钥匙"]],
+      "tip": "钥匙 yàoshi = key. 谁有……？ = who has ...?",
+      "ok": [
+        { "who": "he", "zh": "我有。还有……", "en": "I do. And..." },
+        { "narr": "The booking screen by the door lights up.", "zh": "八号包厢　预订人：保洁", "prop": "🖥️" }
+      ],
+      "fail": [ { "who": "he", "zh": "钥匙？", "en": "Key?" } ],
+      "levels": {
+        "1": {
+          "answers": ["钥匙呢？", "谁有钥匙？"],
+          "gloss": "Keys?",
+          "status": "live" },
+        "3": {
+          "answers": ["除了经理，还有谁有钥匙？", "除了您，还有谁有钥匙？"],
+          "need": [["除了"], ["钥匙"]],
+          "gloss": "Apart from you, who else has a key?",
+          "tip": "除了……还有…… = apart from ..., there's also ...",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Three o'clock. From room 8: an old song, sung beautifully.", "hold": 1, "prop": "" },
+    { "who": "le", "zh": "鬼！鬼在唱歌！", "en": "A ghost! A singing ghost!", "fx": "faint" },
+    { "say": {
+      "id": "quiet",
+      "en": "Set the trap: everyone, not a sound. Wait at the door.",
+      "cue": "Shh!",
+      "answers": ["大家别出声，在门口等！", "别出声！在门口等着。", "嘘，别出声！"],
+      "gloss": "Everyone, not a sound. Wait at the door!",
+      "need": [["别出声"]],
+      "key": { "别出声": "not a sound" },
+      "tip": "出声 chūshēng = make a sound: 别出声 = keep quiet.",
+      "ok": [ { "narr": "You wait by room 8's door. Through the glass, propped against the screen: a mop." } ],
+      "fail": [ { "who": "le", "zh": "鬼啊！！", "en": "GHOST!!" } ],
+      "levels": {
+        "1": {
+          "answers": ["别出声！", "嘘，别出声！"],
+          "gloss": "Shh!",
+          "status": "live" },
+        "3": {
+          "answers": ["别出声，等歌唱完再进去。", "都别出声，等歌唱完再进去。"],
+          "need": [["别出声"], ["唱完"]],
+          "gloss": "Not a sound. We go in when the song's over.",
+          "status": "live" }
+      }
+    } },
+    { "who": "le", "zh": "鬼是谁？", "en": "So who's the ghost?" },
+    { "say": {
+      "id": "accuse",
+      "en": "Name the singer.",
+      "cue": "Who's singing?",
+      "answers": ["是邓阿姨！", "唱歌的是邓阿姨！", "邓阿姨就是鬼！"],
+      "gloss": "It's 邓阿姨!",
+      "need": [["邓阿姨"]],
+      "not": [
+        { "heard": ["何经理"], "note": "He has a key, but who booked room 8? Read the screen again." },
+        { "heard": ["老许"], "note": "He's home by three. Who was humming that tune in the hall?" }
+      ],
+      "tip": "唱歌的 = the one singing: 的 makes a 'who'.",
+      "fail": [ { "who": "le", "zh": "谁？", "en": "Who?" } ],
+      "miss": [
+        { "narr": "Everyone looks where you're pointing: at 包子. Again." },
+        { "who": "baozi", "zh": "喵！！！", "en": "MROW!!!", "fx": "angry" },
+        { "who": "guo", "zh": "包子这次真的不理你了。", "en": "包子 is not speaking to you. Properly, this time." },
+        { "who": "yu", "zh": "是邓阿姨吧？", "en": "It's 邓阿姨, surely?" }
+      ],
+      "levels": {
+        "1": {
+          "answers": ["邓阿姨！", "是邓阿姨！"],
+          "gloss": "邓阿姨!",
+          "status": "live" },
+        "3": {
+          "answers": ["是邓阿姨！八号是保洁订的！", "唱歌的就是邓阿姨，包厢是保洁订的！"],
+          "need": [["邓阿姨"], ["保洁"]],
+          "gloss": "It's 邓阿姨! The cleaner booked room 8!",
+          "tip": "保洁 bǎojié = cleaning staff. ……订的 = booked by ...",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "door" },
+    { "who": "deng", "zh": "……被你们发现了。", "en": "...You've caught me.", "fx": "enter" },
+    { "who": "deng", "zh": "我年轻时候是唱歌的。", "en": "When I was young, I sang for a living." },
+    { "who": "deng", "zh": "下个月我女儿结婚，我想给她唱一首。", "en": "My daughter gets married next month. I want to sing her a song." },
+    { "who": "deng", "zh": "三点，包厢都空了。", "en": "At three, the rooms are all empty." },
+    { "who": "he", "zh": "邓阿姨？！", "en": "邓阿姨?!" },
+    { "say": {
+      "id": "song",
+      "en": "Let her finish the song, or turn the lights on.",
+      "cue": "Finish, or lights?",
+      "answers": ["让她唱完吧。", "让邓阿姨唱完吧。", "先让她唱完。"],
+      "gloss": "Let her finish the song.",
+      "need": [["唱完"]],
+      "key": { "唱完": "finish singing" },
+      "tip": "唱完 = sing to the end: 完 after a verb = finished.",
+      "sets": { "fake-ghosts.ktv": "song" },
+      "ok": [
+        { "narr": "She sings it to the end. 何经理 claps first." },
+        { "who": "deng", "zh": "谢谢你们。", "en": "Thank you, all of you." }
+      ],
+      "alts": [
+        { "en": "Or: turn the lights on", "answers": ["开灯！", "快开灯！", "把灯打开！"], "need": [["开灯", "灯打开"]], "gloss": "Lights on!",
+          "key": { "开灯": "lights on" },
+          "sets": { "fake-ghosts.ktv": "lights" },
+          "then": [
+            { "narr": "The lights come up. 邓阿姨, in her uniform, holding the mic." },
+            { "who": "he", "zh": "……唱得真好。", "en": "...That was beautiful." },
+            { "who": "xu", "zh": "比我好。", "en": "Better than me." }
+          ] }
+      ],
+      "fail": [ { "who": "he", "zh": "邓阿姨？！", "en": "邓阿姨?!" } ],
+      "levels": {
+        "1": {
+          "answers": ["唱完吧。", "让她唱完。"],
+          "gloss": "Let her finish.",
+          "alts": [ { "of": 0, "answers": ["开灯！", "开灯吧！"], "need": [["开灯", "灯打开"]], "gloss": "Lights!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["别打扰，让邓阿姨唱完吧。", "别打扰她，让她唱完吧。"],
+          "need": [["别打扰"], ["唱完"]],
+          "gloss": "Don't interrupt. Let her finish.",
+          "alts": [ { "of": 0, "answers": ["开灯吧，让大家都听听。", "开灯，让经理也听听！"], "need": [["开灯"], ["听听"]], "gloss": "Lights on: let everyone hear it." } ],
+          "status": "live" }
+      }
+    } },
+    { "who": "he", "zh": "以后三点，八号包厢归你。", "en": "From now on, at three, room 8 is yours." },
+    { "narr": "Back at the club: a second note under the door.", "zh": "这次是真的。图书馆，闭馆以后。", "prop": "📝" },
+    { "when": { "fake-ghosts.ktv": "song" }, "end": "win", "en": "At the wedding next month, the song is sung live. The club is invited. 🎤",
+      "else": [ { "end": "win", "en": "Room 8 is 邓阿姨's every night at three, lights on. 老许 has a rival. 🎤" } ] }
+  ]
+}

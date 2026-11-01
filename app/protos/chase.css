@@ -1,0 +1,273 @@
+/* 追 Chase: a side-on track (you in front, the chaser behind, the gap between you), a HUD that is mostly one number,
+   and the answer panel cut down for a run: the mission in a few huge words, the mic, nothing else in the way. */
+.ks-chase { --f: 0.75; --you: 66%; --far: 13%; --ground: 45%; background: linear-gradient(180deg, var(--c1), var(--c2)); }
+@media (max-height: 700px) { .ks-chase { --ground: 47%; } }
+
+/* ---------- the world ---------- */
+.ks-chase-world { position: absolute; inset: 0; overflow: hidden; }
+.ks-chase-far { position: absolute; left: 0; right: 0; top: calc(var(--ground) - 150px); height: 90px; overflow: hidden; opacity: 0.22; filter: saturate(0.6); }
+.ks-chase-far div { display: flex; width: 200%; font-size: 70px; line-height: 90px; }
+.ks-chase-far span { flex: 1; text-align: center; }
+.ks-chase-run .ks-chase-far div { animation: ks-chase-scroll 9s linear infinite; }
+@keyframes ks-chase-scroll { to { transform: translateX(-50%); } }
+.ks-chase-streaks { position: absolute; left: 0; right: 0; top: calc(var(--ground) - 210px); height: 200px; opacity: 0; transition: opacity 0.4s;
+  background: repeating-linear-gradient(180deg, transparent 0 26px, rgba(255, 255, 255, 0.22) 26px 28px);
+  -webkit-mask: repeating-linear-gradient(90deg, #000 0 70px, transparent 70px 210px); mask: repeating-linear-gradient(90deg, #000 0 70px, transparent 70px 210px); }
+.ks-chase-run .ks-chase-streaks { opacity: 0.35; animation: ks-chase-streak 0.45s linear infinite; }
+.ks-chase-near .ks-chase-streaks { opacity: 0.6; }
+.ks-chase-boost .ks-chase-streaks { animation: ks-chase-streak 0.2s linear infinite; opacity: 0.9; }
+@keyframes ks-chase-streak { to { -webkit-mask-position: -210px 0; mask-position: -210px 0; } }
+.ks-chase-ground { position: absolute; left: 0; right: 0; top: var(--ground); bottom: 0; overflow: hidden; background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.62) 40%, rgba(0, 0, 0, 0.78)); border-top: 3px solid rgba(255, 255, 255, 0.28); }
+/* the verge below the road: tufts that stream past faster than the road, for depth */
+.ks-chase-ground::after { content: ''; position: absolute; left: 0; right: -160px; top: 70px; bottom: 0; opacity: 0.16; background: repeating-linear-gradient(90deg, var(--paper) 0 26px, transparent 26px 160px) 0 10px / 100% 2px no-repeat, repeating-linear-gradient(90deg, transparent 0 70px, var(--paper) 70px 86px, transparent 86px 160px) 0 48px / 100% 2px no-repeat, repeating-linear-gradient(90deg, var(--paper) 0 12px, transparent 12px 160px) 40px 96px / 100% 2px no-repeat; }
+.ks-chase-run .ks-chase-ground::after { animation: ks-chase-verge 0.6s linear infinite; }
+@keyframes ks-chase-verge { to { transform: translateX(-160px); } }
+.ks-chase-ground::before { content: ''; position: absolute; left: 0; right: -90px; top: 26px; height: 5px; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.55) 0 40px, transparent 40px 90px); }
+.ks-chase-run .ks-chase-ground::before { animation: ks-chase-road 0.32s linear infinite; }
+@keyframes ks-chase-road { to { transform: translateX(-90px); } }
+
+/* You and what's behind you. Emoji face left, so both are flipped to run right. */
+.ks-chase-you, .ks-chase-chaser, .ks-chase-obs { position: absolute; line-height: 1; transform: translateX(-50%); }
+.ks-chase-you span, .ks-chase-chaser span { display: inline-block; transform: scaleX(-1); }
+.ks-chase-you { left: var(--you); top: calc(var(--ground) - 66px); font-size: 62px; z-index: 2; }
+.ks-chase-chaser { --at: calc(var(--you) - 9% - var(--f) * (var(--you) - 9% - var(--far))); left: var(--at); top: calc(var(--ground) - 92px); font-size: 92px; z-index: 3; transition: left 0.22s linear; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35)); }
+.ks-chase-run .ks-chase-you span { animation: ks-chase-stride 0.3s ease-in-out infinite; }
+.ks-chase-run .ks-chase-chaser span { animation: ks-chase-gallop 0.42s ease-in-out infinite; }
+@keyframes ks-chase-stride { 50% { transform: scaleX(-1) translateY(-7px) rotate(-4deg); } }
+@keyframes ks-chase-gallop { 50% { transform: scaleX(-1) translateY(-12px) rotate(6deg); } }
+.ks-chase-near .ks-chase-chaser { filter: drop-shadow(0 0 18px rgba(255, 77, 94, 0.75)); }
+.ks-chase-lunge { animation: ks-chase-lunge 0.45s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes ks-chase-lunge { 40% { transform: translateX(-20%) scale(1.15); } }
+.ks-chase-dash { animation: ks-chase-dash 0.5s cubic-bezier(0.2, 0.9, 0.3, 1); }
+@keyframes ks-chase-dash { 40% { transform: translate(-10%, -34px) rotate(-8deg); } }
+.ks-chase-stumble { animation: ks-chase-stumble 0.5s; }
+@keyframes ks-chase-stumble { 30% { transform: translate(-60%, 6px) rotate(18deg); } 60% { transform: translate(-45%, 0) rotate(-6deg); } }
+
+/* The obstacle slides in ahead of you, and past you when you've said the line. */
+.ks-chase-obs { left: 110%; top: calc(var(--ground) - 70px); font-size: 64px; z-index: 1; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35)); }
+.ks-chase-obs-in { animation: ks-chase-obs-in 0.42s cubic-bezier(0.2, 0.9, 0.3, 1.15) forwards; }
+.ks-chase-obs-pass { animation: ks-chase-obs-pass 0.5s cubic-bezier(0.5, 0, 0.9, 0.6) forwards; }
+@keyframes ks-chase-obs-in { from { left: 112%; } to { left: 87%; } }
+@keyframes ks-chase-obs-pass { from { left: 87%; } to { left: -25%; opacity: 0.6; } }
+
+/* Caught: it pounces, you go flat. Safe (the finale): the world stops. */
+.ks-chase-caught .ks-chase-chaser { left: calc(var(--you) - 4%); transition: left 0.3s cubic-bezier(0.3, 1.4, 0.5, 1); }
+.ks-chase-caught .ks-chase-chaser span { animation: ks-chase-pounce 0.5s ease-out; }
+@keyframes ks-chase-pounce { 40% { transform: scaleX(-1) translateY(-40px) scale(1.2); } }
+.ks-chase-caught .ks-chase-you span { transform: scaleX(-1) rotate(-90deg) translateX(-14px); transition: transform 0.3s; }
+.ks-chase-safe .ks-chase-you span { transform: scaleX(-1); }
+.ks-chase-safe .ks-chase-chaser { transition: left 1.2s ease-out; }
+
+/* Comic sound words, and the metres won or lost. */
+.ks-chase-fx { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
+.ks-chase-bang { position: absolute; top: calc(var(--ground) - 134px); font-family: var(--display); font-size: 34px; color: var(--gold); -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.55); paint-order: stroke fill; transform: rotate(-9deg); animation: ks-chase-bang 1s ease-out forwards; white-space: nowrap; }
+.ks-chase-bang-chaser { left: calc(var(--you) - 9% - var(--f) * (var(--you) - 9% - var(--far))); transform-origin: left; margin-left: -10%; }
+.ks-chase-bang-ahead { right: 6%; }
+@keyframes ks-chase-bang { 0% { transform: rotate(-9deg) scale(0.4); opacity: 0; } 15% { transform: rotate(-9deg) scale(1.15); opacity: 1; } 75% { opacity: 1; } 100% { transform: rotate(-9deg) translateY(-18px) scale(1); opacity: 0; } }
+.ks-chase-delta { position: absolute; z-index: 9; left: calc(50% + 62px); top: calc(26px + var(--safe-t)); font-weight: 900; font-size: 26px; line-height: 1; white-space: nowrap; pointer-events: none; animation: ks-chase-delta 1.1s ease-out forwards; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
+.ks-chase-delta small { display: block; font-size: 11px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; }
+.ks-chase-delta-up { color: var(--jade); }
+.ks-chase-delta-down { color: var(--red); }
+@keyframes ks-chase-delta { 0% { transform: translateY(14px) scale(0.6); opacity: 0; } 18% { transform: translateY(0) scale(1.15); opacity: 1; } 70% { opacity: 1; } 100% { transform: translateY(-16px); opacity: 0; } }
+.ks-chase-bump-up .ks-chase-gap b { animation: ks-chase-bump-up 0.45s; }
+.ks-chase-bump-down .ks-chase-gap b { animation: ks-chase-bump-down 0.45s; }
+@keyframes ks-chase-bump-up { 0%, 55% { color: var(--jade); } 35% { transform: scale(1.22); } }
+@keyframes ks-chase-bump-down { 0%, 55% { color: var(--red); } 35% { transform: scale(0.88); } }
+
+/* Danger: a red edge that pulses, and a shake when it's right behind you. */
+.ks-chase-vignette { position: absolute; inset: 0; z-index: 6; pointer-events: none; box-shadow: inset 0 0 0 0 rgba(255, 30, 60, 0); transition: box-shadow 0.4s; }
+.ks-chase-near .ks-chase-vignette { box-shadow: inset 0 0 70px 6px rgba(255, 30, 60, 0.35); }
+.ks-chase-danger .ks-chase-vignette { animation: ks-chase-pulse 0.65s ease-in-out infinite; }
+@keyframes ks-chase-pulse { 50% { box-shadow: inset 0 0 110px 18px rgba(255, 30, 60, 0.6); } }
+.ks-chase-danger .ks-chase-world { animation: ks-chase-shake 0.3s linear infinite; }
+@keyframes ks-chase-shake { 25% { transform: translate(-2px, 1px); } 50% { transform: translate(2px, -1px); } 75% { transform: translate(-1px, -2px); } }
+.ks-chase-jolt { animation: ks-chase-jolt 0.35s; }
+@keyframes ks-chase-jolt { 20% { transform: translate(-8px, 4px); } 45% { transform: translate(7px, -3px); } 70% { transform: translate(-4px, 2px); } }
+
+/* ---------- the HUD: the gap, big, and one dot per encounter ---------- */
+.ks-chase-hud { position: absolute; z-index: 8; top: calc(8px + var(--safe-t)); left: 50%; transform: translateX(-50%); text-align: center; pointer-events: none; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45); }
+.ks-chase-gap { display: flex; align-items: baseline; justify-content: center; gap: 3px; flex-wrap: wrap; width: 170px; }
+.ks-chase-gap::before { content: 'lead'; flex-basis: 100%; font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.75; }
+.ks-chase-gap[data-label]::before { content: attr(data-label); color: var(--jade); opacity: 1; }
+.ks-chase-gap b { font-family: var(--body); font-weight: 900; font-size: 48px; line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; transition: color 0.3s; }
+.ks-chase-gap span { font-size: 18px; font-weight: 700; }
+.ks-chase-near .ks-chase-gap b { color: var(--gold); }
+.ks-chase-danger .ks-chase-gap b { color: var(--red); animation: ks-chase-throb 0.65s ease-in-out infinite; }
+@keyframes ks-chase-throb { 50% { transform: scale(1.12); } }
+.ks-chase-dots { display: flex; justify-content: center; gap: 5px; margin-top: 6px; }
+.ks-chase-dots i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.28); transition: background 0.3s, transform 0.3s; }
+.ks-chase-dots i.ks-on { background: var(--jade); transform: scale(1.2); }
+/* a toast (the first no-microphone word) goes below the lead here, not over it */
+body:has(.ks-chase-playing) .ks-toast { top: calc(96px + var(--safe-t)); }
+
+/* ---------- lines and captions: in the empty lower half, below the track; above it while a panel is up ---------- */
+.ks-chase-talk { position: absolute; z-index: 7; left: var(--safe-l); right: var(--safe-r); bottom: calc(28px + var(--safe-b)); display: flex; justify-content: center; align-items: flex-end; padding-top: 0.7em; }
+.ks-chase:has(.ks-ask) .ks-chase-talk, .ks-chase-reading .ks-chase-talk { top: calc(98px + var(--safe-t)); bottom: auto; max-height: calc(var(--ground) - 200px - var(--safe-t)); overflow: hidden; align-items: flex-start; padding-top: 0; }
+@media (max-height: 760px) { .ks-chase:has(.ks-ask) .ks-chase-talk, .ks-chase-reading .ks-chase-talk { display: none; } }
+.ks-chase-line .ks-en, .ks-chase-narr .ks-en { font-size: 15px; color: rgba(247, 242, 232, 0.88); }
+.ks-chase-line, .ks-chase-narr { position: relative; max-width: 100%; box-sizing: border-box; padding: 8px 14px 9px; border-radius: 18px; background: rgba(12, 10, 16, 0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); animation: ks-chase-pop 0.22s cubic-bezier(0.2, 0.9, 0.3, 1.3); }
+@keyframes ks-chase-pop { from { transform: translateY(8px) scale(0.96); opacity: 0; } }
+.ks-chase-line { margin-left: auto; border-bottom-right-radius: 6px; }
+.ks-chase-line-chaser { margin-left: 0; margin-right: auto; border-radius: 18px 18px 18px 6px; box-shadow: inset 0 0 0 1.5px rgba(255, 77, 94, 0.7); }
+.ks-chase-who { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--mute); }
+.ks-chase-who b { font-size: 20px; font-weight: 400; }
+.ks-chase-line-zh { display: block; font-size: 22px; line-height: 1.75; }
+.ks-chase-react { position: absolute; top: -12px; right: -6px; font-style: normal; font-size: 26px; animation: ks-chase-pop 0.3s; }
+.ks-chase-narr { text-align: center; background: rgba(0, 0, 0, 0.32); }
+.ks-chase-narr-zh { display: block; font-size: 20px; line-height: 1.7; }
+.ks-chase-narr-en { display: block; font-size: 15px; line-height: 1.35; color: rgba(247, 242, 232, 0.9); }
+.ks-chase-endcap { background: rgba(12, 10, 16, 0.7); }
+.ks-chase-endcap .ks-chase-narr-en { font-size: 16px; font-weight: 600; }
+
+/* ---------- the start card ---------- */
+.ks-chase-start { position: absolute; z-index: 9; left: var(--safe-l); right: var(--safe-r); top: calc(54px + var(--safe-t)); bottom: calc(210px + var(--safe-b)); min-height: 330px; display: grid; place-items: center; text-align: center; }
+.ks-chase-start-in { display: grid; justify-items: center; gap: 6px; max-width: 340px; }
+.ks-chase-start-chaser { font-size: 96px; line-height: 1.05; animation: ks-chase-hover 1.6s ease-in-out infinite; filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.4)); }
+@keyframes ks-chase-hover { 50% { transform: translateY(-10px) rotate(-4deg); } }
+.ks-chase-start h2 { margin: 2px 0 0; font-family: var(--display); font-weight: 400; font-size: 42px; line-height: 1.05; letter-spacing: 1px; }
+.ks-chase-start-en { font-weight: 700; font-size: 17px; }
+.ks-chase-start-set { font-size: 15px; color: rgba(247, 242, 232, 0.82); text-wrap: balance; }
+.ks-chase-start-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 4px; }
+.ks-chase-start-meta span { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 99px; background: rgba(0, 0, 0, 0.3); }
+.ks-chase-start-rule { margin-top: 2px; font-size: 15px; font-weight: 800; color: var(--gold); text-wrap: balance; }
+.ks-chase-start-best { font-size: 14px; font-weight: 700; color: rgba(247, 242, 232, 0.8); }
+.ks-chase-start-best:empty { display: none; }
+.ks-chase-go { margin-top: 10px; border: 0; border-radius: 99px; padding: 12px 30px; background: var(--red); color: #fff; font-size: 18px; font-weight: 800; box-shadow: 0 8px 26px rgba(255, 77, 94, 0.45); animation: ks-chase-beg 1.2s ease-in-out infinite; }
+.ks-chase-go b { font-family: var(--display); font-weight: 400; font-size: 24px; margin-right: 4px; }
+@keyframes ks-chase-beg { 50% { transform: scale(1.05); } }
+.ks-chase-start[hidden], .ks-chase-hud[hidden] { display: none; }
+
+/* A pack of chasers (several emoji): smaller and bunched, so they fit the track. */
+.ks-chase-pack { --far: 22%; }
+.ks-chase-pack .ks-chase-bang { top: calc(var(--ground) - 100px); }
+.ks-chase-pack .ks-chase-chaser { font-size: 54px; letter-spacing: -14px; top: calc(var(--ground) - 58px); }
+.ks-chase-pack .ks-chase-start-chaser { font-size: 64px; letter-spacing: -10px; }
+
+/* Idle: the track waits empty behind the title, and the title gets a little shade to sit on. */
+.ks-chase[data-state=idle] .ks-chase-you, .ks-chase[data-state=idle] .ks-chase-chaser { opacity: 0; }
+.ks-chase-start::before { content: ''; position: absolute; inset: -40px -16px; z-index: -1; background: radial-gradient(ellipse at 50% 45%, rgba(0, 0, 0, 0.42), transparent 68%); pointer-events: none; }
+
+/* A new phrase, shown for a moment and then taken away: say it from memory. The bar shows how long you get. */
+.ks-chase-read { position: absolute; z-index: 20; left: var(--safe-l); right: var(--safe-r); bottom: calc(24px + var(--safe-b)); display: grid; justify-items: center; gap: 2px; padding: 16px 16px 20px; border-radius: 22px; background: rgba(12, 10, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; animation: ks-chase-panel 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.2); }
+.ks-chase-read-m { margin: 0 0 4px; font-size: 24px; font-weight: 900; line-height: 1.1; text-wrap: balance; }
+.ks-chase-read-zh { font-size: 36px; line-height: 1.7; }
+.ks-chase-read::after { content: ''; position: absolute; left: 18px; right: 18px; bottom: 9px; height: 3px; border-radius: 2px; background: var(--gold); transform-origin: left; animation: ks-chase-look 1.5s linear forwards; }
+@keyframes ks-chase-look { to { transform: scaleX(0); } }
+.ks-chase-read-out { opacity: 0; transform: scale(0.96); transition: opacity 0.2s, transform 0.2s; }
+
+/* GO stamp, and the smaller 该你了！ as each panel rises */
+.ks-chase-stamp { position: absolute; z-index: 9; left: 50%; top: 30%; width: max-content; transform: translate(-50%, -50%) rotate(-6deg); display: grid; justify-items: center; pointer-events: none; animation: ks-chase-stamp 0.9s ease-out forwards; }
+.ks-chase-stamp b { font-family: var(--display); font-weight: 400; font-size: 88px; line-height: 1; color: var(--red); -webkit-text-stroke: 2px #fff; paint-order: stroke fill; }
+.ks-chase-stamp span { font-size: 18px; font-weight: 900; letter-spacing: 0.3em; text-transform: uppercase; }
+.ks-chase-turn { top: calc(var(--ground) + 50px); }
+.ks-chase-turn b { font-size: 56px; color: var(--gold); -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.6); }
+.ks-chase-turn span { font-size: 13px; }
+@keyframes ks-chase-stamp { 0% { transform: translate(-50%, -50%) rotate(-6deg) scale(2.2); opacity: 0; } 25% { transform: translate(-50%, -50%) rotate(-6deg) scale(1); opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0; } }
+
+/* The caption and rail are for browsing; during a run they get out of the way. */
+.ks-chase-playing .ks-cap, .ks-chase-playing .ks-rail { opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.ks-chase .ks-rail { bottom: calc(22px + var(--safe-b)); }
+.ks-chase .ks-cap { right: 84px; }
+
+/* ---------- the answer panel, chase skin: compact, fast, mic first ---------- */
+/* On real phone heights (Safari's visible area) the track moves up while the panel is out, to give it room. */
+@media (max-height: 760px) { .ks-chase:has(.ks-ask), .ks-chase.ks-chase-reading { --ground: 34%; } }
+.ks-chase-you, .ks-chase-obs, .ks-chase-ground, .ks-chase-far, .ks-chase-streaks { transition: top 0.25s ease; }
+.ks-chase-chaser { transition: left 0.22s linear, top 0.25s ease; }
+.ks-ask--chase { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 6px 10px; bottom: calc(10px + var(--safe-b)); max-height: calc(100% - var(--ground) - 24px); padding: 12px 14px 10px; border-radius: 22px; background: rgba(12, 10, 16, 0.9); border-color: rgba(255, 255, 255, 0.1); animation: ks-chase-panel 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.2); }
+@keyframes ks-chase-panel { from { transform: translateY(40px); opacity: 0; } }
+.ks-ask--chase > * { grid-column: 1 / -1; }
+/* one clock, the lead at the top: the panel's own ring is hidden (the finale's beat keeps it) */
+.ks-ask--chase .ks-ask-top { display: none; }
+.ks-ask--chase.ks-chase-ask-plain .ks-ask-top { display: flex; grid-column: 2; grid-row: 1; align-self: start; }
+.ks-ask--chase .ks-ask-label { display: none; }
+.ks-ask--chase .ks-ask-mission { grid-column: 1 / -1; grid-row: 1; font-size: 27px; font-weight: 900; line-height: 1.08; letter-spacing: -0.01em; }
+.ks-ask--chase .ks-ask-clock { width: 46px; height: 46px; }
+.ks-ask--chase .ks-ask-clock b { font-size: 17px; }
+.ks-ask--chase .ks-ask-help { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 2px 10px; text-align: center; }
+.ks-chase-say { font-size: 11px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute); }
+.ks-chase-model { font-size: 27px; line-height: 1.7; }
+.ks-ask--chase .ks-help-full, .ks-ask--chase .ks-frame { font-size: 26px; }
+.ks-ask--chase .ks-mic { --mic: 88px; --mic-top: 0px; gap: 3px; padding: 0; font-size: 12px; }
+.ks-ask--chase .ks-mic svg { padding: 21px; }
+.ks-ask--chase .ks-ask-tools { gap: 6px; }
+.ks-ask--chase .ks-skip, .ks-ask--chase .ks-hint, .ks-chase-nohelp .ks-hear, .ks-ask--chase .ks-nomic { display: none; }
+.ks-ask--chase .ks-tile { font-size: 22px; padding: 7px 12px; }
+.ks-ask--chase .ks-tiles-pool { margin-top: 6px; gap: 7px; }
+.ks-ask--chase .ks-ask-alts { font-size: 14px; }
+.ks-ask--chase.ks-timeout .ks-ask-mission { font-size: 32px; }
+/* The verdict flashes past: stars and what you said. The tips wait for the end screen. */
+.ks-ask--chase.ks-done { grid-template-columns: 1fr; padding: 10px 14px; }
+.ks-ask--chase .ks-win { grid-template-columns: auto 1fr auto; align-items: center; gap: 4px 12px; justify-items: start; }
+.ks-ask--chase .ks-win > * { grid-column: 1 / -1; }
+.ks-ask--chase .ks-win .ks-stars { grid-column: 1; grid-row: 1; font-size: 26px; }
+.ks-ask--chase .ks-win .ks-win-said { grid-column: 2; grid-row: 1; font-size: 24px; }
+.ks-ask--chase .ks-win .ks-next { grid-column: 3; grid-row: 1; padding: 8px 14px; }
+.ks-ask--chase .ks-win .ks-tip, .ks-ask--chase .ks-win .ks-model, .ks-ask--chase .ks-win .ks-note { display: none; }
+/* only what was wrong lights up: a red character, a gold tone (the notes wait for the end screen) */
+.ks-ask--chase .ks-win .ks-m-ok, .ks-ask--chase .ks-win .ks-m-homo { color: var(--paper); }
+.ks-ask--chase .ks-win .ks-m-sub, .ks-ask--chase .ks-win .ks-m-miss { color: var(--red); animation: ks-chase-wrong 0.5s 2; }
+@keyframes ks-chase-wrong { 50% { opacity: 0.25; } }
+.ks-ask--chase.ks-chase-ask-plain .ks-ask-mission { grid-column: 1; }
+.ks-ask--chase.ks-chase-ask-plain .ks-win .ks-tip, .ks-ask--chase.ks-chase-ask-plain .ks-win .ks-model { display: flex; }
+.ks-ask--chase.ks-chase-ask-plain .ks-win .ks-tip, .ks-ask--chase.ks-chase-ask-plain .ks-win .ks-note { display: block; }
+
+/* ---------- the end screen: the world dims behind it, the list takes its height, the buttons stay put ---------- */
+.ks-chase[data-state=done] .ks-chase-world { filter: brightness(0.3) blur(6px); }
+.ks-chase[data-state=done] .ks-chase-vignette { opacity: 0; }
+/* On short screens the result needs the whole card: the rail and caption step aside (Run again and Next stay). */
+@media (max-height: 700px) {
+  .ks-chase[data-state=done] .ks-rail, .ks-chase[data-state=done] .ks-cap { display: none; }
+  .ks-chase[data-state=done] .ks-chase-end { bottom: calc(12px + var(--safe-b)); min-height: 0; }
+}
+.ks-chase-end { position: absolute; z-index: 21; left: var(--safe-l); right: var(--safe-r); top: calc(58px + var(--safe-t)); bottom: calc(206px + var(--safe-b)); min-height: 300px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 14px 14px 0; overflow: hidden; border-radius: 24px; background: rgba(15, 13, 19, 0.95); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); animation: ks-up 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2); }
+.ks-chase-end-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.ks-chase-end-head > div:first-child { display: grid; }
+.ks-chase-end-head b { font-family: var(--display); font-weight: 400; font-size: 38px; line-height: 1; color: var(--jade); }
+.ks-chase-end-lose .ks-chase-end-head b { color: var(--red); }
+.ks-chase-end-head span { font-size: 15px; font-weight: 800; }
+.ks-chase-end-m { text-align: right; font-size: 17px; font-weight: 700; }
+.ks-chase-end-m b { font-family: var(--body) !important; font-weight: 900 !important; font-size: 34px !important; color: var(--paper) !important; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.ks-chase-end-m span { display: block; font-size: 12px !important; font-weight: 600 !important; color: var(--mute); }
+.ks-chase-end-m em { font-style: normal; color: var(--gold); font-weight: 800; }
+.ks-chase-end-best { float: right; color: var(--gold); letter-spacing: 0.06em; }
+.ks-chase-end-cap { display: grid; gap: 1px; padding: 6px 10px; border-radius: 14px; background: rgba(255, 255, 255, 0.05); }
+.ks-chase-end-cap:empty { display: none; }
+.ks-chase-end-zh { font-size: 17px; line-height: 1.7; }
+.ks-chase-end-en { font-size: 13px; color: rgba(247, 242, 232, 0.86); line-height: 1.35; }
+.ks-chase-end-l { font-size: 11px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute); }
+/* never scrolls (at most three rows, faded if they don't fit), so a swipe that starts on it moves the feed */
+.ks-chase-end-list { flex: 0 1 auto; min-height: 0; overflow: hidden; -webkit-mask-image: linear-gradient(180deg, #000 86%, transparent); mask-image: linear-gradient(180deg, #000 86%, transparent); margin: 0; padding: 0; list-style: none; display: grid; align-content: start; gap: 6px; }
+.ks-chase-said { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; padding: 6px 10px 6px 6px; border-radius: 14px; background: rgba(255, 255, 255, 0.05); }
+.ks-chase-said-missed { box-shadow: inset 0 0 0 1.5px rgba(255, 77, 94, 0.7); }
+.ks-chase-hear { width: 40px; height: 40px; border: 0; border-radius: 50%; background: var(--ink-3); font-size: 17px; }
+.ks-chase-said-zh { font-size: 20px; line-height: 1.7; }
+.ks-chase-said-en { font-size: 13px; color: var(--mute); line-height: 1.3; }
+.ks-chase-said-tip { font-size: 12.5px; color: rgba(247, 242, 232, 0.75); line-height: 1.4; margin-top: 2px; }
+.ks-chase-said-fix { font-size: 12.5px; color: var(--gold); line-height: 1.4; margin-top: 2px; }
+.ks-chase-said-stars { font-size: 13px; color: var(--gold); white-space: nowrap; }
+.ks-chase-said-stars i { font-style: normal; color: var(--ink-3); }
+/* the buttons stay put while the list scrolls under them */
+.ks-chase-end-row { flex: none; margin-top: auto !important; display: flex; gap: 8px; margin: 0 -14px; padding: 10px 14px 12px; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+.ks-chase-end-row .ks-btn { flex: 1; padding: 12px 10px; }
+.ks-chase-next { background: var(--jade); }
+
+/* ---------- the pixel art (art.js): the set's four layers, the road (row 143) on the ground line, their edge colours
+   carried on past them, scrolling while you run; you and the chaser as sprites, feet on the road, posed by the run
+   (chase.js pose()) rather than turned and bounced as the emoji are ---------- */
+.ks-chase-layers { position: absolute; left: 0; right: 0; top: calc(var(--ground) - var(--art-s) * 143px); height: calc(var(--art-s) * 160px); }
+.ks-chase-layers::before, .ks-chase-layers::after { content: ''; position: absolute; left: 0; right: 0; height: 200vh; }
+.ks-chase-layers::before { bottom: 100%; background: var(--art-top); }
+.ks-chase-layers::after { top: 100%; background: var(--art-bottom); }
+.ks-chase-layer { position: absolute; left: 0; top: 0; background-repeat: repeat-x; image-rendering: crisp-edges; image-rendering: pixelated; animation: ks-chase-scroll 1s linear infinite paused; will-change: transform; }
+.ks-chase-run .ks-chase-layer { animation-play-state: running; }
+.ks-chase-art .ks-chase-far, .ks-chase-art .ks-chase-ground::before, .ks-chase-art .ks-chase-ground::after { display: none; }
+.ks-chase-art .ks-chase-ground { top: calc(var(--ground) + var(--art-s) * 17px); background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.45) 60%); border-top: 0; }
+.ks-chase.ks-chase-art .ks-chase-you { top: calc(var(--ground) - var(--you-h)); font-size: 0; }
+.ks-chase.ks-chase-art .ks-chase-chaser { top: calc(var(--ground) - var(--them-h)); font-size: 0; letter-spacing: 0; filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.25)); }
+.ks-chase.ks-chase-art .ks-chase-near .ks-chase-chaser, .ks-chase.ks-chase-art.ks-chase-near .ks-chase-chaser { filter: drop-shadow(0 0 2px #ff4d5e) drop-shadow(0 0 14px rgba(255, 77, 94, 0.75)); }
+.ks-chase.ks-chase-art .ks-chase-you span, .ks-chase.ks-chase-art .ks-chase-chaser span { display: flex; align-items: flex-end; transform: none; animation: none; }
+.ks-chase.ks-chase-art .ks-chase-chaser span .ks-sprite + .ks-sprite { margin-left: calc(var(--art-s) * -8px); }
+.ks-chase.ks-chase-art .ks-chase-obs { top: calc(var(--ground) - var(--art-s) * 16px - 4px); }
+.ks-chase-start-chaser .ks-sprite { display: inline-block; vertical-align: bottom; }
+.ks-chase-av { display: inline-block; width: 1.4em; height: 1.4em; margin-right: 4px; vertical-align: -0.35em; }

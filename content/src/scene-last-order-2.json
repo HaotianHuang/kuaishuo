@@ -1,0 +1,145 @@
+{
+  "id": "last-order-2",
+  "format": "scene",
+  "title": "医院",
+  "title_en": "The Hospital",
+  "level": 1,
+  "listen": 1,
+  "topics": ["health", "food"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "last-order", "ep": 2, "next": "The road home is under water. Someone is waving from a car roof." },
+  "tags": ["外卖", "台风", "医院"],
+  "setting": "The next night. The typhoon has landed. Your first order: twenty bowls of noodles, to a hospital.",
+  "stage": "🌀",
+  "bg": ["#06131f", "#2a4a63"],
+  "cast": {
+    "baoan": { "name": "保安", "en": "the hospital's gate guard", "emoji": "💂", "voice": "m-mid" },
+    "xiaohe": { "name": "小何", "en": "the night nurse", "emoji": "👩‍⚕️", "voice": "f-young" }
+  },
+  "steps": [
+    { "when": { "last-order.ep1": "stay" }, "narr": "Your phone: a photo from 陈爷爷. An empty bowl.", "prop": "🥣",
+      "else": [ { "narr": "Your phone: a voice note from abroad.", "zh": "谢谢你。爷爷说你人很好。", "prop": "📱" } ] },
+    { "narr": "The typhoon has landed. Twenty bowls of noodles. The roads are going under.", "prop": "🍜" },
+    { "who": "baoan", "zh": "干什么的？", "en": "What are you here for?" },
+    { "say": {
+      "id": "way",
+      "en": "Ask where A&E is.",
+      "cue": "Where's A&E?",
+      "answers": ["急诊在哪儿？", "请问急诊在哪？", "急诊在哪里？"],
+      "gloss": "Where's A&E?",
+      "need": [["急诊"]],
+      "key": { "急诊": "A&E, emergency" },
+      "tip": "急诊 jízhěn = A&E, the emergency department. ……在哪儿？ = where is ...?",
+      "ok": [ { "who": "baoan", "zh": "左边，三楼。电梯坏了。", "en": "On the left, third floor. The lift's broken." } ],
+      "fail": [ { "who": "baoan", "zh": "啊？", "en": "Eh?" } ],
+      "levels": {
+        "0": {
+          "answers": ["急诊？", "急诊在哪？"],
+          "gloss": "A&E?",
+          "status": "live" },
+        "2": {
+          "answers": ["请问，急诊怎么走？", "你好，请问急诊怎么走？"],
+          "need": [["急诊"], ["怎么走"]],
+          "gloss": "Excuse me, how do I get to A&E?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Twenty bowls. Three floors. Your arms are shaking." },
+    { "who": "xiaohe", "zh": "外卖？我来了！", "en": "The delivery? Coming!", "fx": "enter" },
+    { "say": {
+      "id": "help",
+      "en": "Ask her to take some.",
+      "cue": "Help!",
+      "answers": ["帮我拿一下！", "帮我拿一下，谢谢！", "能帮我拿一下吗？"],
+      "gloss": "Can you take some?",
+      "need": [["帮我拿"]],
+      "tip": "帮我拿一下 = give me a hand with this: 一下 makes it quick and polite.",
+      "ok": [
+        { "who": "xiaohe", "zh": "给我一半。", "en": "Give me half." },
+        { "narr": "She takes ten. You take ten." }
+      ],
+      "fail": [ { "who": "xiaohe", "zh": "什么？", "en": "What?" } ],
+      "levels": {
+        "0": {
+          "answers": ["请帮帮我！", "帮我拿！"],
+          "need": [["帮我"]],
+          "gloss": "Help!",
+          "status": "live" },
+        "2": {
+          "answers": ["太重了，帮我拿一下！", "太重了，能帮我拿一下吗？"],
+          "need": [["太重"], ["帮我拿"]],
+          "gloss": "It's too heavy. Can you take some?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The corridor. Families on plastic chairs, waiting. Some asleep." },
+    { "who": "xiaohe", "zh": "来，吃点热的。", "en": "Here. Have something hot." },
+    { "narr": "Bowl after bowl. Not one goes to the staff." },
+    { "who": "xiaohe", "zh": "我自己买的。他们等了一晚上了。", "en": "I paid for them myself. They've been waiting all night.", "hold": 1 },
+    { "who": "xiaohe", "zh": "还剩一碗。你吃吧。", "en": "There's one left. You have it." },
+    { "say": {
+      "id": "no",
+      "en": "Turn it down, kindly.",
+      "cue": "Kindly, no.",
+      "answers": ["不用了，谢谢。", "不用了，您吃吧。", "我不用，谢谢。"],
+      "gloss": "No need, thank you.",
+      "need": [["不用"]],
+      "tip": "不用了 = no need: the kind no.",
+      "ok": [
+        { "who": "xiaohe", "zh": "那给那个小朋友。", "en": "Then for that little one." },
+        { "narr": "The last bowl goes to a child asleep across two chairs." }
+      ],
+      "fail": [ { "who": "xiaohe", "zh": "你吃吧。", "en": "Go on, have it." } ],
+      "levels": {
+        "0": {
+          "answers": ["不用！", "不用了。"],
+          "gloss": "No, thanks.",
+          "status": "live" },
+        "2": {
+          "answers": ["不用了，您留着自己吃吧。", "不用了，您自己吃吧。"],
+          "need": [["不用"], ["自己吃"]],
+          "gloss": "No need. You keep it for yourself.",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaohe", "zh": "这是小费，拿着。", "en": "Here's a tip. Take it.", "prop": "💴" },
+    { "say": {
+      "id": "tip",
+      "en": "Take her tip, or turn it into another order.",
+      "cue": "Take it, or another order?",
+      "answers": ["谢谢您。", "谢谢！", "谢谢您！"],
+      "gloss": "Thank you.",
+      "need": [["谢谢"]],
+      "tip": "谢谢您 = thank you: 您 for someone you respect.",
+      "sets": { "last-order.ep2": "tip" },
+      "ok": [ { "who": "xiaohe", "zh": "路上小心。", "en": "Careful on the road." } ],
+      "alts": [
+        { "en": "Or: another order", "answers": ["再送一份吧，这钱我不要。", "再送一份吧，钱我不要。"], "need": [["送一份", "再送一份"]], "gloss": "Let me bring another lot. I don't want the money.",
+          "key": { "再送": "deliver again" },
+          "sets": { "last-order.ep2": "another" },
+          "then": [
+            { "who": "xiaohe", "zh": "……再送一份？", "en": "...Another lot?", "hold": 1 },
+            { "narr": "An hour later: twenty more bowls. The corridor claps, very quietly." }
+          ] }
+      ],
+      "fail": [ { "who": "xiaohe", "zh": "拿着呀。", "en": "Go on, take it." } ],
+      "levels": {
+        "0": {
+          "answers": ["谢谢！", "谢谢您。"],
+          "gloss": "Thanks!",
+          "alts": [ { "of": 0, "answers": ["再送一份！", "送一份！"], "need": [["送一份", "再送一份"]], "gloss": "Another lot!" } ],
+          "status": "live" },
+        "2": {
+          "answers": ["谢谢您，您也早点休息。", "谢谢您，您也注意休息。"],
+          "need": [["谢谢"], ["休息"]],
+          "gloss": "Thank you. Get some rest yourself.",
+          "alts": [ { "of": 0, "answers": ["钱我不要，用它再送一份吧。", "这钱我不要，您拿它再送一份。"], "need": [["不要"], ["送一份", "再送一份"]], "gloss": "I won't take the money. Use it for another lot." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "last-order.ep2": "tip" }, "end": "win", "en": "Back on the road at four. The water is rising, and the app pings again. 🌀",
+      "else": [ { "end": "win", "en": "At five, forty bowls, all empty. The corridor sleeps. 🌀" } ] }
+  ]
+}

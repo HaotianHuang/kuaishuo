@@ -1,0 +1,74 @@
+{
+  "id": "i-understand",
+  "title": "我听得懂",
+  "title_en": "I Understand",
+  "eps": 6,
+  "audience": "heritage",
+  "levels": [
+    1,
+    3
+  ],
+  "genre": "drama",
+  "home": {
+    "name": "杭州",
+    "en": "a tea company in Hangzhou, and its farm in the hills"
+  },
+  "cast": {
+    "chen": {
+      "name": "陈总",
+      "en": "the tea company's director: warm, and testing you",
+      "emoji": "👩‍💼",
+      "voice": "f-mid",
+      "tts": "zf_047"
+    },
+    "zhou": {
+      "name": "小周",
+      "en": "the company's interpreter: bright, fast, and kinder than they look",
+      "emoji": "🧑‍💻",
+      "voice": "m-young",
+      "tts": "zm_057"
+    },
+    "chennainai": {
+      "name": "陈奶奶",
+      "en": "陈总's mother: owns the tea farm, and misses nothing",
+      "emoji": "👵",
+      "voice": "f-old",
+      "tts": "zf_099"
+    },
+    "axiu": {
+      "name": "阿秀",
+      "en": "a tea picker: talks fast",
+      "emoji": "👩‍🌾",
+      "voice": "f-mid",
+      "tts": "zf_036"
+    },
+    "laoge": {
+      "name": "老葛",
+      "en": "a tea picker: talks faster",
+      "emoji": "👨‍🌾",
+      "voice": "m-mid",
+      "tts": "zm_015"
+    },
+    "liudong": {
+      "name": "刘董",
+      "en": "a board member: loud, and talks fast when he thinks you can't follow",
+      "emoji": "👨‍💼",
+      "voice": "m-old",
+      "tts": "zm_029"
+    },
+    "sundong": {
+      "name": "孙董",
+      "en": "a board member: quiet, and faster still",
+      "emoji": "👩‍💼",
+      "voice": "f-old",
+      "tts": "zf_046"
+    },
+    "gaozong": {
+      "name": "高总",
+      "en": "陈总's old business partner: smiling, and wants the farm",
+      "emoji": "🕴️",
+      "voice": "m-mid",
+      "tts": "zm_013"
+    }
+  }
+}

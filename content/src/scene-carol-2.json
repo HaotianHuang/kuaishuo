@@ -1,0 +1,458 @@
+{
+  "id": "carol-2",
+  "format": "scene",
+  "title": "第二位客人",
+  "title_en": "The Second Visitor",
+  "level": 3,
+  "listen": 3,
+  "topics": [
+    "celebrations"
+  ],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": {
+    "id": "carol",
+    "ep": 2,
+    "next": "The third visitor doesn't speak. It points at your phone, at a date next year."
+  },
+  "tags": [
+    "春节颂歌",
+    "除夕",
+    "糖葫芦"
+  ],
+  "setting": "The office, 1 am on 除夕 night. The lantern is out. Somewhere in the dark, someone is crunching sugar.",
+  "stage": "🍡",
+  "bg": [
+    "#140a0a",
+    "#b8452a"
+  ],
+  "cast": {
+    "tanghulu": {
+      "name": "糖葫芦大叔",
+      "en": "the second visitor: cheerful, with a stick of candied haws",
+      "emoji": "🍡",
+      "voice": "m-mid"
+    },
+    "xiaoge": {
+      "name": "小葛",
+      "en": "your assistant, home at last",
+      "emoji": "👩‍💼",
+      "voice": "f-young"
+    },
+    "didi": {
+      "name": "弟弟",
+      "en": "小葛's little brother, on crutches, full of jokes",
+      "emoji": "👦",
+      "voice": "kid"
+    },
+    "laoma": {
+      "name": "老妈",
+      "en": "your mother, tonight",
+      "emoji": "👩",
+      "voice": "f-mid"
+    },
+    "laoba": {
+      "name": "老爸",
+      "en": "your father, tonight",
+      "emoji": "👨",
+      "voice": "m-mid"
+    }
+  },
+  "steps": [
+    {
+      "narr": "1 am. The lantern is out. In the dark office, the smell of hot sugar, and a loud, happy crunch."
+    },
+    {
+      "who": "tanghulu",
+      "zh": "来一串？",
+      "en": "Want one?",
+      "fx": "laugh",
+      "prop": "🍡"
+    },
+    {
+      "who": "tanghulu",
+      "zh": "家里打了十一个电话。你一个也没接。",
+      "en": "Home called eleven times. You didn't pick up once."
+    },
+    {
+      "who": "tanghulu",
+      "zh": "走，看看大家今晚在干什么。",
+      "en": "Come on. Let's see what everyone's doing tonight."
+    },
+    {
+      "narr": "A crunch, and the office is gone. A one-room flat, a folding table, a mountain of dumplings. 小葛, her mum, and her little brother, a crutch propped against his chair."
+    },
+    {
+      "who": "xiaoge",
+      "zh": "我老板人挺好的。今天让我早走了。",
+      "en": "My boss is all right, actually. Let me go early today."
+    },
+    {
+      "who": "didi",
+      "zh": "那我敬姐姐的老板一杯！",
+      "en": "Then here's to 姐姐's boss!",
+      "fx": "laugh"
+    },
+    {
+      "narr": "He raises a glass of orange juice, to you. Nobody in the room knows you're there."
+    },
+    {
+      "who": "tanghulu",
+      "zh": "跟她说句话。试试。",
+      "en": "Say something to her. Go on, try."
+    },
+    {
+      "say": {
+        "id": "thanks",
+        "en": "Speak to 小葛, who can't hear you: thank you.",
+        "cue": "Thank her.",
+        "answers": [
+          "小葛，谢谢你。",
+          "谢谢你，小葛。"
+        ],
+        "gloss": "Thank you, 小葛.",
+        "need": [
+          [
+            "小葛"
+          ],
+          [
+            "谢谢你"
+          ]
+        ],
+        "tip": "Say it even if nobody hears: 谢谢你.",
+        "ok": [
+          {
+            "narr": "小葛 doesn't turn round. But she pulls her scarf a little tighter, and smiles at nothing."
+          }
+        ],
+        "fail": [
+          {
+            "who": "tanghulu",
+            "zh": "说呀，没人笑你。",
+            "en": "Go on, nobody's laughing."
+          }
+        ],
+        "levels": {
+          "2": {
+            "answers": [
+              "谢谢你，小葛！",
+              "小葛，谢谢！"
+            ],
+            "need": [
+              [
+                "谢谢"
+              ]
+            ],
+            "gloss": "Thanks, 小葛!",
+            "status": "live"
+          },
+          "4": {
+            "answers": [
+              "小葛，这几年辛苦你了，谢谢你。"
+            ],
+            "need": [
+              [
+                "辛苦"
+              ],
+              [
+                "谢谢你"
+              ],
+              [
+                "小葛"
+              ]
+            ],
+            "gloss": "小葛, these last few years have been hard on you. Thank you.",
+            "tip": "辛苦你了 = you've worked so hard: the thanks for effort.",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "say": {
+        "id": "hear",
+        "en": "Ask the visitor: can they hear you?",
+        "cue": "Can they hear?",
+        "answers": [
+          "他们听得见吗？",
+          "他们听得见我吗？"
+        ],
+        "gloss": "Can they hear me?",
+        "need": [
+          [
+            "他们"
+          ],
+          [
+            "听得见"
+          ]
+        ],
+        "key": {
+          "听得见": "can hear"
+        },
+        "tip": "听得见 = can hear. 听不见 = can't hear.",
+        "ok": [
+          {
+            "who": "tanghulu",
+            "zh": "听不见。",
+            "en": "No.",
+            "hold": 1
+          },
+          {
+            "who": "tanghulu",
+            "zh": "可是，心里知道。",
+            "en": "But somewhere inside, they know.",
+            "pace": "slow"
+          }
+        ],
+        "fail": [
+          {
+            "who": "tanghulu",
+            "zh": "嗯？",
+            "en": "Hm?"
+          }
+        ],
+        "levels": {
+          "2": {
+            "answers": [
+              "听得见吗？",
+              "他们听得见吗？"
+            ],
+            "need": [
+              [
+                "听得见"
+              ]
+            ],
+            "gloss": "Can they hear?",
+            "status": "live"
+          },
+          "4": {
+            "answers": [
+              "他们听得见我说话吗？"
+            ],
+            "need": [
+              [
+                "说话"
+              ],
+              [
+                "他们"
+              ],
+              [
+                "听得见"
+              ]
+            ],
+            "gloss": "Can they hear me talking?",
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "who": "didi",
+      "zh": "姐，你笑什么？",
+      "en": "Sis, what are you smiling about?"
+    },
+    {
+      "who": "xiaoge",
+      "zh": "没什么。吃饺子！",
+      "en": "Nothing. Eat your dumplings!"
+    },
+    {
+      "narr": "Another crunch. The flat melts. A different door, one you know too well: your parents'."
+    },
+    {
+      "when": {
+        "carol.ep1": "speak"
+      },
+      "narr": "By the door, a new 春联 in your father's best brush. On it, word for word, what you told your eight-year-old self.",
+      "zh": "多陪陪家人",
+      "prop": "🧧",
+      "else": [
+        {
+          "narr": "Inside, on the shelf: the photo from that 除夕. You, aged eight, holding up a coin.",
+          "prop": "🖼️"
+        }
+      ]
+    },
+    {
+      "narr": "The table. Two people eating slowly, the gala on low. Three bowls. One pair of chopsticks still clean.",
+      "hold": 1
+    },
+    {
+      "who": "laoba",
+      "zh": "今年，也不回来了吧。",
+      "en": "Not coming this year either, then.",
+      "pace": "slow"
+    },
+    {
+      "who": "laoma",
+      "zh": "碗还是摆上。万一呢。",
+      "en": "Set the bowl anyway. Just in case.",
+      "pace": "slow",
+      "hold": 1
+    },
+    {
+      "who": "laoba",
+      "zh": "每年都摆。",
+      "en": "We set it every year.",
+      "pace": "slow",
+      "hold": 2
+    },
+    {
+      "who": "tanghulu",
+      "zh": "糖快吃完了。你想去哪儿？",
+      "en": "The sugar's nearly gone. Where do you want to go?"
+    },
+    {
+      "say": {
+        "id": "where",
+        "en": "Ask the visitor to take you home, or to show you more of 小葛's family.",
+        "cue": "Home, or 小葛's?",
+        "answers": [
+          "带我回家。",
+          "你带我回家吧。"
+        ],
+        "gloss": "Take me home.",
+        "need": [
+          [
+            "带我回家"
+          ]
+        ],
+        "tip": "带我回家 = take me home. 带 dài = take someone along.",
+        "sets": {
+          "carol.ep2": "home"
+        },
+        "ok": [
+          {
+            "who": "tanghulu",
+            "zh": "好。可是今晚还没完。",
+            "en": "All right. But tonight isn't over yet.",
+            "pace": "slow"
+          },
+          {
+            "narr": "Your parents' table fades, with that clean pair of chopsticks last of all."
+          }
+        ],
+        "alts": [
+          {
+            "en": "Or: more of 小葛's family",
+            "answers": [
+              "再看看小葛家。",
+              "我想再看看小葛家。"
+            ],
+            "need": [
+              [
+                "再看看"
+              ],
+              [
+                "小葛家"
+              ]
+            ],
+            "gloss": "Let me see more of 小葛's family.",
+            "sets": {
+              "carol.ep2": "gege"
+            },
+            "then": [
+              {
+                "narr": "Back in the little flat, the gala is on. 弟弟 is up on one crutch, dancing."
+              },
+              {
+                "who": "didi",
+                "zh": "姐，看我！",
+                "en": "Sis, watch me!",
+                "fx": "jump"
+              },
+              {
+                "narr": "He spins once, and gets a standing ovation from a family of three. You clap too. Nobody hears."
+              }
+            ]
+          }
+        ],
+        "fail": [
+          {
+            "who": "tanghulu",
+            "zh": "快说，糖要化了。",
+            "en": "Quick, the sugar's melting."
+          }
+        ],
+        "levels": {
+          "2": {
+            "answers": [
+              "带我回家！",
+              "回家！"
+            ],
+            "need": [
+              [
+                "回家"
+              ]
+            ],
+            "gloss": "Home!",
+            "alts": [
+              {
+                "of": 0,
+                "answers": [
+                  "再看看小葛家！"
+                ],
+                "need": [
+                  [
+                    "小葛家"
+                  ]
+                ],
+                "gloss": "More of 小葛's family!"
+              }
+            ],
+            "status": "live"
+          },
+          "4": {
+            "answers": [
+              "别看了，现在就带我回家。"
+            ],
+            "need": [
+              [
+                "现在就"
+              ],
+              [
+                "带我回家"
+              ]
+            ],
+            "gloss": "No more. Take me home, right now.",
+            "alts": [
+              {
+                "of": 0,
+                "answers": [
+                  "我想再看看小葛家的弟弟。"
+                ],
+                "need": [
+                  [
+                    "弟弟"
+                  ],
+                  [
+                    "再看看"
+                  ],
+                  [
+                    "小葛家"
+                  ]
+                ],
+                "gloss": "I want to see more of 小葛's little brother."
+              }
+            ],
+            "status": "live"
+          }
+        }
+      }
+    },
+    {
+      "when": {
+        "carol.ep2": "home"
+      },
+      "end": "win",
+      "en": "The stick is bare. Back at your desk, your phone lights up: home, a twelfth call. Somewhere, a lift is humming upward. 🍡",
+      "else": [
+        {
+          "end": "win",
+          "en": "The stick is bare. Back at your desk, you're still clapping. Somewhere, a lift is humming upward. 🍡"
+        }
+      ]
+    }
+  ]
+}

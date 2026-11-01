@@ -1,0 +1,152 @@
+{
+  "id": "summer-5",
+  "format": "scene",
+  "title": "机场",
+  "title_en": "The Airport",
+  "level": 3,
+  "listen": 3,
+  "topics": ["travel"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "summer", "ep": 5, "next": "Two weeks later, 3 am your time, 小敏 calls. She's crying. You can't tell if it's happy." },
+  "tags": ["那年夏天", "机场", "外公"],
+  "setting": "The provincial airport, departures. You're flying back abroad. The whole family has come to see you off.",
+  "stage": "✈️",
+  "bg": ["#1a2230", "#7a9aba"],
+  "cast": {
+    "xiaomin": { "name": "小敏", "en": "your cousin: still not telling", "emoji": "👧", "voice": "f-young" },
+    "xiaoyi": { "name": "小姨", "en": "小敏's mother: checking everything twice", "emoji": "👩", "voice": "f-mid" },
+    "yifu": { "name": "姨父", "en": "小敏's father: says little", "emoji": "👨", "voice": "m-mid" },
+    "waigong": { "name": "外公", "en": "your grandfather", "emoji": "👴", "voice": "m-old" }
+  },
+  "steps": [
+    { "when": { "summer.ep4": "show" }, "narr": "You know what she chose. 外公 told you last night, and only you. At the gate, you keep it.",
+      "else": [ { "narr": "You still don't know what she chose. Nobody does." } ] },
+    { "narr": "Departures. Your flight is in an hour." },
+    { "who": "xiaoyi", "zh": "东西都带了吗？护照呢？", "en": "Got everything? Your passport?", "pace": "fast" },
+    { "who": "yifu", "zh": "……路上小心。", "en": "...Safe journey." },
+    { "narr": "外公 holds out a jar of his chilli sauce, wrapped in three plastic bags.", "prop": "🌶️" },
+    { "who": "waigong", "zh": "带着。那边买不到。", "en": "Take it. You can't get this over there." },
+    { "say": {
+      "id": "bye",
+      "en": "Say goodbye to 外公: take good care of yourself.",
+      "cue": "Goodbye.",
+      "answers": ["外公，您多保重。", "外公，您多保重身体。"],
+      "gloss": "外公, take good care of yourself.",
+      "need": [["外公"], ["保重"]],
+      "tip": "多保重 = take good care: what you say to someone you won't see for a while.",
+      "ok": [
+        { "who": "waigong", "zh": "嗯。", "en": "Mm.", "hold": 1 },
+        { "who": "waigong", "zh": "到了，打个电话。", "en": "Call when you land." }
+      ],
+      "fail": [ { "who": "waigong", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "2": {
+          "answers": ["您多保重！", "外公，保重。"],
+          "need": [["保重"]],
+          "gloss": "Take care!",
+          "status": "live" },
+        "4": {
+          "answers": ["外公，天热，您多保重身体。"],
+          "need": [["身体"], ["保重"]],
+          "gloss": "外公, it's hot. Look after yourself.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "call",
+      "en": "Promise: you'll call often.",
+      "cue": "Promise.",
+      "answers": ["我会常打电话的。", "我会常常打电话的。"],
+      "gloss": "I'll call often.",
+      "need": [["会常"], ["打电话"]],
+      "tip": "常 cháng = often. 会……的 = will, for sure.",
+      "ok": [
+        { "who": "xiaoyi", "zh": "说话算话！", "en": "You'd better mean it!" },
+        { "who": "waigong", "zh": "……也别太常。电话费贵。", "en": "...Not too often. Calls are dear." }
+      ],
+      "fail": [ { "who": "xiaoyi", "zh": "你说什么？", "en": "What's that?" } ],
+      "levels": {
+        "2": {
+          "answers": ["我会打电话！", "我会打电话的。"],
+          "need": [["打电话"]],
+          "gloss": "I'll call!",
+          "status": "live" },
+        "4": {
+          "answers": ["我会常给您打电话的，放心吧。"],
+          "need": [["给您"], ["打电话"]],
+          "gloss": "I'll call you often. Don't worry.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "小敏 pulls you a few steps away from the others." },
+    { "who": "xiaomin", "zh": "我问你个事。", "en": "Can I ask you something?" },
+    { "who": "xiaomin", "zh": "你在国外，开心吗？", "en": "Over there, abroad... are you happy?", "pace": "slow", "hold": 2 },
+    { "say": {
+      "id": "happy",
+      "en": "Answer her honestly: happy, but you miss home too.",
+      "cue": "Honestly.",
+      "answers": ["开心，可是也会想家。", "挺开心的，可是会想家。"],
+      "gloss": "Happy. But I miss home, too.",
+      "need": [["开心"], ["想家"]],
+      "key": { "想家": "miss home" },
+      "tip": "想家 xiǎng jiā = miss home: 想 is miss as well as think.",
+      "ok": [
+        { "who": "xiaomin", "zh": "我也觉得会是这样。", "en": "That's what I thought you'd say." },
+        { "who": "xiaomin", "zh": "我填的时候，想的是你。", "en": "When I filled in the form, I was thinking of you.", "pace": "slow" },
+        { "who": "xiaomin", "zh": "你走那么远，还是回来了。", "en": "You went so far, and you still came back.", "pace": "slow", "hold": 1 },
+        { "who": "xiaomin", "zh": "远，不是永远。", "en": "Far isn't forever.", "pace": "slow", "hold": 3 }
+      ],
+      "fail": [ { "who": "xiaomin", "zh": "说实话。", "en": "Tell me the truth." } ],
+      "levels": {
+        "2": {
+          "answers": ["开心，也想家。", "开心。也想家。"],
+          "need": [["想家"]],
+          "gloss": "Happy. And homesick.",
+          "status": "live" },
+        "4": {
+          "answers": ["大部分时候开心，可是常常想家。"],
+          "need": [["大部分"], ["想家"]],
+          "gloss": "Happy, mostly. But I often miss home.",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "ding" },
+    { "narr": "The boarding call." },
+    { "say": {
+      "id": "next",
+      "en": "Tell 小敏 you'll be back next year, or ask her to come and visit you.",
+      "cue": "Back, or visit?",
+      "answers": ["我明年还回来。", "小敏，我明年还回来。"],
+      "gloss": "I'll be back next year.",
+      "need": [["明年"], ["还回来"]],
+      "tip": "明年 míngnián = next year. 还回来 = come back again.",
+      "sets": { "summer.ep5": "back" },
+      "ok": [ { "who": "xiaomin", "zh": "说好了。", "en": "That's a promise." } ],
+      "alts": [
+        { "en": "Or: ask her to come and visit", "answers": ["你来看我吧。", "小敏，你来看我吧。"], "need": [["来看我"]], "gloss": "Come and visit me.",
+          "sets": { "summer.ep5": "visit" },
+          "then": [ { "who": "xiaomin", "zh": "……好。我来。", "en": "...All right. I'll come.", "hold": 1 } ] }
+      ],
+      "fail": [ { "who": "xiaomin", "zh": "你说什么？", "en": "What did you say?" } ],
+      "levels": {
+        "2": {
+          "answers": ["明年见！", "我明年回来。"],
+          "need": [["明年"]],
+          "gloss": "See you next year!",
+          "alts": [ { "of": 0, "answers": ["来看我吧！"], "need": [["来看我"]], "gloss": "Come and see me!" } ],
+          "status": "live" },
+        "4": {
+          "answers": ["我明年暑假还回来，一言为定。"],
+          "need": [["暑假"], ["一言为定"]],
+          "gloss": "I'll be back next summer. That's a promise.",
+          "alts": [ { "of": 0, "answers": ["等你上了大学，来看我吧。"], "need": [["上了大学"], ["来看我"]], "gloss": "Once you're at university, come and see me." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "外公 doesn't wave. He just stands there until you're through security.", "hold": 2 },
+    { "when": { "summer.ep5": "back" }, "end": "win", "en": "Somewhere over the ocean, you open the jar of chilli. The whole row can smell it. 🌶️",
+      "else": [ { "end": "win", "en": "Somewhere over the ocean, you find a note from 小敏 in your pocket: 等我。 🌶️" } ] }
+  ]
+}

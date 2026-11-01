@@ -1,0 +1,138 @@
+{
+  "id": "mum-calling",
+  "format": "call",
+  "title": "妈来电话了",
+  "title_en": "Mum's Calling",
+  "level": 2,
+  "topics": ["family"],
+  "audience": "heritage",
+  "hook": 3,
+  "status": "live",
+  "tags": ["妈妈", "唠叨", "回家"],
+  "write": ["到时候", "着急"],
+  "setting": "Your flat, 8 pm, the first cold night of autumn. You've just had instant noodles.",
+  "stage": "🍜",
+  "bg": ["#3b1607", "#a84a22"],
+  "cast": {
+    "mum": { "is": "mama", "name": "妈", "en": "your mum", "emoji": "👩", "voice": "f-mid", "phone": true }
+  },
+  "call": {
+    "caller": "mum",
+    "name": { "zh": "妈" },
+    "photo": "🌸",
+    "number": "139 0000 2468",
+    "label": { "zh": "湖南 长沙" },
+    "clock": "20:03",
+    "patience": 8,
+    "silence": [
+      { "who": "mum", "zh": "喂？喂？听得见吗？", "en": "Hello? Hello? Can you hear me?" },
+      { "who": "mum", "zh": "这孩子，信号又不好了？", "en": "Honestly, this child. Bad signal again?" }
+    ],
+    "hangup": [
+      { "who": "mum", "zh": "算了，我等会儿再打给你。", "en": "Never mind, I'll call you back in a bit." },
+      { "end": "lose", "en": "Mum hung up. She'll try again in five minutes, and then she'll try your roommate." }
+    ],
+    "missed": [
+      { "who": "mum", "zh": "怎么不接电话呀？快接！", "en": "Why aren't you picking up? Answer!" }
+    ]
+  },
+  "steps": [
+    { "who": "mum", "zh": "喂？吃饭了吗？", "en": "Hello? Have you eaten?" },
+    { "say": {
+      "id": "ate",
+      "en": "Tell her you've eaten. (Instant noodles count.)",
+      "cue": "Tell her you've eaten.",
+      "answers": ["吃了吃了。", "吃过了。", "吃了，您放心。", "刚吃完。"],
+      "gloss": "Yes, yes, I've eaten.",
+      "need": [["吃了", "吃过", "吃完", "吃饭了"]],
+      "time": 10,
+      "tip": "吃饭了吗 is less a question than a hug. 吃了吃了, said twice, means 'yes, yes, don't worry'.",
+      "alts": [
+        { "en": "Confess it was instant noodles", "answers": ["泡面算吗？", "就一碗泡面。"], "gloss": "Do instant noodles count?", "need": [["泡面", "方便面"]],
+          "then": [ { "who": "mum", "zh": "又吃泡面？那东西一点营养都没有！", "en": "Instant noodles again? There's no goodness in those at all!", "fx": "angry" } ] }
+      ],
+      "ok": [ { "who": "mum", "zh": "那就好。别老吃外卖啊，不干净。", "en": "Good. And don't live on takeaway, it isn't clean." } ],
+      "fail": [ { "who": "mum", "zh": "啊？吃了还是没吃？", "en": "Huh? Have you eaten or not?" } ]
+    } },
+    { "who": "mum", "zh": "那个，你过年什么时候回来呀？", "en": "So, when are you coming home for New Year?" },
+    { "say": {
+      "id": "newyear",
+      "en": "She wants to know when you're coming home for New Year. Dodge it: you'll see nearer the time.",
+      "cue": "Don't commit.",
+      "answers": ["还不知道，到时候再说吧。", "还没定呢，到时候再说。", "看情况吧，到时候再说。", "还不一定，再说吧。"],
+      "gloss": "Don't know yet. We'll see nearer the time.",
+      "need": [["再说", "没定", "不一定", "没想好", "看情况"]],
+      "not": [{ "heard": ["在说什么", "说什么"], "note": "That's 'what are you saying?'. To dodge, it's 到时候再说: we'll see when the time comes." }],
+      "time": 10,
+      "tip": "到时候再说 = we'll see when the time comes: the classic way not to answer a parent.",
+      "alts": [
+        { "en": "Promise you'll be home", "answers": ["肯定回，您放心！", "过年一定回去。"], "gloss": "I'll definitely be home, don't worry!", "need": [["肯定", "一定回"]],
+          "then": [ { "who": "mum", "zh": "这还差不多！", "en": "That's more like it!", "fx": "laugh" } ] }
+      ],
+      "ok": [ { "who": "mum", "zh": "那你早点定啊，票不好抢！", "en": "Then make your mind up soon. Tickets are hard to get!" } ],
+      "fail": [ { "who": "mum", "zh": "你说啥？大点声！", "en": "What? Speak up!" } ],
+      "levels": { "0": { "answers": ["再说吧！", "到时候再说！", "还没定！"], "gloss": "We'll see!", "tip": "再说吧 = we'll see (lit. \"talk about it later\").", "alts": [{ "of": 0, "answers": ["肯定回！", "一定回！"], "gloss": "I'll definitely be home!" }], "status": "live" } }
+    } },
+    { "who": "mum", "zh": "对了，最近有没有谈对象啊？", "en": "Oh, and: are you seeing anyone these days?" },
+    { "who": "mum", "zh": "你听我说啊，你张阿姨同事家的孩子，人特别好……", "en": "Now listen. Auntie Zhang's colleague has a kid, a really lovely person...", "pace": "fast" },
+    { "say": {
+      "id": "dating",
+      "en": "She's asking if you're seeing anyone, and lining someone up. Deflect: you're busy, there's no rush.",
+      "cue": "Get out of this one.",
+      "answers": ["我工作忙，还不着急。", "没有，您别操心了。", "这事不急，再说吧。", "哎呀，还早呢。"],
+      "gloss": "Work keeps me busy. There's no rush.",
+      "need": [["不着急", "不急", "操心", "还早"]],
+      "time": 10,
+      "tip": "不着急 = there's no rush. 您别操心了 = don't you worry about it (操心 = fret over someone).",
+      "silence": [
+        { "who": "mum", "zh": "不说话？那就是有了？", "en": "Not saying anything? So there IS someone?" },
+        { "who": "mum", "zh": "快跟妈说说，是做什么的？", "en": "Come on, tell Mum. What do they do?" }
+      ],
+      "hangup": [
+        { "who": "mum", "zh": "行，不说是吧？我问你同学去。", "en": "Fine, you won't tell me? I'll ask your classmates." },
+        { "end": "lose", "en": "Mum hung up. She is now phoning everyone you went to school with." }
+      ],
+      "alts": [
+        { "en": "Fake a bad signal", "answers": ["喂？妈？信号不好，听不清！", "喂？喂？听不见了！", "喂？妈？没信号了，听不清！"], "gloss": "Hello? Mum? Bad signal, I can't hear you!", "need": [["信号", "听不清", "听不见"]],
+          "then": [ { "who": "mum", "zh": "别装了，我听得清清楚楚的。", "en": "Don't pretend. I can hear you perfectly well.", "fx": "squint" } ] }
+      ],
+      "ok": [ { "who": "mum", "zh": "你看看人家小李，孩子都会打酱油了！", "en": "Look at Xiao Li: her kid's already old enough to run to the shop!" } ],
+      "fail": [ { "who": "mum", "zh": "问你话呢！", "en": "I asked you a question!" } ],
+      "levels": { "0": { "answers": ["不着急！", "不急！", "还早呢！", "别操心了！"], "gloss": "There's no rush!", "alts": [{ "of": 0, "answers": ["听不清！", "信号不好！", "听不见！"], "gloss": "I can't hear you!" }], "status": "live" } }
+    } },
+    { "who": "mum", "zh": "行行行，不说这个了。降温了啊，多穿点！", "en": "Fine, fine, I'll drop it. It's turned cold, so wrap up!", "pace": "fast" },
+    { "who": "mum", "zh": "秋裤穿上没有？袜子穿厚的，出门戴围巾……", "en": "Are your long johns on? Thick socks. A scarf when you go out...", "pace": "fast" },
+    { "who": "mum", "zh": "别喝冰的，别熬夜，被子盖好，早点睡……", "en": "No cold drinks, no late nights, keep the duvet on, early to bed...", "pace": "fast" },
+    { "say": {
+      "id": "gotit",
+      "en": "Tell her you know, you know.",
+      "cue": "Make it stop.",
+      "answers": ["知道了知道了。", "好好好，我知道了。", "行，我都记住了。", "嗯嗯，知道了，妈。"],
+      "gloss": "I know, I know.",
+      "need": [["知道了", "记住", "好好好"]],
+      "time": 10,
+      "tip": "知道了知道了 = I know, I know. Said twice, it means 'please stop'; 好好好 does the same job.",
+      "ok": [ { "who": "mum", "zh": "你每次都这么说！", "en": "You say that every time!" } ],
+      "fail": [ { "who": "mum", "zh": "你听见没有？", "en": "Did you hear what I said?" } ],
+      "levels": { "0": { "answers": ["知道了！", "知道了知道了！", "好好好！"], "gloss": "I know!", "status": "live" } }
+    } },
+    { "say": {
+      "id": "bye",
+      "en": "Wrap it up: that's it for now, you're hanging up.",
+      "cue": "Hang up. Nicely.",
+      "answers": ["好了妈，那就这样吧。", "那先这样，我挂了啊。", "妈，那就这样，拜拜！", "行，那先这样吧。"],
+      "gloss": "OK Mum, that's it for now.",
+      "need": [["这样", "挂了", "拜拜", "再见"]],
+      "time": 10,
+      "tip": "那就这样吧 = right, that's it then: the phone sign-off. 我挂了啊 = I'm hanging up now; the 啊 softens it.",
+      "ok": [
+        { "who": "mum", "zh": "好，那挂了啊。", "en": "OK. Hanging up, then." },
+        { "who": "mum", "zh": "哎，等一下！还有一件事！", "en": "Oh, wait! One more thing!", "fx": "jump" }
+      ],
+      "fail": [ { "who": "mum", "zh": "急什么？我话还没说完呢。", "en": "What's the rush? I haven't finished." } ],
+      "levels": { "0": { "answers": ["妈，拜拜！", "拜拜！", "那挂了啊！"], "gloss": "Bye, Mum!", "status": "live" } }
+    } },
+    { "who": "mum", "zh": "秋裤！秋裤一定要穿啊！", "en": "Long johns! You MUST wear your long johns!" },
+    { "end": "win", "en": "Forty minutes later, the call ends. You are wearing long johns.", "zh": "四十分钟后，电话终于挂了。你穿上了秋裤。" }
+  ]
+}

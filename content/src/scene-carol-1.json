@@ -1,0 +1,188 @@
+{
+  "id": "carol-1",
+  "format": "scene",
+  "title": "除夕",
+  "title_en": "New Year's Eve",
+  "level": 3,
+  "listen": 3,
+  "topics": ["celebrations"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "carol", "ep": 1, "next": "The second visitor is already in the lift, and knows exactly how many calls from home you've ignored." },
+  "tags": ["春节颂歌", "除夕", "小灯笼"],
+  "setting": "An office tower, 除夕, 8 pm. Everyone has gone home but you, and your assistant 小葛.",
+  "stage": "🏮",
+  "bg": ["#140a0a", "#a02a2a"],
+  "cast": {
+    "xiaoge": { "name": "小葛", "en": "your assistant: kind, and wants to go home", "emoji": "👩‍💼", "voice": "f-young" },
+    "xiaodeng": { "name": "小灯笼", "en": "a child with a red lantern, on your desk", "emoji": "🏮", "voice": "kid", "speed": 0.9 },
+    "laoma": { "name": "老妈", "en": "your mother, the year you were eight", "emoji": "👩", "voice": "f-mid" },
+    "yeye": { "name": "爷爷", "en": "your grandfather, the year you were eight", "emoji": "👴", "voice": "m-old" },
+    "xiaoshihou": { "name": "小时候的你", "en": "you, aged eight", "emoji": "🧒", "voice": "kid" }
+  },
+  "steps": [
+    { "narr": "除夕, 8 pm. Across the river, the first fireworks. One floor of an office tower, lights on." },
+    { "narr": "Your phone: three missed calls from home. You turn it face down. It's your third New Year at the office.", "prop": "📱" },
+    { "who": "xiaoge", "zh": "那个……我能早点走吗？", "en": "Um... could I leave a bit early?" },
+    { "who": "xiaoge", "zh": "我妈包了饺子，等我回家。", "en": "My mum's made dumplings. She's waiting for me." },
+    { "say": {
+      "id": "no",
+      "en": "Say no: the report isn't finished.",
+      "cue": "Not yet.",
+      "answers": ["不行，报告还没写完。", "报告还没写完呢。"],
+      "gloss": "No. The report isn't finished.",
+      "need": [["报告"], ["没写完"]],
+      "key": { "报告": "report" },
+      "tip": "还没写完 = not finished writing yet: 没 + verb + 完.",
+      "ok": [
+        { "who": "xiaoge", "zh": "……好。", "en": "...All right.", "hold": 2 },
+        { "narr": "She sits back down, very quietly. Her phone buzzes. She doesn't look at it." }
+      ],
+      "fail": [ { "who": "xiaoge", "zh": "可以吗？", "en": "May I?" } ],
+      "levels": {
+        "2": {
+          "answers": ["报告没写完。", "还没写完。"],
+          "need": [["没写完"]],
+          "gloss": "It isn't finished.",
+          "status": "live" },
+        "4": {
+          "answers": ["不行，明天要交的报告还没写完。"],
+          "need": [["明天要交"], ["没写完"]],
+          "gloss": "No. The report due tomorrow isn't finished.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Across the river, a big red firework. It lights up 小葛's lock screen: a plate of dumplings, and a woman waving flour-white hands.", "hold": 2 },
+    { "say": {
+      "id": "go",
+      "en": "Relent: fine, go.",
+      "cue": "Let her go.",
+      "answers": ["好吧，你走吧。", "算了，你走吧。"],
+      "gloss": "Fine. Go on.",
+      "need": [["你走吧"], ["好吧", "算了"]],
+      "tip": "算了 = never mind, forget it: the gentle change of mind.",
+      "ok": [
+        { "who": "xiaoge", "zh": "谢谢！", "en": "Thank you!", "fx": "laugh" },
+        { "who": "xiaoge", "zh": "您也早点回家！新年快乐！", "en": "You go home early too! Happy New Year!", "fx": "leave" }
+      ],
+      "fail": [ { "who": "xiaoge", "zh": "我不走也行……", "en": "It's fine if I stay..." } ],
+      "levels": {
+        "2": {
+          "answers": ["你走吧。", "走吧，走吧。"],
+          "need": [["走吧"]],
+          "gloss": "Go on.",
+          "status": "live" },
+        "4": {
+          "answers": ["算了，你走吧，替我给阿姨拜个年。"],
+          "need": [["拜个年"], ["你走吧"]],
+          "gloss": "Never mind, go on. Wish your mum a happy New Year from me.",
+          "tip": "拜年 bàinián = give New Year greetings. 替我 = on my behalf.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Alone. The fireworks get louder, then closer. At midnight, every light on the floor goes out.", "hold": 2 },
+    { "narr": "Then one light: red, paper, on your desk. A lantern. Holding it, a child in a padded jacket, swinging her legs.", "prop": "🏮", "hold": 1 },
+    { "who": "xiaodeng", "zh": "除夕，一个人？", "en": "On 除夕? All by yourself?" },
+    { "say": {
+      "id": "who",
+      "en": "Ask her who she is, and how she got in.",
+      "cue": "Who?",
+      "answers": ["你是谁？怎么进来的？", "你是谁？从哪儿来的？"],
+      "gloss": "Who are you? How did you get in?",
+      "need": [["你是谁"], ["进来", "哪儿来"]],
+      "tip": "怎么进来的？ = how did you get in? 是……的 is understood.",
+      "ok": [
+        { "who": "xiaodeng", "zh": "我是第一个来看你的。", "en": "I'm the first one come to see you." },
+        { "who": "xiaodeng", "zh": "还有两个，在后面。", "en": "There are two more, after me.", "hold": 1 },
+        { "who": "xiaodeng", "zh": "我带你去看一个除夕。", "en": "I'll take you to see a 除夕." }
+      ],
+      "fail": [ { "who": "xiaodeng", "zh": "你怕我？", "en": "Are you scared of me?", "fx": "laugh" } ],
+      "levels": {
+        "2": {
+          "answers": ["你是谁？", "你是谁呀？"],
+          "need": [["你是谁"]],
+          "gloss": "Who are you?",
+          "status": "live" },
+        "4": {
+          "answers": ["你是谁家的孩子？怎么进来的？"],
+          "need": [["谁家"], ["进来"]],
+          "gloss": "Whose child are you? How did you get in?",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "take",
+      "en": "Go with her: take me.",
+      "cue": "Take me.",
+      "answers": ["好，你带我去。", "带我去吧。"],
+      "gloss": "All right. Take me.",
+      "need": [["带我去"]],
+      "tip": "带 dài = take (someone along). 带我去 = take me there.",
+      "ok": [
+        { "narr": "She takes your hand. Hers is warm, and smells of firecracker smoke." },
+        { "narr": "The office melts away. The old flat. Your own 除夕, the year you were eight.", "hold": 1 }
+      ],
+      "fail": [ { "who": "xiaodeng", "zh": "去不去？", "en": "Coming or not?" } ],
+      "levels": {
+        "2": {
+          "answers": ["带我去。", "好，带我去。"],
+          "need": [["带我"]],
+          "gloss": "Take me.",
+          "status": "live" },
+        "4": {
+          "answers": ["好吧，你带我去看看。"],
+          "need": [["看看"], ["带我去"]],
+          "gloss": "All right. Take me to see.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Everyone is there: 老妈 with flour on her hands, 爷爷 in the good chair, the New Year gala far too loud on the TV.", "prop": "📺" },
+    { "who": "laoma", "zh": "饺子好了！谁吃到硬币，明年有福气！", "en": "Dumplings are ready! Whoever finds the coin gets luck all next year!" },
+    { "who": "xiaoshihou", "zh": "我吃到了！硬币！", "en": "I got it! The coin!", "fx": "laugh" },
+    { "who": "yeye", "zh": "好！明年有福气！", "en": "Good! A lucky year for you!" },
+    { "who": "xiaodeng", "zh": "那年，大家都在。", "en": "That year, everyone was still here.", "pace": "slow", "hold": 2 },
+    { "who": "xiaodeng", "zh": "你可以跟小时候的你说一句话。或者，就看看。", "en": "You can say one thing to your younger self. Or just watch.", "pace": "slow" },
+    { "say": {
+      "id": "speak",
+      "en": "Speak to your eight-year-old self, or only watch.",
+      "cue": "Speak, or watch?",
+      "answers": ["多陪陪家人。", "以后，多陪陪家人。"],
+      "gloss": "Spend more time with your family.",
+      "need": [["多陪陪"], ["家人"]],
+      "key": { "陪": "keep someone company" },
+      "tip": "陪 péi = be with, keep company. 多陪陪 = spend more time with.",
+      "sets": { "carol.ep1": "speak" },
+      "ok": [
+        { "narr": "Your eight-year-old self looks straight at you, as if they can hear." },
+        { "who": "xiaoshihou", "zh": "……好！", "en": "...OK!", "fx": "laugh" },
+        { "who": "xiaodeng", "zh": "听见了。", "en": "Heard you." }
+      ],
+      "alts": [
+        { "en": "Or: only watch", "answers": ["我就看看。", "不了，我就看看。"], "need": [["就看看"]], "gloss": "I'll just watch.",
+          "sets": { "carol.ep1": "watch" },
+          "then": [
+            { "narr": "You watch. 爷爷 peels a tangerine and gives you half, the way he always did.", "hold": 2 },
+            { "who": "xiaodeng", "zh": "看够了吗？", "en": "Seen enough?" }
+          ] }
+      ],
+      "fail": [ { "who": "xiaodeng", "zh": "说，还是看？", "en": "Speak, or watch?" } ],
+      "levels": {
+        "2": {
+          "answers": ["多陪家人。", "多陪陪家人！"],
+          "need": [["家人"]],
+          "gloss": "Be with your family more.",
+          "alts": [ { "of": 0, "answers": ["我看看。", "就看看。"], "need": [["看看"]], "gloss": "I'll watch." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["记住今天，以后要多陪陪家人。"],
+          "need": [["记住"], ["多陪陪"]],
+          "gloss": "Remember today. Spend more time with your family.",
+          "alts": [ { "of": 0, "answers": ["不了，我不打扰，我就看看。"], "need": [["打扰"], ["就看看"]], "gloss": "No. I won't intrude. I'll just watch." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "carol.ep1": "speak" }, "end": "win", "en": "The lantern goes out. You're at your desk, and without quite deciding to, you've pressed call: home. 🏮",
+      "else": [ { "end": "win", "en": "The lantern goes out. You're at your desk, holding a tangerine peel that wasn't there before. 🏮" } ] }
+  ]
+}

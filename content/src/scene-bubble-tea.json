@@ -1,0 +1,141 @@
+{
+  "id": "bubble-tea",
+  "format": "scene",
+  "title": "一杯奶茶",
+  "title_en": "One Bubble Tea, Please",
+  "level": 0,
+  "topics": ["food"],
+  "audience": "new",
+  "hook": 3,
+  "status": "live",
+  "tags": ["奶茶", "多伦多", "少糖去冰"],
+  "write": ["奶茶", "糖", "冰"],
+  "setting": "Pacific Mall, Markham (Toronto), Saturday, 3 pm. Twenty people in the queue.",
+  "stage": "🏬",
+  "bg": ["#2b1a10", "#8c5a35"],
+  "cast": {
+    "ayi": { "name": "阿姨", "en": "the auntie who runs the stall: fast, kind, Mandarin only", "emoji": "👩‍🍳", "voice": "f-mid", "speed": 0.85 },
+    "kid": { "name": "小朋友", "en": "a kid in the queue behind you", "emoji": "🧒", "voice": "kid", "speed": 0.85 }
+  },
+  "steps": [
+    { "narr": "Your turn at last, and a kid is trying to cut in. 😬", "zh": "到你了，有个小孩要插队！", "arrive": "kid" },
+    { "who": "kid", "zh": "我先！我先！", "en": "Me first! Me first!", "fx": "jump" },
+    { "who": "ayi", "zh": "排队！你呢，要什么？", "en": "Wait your turn! And you: what'll it be?" },
+    { "say": {
+      "id": "order",
+      "en": "Order one milk tea, before the kid does.",
+      "cue": "Order, quick!",
+      "answers": ["一杯奶茶！", "奶茶，一杯！", "要一杯奶茶！", "来杯奶茶！", "奶茶！"],
+      "gloss": "One milk tea!",
+      "need": [["奶茶"]],
+      "tip": "一杯 yì bēi = one cup: 杯 is how you count drinks. 奶茶 nǎichá = milk tea.",
+      "ok": [ { "who": "ayi", "zh": "好！几分糖？", "en": "Sure! How sweet?" } ],
+      "fail": [ { "who": "ayi", "zh": "啊？要什么？", "en": "Sorry? What'll it be?", "fx": "squint" } ],
+      "miss": [
+        { "who": "ayi", "zh": "那……下一位！", "en": "Then... next!", "fx": "shake" },
+        { "who": "kid", "zh": "我先来！", "en": "My turn!", "fx": "jump" },
+        { "end": "lose", "en": "The kid orders first. You're back at the end of a queue of twenty-one. 🧋", "zh": "你又排到了最后。" }
+      ],
+      "levels": { "1": {
+        "answers": ["我要一杯奶茶。", "来一杯奶茶！", "给我一杯奶茶。", "我想要一杯奶茶。"],
+        "need": [["要一杯奶茶", "来一杯奶茶", "给我一杯奶茶"]],
+        "gloss": "I'd like a milk tea, please.",
+        "tip": "我要…… = I'd like...: the simplest way to order anything.",
+        "status": "live" } }
+    } },
+    { "say": {
+      "id": "sugar",
+      "en": "Ask for less sugar.",
+      "cue": "How sweet?",
+      "answers": ["少糖！", "少糖，谢谢！", "要少糖！", "少点糖！", "糖少一点！"],
+      "gloss": "Less sugar!",
+      "need": [["少糖", "少点糖", "少一点糖", "少放点糖", "糖少", "半糖", "微糖"]],
+      "key": { "少糖": "less sugar" },
+      "tip": "少 shǎo = less, so 少糖 = less sugar. 几分糖 asks how many tenths of sugar: 半糖 is half.",
+      "mistakes": [ { "heard": ["小糖"], "note": "小 xiǎo is small. Less is 少 shǎo: 少糖." } ],
+      "ok": [ { "who": "ayi", "zh": "少糖。冰呢？", "en": "Less sugar. Ice?" } ],
+      "fail": [ { "who": "ayi", "zh": "几分糖？全糖？", "en": "How sweet? Full sugar?", "fx": "squint" } ],
+      "miss": [ { "who": "ayi", "zh": "少糖吧？冰呢？", "en": "Less sugar, I'll guess. Ice?", "fx": "squint" } ],
+      "levels": { "1": {
+        "answers": ["少糖就行。", "少糖就好。", "我要少糖的。", "少糖就可以。"],
+        "need": [["少糖就行", "少糖就好", "少糖就可以", "要少糖"]],
+        "key": { "少糖就行": "less sugar will do" },
+        "gloss": "Less sugar will do.",
+        "tip": "……就行 = ... will do: 少糖就行, 一杯就行.",
+        "status": "live" } }
+    } },
+    { "say": {
+      "id": "ice",
+      "en": "Say no ice.",
+      "cue": "Ice? No thanks.",
+      "answers": ["去冰！", "不要冰！", "去冰，谢谢！", "不加冰！"],
+      "gloss": "No ice!",
+      "need": [["去冰", "不要冰", "不加冰", "冰就不要", "冰不要"]],
+      "not": [ { "heard": ["加冰", "多冰", "要冰"], "note": "That asks for ice! No ice is 去冰 qù bīng." } ],
+      "key": { "去冰": "no ice (the ice taken out)" },
+      "tip": "去冰 qù bīng = ice taken out: bubble-tea talk for no ice. 少冰 is less ice.",
+      "ok": [ { "who": "ayi", "zh": "去冰。加珍珠吗？", "en": "No ice. Pearls?" } ],
+      "fail": [ { "who": "ayi", "zh": "冰呢？正常冰？", "en": "Ice? Regular ice?" } ],
+      "miss": [
+        { "who": "kid", "zh": "去冰吧，快点！", "en": "Just say no ice! Hurry up!", "fx": "jump" },
+        { "who": "ayi", "zh": "好，去冰。加珍珠吗？", "en": "OK, no ice. Pearls?", "fx": "laugh" }
+      ],
+      "levels": { "1": {
+        "answers": ["冰就不要了。", "不要冰，谢谢。", "冰不要了。", "不加冰了。"],
+        "need": [["冰就不要", "冰不要", "不要冰", "不加冰"]],
+        "key": { "冰就不要": "skip the ice" },
+        "gloss": "I'll skip the ice.",
+        "tip": "……就不要了 = I'll skip the ...: the polite no to any extra.",
+        "status": "live" } }
+    } },
+    { "say": {
+      "id": "pearls",
+      "en": "Pearls? Say yes!",
+      "cue": "Pearls with that?",
+      "answers": ["要，谢谢！", "要！", "要珍珠！", "加！", "加珍珠！", "要，多加点！"],
+      "gloss": "Yes please!",
+      "need": [["要", "加", "多", "好的"]],
+      "tip": "要 yào = want: the whole answer to 'want some?'. 不要 = no thanks. 珍珠 zhēnzhū = pearls (the tapioca kind).",
+      "alts": [
+        { "en": "Or: no pearls", "answers": ["不要！", "不要珍珠！", "不加！", "不用了！"], "gloss": "No thanks!", "need": [["不要", "不加", "不用"]],
+          "then": [ { "who": "ayi", "zh": "不要珍珠？唉……", "en": "No pearls? Oh... you poor thing.", "fx": "shake", "hold": 1 } ] }
+      ],
+      "ok": [ { "who": "ayi", "zh": "好，给你多加点！", "en": "Good call! I'll give you extra!", "fx": "laugh" } ],
+      "fail": [ { "who": "ayi", "zh": "珍珠，要不要？", "en": "Pearls: yes or no?" } ],
+      "miss": [ { "who": "ayi", "zh": "不说就是要！", "en": "Silence means yes!", "fx": "laugh" } ],
+      "levels": { "1": {
+        "answers": ["珍珠多一点！", "多加点珍珠！", "要，珍珠多放点！", "珍珠多来点！"],
+        "en": "Pearls? Yes, and ask for extra.",
+        "need": [["珍珠多一点", "多一点珍珠", "多加", "多放", "多来", "多点"]],
+        "not": [ { "heard": ["少一点", "少点", "少加", "少放"], "note": "少 shǎo is less. Extra is 多 duō: 珍珠多一点！" } ],
+        "key": { "多一点": "a bit more" },
+        "gloss": "Extra pearls!",
+        "tip": "多一点 = a bit more: 珍珠多一点 is extra pearls.",
+        "alts": [ { "of": 0, "answers": ["不要珍珠了。", "珍珠就不要了。", "不加珍珠了。"], "need": [["不要珍珠", "珍珠就不要", "珍珠不要", "不加珍珠", "都不要"]], "gloss": "No pearls for me." } ],
+        "status": "live" } }
+    } },
+    { "narr": "Where a name would go, your cup says: 少糖去冰.", "zh": "杯子上写着：少糖去冰。", "prop": "🧋" },
+    { "who": "kid", "zh": "我也要少糖去冰！", "en": "I want a Less-Sugar-No-Ice too!", "fx": "jump" },
+    { "who": "ayi", "zh": "第一次来吧？送你的！", "en": "First time here? An egg tart, on the house!", "fx": "give", "prop": "🥧" },
+    { "say": {
+      "id": "thanks",
+      "en": "A free egg tart! Thank her.",
+      "cue": "A free egg tart!",
+      "answers": ["谢谢阿姨！", "谢谢！", "谢谢您！", "太谢谢了！"],
+      "gloss": "Thank you, Auntie!",
+      "need": [["谢"]],
+      "tip": "阿姨 āyí = auntie: what you call any woman your parents' age, stallholders included.",
+      "ok": [ { "who": "ayi", "zh": "好嘞，慢走！", "en": "Sure thing. Take care!", "fx": "laugh" } ],
+      "fail": [ { "who": "ayi", "zh": "拿着，别客气！", "en": "Go on, take it!" } ],
+      "miss": [ { "who": "kid", "zh": "阿姨，我也要蛋挞！", "en": "Auntie, I want an egg tart too!", "fx": "jump" } ],
+      "levels": { "1": {
+        "answers": ["谢谢，下次再来！", "谢谢阿姨，下次还来！", "谢谢！我下次再来！"],
+        "en": "Thank her, and tell her you'll be back.",
+        "need": [["下次再来", "下次还来"]],
+        "gloss": "Thanks, I'll be back!",
+        "tip": "下次再来 = (I'll) come again: shopkeepers say it to you, and you can say it back.",
+        "status": "live" } }
+    } },
+    { "end": "win", "en": "One milk tea, one free egg tart, and a new name: 少糖去冰. 🧋", "zh": "以后你就叫少糖去冰！" }
+  ]
+}

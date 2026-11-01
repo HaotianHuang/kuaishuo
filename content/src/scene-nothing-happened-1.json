@@ -1,0 +1,157 @@
+{
+  "id": "nothing-happened-1",
+  "format": "scene",
+  "title": "嗯",
+  "title_en": "Hmm",
+  "level": 2,
+  "listen": 3,
+  "topics": ["food", "dating"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "nothing-happened", "ep": 1, "next": "Now there are two replies: 嗯 and 哦. The group calls an emergency hot pot." },
+  "tags": ["嗯", "回消息", "小笼包"],
+  "setting": "A noodle shop in Shanghai, 1 pm, Saturday. The same table as always.",
+  "stage": "🍜",
+  "bg": ["#2b1608", "#a1582a"],
+  "cast": {
+    "feng": { "name": "阿峰", "en": "overthinks everything", "emoji": "😰", "voice": "m-young" },
+    "mei": { "name": "小美", "en": "has a theory for everything", "emoji": "💁", "voice": "f-young" },
+    "qin": { "name": "老秦", "en": "calm, and wrong", "emoji": "😌", "voice": "m-mid" },
+    "tian": { "name": "甜甜", "en": "knows someone who knows", "emoji": "🙆", "voice": "f-young" }
+  },
+  "steps": [
+    { "narr": "The noodle shop. Four friends, one phone, one 小笼包 left.", "prop": "🥟" },
+    { "who": "feng", "zh": "回了！回我了！", "en": "They replied! They replied!", "fx": "jump", "prop": "📱" },
+    { "who": "feng", "zh": "就一个字：嗯。", "en": "One character: 嗯." },
+    { "who": "mei", "zh": "嗯就是不想聊。", "en": "嗯 means they don't want to talk.", "pace": "fast" },
+    { "who": "qin", "zh": "嗯就是好的意思。", "en": "嗯 means yes.", "pace": "fast" },
+    { "who": "tian", "zh": "我朋友说，嗯是生气了。", "en": "A friend of mine says 嗯 means they're angry.", "pace": "fast" },
+    { "who": "feng", "zh": "完了完了。", "en": "That's it. It's over.", "fx": "faint" },
+    { "say": {
+      "id": "calm",
+      "en": "Tell 阿峰 not to overthink it.",
+      "cue": "Calm him down.",
+      "answers": ["别想太多了！", "你别想太多。", "不要想太多！"],
+      "gloss": "Don't overthink it!",
+      "need": [["想太多"]],
+      "key": { "想太多": "overthink" },
+      "tip": "想太多 xiǎng tài duō = think too much: 别想太多 = don't overthink it.",
+      "ok": [ { "who": "feng", "zh": "可是六个小时才回！", "en": "But it took six hours to reply!" } ],
+      "fail": [ { "who": "feng", "zh": "完了完了。", "en": "That's it. It's over." } ],
+      "levels": {
+        "1": {
+          "answers": ["别多想！", "别想太多！"],
+          "need": [["多想", "想太多"]],
+          "gloss": "Don't overthink it!",
+          "status": "live" },
+        "3": {
+          "answers": ["一个字而已，别想太多了。", "就一个字而已，别想太多。"],
+          "need": [["而已"], ["想太多"]],
+          "gloss": "It's one character. Don't overthink it.",
+          "tip": "……而已 éryǐ = only, that's all: 一个字而已.",
+          "status": "live" }
+      }
+    } },
+    { "who": "qin", "zh": "六个小时，说明在忙。", "en": "Six hours means busy.", "pace": "fast" },
+    { "who": "mei", "zh": "说明在想怎么拒绝。", "en": "Six hours means working out how to say no.", "pace": "fast" },
+    { "who": "feng", "zh": "你说呢？嗯是什么意思？", "en": "What do you think? What does 嗯 mean?" },
+    { "say": {
+      "id": "means",
+      "en": "Give him your reading: it just means OK.",
+      "cue": "What does 嗯 mean?",
+      "answers": ["嗯就是好的意思。", "嗯就是知道了。", "嗯就是没问题。"],
+      "gloss": "嗯 just means OK.",
+      "need": [["好的意思", "知道了", "没问题"]],
+      "tip": "……就是……的意思 = ... just means ...: 嗯就是好的意思.",
+      "ok": [
+        { "who": "qin", "zh": "我同意。", "en": "Agreed.", "pace": "fast" },
+        { "who": "tian", "zh": "我朋友不同意。", "en": "My friend disagrees.", "pace": "fast" }
+      ],
+      "fail": [ { "who": "feng", "zh": "嗯是什么意思？", "en": "What does 嗯 mean?" } ],
+      "levels": {
+        "1": {
+          "answers": ["就是好的。", "就是知道了。", "没问题的意思。"],
+          "need": [["好的", "知道了", "没问题"]],
+          "gloss": "It just means OK.",
+          "status": "live" },
+        "3": {
+          "answers": ["嗯就是知道了，没别的意思。", "嗯就是好的意思，没别的。"],
+          "need": [["没别的"]],
+          "gloss": "嗯 means 'got it'. Nothing more.",
+          "tip": "没别的意思 = nothing more to it, no hidden meaning.",
+          "status": "live" }
+      }
+    } },
+    { "who": "feng", "zh": "那我怎么办？", "en": "So what do I do?" },
+    { "say": {
+      "id": "ask",
+      "en": "Dare him: just ask them.",
+      "cue": "Just ask!",
+      "answers": ["你直接问吧！", "直接问一下吧！", "你就直接问吧！"],
+      "gloss": "Just ask them!",
+      "need": [["直接问"]],
+      "key": { "直接问": "ask outright" },
+      "tip": "直接 zhíjiē = directly, straight out: 直接问 = just ask.",
+      "ok": [ { "who": "feng", "zh": "好……我往上翻翻。", "en": "OK... let me scroll up first." } ],
+      "fail": [ { "who": "feng", "zh": "我不敢！", "en": "I can't!" } ],
+      "levels": {
+        "1": {
+          "answers": ["直接问！", "问一下！", "直接问吧！"],
+          "need": [["直接问", "问一下", "问问"]],
+          "gloss": "Just ask!",
+          "status": "live" },
+        "3": {
+          "answers": ["别猜了，你直接问清楚吧！", "别猜了，直接问清楚吧！"],
+          "need": [["别猜"], ["直接问"]],
+          "gloss": "Stop guessing. Just ask them straight out!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "阿峰 scrolls up. And up. And stops." },
+    { "who": "feng", "zh": "这是我妈。", "en": "This is my mum.", "hold": 1 },
+    { "who": "feng", "zh": "我发给我妈了。", "en": "I sent it to my mum." },
+    { "who": "mei", "zh": "那那个人呢？", "en": "So what about... them?", "pace": "fast" },
+    { "who": "feng", "zh": "还没发……", "en": "Haven't sent it yet..." },
+    { "who": "qin", "zh": "嗯就是好的意思。我说过。", "en": "嗯 means yes. I said so.", "pace": "fast" },
+    { "who": "mei", "zh": "现在怎么办？", "en": "Now what?" },
+    { "say": {
+      "id": "next",
+      "en": "Tell him to call, or to wait.",
+      "cue": "Call, or wait?",
+      "answers": ["打个电话吧！", "直接打电话吧！", "给那个人打电话吧！"],
+      "gloss": "Give them a call!",
+      "need": [["打个电话", "打电话"]],
+      "tip": "打个电话 = make a (quick) call: 个 makes it casual.",
+      "sets": { "nothing-happened.ep1": "call" },
+      "ok": [ { "who": "feng", "zh": "……打给谁？", "en": "...Call who?" } ],
+      "alts": [
+        { "en": "Or: wait", "answers": ["再等等吧。", "再等等看。", "先等等吧。"], "need": [["等等"]], "gloss": "Wait a bit.",
+          "sets": { "nothing-happened.ep1": "wait" },
+          "then": [
+            { "who": "feng", "zh": "等多久？", "en": "How long?" },
+            { "who": "qin", "zh": "六个小时。", "en": "Six hours.", "pace": "fast" }
+          ] }
+      ],
+      "fail": [ { "who": "mei", "zh": "现在怎么办？", "en": "Now what?" } ],
+      "levels": {
+        "1": {
+          "answers": ["打电话吧！", "打个电话！"],
+          "gloss": "Call!",
+          "status": "live" },
+        "3": {
+          "answers": ["别发消息了，直接打个电话吧！", "别发消息了，打个电话吧！"],
+          "need": [["别发"], ["打个电话", "打电话"]],
+          "gloss": "Stop texting. Just call!",
+          "alts": [ { "of": 0, "answers": ["先别急，再等等看吧。", "别急，再等等看。"], "need": [["别急"], ["等等"]], "gloss": "Don't rush. Wait and see." } ],
+          "status": "live" }
+      }
+    } },
+    { "sfx": "message" },
+    { "who": "feng", "zh": "我妈又回了：哦。", "en": "Mum's replied again: 哦.", "prop": "📱" },
+    { "who": "tian", "zh": "我朋友说，哦比嗯还严重。", "en": "My friend says 哦 is worse than 嗯.", "pace": "fast" },
+    { "narr": "While everyone stares at 哦, 老秦 eats the last 小笼包.", "prop": "🥟" },
+    { "when": { "nothing-happened.ep1": "call" }, "end": "win", "en": "阿峰 calls his mum. She only wanted to know if he'd eaten. 🥟",
+      "else": [ { "end": "win", "en": "Nobody sends anything. The 小笼包 is gone anyway. 🥟" } ] }
+  ]
+}

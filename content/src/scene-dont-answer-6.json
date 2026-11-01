@@ -1,0 +1,137 @@
+{
+  "id": "dont-answer-6",
+  "format": "scene",
+  "title": "中元",
+  "title_en": "The Fifteenth Night",
+  "level": 2,
+  "listen": 2,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "dont-answer", "ep": 6, "next": "Season one is over. 804 is quiet. Mostly." },
+  "tags": ["中元", "小安", "我在"],
+  "setting": "Flat 804, midnight on the fifteenth of the seventh month. The fog is down to the third floor.",
+  "stage": "🚪",
+  "bg": ["#05060d", "#3a2a4a"],
+  "cast": {
+    "sun": { "name": "孙奶奶", "en": "an old woman who lived in 804 twenty years ago", "emoji": "👵", "voice": "f-old" },
+    "wuye": { "name": "物业", "en": "the property office's night man", "emoji": "🧑‍💼", "voice": "m-mid" }
+  },
+  "steps": [
+    { "narr": "Midnight on the fifteenth. A knock.", "zh": "中元，半夜。" },
+    { "sfx": "knock" },
+    { "when": { "dont-answer.rules": "together" }, "who": "wuye", "zh": "我在这儿。别怕。", "en": "I'm right here. Don't be scared.",
+      "else": [ { "narr": "Only the hallway light, and the knock." } ] },
+    { "who": "sun", "zh": "小安……小安，是你吗？", "en": "小安... 小安, is that you?", "hold": 1 },
+    { "say": {
+      "id": "here",
+      "en": "Answer her. Tell her you're here.",
+      "cue": "Answer her.",
+      "answers": ["我在，我听得见。", "我在，我听见了。", "我在这儿，我听得见。"],
+      "gloss": "I'm here. I can hear you.",
+      "need": [["我在"], ["听得见", "听见"]],
+      "tip": "我在 wǒ zài = I'm here: what you say when someone calls you. 听得见 = can hear.",
+      "ok": [ { "who": "sun", "zh": "你……你回答我了。", "en": "You... you answered me.", "hold": 2 } ],
+      "fail": [ { "who": "sun", "zh": "小安？", "en": "小安?" } ],
+      "miss": [
+        { "narr": "You can't make yourself say it. She knocks once more, softly." },
+        { "sfx": "knock" },
+        { "who": "sun", "zh": "有人吗？", "en": "Is anyone there?" },
+        { "narr": "You open the door instead." }
+      ],
+      "levels": {
+        "1": {
+          "answers": ["我在这儿。", "我在。", "我在呢。"],
+          "need": [["我在"]],
+          "gloss": "I'm here.",
+          "status": "live" },
+        "3": {
+          "answers": ["我在，我一直都听得见您。", "我在，您叫我一直都听得见。"],
+          "need": [["我在"], ["一直"]],
+          "gloss": "I'm here. I've heard you all along.",
+          "tip": "一直 yìzhí = all along, the whole time.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "who",
+      "en": "Ask her who 小安 is.",
+      "cue": "Who's 小安?",
+      "answers": ["小安是谁？", "您说的小安是谁？", "谁是小安？"],
+      "gloss": "Who is 小安?",
+      "need": [["小安"], ["谁"]],
+      "tip": "……是谁？ = who is ...? 您说的 = the one you mean.",
+      "ok": [
+        { "who": "sun", "zh": "我带大的孩子。", "en": "The child I raised." },
+        { "who": "sun", "zh": "去了国外，就不打电话了。", "en": "Went abroad, and stopped calling." },
+        { "who": "sun", "zh": "我天天晚上叫。", "en": "So I called every night.", "hold": 1 }
+      ],
+      "fail": [ { "who": "sun", "zh": "小安？是你吗？", "en": "小安? Is that you?" } ],
+      "miss": [ { "who": "sun", "zh": "小安是我带大的孩子。", "en": "小安 is the child I raised.", "hold": 1 } ],
+      "levels": {
+        "1": {
+          "answers": ["小安是谁？", "谁是小安？"],
+          "need": [["小安是谁", "谁是小安"]],
+          "gloss": "Who's 小安?",
+          "status": "live" },
+        "3": {
+          "answers": ["奶奶，您一直在叫的小安是谁？", "奶奶，您一直叫的小安是谁啊？"],
+          "need": [["小安"], ["一直"]],
+          "gloss": "Granny, who is the 小安 you've been calling all this time?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "She was never calling you. She was calling 小安.", "hold": 2 },
+    { "who": "sun", "zh": "你是小安吗？", "en": "Are you 小安?" },
+    { "say": {
+      "id": "who-am-i",
+      "en": "Tell her the truth, or let her have 小安 home.",
+      "cue": "Who are you to her?",
+      "answers": ["我不是小安，但我在。", "我不是小安，可是我在。"],
+      "gloss": "I'm not 小安. But I'm here.",
+      "need": [["不是小安"], ["我在"]],
+      "tip": "但 dàn = but: 我不是小安，但我在。",
+      "sets": { "dont-answer.end": "self" },
+      "ok": [
+        { "who": "sun", "zh": "不是小安……", "en": "Not 小安...", "hold": 1 },
+        { "who": "sun", "zh": "那你常来坐坐。", "en": "Then come and sit with me, now and then." }
+      ],
+      "alts": [
+        { "en": "Or: be 小安 for her, tonight", "answers": ["奶奶，我回来了。", "奶奶，是我，我回来了。"], "need": [["回来了"]], "gloss": "Granny, I'm home.",
+          "sets": { "dont-answer.end": "xiaoan" },
+          "then": [ { "who": "sun", "zh": "回来就好，回来就好。", "en": "You're home. That's all that matters.", "hold": 2 } ] },
+        { "secret": true, "when": { "dont-answer.door": "leave" }, "en": "Tell her the 汤圆 were good", "answers": ["奶奶，汤圆很好吃。", "奶奶，汤圆真好吃。"], "need": [["汤圆"]], "gloss": "Granny, the 汤圆 were lovely.",
+          "sets": { "dont-answer.end": "tangyuan" },
+          "then": [
+            { "who": "sun", "zh": "哈哈，好吃就好！", "en": "Ha! Good, good!", "fx": "laugh" },
+            { "narr": "For the first time in twenty years, someone hears her laugh.", "hold": 2 },
+            { "narr": "You set a bowl of 汤圆 outside the door.", "prop": "🥣", "hold": 2 },
+            { "narr": "Morning. Every note in 804 is gone." },
+            { "narr": "Under the door, one new note, in a shaky hand.", "zh": "谢谢。", "prop": "📝" },
+            { "end": "win", "en": "The bowl is empty, and washed. Next year you'll make the 汤圆 yourself. 🥣" }
+          ] }
+      ],
+      "fail": [ { "who": "sun", "zh": "你是小安吗？", "en": "Are you 小安?" } ],
+      "levels": {
+        "1": {
+          "answers": ["不是，但我在。", "我不是，但我在。"],
+          "need": [["我在"]],
+          "gloss": "No. But I'm here.",
+          "alts": [ { "of": 0 }, { "of": 1 } ],
+          "status": "live" },
+        "3": {
+          "answers": ["我不是小安，但我在，我陪您。", "我不是小安，可我在，我陪着您。"],
+          "need": [["不是小安"], ["陪"]],
+          "gloss": "I'm not 小安, but I'm here, and I'll keep you company.",
+          "alts": [ { "of": 0, "answers": ["奶奶，我回来了，让您久等了。", "奶奶，我回来了，让您等久了。"], "need": [["回来了"], ["久等", "等久"]], "gloss": "Granny, I'm home. Sorry I kept you waiting." }, { "of": 1 } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "You set a bowl of 汤圆 outside the door.", "prop": "🥣", "hold": 2 },
+    { "narr": "Morning. Every note in 804 is gone." },
+    { "narr": "Under the door, one new note, in a shaky hand.", "zh": "谢谢。", "prop": "📝" },
+    { "when": { "dont-answer.end": "xiaoan" }, "end": "win", "en": "For one night, 小安 came home. The hallway light stays on till dawn. 💡",
+      "else": [ { "end": "win", "en": "Not 小安, but someone answered. 804 is quiet now. 🌙" } ] }
+  ]
+}

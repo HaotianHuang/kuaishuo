@@ -1,0 +1,155 @@
+{
+  "id": "i-understand-3",
+  "format": "scene",
+  "title": "饭局",
+  "title_en": "The Dinner",
+  "level": 3,
+  "listen": 4,
+  "topics": ["work", "food"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "i-understand", "ep": 3, "next": "小周 has left the dinner. Your phone is ringing. It's 小周." },
+  "tags": ["饭局", "敬酒", "听得懂"],
+  "setting": "A private room at a Hangzhou restaurant, 7 pm. 陈总's board, ten courses, and 白酒.",
+  "stage": "🥃",
+  "bg": ["#2a0f0a", "#9c3b22"],
+  "cast": {
+    "chen": { "name": "陈总", "en": "the director", "emoji": "👩‍💼", "voice": "f-mid", "speed": 1.05 },
+    "zhou": { "name": "小周", "en": "the interpreter", "emoji": "🧑‍💻", "voice": "m-young", "speed": 1.05 },
+    "liudong": { "name": "刘董", "en": "a board member", "emoji": "👨‍💼", "voice": "m-old", "speed": 1.2 },
+    "sundong": { "name": "孙董", "en": "a board member", "emoji": "👩‍💼", "voice": "f-old", "speed": 1.2 }
+  },
+  "steps": [
+    { "narr": "A round table. Ten courses. 陈总's board. And 白酒.", "prop": "🥃" },
+    { "when": { "i-understand.ep2": "sign" }, "who": "chen", "zh": "这一杯，敬肯少签的人！", "en": "This glass is for the one who'd sign for less!",
+      "else": [ { "who": "chen", "zh": "公司商量好了吗？", "en": "So: has your firm talked it over?" } ] },
+    { "who": "chen", "zh": "来，大家举杯！", "en": "Come on, everyone, glasses up!" },
+    { "say": {
+      "id": "toast",
+      "en": "Propose your toast to the table.",
+      "cue": "Toast.",
+      "answers": ["我敬大家一杯！", "来，我敬大家一杯！", "我先敬大家一杯！"],
+      "gloss": "A toast to you all!",
+      "need": [["敬大家"], ["一杯"]],
+      "tip": "敬 jìng = toast (out of respect): 我敬大家一杯.",
+      "ok": [ { "who": "liudong", "zh": "好！爽快！", "en": "Ha! Good on you!" } ],
+      "fail": [ { "who": "chen", "zh": "举杯呀！", "en": "Glass up!" } ],
+      "levels": {
+        "2": {
+          "answers": ["我敬大家！", "敬大家！"],
+          "need": [["敬大家"]],
+          "gloss": "To you all!",
+          "status": "live" },
+        "4": {
+          "answers": ["我借花献佛，敬大家一杯！", "借花献佛，我敬大家一杯！"],
+          "need": [["借花献佛"], ["一杯"]],
+          "gloss": "With your own good wine, a toast to you all!",
+          "tip": "借花献佛 = offer the Buddha borrowed flowers: toast with the host's wine.",
+          "status": "live" }
+      }
+    } },
+    { "who": "liudong", "zh": "白酒，干了！", "en": "白酒! Bottoms up!", "prop": "🍶" },
+    { "say": {
+      "id": "tea",
+      "en": "Decline politely: tea in place of wine.",
+      "cue": "Tea, please.",
+      "answers": ["不好意思，我以茶代酒。", "抱歉，我以茶代酒吧。"],
+      "gloss": "Forgive me: I'll toast with tea.",
+      "need": [["以茶代酒"], ["不好意思", "抱歉"]],
+      "key": { "以茶代酒": "tea in place of wine" },
+      "tip": "以茶代酒 yǐ chá dài jiǔ = tea in place of wine: the polite way out of 白酒.",
+      "ok": [ { "who": "liudong", "zh": "好，好，随意。", "en": "Fine, fine. As you like." } ],
+      "fail": [ { "who": "liudong", "zh": "不给面子？", "en": "Not going to give me face?" } ],
+      "levels": {
+        "2": {
+          "answers": ["我喝茶吧。", "我以茶代酒。"],
+          "need": [["喝茶", "以茶代酒"]],
+          "gloss": "I'll have tea.",
+          "status": "live" },
+        "4": {
+          "answers": ["抱歉，我酒量不行，以茶代酒。", "不好意思，我酒量不行，以茶代酒。"],
+          "need": [["酒量"], ["以茶代酒"]],
+          "gloss": "Forgive me, I can't hold my drink. Tea in place of wine.",
+          "tip": "酒量 jiǔliàng = how much you can drink.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "At the far end of the table, two board members, talking fast." },
+    { "who": "liudong", "zh": "听说小周拿了别家的钱。", "en": "I hear 小周's taken money from another company.", "pace": "fast" },
+    { "who": "sundong", "zh": "想让这单签不成。", "en": "To make sure this deal never gets signed.", "pace": "fast" },
+    { "who": "liudong", "zh": "嘘，客人听不懂的。", "en": "Shh. The guest won't follow.", "pace": "fast" },
+    { "say": {
+      "id": "catch",
+      "en": "Let them know you caught it: 小周 took another company's money?",
+      "cue": "You heard that.",
+      "answers": ["小周拿了别家的钱？", "您是说，小周拿了别家的钱？"],
+      "gloss": "小周 took money from another company?",
+      "need": [["别家"], ["钱"]],
+      "not": [ { "heard": ["别人"], "note": "They said 别家: another company, not another person. Listen to the far end of the table again." } ],
+      "tip": "别家 biéjiā = another firm, a rival: 别家的钱 = a rival's money.",
+      "ok": [
+        { "narr": "The far end of the table goes silent.", "hold": 1 },
+        { "who": "sundong", "zh": "……您听得懂？", "en": "...You understand?" },
+        { "who": "liudong", "zh": "我们什么也没说。", "en": "We didn't say a thing." }
+      ],
+      "fail": [ { "who": "liudong", "zh": "来，吃菜吃菜。", "en": "Come on, eat, eat." } ],
+      "levels": {
+        "2": {
+          "answers": ["别家的钱？", "拿了别家的钱？"],
+          "need": [["别家"]],
+          "gloss": "Another company's money?",
+          "status": "live" },
+        "4": {
+          "answers": ["您刚才是说，小周收了别家的钱？", "您刚才说，小周收了别家的钱？"],
+          "need": [["刚才"], ["别家"]],
+          "gloss": "Did you just say 小周 took a rival's money?",
+          "status": "live" }
+      }
+    } },
+    { "who": "zhou", "zh": "陈总，我出去打个电话。", "en": "Ms Chen, I'm just stepping out to make a call.", "fx": "leave" },
+    { "say": {
+      "id": "move",
+      "en": "Warn 陈总 quietly, or go after 小周.",
+      "cue": "Warn, or confront?",
+      "answers": ["陈总，借一步说话。", "陈总，能借一步说话吗？"],
+      "gloss": "Ms Chen, a word in private.",
+      "need": [["陈总"], ["借一步"]],
+      "key": { "借一步": "a word aside" },
+      "tip": "借一步说话 = borrow a step to talk: may I have a word in private?",
+      "sets": { "i-understand.ep3": "warn" },
+      "ok": [
+        { "narr": "In the corridor, you tell her. 陈总 doesn't move for a long time.", "hold": 2 },
+        { "who": "chen", "zh": "……我早该想到的。", "en": "...I should have seen it." },
+        { "who": "chen", "zh": "谢谢你。", "en": "Thank you." }
+      ],
+      "alts": [
+        { "en": "Or: go after 小周", "answers": ["小周，我都听见了。", "小周，我全都听见了。"], "need": [["小周"], ["听见了"]], "gloss": "小周, I heard everything.",
+          "sets": { "i-understand.ep3": "confront" },
+          "then": [
+            { "narr": "In the corridor, 小周 is on the phone. Then isn't." },
+            { "who": "zhou", "zh": "……你都听见了？", "en": "...You heard all of it?" },
+            { "who": "zhou", "zh": "对不起。", "en": "I'm sorry." },
+            { "narr": "小周 walks out of the restaurant without a coat." }
+          ] }
+      ],
+      "fail": [ { "who": "chen", "zh": "怎么了？", "en": "What is it?" } ],
+      "levels": {
+        "2": {
+          "answers": ["陈总，借一步！", "借一步说话。"],
+          "need": [["借一步"]],
+          "gloss": "Ms Chen, a word!",
+          "alts": [ { "of": 0, "answers": ["小周，我听见了。"], "need": [["听见了"]], "gloss": "小周, I heard." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["陈总，这里不方便，借一步说话。", "陈总，这儿说话不方便，借一步。"],
+          "need": [["不方便"], ["借一步"]],
+          "gloss": "Ms Chen, not here. A word in private.",
+          "alts": [ { "of": 0, "answers": ["小周，明人不说暗话，我都听见了。"], "need": [["明人不说暗话"], ["听见了"]], "gloss": "小周, let's be straight with each other. I heard everything." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "i-understand.ep3": "warn" }, "end": "win", "en": "陈总 goes back in and raises her glass, smiling, as if nothing has happened. 🥃",
+      "else": [ { "end": "win", "en": "The board finishes the meal in silence. 陈总 pours your tea herself. 🍵" } ] }
+  ]
+}

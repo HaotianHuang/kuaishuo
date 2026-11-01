@@ -1,0 +1,174 @@
+{
+  "id": "new-year-dodge",
+  "format": "chase",
+  "title": "七大姑八大姨",
+  "title_en": "Dodging the Relatives",
+  "level": 3,
+  "topics": ["family", "celebrations", "dating"],
+  "audience": "heritage",
+  "hook": 4,
+  "status": "live",
+  "tags": ["过年", "亲戚", "催婚", "打太极"],
+  "write": ["缘分", "着急"],
+  "setting": "Grandma's flat on New Year's Eve. Every relative you have, one hallway.",
+  "stage": "🧧",
+  "bg": ["#3d0a0a", "#a3221b"],
+  "cast": {
+    "eryi": { "name": "二姨", "en": "your mum's second sister", "emoji": "👩", "voice": "f-mid" },
+    "sanjiu": { "name": "三舅", "en": "your mum's third brother", "emoji": "👨", "voice": "m-mid" },
+    "dagu": { "name": "大姑", "en": "your dad's eldest sister", "emoji": "👵", "voice": "f-old" },
+    "nephew": { "name": "小侄子", "en": "your six-year-old nephew", "emoji": "🧒", "voice": "kid" },
+    "cousin": { "name": "表姐", "en": "your older cousin", "emoji": "👩‍🦱", "voice": "f-young" }
+  },
+  "chase": {
+    "name": "亲戚们", "en": "the relatives", "emoji": "👵👨👩",
+    "start": 20, "close": 1, "gain": 11, "loss": 5, "max": 25,
+    "caught": [
+      { "who": "dagu", "zh": "来来来，坐下慢慢聊。", "en": "Come, come, sit down. Let's have a proper chat." },
+      { "narr": "You're sat down between Second Aunt and Eldest Aunt. Someone hands you a dumpling.", "zh": "你被按在了二姨和大姑中间。" },
+      { "end": "lose", "en": "Caught. Dinner lasts four hours, and every question gets asked twice.", "zh": "这顿年夜饭，吃了四个小时。" }
+    ]
+  },
+  "steps": [
+    { "sfx": "door" },
+    { "narr": "New Year's Eve. You step into Grandma's flat, and every relative turns to look.", "zh": "除夕，你一进门，亲戚们全看过来了。" },
+    { "who": "eryi", "zh": "哎呀，回来啦！有对象了吗？", "en": "Oh, you're back! Seeing anyone yet?" },
+    { "say": {
+      "id": "early",
+      "obstacle": "🚪",
+      "en": "Dodge: it's early, no rush.",
+      "answers": ["还早呢，不着急。", "不着急，还早呢。", "还早，不急不急。", "这事儿不着急。"],
+      "gloss": "It's early days. No rush.",
+      "need": [["还早", "不着急", "不急"]],
+      "not": [ { "heard": ["着急", "很急"], "note": "That says you ARE in a hurry. 不着急 = no rush." } ],
+      "time": 9,
+      "tip": "还早呢 = it's early yet. 不着急 bù zháojí = no rush. Together they close the subject without being rude.",
+      "ok": [ { "who": "eryi", "zh": "那倒也是。", "en": "Well, that's true." } ],
+      "fail": [ { "who": "eryi", "zh": "不说话？那就是有了！", "en": "Not saying? That means yes!", "fx": "laugh" } ],
+      "levels": {
+        "4": { "en": "Dodge: good things take time!", "answers": ["不着急，好饭不怕晚！", "还早呢，好饭不怕晚！", "好饭不怕晚，不急不急！", "不急，好饭不怕晚！"], "gloss": "No rush. Good things are worth waiting for!", "need": [["还早", "不着急", "不急"], ["好饭不怕晚", "不怕晚"]],
+               "tip": "好饭不怕晚 hǎo fàn bú pà wǎn = a good meal is worth the wait: the saying that answers 'still single?'. 不着急 = no rush.", "key": { "好饭不怕晚": "good things are worth the wait" }, "status": "live" }
+      }
+    } },
+    { "narr": "The living room. Third Uncle gets up off the sofa." },
+    { "who": "sanjiu", "zh": "什么时候结婚啊？", "en": "So when's the wedding?" },
+    { "say": {
+      "id": "fate",
+      "obstacle": "🛋️",
+      "en": "Dodge: it's down to fate.",
+      "answers": ["缘分没到呢。", "缘分还没到。", "随缘吧。", "看缘分吧。", "还没有缘分呢。"],
+      "gloss": "The right one hasn't come along yet.",
+      "need": [["没到", "随缘", "看缘分", "没有缘分"]],
+      "time": 9,
+      "tip": "缘分 yuánfèn = the fate that brings two people together. 缘分没到 = the right one hasn't come along, and nobody argues with fate.",
+      "ok": [ { "who": "sanjiu", "zh": "嗯，这事儿急不来。", "en": "Mm. Can't rush these things." } ],
+      "fail": [ { "who": "sanjiu", "zh": "老大不小了，抓点儿紧！", "en": "You're not getting any younger. Get a move on!" } ],
+      "levels": {
+        "2": { "en": "Dodge: there's nobody yet!", "answers": ["还没对象呢！", "还没有呢！", "还没呢，不急！", "随缘吧！", "缘分没到呢。"], "gloss": "I'm not seeing anyone yet!", "need": [["没到", "随缘", "看缘分", "没有缘分", "还没"]],
+               "tip": "还没对象呢 = there's nobody yet (对象 duìxiàng = the one you're seeing): 还没……呢 is 'not yet', and the 呢 keeps it light.", "key": { "还没": "not yet" }, "status": "live" },
+        "4": { "en": "Dodge: fate can't be forced.", "answers": ["缘分没到，强扭的瓜不甜！", "随缘吧，强扭的瓜不甜！", "缘分还没到，强扭的瓜不甜！", "看缘分吧，强扭的瓜不甜。"], "gloss": "Fate hasn't brought anyone yet. You can't force these things!", "need": [["没到", "随缘", "看缘分", "没有缘分"], ["强扭", "瓜不甜"]],
+               "tip": "强扭的瓜不甜 qiǎng niǔ de guā bù tián = a melon picked by force isn't sweet: love can't be forced. 缘分没到 = the right one hasn't come along.", "key": { "强扭的瓜不甜": "you can't force it (a forced melon isn't sweet)" }, "status": "live" }
+      }
+    } },
+    { "narr": "The dinner table. Eldest Aunt, waiting for you.", "zh": "饭桌边，大姑在等你。" },
+    { "who": "dagu", "zh": "现在一个月挣多少？", "en": "So what are you making a month these days?" },
+    { "say": {
+      "id": "enough",
+      "obstacle": "🥟",
+      "en": "Dodge: enough to get by.",
+      "answers": ["够花就行。", "够花就行，够花就行。", "也就够花吧。", "够用就行。"],
+      "gloss": "Enough to live on, that's all.",
+      "need": [["够花", "够用"]],
+      "time": 9,
+      "tip": "够花就行 = enough to live on, and that's all that matters. It answers 'how much' without a number. 挣 zhèng = earn.",
+      "alts": [
+        { "en": "Or: ask what her son makes", "answers": ["表哥一个月挣多少？", "表哥挣得多吧？", "那表哥呢？"], "gloss": "And how much does my cousin make a month?", "need": [["表哥"]],
+          "then": [ { "who": "dagu", "zh": "吃菜，吃菜！", "en": "Eat up, eat up!" } ] }
+      ],
+      "ok": [ { "who": "dagu", "zh": "够花就好，够花就好。", "en": "Enough's good. Enough's good." } ],
+      "fail": [ { "who": "dagu", "zh": "说个数嘛！", "en": "Just give me a number!" } ],
+      "levels": {
+        "4": { "en": "Dodge: enough, and content.", "answers": ["够花就行，知足常乐！", "够用就行，知足常乐嘛！", "也就够花吧，知足常乐！", "够花就行，人要知足！"], "gloss": "Enough to live on. I'm happy with what I've got!", "need": [["够花", "够用"], ["知足"]],
+               "tip": "知足常乐 zhīzú cháng lè = be content and you'll always be happy: the saying that ends any talk of money. 够花就行 = enough to live on.", "status": "live" }
+      }
+    } },
+    { "narr": "The bedroom. Your little nephew has been listening the whole time.", "zh": "卧室里，小侄子一直在偷听。" },
+    { "who": "nephew", "zh": "你为什么还不结婚？", "en": "Why aren't you married?" },
+    { "say": {
+      "id": "fate2",
+      "again": "fate",
+      "obstacle": "🧒",
+      "en": "Dodge the kid: fate!",
+      "answers": ["缘分还没到呢！", "缘分没到！", "随缘吧！", "等缘分呗！", "还没有缘分呢。"],
+      "gloss": "The right one just hasn't come along yet!",
+      "need": [["没到", "随缘", "看缘分", "等缘分", "没有缘分"]],
+      "time": 8,
+      "tip": "还没……呢 = not yet: 还没到呢, 还没吃呢. The 呢 keeps it gentle, even with a six-year-old.",
+      "ok": [ { "who": "nephew", "zh": "缘分是什么？能吃吗？", "en": "What's fate? Can you eat it?" } ],
+      "fail": [ { "who": "nephew", "zh": "妈妈说你太挑了！", "en": "Mum says you're too picky!" } ],
+      "levels": {
+        "2": { "answers": ["缘分还没到呢！", "还没有呢！", "缘分没到！", "随缘吧！"], "gloss": "The right one just hasn't come along yet!", "need": [["没到", "随缘", "看缘分", "等缘分", "没有缘分", "还没"]], "status": "live" },
+        "4": { "en": "Dodge the kid: fate can't be forced!", "answers": ["缘分还没到，强扭的瓜不甜！", "缘分没到呢，强扭的瓜不甜！", "随缘吧，强扭的瓜不甜！", "等缘分呗，强扭的瓜不甜！"], "gloss": "Fate just hasn't brought anyone yet. You can't force it!", "need": [["没到", "随缘", "看缘分", "等缘分", "没有缘分"], ["强扭", "瓜不甜"]],
+               "tip": "强扭的瓜不甜 = a melon picked by force isn't sweet: love can't be forced. 缘分还没到 = the right one hasn't come along yet.", "key": { "强扭的瓜不甜": "you can't force it (a forced melon isn't sweet)" }, "status": "live" }
+      }
+    } },
+    { "narr": "Second Aunt is back, phone out, a photo ready." },
+    { "who": "eryi", "zh": "来，二姨给你介绍一个！", "en": "Come here, Auntie's going to set you up!" },
+    { "say": {
+      "id": "early2",
+      "again": "early",
+      "obstacle": "📱",
+      "en": "Dodge: no thanks, no rush!",
+      "answers": ["不用不用，还早呢！", "谢谢二姨，我还不着急！", "不用了，真不着急！", "不用，还早着呢！"],
+      "gloss": "No, no, it's far too early!",
+      "need": [["不用", "谢谢"], ["还早", "不着急", "不急"]],
+      "time": 8,
+      "gain": 11,
+      "tip": "不用不用 = no need, no need: doubled, it's a warm but firm no. 还早着呢 = oh, it's far too early.",
+      "ok": [ { "who": "eryi", "zh": "那我先给你留着啊！", "en": "Then I'll keep this one for you!" } ],
+      "fail": [ { "who": "eryi", "zh": "好，我把你微信推过去了！", "en": "Right, I've sent them your WeChat!" } ],
+      "levels": {
+        "4": { "en": "No thanks: good things take time!", "answers": ["不用不用，不急，好饭不怕晚！", "谢谢二姨，不着急，好饭不怕晚！", "不用了，还早呢，好饭不怕晚！", "谢谢，真不急，好饭不怕晚！"], "gloss": "No, no, there's no rush. Good things are worth waiting for!", "need": [["不用", "谢谢"], ["还早", "不着急", "不急"], ["好饭不怕晚", "不怕晚"]],
+               "tip": "不用不用 = no need, no need: warm but firm. 好饭不怕晚 = good things are worth the wait: a set-up turned down with a smile.", "key": { "好饭不怕晚": "good things are worth the wait" }, "status": "live" }
+      }
+    } },
+    { "narr": "The whole family is closing in on the front door.", "zh": "一大家子人都围过来了。" },
+    { "who": "dagu", "zh": "别走啊，马上吃饭了！", "en": "Don't go, dinner's nearly ready!" },
+    { "say": {
+      "id": "escape",
+      "obstacle": "🚪",
+      "en": "Make an excuse: out you go!",
+      "answers": ["我下楼买瓶酱油！", "我下楼买点儿东西！", "我出去买瓶酱油！", "我去楼下买个东西，马上回来！"],
+      "gloss": "I'm just popping down for soy sauce!",
+      "need": [["下楼", "出去", "楼下"], ["买"]],
+      "not": [{ "heard": ["卖"], "note": "卖 mài is sell; you're going to buy, 买 mǎi. Same sound, the tone tells them apart." }],
+      "time": 9,
+      "gain": 12,
+      "tip": "下楼 = go downstairs. Popping out for soy sauce is the classic escape; 打酱油 even means 'just passing through, nothing to do with me'.",
+      "ok": [ { "sfx": "door" } ],
+      "fail": [ { "who": "dagu", "zh": "家里啥都有！坐下！", "en": "We've got everything here! Sit down!" } ],
+      "levels": {
+        "4": { "en": "Make an excuse: back in a flash!", "answers": ["我下楼买瓶酱油，去去就回！", "我下楼买点儿东西，马上回来！", "我出去买瓶酱油，去去就回！", "我去楼下买个东西，马上就回来！"], "gloss": "Just popping down for soy sauce. Back in a flash!", "need": [["下楼", "出去", "楼下"], ["买"], ["去去就回", "马上回来", "马上就回"]],
+               "tip": "去去就回 qù qù jiù huí = back in a flash: the promise that gets you out of any door. 下楼 = go downstairs.", "key": { "去去就回": "back in a flash" }, "status": "live" }
+      }
+    } },
+    { "narr": "The stairwell. Dark, quiet, and already occupied.", "zh": "楼道里黑黑的，台阶上坐着个人。", "finale": true },
+    { "who": "cousin", "zh": "你也出来躲啊？", "en": "You're hiding out here too?" },
+    { "say": {
+      "id": "dontask",
+      "en": "Sigh: don't even ask.",
+      "answers": ["别提了！", "唉，别提了！", "别提了，太可怕了！"],
+      "gloss": "Don't even ask!",
+      "need": [["别提"]],
+      "time": 10,
+      "tip": "别提了 bié tí le = don't even ask, don't get me started. For any ordeal: exams, flights, relatives.",
+      "ok": [ { "who": "cousin", "zh": "嗑瓜子吗？等春晚开始再回去。", "en": "Sunflower seeds? We'll go back in when the Gala starts." } ],
+      "fail": [ { "who": "cousin", "zh": "怎么了？又被催婚了？", "en": "What's up? Getting the marriage talk again?" } ],
+      "levels": {
+        "4": { "en": "Sigh: don't ask. She's hiding too!", "answers": ["别提了！你不也一样吗？", "唉，别提了，咱俩一样！", "别提了，跟你一样！", "别提了，你不也是一样？"], "gloss": "Don't even ask! Aren't you in the same boat?", "need": [["别提"], ["一样", "彼此"]],
+               "tip": "你不也一样吗？ = aren't you the same?: a question that's really fellow feeling. 别提了 = don't even ask.", "status": "live" }
+      }
+    } },
+    { "end": "win", "en": "Escaped. You and your cousin hide in the stairwell with the sunflower seeds until the Spring Festival Gala starts.", "zh": "你和表姐在楼道里，一直躲到春晚开始。" }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "i-understand-4",
+  "format": "chat",
+  "title": "拉错群",
+  "title_en": "Wrong Group",
+  "level": 2,
+  "listen": 4,
+  "topics": ["work"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "i-understand", "ep": 4, "next": "Midnight. 小周 is calling." },
+  "tags": ["拉错群", "撤回", "听得懂"],
+  "setting": "Your hotel room in Hangzhou, 11:02 pm, the night of the dinner. Someone has added you to a group.",
+  "stage": "📱",
+  "bg": ["#1a0b08", "#7a2e1c"],
+  "chat": { "group": { "zh": "陈氏茶业·董事会" }, "members": 9, "me": { "zh": "合作方" }, "giveup": [
+    { "who": "chen", "zh": "合作方好像睡了。", "en": "Our partner seems to be asleep." },
+    { "end": "lose", "en": "By morning you've been quietly removed from the group. Run that back. 📱" }
+  ] },
+  "cast": {
+    "chen": { "name": "陈总", "en": "the director", "emoji": "👩‍💼", "voice": "f-mid" },
+    "zhou": { "name": "小周", "en": "the interpreter", "emoji": "🧑‍💻", "voice": "m-young" },
+    "liudong": { "name": "刘董", "en": "a board member", "emoji": "👨‍💼", "voice": "m-old", "speed": 1.2 },
+    "sundong": { "name": "孙董", "en": "a board member", "emoji": "👩‍💼", "voice": "f-old", "speed": 1.2 },
+    "chennainai": { "name": "陈奶奶", "en": "the tea farm's real owner", "emoji": "👵", "voice": "f-old" }
+  },
+  "steps": [
+    { "narr": "11:02 pm. Your phone buzzes." },
+    { "narr": "The office added you to a group.", "zh": "“行政部”邀请你加入了群聊", "kind": "system", "clock": "23:02" },
+    { "when": { "i-understand.ep3": "warn" }, "who": "chen", "zh": "大家注意，人家听得懂。", "en": "Everyone, careful: our guest understands every word.", "typing": 1.5,
+      "else": [ { "who": "liudong", "zh": "今天饭局那一出，大家都看到了吧？", "en": "You all saw that little scene at dinner tonight?", "typing": 1.5 } ] },
+    { "who": "liudong", "zh": "这单还签吗？", "en": "Are we still signing this deal?", "typing": 0.6 },
+    { "who": "sundong", "zh": "我看算了。", "en": "I say we drop it.", "typing": 0.5 },
+    { "who": "liudong", "zh": "外国公司，靠不住。", "en": "Foreign firm. Can't be relied on.", "typing": 0.5 },
+    { "who": "sundong", "zh": "而且小周的事还没查清楚。", "en": "And the 小周 business hasn't been cleared up.", "typing": 0.6 },
+    { "who": "liudong", "kind": "voice", "secs": 8, "zh": "听说那个客人中文好得很，什么都听得懂，我们说话要小心。", "en": "Word is that guest's Chinese is excellent. Understands everything. We need to watch what we say." },
+    { "who": "chennainai", "kind": "voice", "secs": 14, "zh": "我说一句。这个孩子，我喜欢。茶也懂，人也实在。你们别乱说。", "en": "Let me say one thing. I like this one. Knows tea, and says what they mean. Stop talking nonsense, all of you." },
+    { "narr": "Nobody has noticed you're in the group." },
+    { "say": {
+      "id": "own",
+      "en": "Own up: you think you've been added by mistake.",
+      "cue": "Own up.",
+      "answers": ["不好意思，我进错群了。", "抱歉，我进错群了。"],
+      "gloss": "Sorry, I think I'm in the wrong group.",
+      "need": [["进错群"], ["不好意思", "抱歉"]],
+      "key": { "进错群": "in the wrong group" },
+      "time": 30,
+      "tip": "错 cuò = wrongly: 进错群 = joined the wrong group, 打错了 = dialled wrong.",
+      "ok": [
+        { "who": "sundong", "zh": "……", "en": "...", "typing": 3 },
+        { "who": "liudong", "zh": "您……看得懂？", "en": "You... can read this?", "typing": 2 },
+        { "who": "chen", "zh": "是我们拉错了。不好意思。", "en": "We added you by mistake. Our apologies.", "typing": 2 },
+        { "who": "chennainai", "kind": "voice", "secs": 4, "zh": "我就说嘛，这孩子懂。", "en": "What did I tell you? This one understands." }
+      ],
+      "fail": [ { "who": "liudong", "zh": "那就这么定了，不签。", "en": "Then it's decided. We don't sign.", "typing": 1 } ],
+      "levels": {
+        "1": {
+          "answers": ["我进错群了！", "我进错群了。"],
+          "need": [["进错群"]],
+          "gloss": "I'm in the wrong group!",
+          "status": "live" },
+        "3": {
+          "answers": ["抱歉打扰，我好像进错群了。", "不好意思打扰，我好像进错群了。"],
+          "need": [["打扰"], ["进错群"]],
+          "gloss": "Sorry to intrude: I seem to be in the wrong group.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "zhou",
+      "en": "Ask: is 小周 all right?",
+      "cue": "And 小周?",
+      "answers": ["小周还好吗？", "请问，小周还好吗？"],
+      "gloss": "Is 小周 all right?",
+      "need": [["小周"], ["还好吗"]],
+      "time": 30,
+      "tip": "还好吗 = (are they) all right?",
+      "ok": [
+        { "who": "chen", "zh": "他请假了。", "en": "He's taken leave.", "typing": 1.5 },
+        { "who": "sundong", "zh": "他的事，我们不方便说。", "en": "His situation isn't something we can discuss.", "typing": 1.5 }
+      ],
+      "fail": [ { "who": "liudong", "zh": "早点休息吧。", "en": "Get some rest.", "typing": 1 } ],
+      "levels": {
+        "1": {
+          "answers": ["小周呢？", "小周好吗？"],
+          "need": [["小周"]],
+          "gloss": "And 小周?",
+          "status": "live" },
+        "3": {
+          "answers": ["小周还好吗？好几天没消息了。", "小周还好吗？几天没消息了。"],
+          "need": [["没消息"], ["还好吗"]],
+          "gloss": "Is 小周 all right? I haven't heard anything for days.",
+          "status": "live" }
+      }
+    } },
+    { "who": "zhou", "zh": "他们威胁我。", "en": "They're threatening me.", "typing": 3, "recall": 2.5, "clock": "23:09" },
+    { "narr": "小周 unsent a message.", "zh": "“小周”撤回了一条消息", "kind": "system" },
+    { "who": "zhou", "zh": "发错了，不好意思。", "en": "Sent by mistake, sorry.", "typing": 2 },
+    { "who": "liudong", "zh": "刚才发的什么？", "en": "What was that just now?", "typing": 0.6 },
+    { "who": "sundong", "zh": "没看清。", "en": "Didn't catch it.", "typing": 0.6 },
+    { "narr": "Nobody saw it. Except you." },
+    { "say": {
+      "id": "help",
+      "en": "Message 小周 privately, or tell the group he needs help.",
+      "cue": "Private, or the group?",
+      "answers": ["小周，你没事吧？", "小周，你没事吧？我在。"],
+      "gloss": "小周, are you all right?",
+      "need": [["小周"], ["没事吧"]],
+      "time": 30,
+      "tip": "你没事吧？ = are you OK? (you're not hurt, are you?)",
+      "sets": { "i-understand.ep4": "private" },
+      "ok": [
+        { "narr": "A private chat. You type, and wait." },
+        { "who": "zhou", "zh": "……你看到了？", "en": "...You saw it?", "typing": 4 },
+        { "who": "zhou", "zh": "谢谢。", "en": "Thank you.", "typing": 3 }
+      ],
+      "alts": [
+        { "en": "Or: tell the group", "answers": ["小周需要帮忙。", "大家，小周需要帮忙。"], "need": [["小周"], ["需要帮忙"]], "gloss": "小周 needs help.",
+          "key": { "需要帮忙": "needs help" },
+          "sets": { "i-understand.ep4": "group" },
+          "then": [
+            { "who": "chen", "zh": "什么？", "en": "What?", "typing": 0.8 },
+            { "who": "chennainai", "kind": "voice", "secs": 6, "zh": "小周是好孩子。谁欺负他，我不答应。", "en": "小周 is a good boy. Whoever's bullying him will answer to me." }
+          ] }
+      ],
+      "fail": [ { "who": "sundong", "zh": "大家早点睡。", "en": "Goodnight, all.", "typing": 1 } ],
+      "levels": {
+        "1": {
+          "answers": ["没事吧？", "你没事吧？"],
+          "need": [["没事"]],
+          "gloss": "You OK?",
+          "alts": [ { "of": 0, "answers": ["小周要帮忙！"], "need": [["帮忙"]], "gloss": "小周 needs help!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["小周，我看到了。你没事吧？"],
+          "need": [["看到了"], ["没事吧"]],
+          "gloss": "小周, I saw it. Are you all right?",
+          "alts": [ { "of": 0, "answers": ["小周需要帮忙，他被人威胁了。"], "need": [["威胁"], ["需要帮忙"]], "gloss": "小周 needs help. Someone's threatening him." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "i-understand.ep4": "private" }, "end": "win", "en": "11:59. 小周 is typing. Then stops. Then starts again. 📱",
+      "else": [ { "end": "win", "en": "The group goes very quiet. Then 陈总: 明天九点，开会。 📱" } ] }
+  ]
+}

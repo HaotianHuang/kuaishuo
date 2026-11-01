@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>快说 · Numbers</title>
+<!-- The owner's numbers (numbers.js): the daily totals phones send (app/shared/tally.js), from /api/stats with the admin
+     key. Nothing here is about anyone: counts of what was played, summed over every phone. -->
+<style>
+:root { --bg: #fbfaf7; --ink: #1d1b18; --muted: #6b675f; --rule: #e6e2da; --hi: #0b6e69; --bar: #cfe6e3; color-scheme: light dark; }
+@media (prefers-color-scheme: dark) { :root { --bg: #141416; --ink: #e8e6e1; --muted: #9b978f; --rule: #2c2e33; --hi: #6fd6cd; --bar: #1d3b3a; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "PingFang SC", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; } h2 { font-size: 16px; margin: 32px 0 8px; } p { margin: 4px 0; }
+.muted { color: var(--muted); } .small { font-size: 13px; }
+form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0 20px; }
+input, select, button { font: inherit; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 6px; background: transparent; color: inherit; }
+button { cursor: pointer; border-color: var(--muted); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+.tile { border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; }
+.tile b { display: block; font-size: 22px; font-variant-numeric: tabular-nums; } .tile span { color: var(--muted); font-size: 13px; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; min-width: 100%; }
+th, td { padding: 4px 10px 4px 0; border-bottom: 1px solid var(--rule); text-align: right; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; } th { font-weight: 600; color: var(--muted); }
+td.bar { width: 45%; padding-left: 8px; } td.bar i { display: block; height: 10px; background: var(--hi); opacity: 0.45; border-radius: 2px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 28px; }
+.err { color: #c0392b; }
+</style>
+</head>
+<body>
+<main>
+<h1>快说 · Numbers</h1>
+<p class="muted small">Daily totals from every phone, summed. No ids: a “phone” is one that played that day, counted once.</p>
+<form id="go">
+  <input id="key" type="password" placeholder="Admin key" autocomplete="current-password" aria-label="Admin key">
+  <select id="days" aria-label="Days"><option>7</option><option selected>14</option><option>30</option><option>90</option></select>
+  <button type="submit">Show</button>
+  <span id="status" class="muted small"></span>
+</form>
+<div id="out"></div>
+</main>
+<script src="numbers.js"></script>
+</body>
+</html>

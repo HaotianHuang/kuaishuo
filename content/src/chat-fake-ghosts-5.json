@@ -1,0 +1,140 @@
+{
+  "id": "fake-ghosts-5",
+  "format": "chat",
+  "title": "包子的号",
+  "title_en": "包子's Account",
+  "level": 2,
+  "listen": 2,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "fake-ghosts", "ep": 5, "next": "The club room light is on. Someone is sitting in 阿乐's chair, stroking a cat that looks just like 包子." },
+  "tags": ["假鬼社", "包子", "群聊"],
+  "setting": "Your dorm, 3:02 am. The club's group chat lights up. The poster is 包子.",
+  "stage": "🐱",
+  "bg": ["#070d18", "#2c3f66"],
+  "chat": { "group": { "zh": "假鬼社" }, "members": 5, "me": { "zh": "社员" }, "giveup": [
+    { "who": "le", "zh": "人呢？……我一个人去？", "en": "Hello? ...Am I going on my own?" },
+    { "end": "lose", "en": "You fall back asleep. By morning, 包子's account has posted forty more photos. Run that back. 🐱" }
+  ] },
+  "cast": {
+    "le": { "name": "阿乐", "en": "the club's loudest member", "emoji": "🙋", "voice": "m-young" },
+    "yu": { "name": "小雨", "en": "has read everything", "emoji": "🤓", "voice": "f-young" },
+    "guo": { "name": "果果", "en": "films it all", "emoji": "📹", "voice": "f-young" },
+    "baozi": { "name": "包子", "en": "the club cat's account", "emoji": "🐱", "voice": "kid" },
+    "lu": { "name": "老鲁", "en": "the night guard", "emoji": "🔦", "voice": "m-old" }
+  },
+  "steps": [
+    { "narr": "3:02 am. The club's group chat." },
+    { "who": "baozi", "kind": "photo", "art": "📸", "zh": "二十年前，社团合照。", "en": "Twenty years ago: the club photo.", "clock": "03:02" },
+    { "when": { "fake-ghosts.rider": "open" }, "narr": "The photos you opened by the lake. The same ones, one by one.",
+      "else": [
+        { "who": "le", "zh": "我还没打开那个包裹……", "en": "I still haven't opened that parcel...", "typing": 2 },
+        { "who": "le", "zh": "这些是里面的照片吧？", "en": "These are the photos inside it, aren't they?", "typing": 1.5 }
+      ] },
+    { "who": "baozi", "kind": "photo", "art": "🏚️", "zh": "二十年前，社团的门。", "en": "Twenty years ago: the club door." },
+    { "who": "le", "zh": "包子在我脚上睡觉。", "en": "包子 is asleep on my feet.", "typing": 1 },
+    { "who": "le", "kind": "photo", "art": "🐱💤", "zh": "包子，睡着了。", "en": "包子, asleep." },
+    { "who": "le", "zh": "那谁在发？", "en": "So who's posting?", "typing": 0.8 },
+    { "say": {
+      "id": "who",
+      "en": "Ask: who's using 包子's account?",
+      "cue": "Who is it?",
+      "answers": ["谁在用包子的号？", "是谁在用包子的号？"],
+      "gloss": "Who's using 包子's account?",
+      "need": [["谁在用"], ["包子的号"]],
+      "key": { "号": "account" },
+      "time": 30,
+      "tip": "号 hào = account (in a chat app). 谁在用……？ = who's using ...?",
+      "ok": [
+        { "who": "yu", "zh": "密码只有阿乐知道。", "en": "Only 阿乐 knows the password.", "typing": 1.5 },
+        { "who": "le", "zh": "我连自己的密码都忘了！", "en": "I can't even remember my own password!", "typing": 1 }
+      ],
+      "fail": [ { "who": "guo", "zh": "谁？", "en": "Who?", "typing": 0.6 } ],
+      "levels": {
+        "1": {
+          "answers": ["谁在发？", "谁在用？"],
+          "need": [["谁在"]],
+          "gloss": "Who's posting?",
+          "status": "live" },
+        "3": {
+          "answers": ["是谁在用包子的号发照片？"],
+          "need": [["发照片"], ["包子的号"]],
+          "gloss": "Who's posting photos from 包子's account?",
+          "status": "live" }
+      }
+    } },
+    { "who": "baozi", "zh": "社长好。", "en": "Hello, president.", "typing": 3 },
+    { "who": "guo", "zh": "……它在跟谁说话？", "en": "...Who's it talking to?", "typing": 1 },
+    { "say": {
+      "id": "go",
+      "en": "Suggest it: stop guessing, go and look.",
+      "cue": "Go and look.",
+      "answers": ["我们去看看吧。", "要不我们去看看吧。"],
+      "gloss": "Let's go and have a look.",
+      "need": [["去看看"]],
+      "time": 30,
+      "tip": "去看看 = go and have a look: 看看 makes it casual.",
+      "ok": [
+        { "who": "guo", "zh": "现在？三点？", "en": "Now? At three?", "typing": 1 },
+        { "who": "yu", "zh": "……我去。", "en": "...I'm in.", "typing": 2 }
+      ],
+      "fail": [ { "who": "le", "zh": "我不敢动，包子在我脚上。", "en": "I daren't move. 包子's on my feet.", "typing": 1.5 } ],
+      "levels": {
+        "1": {
+          "answers": ["去看看！", "去看看吧。"],
+          "need": [["看看"]],
+          "gloss": "Go and look!",
+          "status": "live" },
+        "3": {
+          "answers": ["与其猜，不如我们去看看吧。"],
+          "need": [["不如"], ["去看看"]],
+          "gloss": "Rather than guess, let's go and look.",
+          "tip": "与其……不如…… = rather than ..., better to ...",
+          "status": "live" }
+      }
+    } },
+    { "who": "baozi", "kind": "photo", "art": "🚪💡", "zh": "社团的门。今晚。从里面拍的。", "en": "The club door. Tonight. Taken from the inside.", "typing": 4, "fx": "shake" },
+    { "who": "le", "zh": "从……里面？！", "en": "From... the INSIDE?!", "typing": 0.5, "fx": "faint" },
+    { "say": {
+      "id": "now",
+      "en": "Go right now, or fetch 老鲁 the night guard first.",
+      "cue": "Now, or 老鲁?",
+      "answers": ["现在就去！", "我们现在就去！"],
+      "gloss": "We're going right now!",
+      "need": [["现在就去"]],
+      "time": 30,
+      "tip": "现在就去 = go right now: 就 says straight away.",
+      "sets": { "fake-ghosts.account": "now" },
+      "ok": [
+        { "who": "le", "zh": "……我穿鞋。", "en": "...Putting my shoes on.", "typing": 1.5 },
+        { "who": "guo", "zh": "我带相机。", "en": "I'm bringing the camera.", "typing": 1 }
+      ],
+      "alts": [
+        { "en": "Or: fetch 老鲁 first", "answers": ["叫老鲁一起去。", "先叫老鲁一起去。"], "need": [["叫老鲁"]], "gloss": "Get 老鲁 to come with us.",
+          "sets": { "fake-ghosts.account": "guard" },
+          "then": [
+            { "who": "lu", "kind": "voice", "secs": 5, "zh": "三点？……好，我拿手电筒。", "en": "Three in the morning? ...All right. I'll get the torch." }
+          ] }
+      ],
+      "fail": [ { "who": "yu", "zh": "怎么办？", "en": "What do we do?", "typing": 0.8 } ],
+      "levels": {
+        "1": {
+          "answers": ["现在去！", "现在！"],
+          "need": [["现在"]],
+          "gloss": "Now!",
+          "alts": [ { "of": 0, "answers": ["叫老鲁！"], "need": [["老鲁"]], "gloss": "Get 老鲁!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["别怕，我们现在就去！"],
+          "need": [["别怕"], ["现在就去"]],
+          "gloss": "Don't be scared. We're going now!",
+          "alts": [ { "of": 0, "answers": ["太晚了，先叫老鲁一起去。"], "need": [["太晚"], ["叫老鲁"]], "gloss": "It's too late for this. Get 老鲁 to come with us first." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "fake-ghosts.account": "now" }, "end": "win", "en": "3:20. Four of you on the stairs, and a light under the club door. 💡",
+      "else": [ { "end": "win", "en": "3:30. 老鲁's torch, four students, and a light under the club door. 💡" } ] }
+  ]
+}

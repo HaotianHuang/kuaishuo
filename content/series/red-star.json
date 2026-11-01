@@ -1,0 +1,46 @@
+{
+  "id": "red-star",
+  "title": "打错了",
+  "title_en": "Wrong Number",
+  "eps": 6,
+  "audience": "all",
+  "levels": [
+    1,
+    3
+  ],
+  "genre": "romance",
+  "home": {
+    "name": "红星饭店",
+    "en": "a restaurant that closed ten years ago; its phone number is yours now"
+  },
+  "cast": {
+    "cheng": {
+      "name": "程远",
+      "en": "a stranger who keeps booking a table at 红星饭店: charming, a little sad",
+      "emoji": "👤",
+      "voice": "m-young",
+      "tts": "zm_053"
+    },
+    "naren": {
+      "name": "那个人",
+      "en": "the one 程远 missed by ten minutes, ten years ago: kind, and still waiting",
+      "emoji": "🧥",
+      "voice": "f-mid",
+      "tts": "zf_036"
+    },
+    "chashi": {
+      "name": "掺茶师傅",
+      "en": "pours tea in a 成都 teahouse from a long-spouted kettle",
+      "emoji": "🫖",
+      "voice": "m-old",
+      "tts": "zm_029"
+    },
+    "hongjie": {
+      "name": "红姐",
+      "en": "红星饭店's old owner, who runs a small food stall now",
+      "emoji": "👩‍🍳",
+      "voice": "f-old",
+      "tts": "zf_046"
+    }
+  }
+}

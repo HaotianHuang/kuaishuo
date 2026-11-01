@@ -1,0 +1,157 @@
+{
+  "id": "nothing-happened-3",
+  "format": "scene",
+  "title": "排队",
+  "title_en": "The Queue",
+  "level": 2,
+  "listen": 3,
+  "topics": ["food", "dating"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "nothing-happened", "ep": 3, "next": "阿峰 has to give the jacket back. In person." },
+  "tags": ["排队", "蛋黄酥", "插队"],
+  "setting": "A viral bakery in Shanghai, Sunday, 7 am. The queue is two hours long.",
+  "stage": "🥮",
+  "bg": ["#2b1608", "#d39b45"],
+  "cast": {
+    "feng": { "name": "阿峰", "en": "overthinks everything", "emoji": "😰", "voice": "m-young" },
+    "mei": { "name": "小美", "en": "has a theory for everything", "emoji": "💁", "voice": "f-young" },
+    "qin": { "name": "老秦", "en": "calm, and wrong", "emoji": "😌", "voice": "m-mid" },
+    "tian": { "name": "甜甜", "en": "knows someone who knows", "emoji": "🙆", "voice": "f-young" },
+    "ayi": { "name": "阿姨", "en": "first in the queue, since six", "emoji": "👩‍🦳", "voice": "f-old" }
+  },
+  "steps": [
+    { "narr": "A viral bakery. 蛋黄酥. A two-hour queue.", "prop": "🥮" },
+    { "when": { "nothing-happened.ep2": "hello" }, "who": "feng", "zh": "我们现在见面打招呼。就打招呼。", "en": "We say hello now, when we meet. Only hello.",
+      "else": [ { "who": "feng", "zh": "我还在假装没看见。", "en": "I'm still pretending I didn't see them." } ] },
+    { "who": "mei", "zh": "排队有规矩：不能插队。", "en": "Queues have rules. No cutting in.", "pace": "fast" },
+    { "who": "qin", "zh": "帮人排，不算插队。", "en": "Queuing for someone else isn't cutting in.", "pace": "fast" },
+    { "who": "tian", "zh": "我朋友说，走开一分钟，位子还在。", "en": "A friend of mine says if you leave for one minute, you keep your place.", "pace": "fast" },
+    { "who": "qin", "zh": "走开一个小时也在。", "en": "An hour, even.", "pace": "fast" },
+    { "narr": "At the very front: a jacket, holding four places.", "prop": "🧥" },
+    { "say": {
+      "id": "anyone",
+      "en": "Ask the woman at the front: is anyone here?",
+      "cue": "Anyone here?",
+      "answers": ["不好意思，这儿有人吗？", "不好意思，这里有人吗？"],
+      "gloss": "Excuse me, is anyone here?",
+      "need": [["不好意思"], ["有人吗"]],
+      "tip": "这儿有人吗？ = is this place taken? The question for every queue and every seat.",
+      "ok": [ { "who": "ayi", "zh": "有人。衣服。", "en": "Yes. The jacket." } ],
+      "fail": [ { "who": "ayi", "zh": "排队！", "en": "Queue!" } ],
+      "levels": {
+        "1": {
+          "answers": ["这儿有人吗？", "有人吗？"],
+          "need": [["有人吗"]],
+          "gloss": "Anyone here?",
+          "status": "live" },
+        "3": {
+          "answers": ["不好意思，这四个位子有人吗？", "不好意思，这四个位子都有人吗？"],
+          "need": [["位子"], ["有人吗"]],
+          "gloss": "Excuse me, are these four places taken?",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "jacket",
+      "en": "Argue: a jacket isn't a person, surely?",
+      "cue": "A jacket?",
+      "answers": ["衣服不算人吧？", "一件衣服，不算人吧？"],
+      "gloss": "A jacket doesn't count as a person, surely?",
+      "need": [["不算人"]],
+      "key": { "不算人": "doesn't count as a person" },
+      "tip": "算 suàn = count as: 不算人 = doesn't count as a person.",
+      "ok": [
+        { "who": "qin", "zh": "衣服算人。我同意。", "en": "A jacket's a person. I agree.", "pace": "fast" },
+        { "who": "mei", "zh": "老秦！", "en": "老秦!" },
+        { "who": "ayi", "zh": "衣服的主人说，马上回来。", "en": "The jacket's owner says they'll be right back." }
+      ],
+      "fail": [ { "who": "ayi", "zh": "衣服在排队。", "en": "The jacket's queuing." } ],
+      "levels": {
+        "1": {
+          "answers": ["衣服不算人！", "不算人吧？"],
+          "gloss": "A jacket's not a person!",
+          "status": "live" },
+        "3": {
+          "answers": ["衣服不算人吧？这不是插队吗？", "一件衣服不算人吧，这算插队！"],
+          "need": [["不算人"], ["插队"]],
+          "gloss": "A jacket's not a person. Isn't this cutting in?",
+          "tip": "插队 chāduì = cut in (a queue).",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "behind",
+      "en": "Negotiate: you'll queue behind the jacket. All right?",
+      "cue": "Behind it, then.",
+      "answers": ["我们排衣服后面，行吗？", "那我们排后面，行吗？"],
+      "gloss": "We'll queue behind the jacket, all right?",
+      "need": [["后面"], ["行吗"]],
+      "tip": "……行吗？ = is that OK? The easy way to propose a deal.",
+      "ok": [
+        { "who": "ayi", "zh": "行。", "en": "Fine." },
+        { "narr": "Forty minutes. The jacket does not move." }
+      ],
+      "fail": [ { "who": "ayi", "zh": "排队！", "en": "Queue!" } ],
+      "levels": {
+        "1": {
+          "answers": ["我们排后面。", "排后面吧。"],
+          "need": [["后面"]],
+          "gloss": "We'll go behind.",
+          "status": "live" },
+        "3": {
+          "answers": ["这样吧，我们排衣服后面，行吗？", "这样吧，我们排在后面，行吗？"],
+          "need": [["这样吧"], ["后面"]],
+          "gloss": "Tell you what: we'll queue behind the jacket. All right?",
+          "status": "live" }
+      }
+    } },
+    { "who": "tian", "zh": "等等，这件衣服……", "en": "Wait. That jacket...", "pace": "fast" },
+    { "who": "tian", "zh": "我朋友说，是那个人的。", "en": "My friend says it's theirs. 那个人's.", "pace": "fast" },
+    { "who": "feng", "zh": "……那个人的？", "en": "...Theirs?" },
+    { "who": "mei", "zh": "四个位子：阿峰，小美，老秦，甜甜。", "en": "Four places: 阿峰, 小美, 老秦, 甜甜.", "pace": "fast" },
+    { "who": "tian", "zh": "那个人在帮阿峰排队。", "en": "They were holding the places for 阿峰.", "hold": 1 },
+    { "who": "feng", "zh": "完了完了。", "en": "That's it. It's over.", "fx": "faint" },
+    { "who": "mei", "zh": "那……衣服算不算人？", "en": "So... does the jacket count as a person?" },
+    { "say": {
+      "id": "counts",
+      "en": "Let it stand, or call it out.",
+      "cue": "Counts, or not?",
+      "answers": ["算了，衣服也算人。", "算了算了，衣服也算人。"],
+      "gloss": "Fine. The jacket counts.",
+      "need": [["算了"]],
+      "key": { "算了": "never mind, let it go" },
+      "tip": "算了 suànle = forget it, let it go: the gentle surrender.",
+      "sets": { "nothing-happened.ep3": "counts" },
+      "ok": [ { "narr": "阿峰 steps into the jacket's place, holding the jacket like a sacred object." } ],
+      "alts": [
+        { "en": "Or: call it out", "answers": ["衣服就是衣服！", "衣服就是衣服，不算人！"], "need": [["衣服就是衣服"]], "gloss": "A jacket is a jacket!",
+          "sets": { "nothing-happened.ep3": "not" },
+          "then": [
+            { "who": "ayi", "zh": "说得对！", "en": "Quite right!" },
+            { "narr": "The queue applauds. The jacket stays, just in case." },
+            { "who": "qin", "zh": "衣服算人。", "en": "A jacket's a person.", "pace": "fast" }
+          ] }
+      ],
+      "fail": [ { "who": "mei", "zh": "算不算？", "en": "Does it count?" } ],
+      "levels": {
+        "1": {
+          "answers": ["算了。", "算了吧。"],
+          "gloss": "Never mind.",
+          "alts": [ { "of": 0, "answers": ["衣服就是衣服！"], "need": [["衣服就是衣服"]], "gloss": "A jacket's a jacket!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["算了，衣服也算人，人家是好意。", "算了，衣服也算人，人家是一片好心。"],
+          "need": [["算了"], ["好意", "好心"]],
+          "gloss": "Never mind. The jacket counts. It was kindly meant.",
+          "alts": [ { "of": 0, "answers": ["衣服就是衣服，排队要讲规矩！"], "need": [["衣服就是衣服"], ["规矩"]], "gloss": "A jacket is a jacket. Queues have rules!" } ],
+          "status": "live" }
+      }
+    } },
+    { "sfx": "message" },
+    { "narr": "阿峰's phone. 那个人 has sent a photo: the jacket, at the front of the queue, at six this morning. The caption:", "zh": "嗯。", "prop": "📱" },
+    { "when": { "nothing-happened.ep3": "counts" }, "end": "win", "en": "Four boxes of 蛋黄酥. One goes in the jacket's pocket, for 那个人. 🥮",
+      "else": [ { "end": "win", "en": "Four boxes of 蛋黄酥, and a jacket 阿峰 now has to give back. 🧥" } ] }
+  ]
+}

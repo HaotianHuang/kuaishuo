@@ -1,0 +1,60 @@
+{
+  "id": "rice-cooker",
+  "title": "电饭煲",
+  "title_en": "The Rice Cooker",
+  "eps": 6,
+  "audience": "new",
+  "levels": [
+    0,
+    2
+  ],
+  "genre": "comedy",
+  "home": {
+    "name": "你家厨房",
+    "en": "your kitchen, where 小饭 lives now"
+  },
+  "cast": {
+    "xiaofan": {
+      "name": "小饭",
+      "en": "your new smart rice cooker: cheerful, and has opinions about your life",
+      "emoji": "🍚",
+      "voice": "kid",
+      "tts": "zf_072"
+    },
+    "shifu": {
+      "name": "送货师傅",
+      "en": "the delivery man, with a trolley",
+      "emoji": "🚚",
+      "voice": "m-mid",
+      "tts": "zm_009"
+    },
+    "laoma": {
+      "name": "老妈",
+      "en": "your mum, on a video call",
+      "emoji": "👩",
+      "voice": "f-mid",
+      "tts": "zf_047"
+    },
+    "paobuji": {
+      "name": "跑步机",
+      "en": "the gym's smart treadmill, paired with 小饭",
+      "emoji": "🏃",
+      "voice": "m-mid",
+      "tts": "zm_013"
+    },
+    "bingbing": {
+      "name": "冰冰",
+      "en": "the fridge: chilly, chatty",
+      "emoji": "🧊",
+      "voice": "f-young",
+      "tts": "zf_071"
+    },
+    "saosao": {
+      "name": "扫扫",
+      "en": "the robot vacuum: cannot bear a crumb",
+      "emoji": "🤖",
+      "voice": "m-young",
+      "tts": "zm_057"
+    }
+  }
+}

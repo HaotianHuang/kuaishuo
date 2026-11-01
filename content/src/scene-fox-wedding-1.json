@@ -1,0 +1,164 @@
+{
+  "id": "fox-wedding-1",
+  "format": "scene",
+  "title": "狐嫁女",
+  "title_en": "The Fox's Wedding",
+  "level": 4,
+  "listen": 4,
+  "topics": ["celebrations"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "liaozhai", "ep": 1, "next": "Another story from 聊斋: a poor scholar, a learned old visitor who comes every night, and a room that fills with coins." },
+  "tags": ["狐嫁女", "聊斋", "婚礼"],
+  "setting": "历城, the Qing dynasty. The 殷 family's old mansion, empty for years. Your friends have dared you to last the night.",
+  "stage": "🦊",
+  "bg": ["#140a04", "#8a4a1a"],
+  "cast": {
+    "pengyou": { "name": "朋友", "en": "the friend who dared you", "emoji": "🧑", "voice": "m-young" },
+    "laoweng": { "name": "老翁", "en": "the bride's father: silk robes, a beaming host", "emoji": "🦊", "voice": "m-old" },
+    "furen": { "name": "老夫人", "en": "his wife: counts everything", "emoji": "👵", "voice": "f-old" },
+    "xinlang": { "name": "新郎", "en": "the groom, nervous and polite", "emoji": "🤵", "voice": "m-young" }
+  },
+  "steps": [
+    { "narr": "Dusk, at the gate of the 殷 mansion. Weeds to the waist. Nobody has slept here in years." },
+    { "who": "pengyou", "zh": "你敢在里面住一夜吗？", "en": "Dare you spend one night in there?", "fx": "laugh" },
+    { "who": "pengyou", "zh": "记得带点东西出来，当证据。", "en": "And bring something out with you, as proof." },
+    { "narr": "Midnight. The great hall. You lie on a mat, pretending to sleep. Then lanterns, footsteps, and a whole household in silk." },
+    { "narr": "At their head, an old gentleman. Under every hem, just for a moment, the tip of a tail.", "hold": 1 },
+    { "who": "laoweng", "zh": "咦，有客人！", "en": "Oh! We have a guest!", "fx": "enter" },
+    { "who": "laoweng", "zh": "贵客，贵客！今晚小女出嫁，请您务必赏光！", "en": "An honoured guest! Tonight my daughter marries. You must do us the honour!" },
+    { "say": {
+      "id": "greet",
+      "en": "Rise and greet him formally: you've long heard of him, and you're sorry to intrude.",
+      "cue": "Greet him.",
+      "answers": ["久仰久仰，深夜打扰，失礼了。", "久仰久仰，打扰贵府了。"],
+      "gloss": "An honour, an honour. Forgive me for intruding so late.",
+      "need": [["久仰"], ["打扰"]],
+      "key": { "久仰": "I've long heard of you" },
+      "tip": "久仰 jiǔyǎng = I've long admired you: said twice, at a first meeting. 贵府 = your honourable house.",
+      "ok": [ { "who": "laoweng", "zh": "哪里哪里！快请上座！", "en": "Not at all! Please, take the seat of honour!", "fx": "laugh" } ],
+      "fail": [ { "who": "laoweng", "zh": "贵客？", "en": "Honoured guest?" } ],
+      "levels": {
+        "3": {
+          "answers": ["久仰久仰！打扰了。", "久仰，打扰了。"],
+          "need": [["久仰"]],
+          "gloss": "An honour! Forgive the intrusion.",
+          "status": "live" },
+        "5": {
+          "answers": ["久仰久仰，深夜打扰贵府，实在失礼了。"],
+          "need": [["贵府"], ["失礼"], ["久仰"]],
+          "gloss": "An honour, an honour. To intrude on your house so late: I'm truly sorry.",
+          "status": "live" }
+      }
+    } },
+    { "who": "laoweng", "zh": "请坐上座。", "en": "The seat of honour, please." },
+    { "say": {
+      "id": "decline",
+      "en": "Decline politely: you couldn't. A lower seat will do.",
+      "cue": "Decline.",
+      "answers": ["不敢当，我坐下面就好。", "不敢当，我坐旁边就好。"],
+      "gloss": "I couldn't. A lower seat is fine for me.",
+      "need": [["不敢当"], ["就好"]],
+      "tip": "不敢当 bù gǎndāng = I don't deserve it: the polite refusal. Decline twice; accept the third time.",
+      "ok": [
+        { "who": "laoweng", "zh": "客气什么！今晚您最大！", "en": "Nonsense! Tonight you're the most important person here!" },
+        { "narr": "Twice more you decline. The third time, refusing would be rude. You sit at the head of the table." }
+      ],
+      "fail": [ { "who": "laoweng", "zh": "请，请！", "en": "Please, please!" } ],
+      "levels": {
+        "3": {
+          "answers": ["不敢当！", "不敢当，不敢当。"],
+          "need": [["不敢当"]],
+          "gloss": "I couldn't!",
+          "status": "live" },
+        "5": {
+          "answers": ["不敢当，不敢当，我坐末座就好。"],
+          "need": [["末座"], ["就好"], ["不敢当"]],
+          "gloss": "I couldn't, I couldn't. The lowest seat will do for me.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The table: wine, lanterns, and eight gold cups, each one heavy as a promise.", "prop": "🏆" },
+    { "who": "furen", "zh": "这金杯，是家里传下来的。", "en": "These gold cups have been handed down in our family." },
+    { "narr": "The groom, and a veiled bride. The old gentleman nods at you: the guest of honour gives the toast." },
+    { "say": {
+      "id": "toast",
+      "en": "Raise your cup to the couple: a hundred years of harmony!",
+      "cue": "The toast.",
+      "answers": ["祝二位百年好合，早生贵子！", "我敬二位，祝你们百年好合！"],
+      "gloss": "To you both: a hundred years of harmony!",
+      "need": [["二位"], ["百年好合"]],
+      "key": { "百年好合": "a hundred years of harmony" },
+      "tip": "百年好合 = a hundred years together, in harmony: the wedding wish. 二位 = you two, politely.",
+      "ok": [
+        { "who": "xinlang", "zh": "多谢贵客！", "en": "Thank you, honoured guest!", "fx": "laugh" },
+        { "who": "laoweng", "zh": "好！说得好！", "en": "Good! Well said!" },
+        { "sfx": "cheer" }
+      ],
+      "fail": [ { "who": "laoweng", "zh": "贵客，请说两句！", "en": "Honoured guest, a few words, please!" } ],
+      "levels": {
+        "3": {
+          "answers": ["祝二位百年好合！", "百年好合！"],
+          "need": [["百年好合"]],
+          "gloss": "A hundred years of harmony!",
+          "status": "live" },
+        "5": {
+          "answers": ["今日良辰，我敬二位一杯，祝百年好合，白头偕老！"],
+          "need": [["良辰"], ["白头偕老"], ["百年好合"]],
+          "gloss": "On this auspicious night, a cup to you both: a hundred years of harmony, and grow old together!",
+          "tip": "白头偕老 = grow white-haired together. 良辰 = an auspicious hour.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Everyone turns to the bride. Nobody is looking at you. You slip one gold cup into your sleeve: proof, for the dare.", "hold": 2 },
+    { "who": "furen", "zh": "咦……八个杯子，怎么只有七个？", "en": "Hm... eight cups, so why are there only seven?" },
+    { "who": "xinlang", "zh": "谁拿了？", "en": "Who took it?" },
+    { "narr": "The hall goes quiet. Every guest looks politely at the floor.", "hold": 2 },
+    { "who": "laoweng", "zh": "不要找了。大喜的日子。", "en": "Don't search. It's a happy day.", "pace": "slow", "hold": 1 },
+    { "narr": "He looks at you. Kindly. And waits." },
+    { "say": {
+      "id": "cup",
+      "en": "Confess and give it back, or keep it for the dare and say you saw nothing.",
+      "cue": "Confess, or nothing?",
+      "answers": ["这杯子是我拿的，对不起。", "对不起，这杯子是我拿的。"],
+      "gloss": "I took the cup. I'm sorry.",
+      "need": [["是我拿的"], ["对不起"]],
+      "tip": "是……的 says who did it: 是我拿的 = it was me who took it.",
+      "sets": { "liaozhai.fox": "return" },
+      "ok": [
+        { "narr": "You hold out the cup. The old gentleman laughs until his tail shows." },
+        { "who": "laoweng", "zh": "哈哈！好一个诚实的客人！", "en": "Ha! What an honest guest!", "fx": "laugh" },
+        { "who": "laoweng", "zh": "这杯子，送您了。拿去当证据吧。", "en": "The cup is yours. Take it as your proof." }
+      ],
+      "alts": [
+        { "en": "Or: keep it, and say you saw nothing", "answers": ["我什么也没看见。", "我……什么也没看见。"], "need": [["没看见"]], "gloss": "I didn't see a thing.",
+          "sets": { "liaozhai.fox": "keep" },
+          "then": [
+            { "who": "laoweng", "zh": "……好，好。", "en": "...Very well. Very well.", "pace": "slow" },
+            { "narr": "His eyes rest on your sleeve for exactly one second, and then move away.", "hold": 2 },
+            { "who": "laoweng", "zh": "大喜的日子。喝酒！", "en": "It's a happy day. Drink!" }
+          ] }
+      ],
+      "fail": [ { "who": "laoweng", "zh": "贵客？", "en": "Honoured guest?", "pace": "slow" } ],
+      "levels": {
+        "3": {
+          "answers": ["杯子是我拿的。", "是我拿的，对不起。"],
+          "need": [["是我拿的"]],
+          "gloss": "I took the cup.",
+          "alts": [ { "of": 0, "answers": ["我没看见。"], "need": [["没看见"]], "gloss": "I didn't see anything." } ],
+          "status": "live" },
+        "5": {
+          "answers": ["实在惭愧，这金杯是我拿的，对不起各位。"],
+          "need": [["惭愧"], ["是我拿的"], ["对不起"]],
+          "gloss": "I'm truly ashamed. I took the gold cup. My apologies to you all.",
+          "alts": [ { "of": 0, "answers": ["今晚灯太暗，我什么也没看见。"], "need": [["灯太暗"], ["没看见"]], "gloss": "The lamps are so dim tonight. I didn't see a thing." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "Dawn. The hall is empty and thick with dust, as if nobody had been there for years. Your friends find you asleep on the mat." },
+    { "who": "pengyou", "zh": "怎么样？见到什么了？", "en": "Well? See anything?" },
+    { "when": { "liaozhai.fox": "return" }, "end": "win", "en": "You show them a gold cup, given freely. Nobody believes a word. Nobody calls you a coward again, either. 🦊",
+      "else": [ { "end": "win", "en": "The gold cup is heavy in your sleeve all the way home. You did it, and you're not one bit happy. 🦊" } ] }
+  ]
+}

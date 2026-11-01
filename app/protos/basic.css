@@ -1,0 +1,13 @@
+/* The plain player (#basic): a stage, the last few lines, the answer panel. */
+.ks-basic-stage { position: absolute; inset: calc(64px + var(--safe-t)) 70px 120px var(--safe-l); display: flex; flex-direction: column; gap: 12px; }
+.ks-basic-emoji { font-size: 88px; line-height: 1; text-align: center; filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35)); }
+.ks-basic-lines { display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+.ks-basic-line { background: rgba(10, 8, 14, 0.5); border-radius: 18px; padding: 10px 14px; font-size: 22px; animation: ks-up 0.25s; }
+.ks-basic-phone { border: 1px dashed rgba(255, 255, 255, 0.35); }
+.ks-basic-who { display: block; font-size: 13px; font-weight: 700; color: var(--gold); }
+.ks-basic-narr { font-size: 16px; line-height: 1.4; color: rgba(247, 242, 232, 0.92); text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5); animation: ks-up 0.25s; }
+.ks-basic-end b { color: var(--gold); }
+.ks-basic-start { position: absolute; inset: 0; z-index: 4; display: grid; place-content: center; justify-items: center; gap: 10px; padding: 0 32px; text-align: center; border: 0; background: rgba(0, 0, 0, 0.3); }
+.ks-basic-start b { font-family: var(--display); font-weight: 400; font-size: 48px; }
+.ks-basic-start i { font-style: normal; font-weight: 800; margin-top: 8px; padding: 10px 22px; border-radius: 99px; background: var(--paper); color: var(--ink); }
+.ks-basic-done { position: absolute; z-index: 8; left: 50%; bottom: calc(150px + var(--safe-b)); transform: translateX(-50%); display: grid; justify-items: center; gap: 12px; }

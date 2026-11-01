@@ -1,0 +1,128 @@
+{
+  "id": "expectations-6",
+  "format": "scene",
+  "title": "最后一次",
+  "title_en": "The Last Visit",
+  "level": 3,
+  "listen": 3,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "expectations", "ep": 6, "next": "Season one is over." },
+  "tags": ["远大前程", "何小姐", "九点十五"],
+  "setting": "The villa on the hill above the village. Every clock still says 9:15. 何小姐 has sent for you: one last time.",
+  "stage": "🕰️",
+  "bg": ["#140e0a", "#6a5a3a"],
+  "cast": {
+    "he": { "name": "何小姐", "en": "old now, and sorry", "emoji": "👰", "voice": "f-old" },
+    "xue": { "name": "小雪", "en": "grown up, back from abroad", "emoji": "👩", "voice": "f-young" }
+  },
+  "steps": [
+    { "when": { "expectations.ep5": "hide" }, "narr": "老马 is safe in your flat. Last week he wrote to 舅舅: a long letter, in very bad handwriting.",
+      "else": [ { "narr": "A postcard from 老马, from somewhere abroad. Two words:", "zh": "好好过。", "prop": "✉️" } ] },
+    { "narr": "The villa on the hill. Every clock still says 9:15. 何小姐 is old now, and small in the big chair.", "prop": "🕰️" },
+    { "who": "he", "zh": "你来了。坐。", "en": "You came. Sit.", "pace": "slow", "hold": 1 },
+    { "who": "he", "zh": "这些钟，停了四十年。", "en": "These clocks have been stopped for forty years.", "pace": "slow" },
+    { "say": {
+      "id": "fix",
+      "en": "Offer: you'll fix the clocks.",
+      "cue": "Offer.",
+      "answers": ["这些钟，我来修。", "钟，我来修吧。"],
+      "gloss": "The clocks: I'll fix them.",
+      "need": [["钟"], ["我来修"]],
+      "key": { "修": "fix, repair" },
+      "tip": "修 xiū = fix, repair. 我来…… = let me ...",
+      "ok": [
+        { "who": "he", "zh": "……不用修。", "en": "...They don't need fixing.", "pace": "slow", "hold": 1 },
+        { "narr": "From her sleeve, a small brass key.", "prop": "🗝️" },
+        { "who": "he", "zh": "钥匙。让它们走吧。", "en": "The key. Let them go.", "pace": "slow", "hold": 2 }
+      ],
+      "fail": [ { "who": "he", "zh": "嗯？", "en": "Hm?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["我来修。", "我来修吧。"],
+          "need": [["我来修"]],
+          "gloss": "I'll fix them.",
+          "status": "live" },
+        "4": {
+          "answers": ["这些钟停了这么多年，我来修吧。"],
+          "need": [["这么多年"], ["我来修"]],
+          "gloss": "These clocks have been stopped so long. Let me fix them.",
+          "status": "live" }
+      }
+    } },
+    { "who": "he", "zh": "小雪回来了。在花园里。", "en": "小雪 is back. She's in the garden.", "pace": "slow" },
+    { "who": "he", "zh": "我教她让人伤心。", "en": "I taught her to break hearts.", "pace": "slow", "hold": 1 },
+    { "who": "he", "zh": "先伤心的，是她自己。", "en": "The first one she broke was her own.", "pace": "slow", "hold": 2 },
+    { "who": "he", "zh": "你能原谅我吗？", "en": "Can you forgive me?", "pace": "slow", "hold": 1 },
+    { "say": {
+      "id": "forgive",
+      "en": "Forgive her, or tell her honestly: not yet, but you'll try.",
+      "cue": "Forgive, or not yet?",
+      "answers": ["我原谅您。", "何小姐，我原谅您。"],
+      "gloss": "I forgive you.",
+      "need": [["原谅您"]],
+      "key": { "原谅": "forgive" },
+      "tip": "原谅 yuánliàng = forgive. 您, still: she's older, whatever she did.",
+      "sets": { "expectations.end": "forgive" },
+      "ok": [
+        { "who": "he", "zh": "……谢谢。", "en": "...Thank you.", "pace": "slow", "hold": 2 },
+        { "narr": "She cries without making a sound." }
+      ],
+      "alts": [
+        { "en": "Or: not yet, but you'll try", "answers": ["我还做不到，但是我会试试。", "还做不到，但我会试试。"], "need": [["做不到"], ["试试"]], "gloss": "I can't yet. But I'll try.",
+          "sets": { "expectations.end": "try" },
+          "then": [ { "who": "he", "zh": "……好。会试，就够了。", "en": "...Good. Trying is enough.", "pace": "slow", "hold": 2 } ] }
+      ],
+      "fail": [ { "who": "he", "zh": "你能吗？", "en": "Can you?", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["我原谅您。", "原谅您。"],
+          "need": [["原谅"]],
+          "gloss": "I forgive you.",
+          "alts": [ { "of": 0, "answers": ["我会试试。"], "need": [["试试"]], "gloss": "I'll try." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["何小姐，过去的事，我原谅您。"],
+          "need": [["过去的事"], ["原谅您"]],
+          "gloss": "何小姐, what's past: I forgive you.",
+          "alts": [ { "of": 0, "answers": ["我现在还做不到，但是我会试试。"], "need": [["现在"], ["做不到"]], "gloss": "I can't, not yet. But I'll try." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "You wind the big clock in the hall. A click. Then, for the first time in forty years:", "zh": "九点十六分", "hold": 2 },
+    { "sfx": "ding" },
+    { "narr": "In the garden: 小雪. Taller, older. This time she looks at you first." },
+    { "say": {
+      "id": "greet",
+      "en": "Greet her: you're back.",
+      "cue": "Greet her.",
+      "answers": ["小雪，你回来了。", "你回来了，小雪。"],
+      "gloss": "小雪. You're back.",
+      "need": [["小雪"], ["回来了"]],
+      "tip": "你回来了 = you're back: a whole welcome in three words.",
+      "ok": [
+        { "who": "xue", "zh": "嗯。回来了。", "en": "Yes. I'm back.", "hold": 1 },
+        { "who": "xue", "zh": "以前……对不起。", "en": "Before... I'm sorry.", "pace": "slow", "hold": 2 }
+      ],
+      "fail": [ { "who": "xue", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "2": {
+          "answers": ["你回来了。", "回来了？"],
+          "need": [["回来了"]],
+          "gloss": "You're back.",
+          "status": "live" },
+        "4": {
+          "answers": ["小雪，好久不见，你回来了。"],
+          "need": [["好久不见"], ["回来了"]],
+          "gloss": "小雪, it's been so long. You're back.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Behind you, through the open windows, every clock in the house is ticking." },
+    { "who": "xue", "zh": "我们……重新认识一下？", "en": "Shall we... start again? Meet properly?", "pace": "slow", "hold": 3 },
+    { "when": { "expectations.end": "forgive" }, "end": "win", "en": "9:16, and every clock in the house moving. Two people in a garden, starting again. Season one ends here. 🕰️",
+      "else": [ { "end": "win", "en": "9:16. Not everything is mended yet. But the clocks are going, and so are you. Season one ends here. 🕰️" } ] }
+  ]
+}

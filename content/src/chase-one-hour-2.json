@@ -1,0 +1,182 @@
+{
+  "id": "one-hour-2",
+  "format": "chase",
+  "title": "婚车",
+  "title_en": "The Wedding Car",
+  "level": 1,
+  "listen": 1,
+  "topics": ["celebrations", "travel"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "one-hour", "ep": 2, "next": "One more thing: the 伴手礼 are still at the airport." },
+  "tags": ["婚礼", "重庆", "奶奶"],
+  "setting": "The wedding, Chongqing, 12:40. The tea ceremony is at one. The 新人's grandmother isn't here.",
+  "stage": "🚡",
+  "bg": ["#2a0a1a", "#c23a5a"],
+  "cast": {
+    "baoan": { "name": "保安", "en": "the venue's guard, again", "emoji": "💂", "voice": "m-old" },
+    "siji": { "name": "婚车师傅", "en": "the wedding car's driver", "emoji": "🚗", "voice": "m-young", "phone": true },
+    "gongzuo": { "name": "工作人员", "en": "the cable car attendant", "emoji": "🎫", "voice": "m-old" },
+    "qiantai": { "name": "前台", "en": "the other hotel's front desk", "emoji": "💁", "voice": "f-young" },
+    "songnai": { "name": "宋奶奶", "en": "the 新人's grandmother, in red", "emoji": "👵", "voice": "f-old" }
+  },
+  "chase": {
+    "name": "时间", "en": "the clock", "emoji": "⏰",
+    "start": 20, "close": 1, "gain": 9, "loss": 5, "max": 25,
+    "caught": [
+      { "narr": "One o'clock. The tea is poured. One chair is empty." },
+      { "who": "songnai", "zh": "我来了！我来了！", "en": "I'm here! I'm here!", "fx": "enter" },
+      { "end": "lose", "en": "宋奶奶 arrives for the last cup, still dancing. Run that back. 🍵" }
+    ]
+  },
+  "steps": [
+    { "when": { "one-hour.ep1": "calm" }, "who": "baoan", "zh": "又是你？快去吧！", "en": "You again? Off you go!",
+      "else": [ { "narr": "You run out. Three hundred guests cheer you on." } ] },
+    { "narr": "12:40. The wedding car took 宋奶奶, in red, to the wrong hotel: same name, across the river.", "zh": "还有二十分钟！" },
+    { "say": {
+      "id": "call",
+      "obstacle": "📞",
+      "en": "Call the wedding car's driver: where are you?",
+      "answers": ["师傅，你在哪儿？", "师傅，您在哪儿？", "师傅你在哪？"],
+      "gloss": "Where are you?",
+      "need": [["在哪"]],
+      "time": 8,
+      "tip": "你在哪儿？ = where are you?",
+      "ok": [ { "who": "siji", "zh": "江对面的金龙酒店！名字一样嘛！", "en": "The 金龙 Hotel, across the river! Same name!" } ],
+      "fail": [ { "who": "siji", "zh": "喂？喂？", "en": "Hello? Hello?" } ],
+      "levels": {
+        "2": {
+          "answers": ["师傅，你现在在哪儿？", "师傅，您现在在哪儿？"],
+          "need": [["现在"], ["在哪"]],
+          "gloss": "Where are you right now?",
+          "status": "live" },
+        "3": {
+          "answers": ["师傅，你现在在哪儿？奶奶呢？", "师傅，您现在在哪儿？奶奶呢？"],
+          "need": [["在哪"], ["奶奶"]],
+          "gloss": "Where are you now? Where's Grandma?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The 长江索道: a cable car across the river. The doors are closing." },
+    { "say": {
+      "id": "cable",
+      "obstacle": "🚡",
+      "en": "Wait for me!",
+      "answers": ["等等我！", "等一下！", "等等！"],
+      "gloss": "Wait for me!",
+      "need": [["等等", "等一下"]],
+      "time": 7,
+      "tip": "等等 děngdeng = wait (a moment): 等等我！",
+      "ok": [ { "who": "gongzuo", "zh": "快上快上！", "en": "In, in!" } ],
+      "fail": [ { "who": "gongzuo", "zh": "下一班！", "en": "Next one!" } ],
+      "levels": {
+        "2": {
+          "answers": ["等等我，我要上去！", "等一下，我要上去！"],
+          "need": [["等等", "等一下"], ["上去"]],
+          "gloss": "Wait, I'm getting on!",
+          "status": "live" },
+        "3": {
+          "answers": ["等等我！求您了，我要上去！", "等一下！求您了，让我上去！"],
+          "need": [["求您"], ["上去"]],
+          "gloss": "Wait! Please, let me on!",
+          "tip": "求您了 = I'm begging you: as polite as panic gets.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The river, far below. Then the other bank, and the other 金龙酒店." },
+    { "say": {
+      "id": "desk",
+      "obstacle": "🏨",
+      "en": "Ask the front desk: is there a grandmother here?",
+      "answers": ["请问，有没有一位奶奶？", "有没有一位奶奶？", "你好，看见一位奶奶吗？"],
+      "gloss": "Excuse me, is there a grandmother here?",
+      "need": [["奶奶"]],
+      "time": 9,
+      "tip": "一位 yí wèi = one (person), politely. 有没有……？ = is there ...?",
+      "ok": [ { "who": "qiantai", "zh": "三楼，婚礼。她在跳舞。", "en": "Third floor, a wedding. She's dancing." } ],
+      "fail": [ { "who": "qiantai", "zh": "您好，请问入住吗？", "en": "Hello, checking in?" } ],
+      "levels": {
+        "2": {
+          "answers": ["有穿红衣服的奶奶吗？", "请问，有穿红衣服的奶奶吗？"],
+          "need": [["红衣服"], ["奶奶"]],
+          "gloss": "Is there a grandmother in red here?",
+          "status": "live" },
+        "3": {
+          "answers": ["刚才有位穿红衣服的奶奶吗？", "刚才有穿红衣服的奶奶来吗？"],
+          "need": [["刚才"], ["红衣服"]],
+          "gloss": "Did a grandmother in red come in just now?",
+          "status": "live" }
+      }
+    } },
+    { "narr": "The lift, packed with waiters and a wedding cake." },
+    { "say": {
+      "id": "lift",
+      "again": "cable",
+      "obstacle": "🛗",
+      "en": "Wait! You're getting in too!",
+      "answers": ["等等我！我也上！", "等一下，我也上！", "等等！"],
+      "gloss": "Wait, me too!",
+      "need": [["等等", "等一下"]],
+      "time": 7,
+      "tip": "我也 = me too.",
+      "ok": [ { "narr": "Someone holds the door. Third floor." } ],
+      "fail": [ { "who": "qiantai", "zh": "电梯满了！", "en": "The lift's full!" } ],
+      "levels": {
+        "2": {
+          "answers": ["等等，我也要上去！", "等一下，我也要上去！"],
+          "need": [["等等", "等一下"], ["上去"]],
+          "gloss": "Wait, I need to go up too!",
+          "status": "live" },
+        "3": {
+          "answers": ["等等！求您了，我也要上去！", "等一下！求您了，让我也上去！"],
+          "need": [["求您"], ["上去"]],
+          "gloss": "Wait! Please, I need to go up too!",
+          "status": "live" }
+      }
+    } },
+    { "narr": "Third floor. Somebody else's wedding. In the middle of the dance floor, in red: 宋奶奶." },
+    { "who": "songnai", "zh": "来来来！一起跳！都是喜事！", "en": "Come on, come on! Dance! It's all good news!", "fx": "jump" },
+    { "say": {
+      "id": "go",
+      "obstacle": "💃",
+      "en": "Take her back now, or let her finish the dance.",
+      "answers": ["奶奶，我们走吧！", "奶奶，快走吧！", "奶奶，该走了！"],
+      "gloss": "Grandma, let's go!",
+      "need": [["我们走", "快走", "该走"]],
+      "key": { "我们走": "let's go" },
+      "time": 9,
+      "tip": "该……了 = it's time to ...: 该走了.",
+      "sets": { "one-hour.ep2": "now" },
+      "ok": [ { "who": "songnai", "zh": "好好好，走！", "en": "All right, all right, let's go!" } ],
+      "alts": [
+        { "en": "Or: let her finish", "answers": ["跳完再走！", "跳完这首再走吧！"], "need": [["跳完"]], "gloss": "Finish the dance, then go!",
+          "key": { "跳完": "finish dancing" },
+          "sets": { "one-hour.ep2": "dance" },
+          "then": [
+            { "narr": "One song with 宋奶奶 and two hundred strangers." },
+            { "who": "songnai", "zh": "好了，走！", "en": "Right. Let's go!" }
+          ] }
+      ],
+      "fail": [ { "who": "songnai", "zh": "来来来！一起跳！", "en": "Come on, dance!" } ],
+      "levels": {
+        "2": {
+          "answers": ["奶奶，茶要凉了，我们走吧！", "奶奶，敬茶要开始了，快走吧！"],
+          "need": [["奶奶"], ["茶"]],
+          "gloss": "Grandma, the tea's getting cold. Let's go!",
+          "alts": [ { "of": 0, "answers": ["奶奶，跳完这首再走！"], "need": [["跳完"], ["这首"]], "gloss": "Grandma, finish this one, then we go!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["奶奶，新人等您喝茶，快走吧！", "奶奶，新人要给您敬茶，快走吧！"],
+          "need": [["新人"], ["我们走", "快走", "该走"]],
+          "gloss": "Grandma, the couple are waiting to serve you tea. Let's go!",
+          "alts": [ { "of": 0, "answers": ["好，跳完这首我们再走！", "跳完这首，我们马上走！"], "need": [["跳完"], ["马上", "再走"]], "gloss": "All right: this one, then straight back!" } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "12:59. You burst in with 宋奶奶. The tea is poured.", "finale": true, "prop": "🍵" },
+    { "who": "songnai", "zh": "这个婚礼，比那个好！", "en": "This wedding's better than that one!", "fx": "laugh" },
+    { "when": { "one-hour.ep2": "now" }, "end": "win", "en": "Tea at one exactly. 宋奶奶 tells every guest about the other wedding. 🍵",
+      "else": [ { "end": "win", "en": "Tea at one exactly, just. 宋奶奶 is still humming the other wedding's song. 🍵" } ] }
+  ]
+}

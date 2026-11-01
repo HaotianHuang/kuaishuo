@@ -1,0 +1,113 @@
+{
+  "id": "airport-esim",
+  "format": "scene",
+  "title": "手机没信号",
+  "title_en": "No Signal at Arrivals",
+  "level": 2,
+  "topics": ["travel"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "tags": ["真事儿", "机场", "借手机", "救急"],
+  "write": ["信号", "借", "骗子"],
+  "setting": "Shanghai Pudong, arrivals hall, 11:47 pm.",
+  "stage": "✈️",
+  "bg": ["#12305c", "#3f7fd6"],
+  "cast": {
+    "uncle": { "name": "大叔", "en": "a man with a thermos", "emoji": "🧔", "voice": "m-mid" },
+    "lin": { "is": "xiaolin", "name": "小林", "en": "your friend", "emoji": "👩", "voice": "f-young", "phone": true }
+  },
+  "steps": [
+    { "narr": "Your eSIM is dead. Xiao Lin's outside; you can't call her. 📵", "zh": "手机卡没信号，小林在外面等，你却打不了电话。", "arrive": "uncle" },
+    { "who": "uncle", "zh": "你怎么了？手机坏了？", "en": "What's wrong? Is your phone broken?" },
+    { "say": {
+      "id": "nosignal",
+      "en": "Tell him your phone has no signal.",
+      "answers": ["我手机没信号了。", "我的手机没有信号。", "手机没信号。", "我手机没网了。", "我的手机没信号了。"],
+      "gloss": "My phone's got no signal.",
+      "need": [["信号", "网", "没有服务", "坏了", "用不了", "打不了"]],
+      "time": 15,
+      "tip": "信号 xìnhào = signal. 没信号了: the 了 says it has just stopped working.",
+      "ok": [
+        { "who": "uncle", "zh": "哦，那你连一下机场的网嘛。", "en": "Oh, then just connect to the airport Wi-Fi." },
+        { "narr": "The airport Wi-Fi wants a code by text message. To your phone. Which has no signal.", "zh": "机场的网要短信验证码，可你的手机没信号。" }
+      ],
+      "fail": [ { "who": "uncle", "zh": "啊？你说什么？", "en": "Huh? What did you say?", "fx": "squint" } ],
+      "cue": "No signal!",
+      "miss": [ { "who": "uncle", "zh": "没信号吧？我猜也是。", "en": "No signal, huh? Thought so.", "fx": "squint" } ],
+      "levels": { "0": { "answers": ["没信号！", "没信号了！", "没网了！"], "gloss": "No signal!", "tip": "没信号 = no signal.", "status": "live" } }
+    } },
+    { "say": {
+      "id": "borrow",
+      "en": "Ask if you can borrow his phone to make a call.",
+      "gloss": "Could I borrow your phone to make a call?",
+      "answers": ["大叔，能借您的手机打个电话吗？", "能借你的手机打个电话吗？", "可以借一下您的手机吗？", "我能用一下你的手机吗？", "借我手机打个电话，可以吗？", "能打个电话吗？"],
+      "need": [["借", "用", "打个电话", "打电话"], ["手机", "电话"]],
+      "not": [ { "heard": ["借给你"], "note": "借给你 is 'lend to you': you want 借你的手机." } ],
+      "time": 15,
+      "tip": "借 jiè = borrow. To an older stranger, 您 (the polite 你) is the warmer choice. 打个电话 = make a quick call.",
+      "mistakes": [ { "heard": ["借给你"], "note": "借给你 means 'lend to you'. You want 借你的手机 (borrow your phone)." } ],
+      "ok": [ { "who": "uncle", "zh": "借手机？你不会是骗子吧？", "en": "Borrow my phone? You're not a scammer, are you?", "fx": "squint" } ],
+      "fail": [ { "who": "uncle", "zh": "嗯？你要干嘛？", "en": "Hm? What do you want?", "fx": "squint" } ],
+      "cue": "You need the uncle's phone.",
+      "miss": [
+        { "who": "uncle", "zh": "没事儿的话，我先走了啊。", "en": "Well, if that's all, I'll be off.", "fx": "leave" },
+        { "end": "lose", "en": "Xiao Lin gives up and drives home. You spend the night on a bench at Exit 3. 🪑", "zh": "小林等不到你，开车回家了。你在三号出口睡了一夜。" }
+      ],
+      "levels": { "0": { "answers": ["借一下手机？", "手机借我用一下？", "能打个电话吗？", "借我打个电话？"], "need": [["借", "用", "打电话", "打个电话"]], "gloss": "Can I borrow your phone?", "tip": "借一下 = borrow for a moment.", "status": "live" } }
+    } },
+    { "say": {
+      "id": "notscam",
+      "en": "Reassure him: you're not a scammer, it'll only take a minute.",
+      "gloss": "Don't worry, I'm not a scammer. Just one minute!",
+      "answers": ["放心，我不是骗子，就一分钟！", "我不是骗子，就打一分钟。", "就一分钟，马上还你。"],
+      "need": [["骗子", "放心", "一分钟", "马上", "很快"]],
+      "not": [ { "heard": ["我是骗子", "就是骗子"], "note": "That says you ARE one: 我不是骗子." } ],
+      "time": 15,
+      "tip": "放心 fàngxīn = don't worry (literally 'put your heart down'). 就一分钟 = just one minute.",
+      "alts": [
+        { "en": "Offer him your passport as a deposit", "answers": ["我把护照押给你。", "护照押在你这儿。"], "gloss": "I'll leave my passport with you as a deposit.", "need": [["护照"]],
+          "then": [ { "who": "uncle", "zh": "哈哈，护照就不用了！你这人真逗。给，打吧。", "en": "Ha! Keep your passport. You're a funny one. Here, go ahead.", "fx": "laugh" } ] }
+      ],
+      "ok": [ { "who": "uncle", "zh": "哈哈，开玩笑的。给，你打吧。", "en": "Haha, just kidding. Here, go ahead.", "fx": "give" } ],
+      "fail": [ { "who": "uncle", "zh": "嗯……我还是不太放心。", "en": "Hmm... I'm still not so sure about this." } ],
+      "cue": "He thinks you're a scammer.",
+      "miss": [ { "who": "uncle", "zh": "算了，你打吧，我在旁边盯着。", "en": "Fine, make your call. I'll be watching you.", "fx": "give" } ],
+      "levels": { "0": { "answers": ["我不是骗子！", "不是骗子！", "放心！", "就一分钟！"], "gloss": "I'm not a scammer!", "alts": [{ "of": 0, "answers": ["护照给你！", "我的护照给你！"], "gloss": "Here, take my passport!" }], "status": "live" } }
+    } },
+    { "sfx": "ring" },
+    { "who": "lin", "zh": "喂？哪位？", "en": "Hello? Who's this?" },
+    { "say": {
+      "id": "itsme",
+      "en": "Tell her it's you, and you're at Exit 3.",
+      "gloss": "It's me! I'm at Exit 3.",
+      "answers": ["是我！我在三号出口。", "喂，是我，我在三号门这儿。", "是我，我在三号口。"],
+      "need": [["是我", "我是"], ["三号"]],
+      "time": 15,
+      "tip": "是我 = it's me. 三号出口 = exit number three; 号 works like 'No.'",
+      "ok": [ { "who": "lin", "zh": "你怎么用别人的手机？算了，我马上到，别乱跑！", "en": "Why are you on someone else's phone? Never mind, I'll be right there. Don't wander off!" } ],
+      "fail": [ { "who": "lin", "zh": "喂？喂？说话呀！", "en": "Hello? Hello? Say something!" } ],
+      "cue": "It's you. Exit 3.",
+      "miss": [
+        { "who": "lin", "zh": "不说话？又是骗子电话吧！", "en": "Nothing? Another scam call, I bet!", "fx": "angry" },
+        { "sfx": "buzz" },
+        { "end": "lose", "en": "Xiao Lin hangs up and blocks the number. The uncle's phone is now on her scam list.", "zh": "小林挂了电话，还把大叔的号码拉黑了。" }
+      ],
+      "levels": { "0": { "answers": ["是我！三号出口！", "三号出口！", "我在三号！"], "need": [["三号"]], "gloss": "It's me! Exit 3!", "status": "live" } }
+    } },
+    { "say": {
+      "id": "thanks",
+      "en": "Give the phone back and thank him: he saved you.",
+      "gloss": "Thank you so much, you've saved me!",
+      "answers": ["太谢谢您了，您真是救了我！", "谢谢你，你帮了我大忙了！", "谢谢您，您救了我一命！", "谢谢您！", "谢谢！"],
+      "need": [["谢"]],
+      "time": 15,
+      "tip": "帮了我大忙 = did me a big favour. 救了我 = saved me. 您 is the polite 你.",
+      "ok": [ { "who": "uncle", "zh": "客气啥！出门在外，谁还没个难处。", "en": "Don't mention it! Away from home, everyone hits a rough patch.", "fx": "laugh" } ],
+      "cue": "He saved you.",
+      "miss": [ { "who": "uncle", "zh": "连声谢谢都没有？现在的年轻人啊……", "en": "Not even a thank-you? Young people these days...", "fx": "shake" } ],
+      "levels": { "0": { "answers": ["谢谢您！", "谢谢！", "太谢谢了！"], "gloss": "Thank you!", "tip": "谢谢您: 您 is the polite 你.", "status": "live" } }
+    } },
+    { "end": "win", "en": "Xiao Lin pulls up, honking. Saved by a stranger with a thermos.", "zh": "小林按着喇叭开过来了。" }
+  ]
+}

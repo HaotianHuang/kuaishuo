@@ -1,0 +1,11 @@
+/* Mix: the opening card and the end card; the rest is each format's own look. */
+.ks-mix-intro { display: grid; place-items: center; background: radial-gradient(100% 60% at 50% 30%, #3b1420, #0f0d13 70%); }
+.ks-mix-in { display: grid; justify-items: center; gap: 20px; padding: 0 var(--safe-r) 0 var(--safe-l); max-width: 420px; text-align: center; }
+.ks-mix-in p { margin: 0; color: var(--mute); }
+.ks-mix-logo { font-family: var(--display); font-weight: 400; font-size: 88px; line-height: 1; color: var(--red); }
+.ks-mix-how { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; text-align: left; font-size: 17px; }
+.ks-mix-how li { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: start; }
+.ks-mix-how span { font-size: 24px; line-height: 1.1; }
+.ks-mix-mic { font-style: normal; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--red); font-size: 14px; vertical-align: -6px; }
+.ks-mix-up { font-weight: 700; animation: ks-bob2 1.4s ease-in-out infinite; }
+@keyframes ks-bob2 { 50% { transform: translateY(-8px); } }

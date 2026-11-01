@@ -1,0 +1,130 @@
+{
+  "id": "fake-ghosts",
+  "title": "假鬼社",
+  "title_en": "The Fake Ghost Club",
+  "eps": 6,
+  "audience": "all",
+  "levels": [
+    1,
+    3
+  ],
+  "genre": "mystery",
+  "home": {
+    "name": "假鬼社",
+    "en": "a university club in Chengdu that investigates hauntings: every ghost so far has been someone with a reason"
+  },
+  "cast": {
+    "le": {
+      "name": "阿乐",
+      "en": "the club's loudest member: brave, until something moves",
+      "emoji": "🙋",
+      "voice": "m-young",
+      "tts": "zm_012"
+    },
+    "yu": {
+      "name": "小雨",
+      "en": "has read everything, notices everything",
+      "emoji": "🤓",
+      "voice": "f-young",
+      "tts": "zf_042"
+    },
+    "guo": {
+      "name": "果果",
+      "en": "films it all on a phone held very still",
+      "emoji": "📹",
+      "voice": "f-young",
+      "tts": "zf_001"
+    },
+    "baozi": {
+      "name": "包子",
+      "en": "the club's cat: runs from every ghost, finds every clue",
+      "emoji": "🐱",
+      "voice": "kid",
+      "tts": "zf_085"
+    },
+    "jiang": {
+      "name": "蒋叔",
+      "en": "owner of 老蒋火锅, a hot-pot restaurant with a ghost",
+      "emoji": "👨‍🍳",
+      "voice": "m-old",
+      "tts": "zm_098"
+    },
+    "pan": {
+      "name": "小潘",
+      "en": "老蒋火锅's night cook",
+      "emoji": "🧑‍🍳",
+      "voice": "m-young",
+      "tts": "zm_056"
+    },
+    "fang": {
+      "name": "小芳",
+      "en": "a delivery rider who brings 蒋叔 his late supper",
+      "emoji": "🛵",
+      "voice": "f-mid",
+      "tts": "zf_023"
+    },
+    "deng": {
+      "name": "邓阿姨",
+      "en": "the KTV's night cleaner; sang once, for a living",
+      "emoji": "🧹",
+      "voice": "f-old",
+      "tts": "zf_094"
+    },
+    "he": {
+      "name": "何经理",
+      "en": "the KTV's manager: tired, and sure it's haunted",
+      "emoji": "👔",
+      "voice": "m-mid",
+      "tts": "zm_013"
+    },
+    "xu": {
+      "name": "老许",
+      "en": "a regular: calls himself the king of songs",
+      "emoji": "🎤",
+      "voice": "m-old",
+      "tts": "zm_033"
+    },
+    "bai": {
+      "name": "白老师",
+      "en": "the university librarian",
+      "emoji": "📚",
+      "voice": "f-mid",
+      "tts": "zf_047"
+    },
+    "lu": {
+      "name": "老鲁",
+      "en": "the library's night guard",
+      "emoji": "🔦",
+      "voice": "m-old",
+      "tts": "zm_014"
+    },
+    "zhong": {
+      "name": "小钟",
+      "en": "a student cramming for 考研 who never leaves the library",
+      "emoji": "📖",
+      "voice": "f-young",
+      "tts": "zf_071"
+    },
+    "qishou": {
+      "name": "骑手",
+      "en": "a courier in a black hood, head down, who rides the campus at night",
+      "emoji": "🛵",
+      "voice": "m-young",
+      "tts": "zm_057"
+    },
+    "laoban": {
+      "name": "烧烤摊老板",
+      "en": "runs the late-night barbecue stall by the dorms",
+      "emoji": "🍢",
+      "voice": "m-mid",
+      "tts": "zm_015"
+    },
+    "ke": {
+      "name": "柯老师",
+      "en": "the club's first president, now the campus vet",
+      "emoji": "🩺",
+      "voice": "f-mid",
+      "tts": "zf_036"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>About 快说 Kuài Shuō</title>
+<meta name="description" content="What 快说 is, who it's for, what stays on your phone (everything it learns) and what leaves it.">
+<meta name="theme-color" content="#0f0d13">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&amp;display=swap&amp;text=%E5%BF%AB%E8%AF%B4">
+<!-- About 快说 (docs/v2/web.md §3): what it is, what stays on the phone and what leaves it, how it's made, who made it.
+     In the game's look (ks.css's colours), whole without JavaScript (the CSP lets no inline script run anyway), every
+     claim true to the code: what's kept is store.js's and events.js's (localStorage, ks.*), what leaves is speech.js's
+     recogniser and voice, index.html's font, the host, and tally.js's daily totals (every key it sends, named); files.js fetches only beside the page. web.json's fields
+     fill {{…}} (pack.mjs --web, serve.mjs from the source tree), and a line with data-needs goes when its field is
+     empty. Links are from the site's root, as 404.html's must be. -->
+<style>
+:root { color-scheme: dark; --ink: #0f0d13; --ink-2: #1a1720; --line: #3a3544; --paper: #f7f2e8; --mute: #aaa3b5; --red: #ff4d5e; --gold: #ffc53d; --jade: #35d49c; --sky: #69b7ff;
+  --display: 'ZCOOL KuaiLe', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
+html { background: var(--ink); -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ink); color: var(--paper); font: 16px/1.55 var(--body); -webkit-font-smoothing: antialiased; }
+main { box-sizing: border-box; max-width: 640px; margin: 0 auto; padding: calc(24px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(40px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.mark { display: inline-flex; align-items: baseline; gap: 10px; color: var(--mute); font-size: 14px; font-weight: 700; text-decoration: none; }
+.mark b { font: 400 48px/1 var(--display); color: var(--red); }
+h1 { margin: 18px 0 12px; font-size: 26px; line-height: 1.25; text-wrap: balance; }
+h2 { margin: 36px 0 10px; font-size: 19px; line-height: 1.3; color: var(--gold); }
+p, ul { margin: 0 0 12px; }
+ul { padding-left: 20px; }
+li { margin: 0 0 8px; }
+li::marker { color: var(--mute); }
+b { font-weight: 700; }
+a { color: var(--sky); text-underline-offset: 3px; }
+.box { margin: 0 0 12px; padding: 12px 14px; border-radius: 14px; background: var(--ink-2); border: 1px solid var(--line); }
+.box ul { margin: 0; }
+.box li:last-child { margin: 0; }
+.stays { border-left: 3px solid var(--jade); }
+.leaves { border-left: 3px solid var(--sky); }
+.small { font-size: 13px; color: var(--mute); }
+.play { display: inline-block; margin: 28px 0 0; padding: 12px 24px; border-radius: 99px; background: var(--paper); color: var(--ink); font-weight: 700; text-decoration: none; }
+[lang|=zh] { font-family: var(--body); }
+.mark b[lang|=zh] { font-family: var(--display); }
+</style>
+</head>
+<body>
+<main>
+<a class="mark" href="/"><b lang="zh-CN">快说</b><span>Kuài Shuō · About</span></a>
+
+<h1>Tiny, ridiculous emergencies in Mandarin. When the scene stops, it’s your line.</h1>
+<p>快说 is speaking practice in short, absurd stories: you’ve landed at Pudong and your phone has no signal, a goose is chasing you round a farm, your mum is calling. Each story stops for you to say your line out loud, and goes on from what you said.</p>
+<p>It’s for people who understand more Chinese than they can say, who grew up hearing it at home and want to answer back, and for beginners too. It’s free and plays in the browser, with nothing to sign up for.</p>
+
+<h2>What stays on your phone: everything the game learns</h2>
+<div class="box stays"><ul>
+<li>Your progress, the phrases you’ve met and when each comes back for review, what the game has worked out about your Chinese, what you’ve told it about you, your settings, and a log of what you’ve played: all of it lives in this browser’s storage, on this device. None of it is sent anywhere; only daily totals counted from it are (below).</li>
+<li>No account, no sign-up, no email. No cookies, no ads, and nothing that tells your phone apart from anyone else’s.</li>
+<li>The words you say aren’t kept. The game keeps whether a line was right, its stars and how long you took, not what you said. (The one exception is a reply you tap “That should count” on: it stays here so you can see it, under Your phrases.)</li>
+<li><b>Settings → Start over</b> deletes all of it.</li>
+</ul></div>
+
+<h2>What leaves your phone</h2>
+<div class="box leaves"><ul>
+<li><b>Your voice, while you answer out loud,</b> goes to your browser’s speech recogniser, which turns it into text for the game to judge. Chrome sends the audio to Google to do that (Edge, to Microsoft); Safari uses Apple’s recogniser, which can send it to Apple. Firefox has none, so there you type or tap your answers. The game itself never records your voice or sends it anywhere.</li>
+<li><b>The lettering</b> of 快说’s name and headings (the ZCOOL KuaiLe font) comes from Google Fonts, so Google sees the request for it.</li>
+<li><b>The pages and their files</b> come from our host, Cloudflare, which sees each request, as the host of any website does.</li>
+<li><b>A word you tap to hear</b> is read by your browser’s own voice, on your device where it has one; where a browser only has an online voice (some of Chrome’s), the word goes to it to be read.</li>
+<li><b>Daily totals of play,</b> added to everyone else’s, so we can see what works: stories begun, finished or left, lines answered and whether they were right (by line, so we find the ones the game judges wrong), time played, the browser and kind of device, whether it has a speech recogniser, its language setting, the site that sent you here, how many chose each answer on the About you card, your age as a band, and how many days since you first played (so we can tell if people come back). Never an id, a cookie, the time of day, or anything you typed or said; your IP address isn’t kept, only the country Cloudflare says you’re in.</li>
+<li><b>“Something sound wrong?”</b> opens an email in your own mail app, addressed to us, with the lines you just played, what was heard and your browser in it. You see it, and can change it, before you send it: the game sends nothing by itself.</li>
+</ul></div>
+<p>Nothing else leaves: the game only fetches its own files and sends those totals.</p>
+
+<h2>How it’s made</h2>
+<p>The stories are drafted with AI and checked by machine before they go live: the Chinese, the pinyin and the story checked by validators, every voice clip heard back by two speech recognisers, and every story played through at each of its levels by a test. The first twenty were played and approved by a person too; most of the rest haven’t been yet, so if something sounds wrong, tell us. The voices are synthesised, by ElevenLabs and Kokoro, and the pixel art is drawn by code. Your answers are judged in your browser, by the game itself.</p>
+<p class="small">Word meanings: CC-CEDICT (CC BY-SA 4.0). Stroke order: Hanzi Writer and Make Me a Hanzi.</p>
+
+<h2>Who made it</h2>
+<p data-needs="by">快说 is made by {{by}}.</p>
+<p data-needs="contact">Write to us at <!--email_off--><a href="mailto:{{contact}}">{{contact}}</a><!--/email_off-->: a line that judged you wrong, a voice that sounds off, a story you’d like, anything.</p>
+<p data-needs="url">It lives at <a href="{{url}}">{{url}}</a>.</p>
+
+<a class="play" href="/">Play 快说</a>
+</main>
+</body>
+</html>

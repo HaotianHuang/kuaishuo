@@ -1,0 +1,13 @@
+# The Cloudflare Pages project kuaishuo (kuaishuo.freelearninggame.com). web/ is served as pack.mjs --web leaves it;
+# functions/ is the API: /api/count takes the daily totals the app sends (app/shared/tally.js), /api/stats gives them
+# to numbers.html with the admin key. Secrets, set with `wrangler pages secret put <NAME> --project-name kuaishuo`:
+#   ADMIN_KEY  opens numbers.html
+name = "kuaishuo"
+pages_build_output_dir = "web"
+compatibility_date = "2025-02-24"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "kuaishuo"
+# made by `wrangler d1 create kuaishuo` (1 Nov 2026); its tables: schema.sql
+database_id = "d1adbc77-39a8-4f75-8e0b-8a88dca64ec4"

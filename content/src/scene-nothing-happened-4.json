@@ -1,0 +1,162 @@
+{
+  "id": "nothing-happened-4",
+  "format": "scene",
+  "title": "外套",
+  "title_en": "The Jacket",
+  "level": 2,
+  "listen": 2,
+  "topics": ["dating"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "nothing-happened", "ep": 4, "next": "那个人 has sent a message with more than one character: 嗯嗯。" },
+  "tags": ["没什么事", "外套", "面馆"],
+  "setting": "The noodle shop, Monday lunchtime, the same table. 阿峰 has a jacket in a carrier bag on his knees.",
+  "stage": "🧥",
+  "bg": ["#2a1a10", "#c47a3a"],
+  "cast": {
+    "feng": { "name": "阿峰", "en": "overthinks everything", "emoji": "😰", "voice": "m-young" },
+    "mei": { "name": "小美", "en": "has a theory for everything", "emoji": "💁", "voice": "f-young" },
+    "qin": { "name": "老秦", "en": "calm, and wrong", "emoji": "😌", "voice": "m-mid" },
+    "tian": { "name": "甜甜", "en": "knows someone who knows", "emoji": "🙆", "voice": "f-young" }
+  },
+  "steps": [
+    { "when": { "nothing-happened.ep3": "counts" }, "who": "feng", "zh": "这件衣服，算过人的。", "en": "This jacket counted as a person, you know.", "fx": "laugh",
+      "else": [ { "who": "feng", "zh": "你说衣服不算人……我现在还难受。", "en": "You said a jacket doesn't count as a person... I still feel bad." } ] },
+    { "who": "feng", "zh": "今天下午，我要还给那个人。当面。", "en": "This afternoon I'm giving it back to them. In person.", "hold": 1 },
+    { "who": "mei", "zh": "先洗一下。", "en": "Wash it first.", "pace": "fast" },
+    { "who": "qin", "zh": "不能洗。洗了，人家以为你嫌弃。", "en": "Don't wash it. They'll think you found it dirty.", "pace": "fast" },
+    { "who": "tian", "zh": "我朋友说，要叠成方块。", "en": "A friend of mine says you fold it into a square.", "pace": "fast" },
+    { "say": {
+      "id": "wash",
+      "en": "Advise 阿峰: wash it, then give it back.",
+      "cue": "Wash it?",
+      "answers": ["洗一下再还吧。", "洗一下再还给人家吧。"],
+      "gloss": "Wash it, then give it back.",
+      "need": [["洗一下"], ["再还"]],
+      "tip": "再 zài = then (after that): 洗一下再还 = wash it, and then return it.",
+      "ok": [
+        { "who": "feng", "zh": "……洗了。洗了三遍。", "en": "...I've washed it. Three times.", "hold": 1 },
+        { "who": "mei", "zh": "那叠了吗？", "en": "And folded it?" }
+      ],
+      "fail": [ { "who": "feng", "zh": "洗？不洗？", "en": "Wash it? Don't?" } ],
+      "levels": {
+        "1": {
+          "answers": ["洗一下！", "洗一下吧。"],
+          "need": [["洗一下"]],
+          "gloss": "Wash it!",
+          "status": "live" },
+        "3": {
+          "answers": ["还是洗一下再还吧，干净点。"],
+          "need": [["干净"], ["再还"]],
+          "gloss": "Better wash it first, then give it back. Cleaner.",
+          "status": "live" }
+      }
+    } },
+    { "who": "feng", "zh": "我该说什么？", "en": "What do I say?" },
+    { "who": "qin", "zh": "什么都别说。放下就走。", "en": "Say nothing. Put it down and walk away.", "pace": "fast" },
+    { "who": "mei", "zh": "说谢谢就行。来，练一下。", "en": "Just say thank you. Come on, practise." },
+    { "say": {
+      "id": "line",
+      "en": "Rehearse his line with him: thank you for your jacket.",
+      "cue": "His line.",
+      "answers": ["谢谢你的外套。", "你就说：谢谢你的外套。"],
+      "gloss": "Thank you for your jacket.",
+      "need": [["谢谢你"], ["外套"]],
+      "key": { "外套": "jacket" },
+      "tip": "外套 wàitào = jacket, coat. 谢谢你的…… = thank you for your ...",
+      "ok": [
+        { "who": "feng", "zh": "谢谢你的……外……外套。", "en": "Thank you for your... j-j-jacket.", "pace": "fast" },
+        { "who": "tian", "zh": "再来一遍。", "en": "Again." },
+        { "who": "feng", "zh": "谢谢你的外套。", "en": "Thank you for your jacket.", "hold": 1 }
+      ],
+      "fail": [ { "who": "feng", "zh": "谢谢什么？", "en": "Thank them for what?" } ],
+      "levels": {
+        "1": {
+          "answers": ["谢谢！", "谢谢你的外套。"],
+          "need": [["谢谢"]],
+          "gloss": "Thank you!",
+          "status": "live" },
+        "3": {
+          "answers": ["你就说：上次谢谢你的外套。"],
+          "need": [["上次"], ["外套"]],
+          "gloss": "Just say: thank you for the jacket, last time.",
+          "status": "live" }
+      }
+    } },
+    { "who": "feng", "zh": "要是那个人说不客气呢？要是不说话呢？要是……", "en": "What if they say you're welcome? What if they say nothing? What if...", "pace": "fast" },
+    { "say": {
+      "id": "calm",
+      "en": "Calm him down: don't overthink it!",
+      "cue": "Calm him.",
+      "answers": ["阿峰，别想太多！", "别想太多了！"],
+      "gloss": "阿峰, don't overthink it!",
+      "need": [["别想太多"]],
+      "tip": "别想太多 = don't think too much: the friend's cure for everything.",
+      "ok": [ { "who": "feng", "zh": "……好。好。", "en": "...OK. OK.", "hold": 1 } ],
+      "fail": [ { "who": "feng", "zh": "要是……要是……", "en": "What if... what if...", "pace": "fast" } ],
+      "levels": {
+        "1": {
+          "answers": ["别想了！", "别想太多！"],
+          "need": [["别想"]],
+          "gloss": "Stop thinking!",
+          "status": "live" },
+        "3": {
+          "answers": ["阿峰，放轻松，别想太多！"],
+          "need": [["放轻松"], ["别想太多"]],
+          "gloss": "阿峰, relax. Don't overthink it!",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "door" },
+    { "narr": "The door opens. 那个人 walks in, wearing a jacket. The same jacket.", "prop": "🧥", "hold": 2 },
+    { "who": "mei", "zh": "两件？！", "en": "There are TWO?!", "pace": "fast" },
+    { "who": "tian", "zh": "我朋友说，那个人一直有两件。", "en": "A friend of mine says they've always had two.", "pace": "fast" },
+    { "narr": "那个人 looks at the carrier bag, then at 阿峰, and goes a little pink." },
+    { "who": "qin", "zh": "所以……第一件，是借口。", "en": "So... the first one was an excuse.", "hold": 1 },
+    { "who": "mei", "zh": "老秦第一次说对了。", "en": "老秦 is right, for the first time ever." },
+    { "who": "feng", "zh": "现在怎么办？还不还？", "en": "So now what? Do I give it back or not?", "pace": "fast" },
+    { "say": {
+      "id": "keep",
+      "en": "Tell 阿峰 to keep it, or to give it back anyway.",
+      "cue": "Keep, or return?",
+      "answers": ["你留着吧！", "阿峰，你留着吧！"],
+      "gloss": "Keep it!",
+      "need": [["留着"]],
+      "key": { "留着": "keep it" },
+      "tip": "留 liú = keep, hold on to: 你留着吧 = you keep it.",
+      "sets": { "nothing-happened.ep4": "keep" },
+      "ok": [
+        { "who": "feng", "zh": "……留着？", "en": "...Keep it?" },
+        { "narr": "阿峰 puts the bag under the table, and doesn't take it out again. Then he waves." },
+        { "who": "feng", "zh": "嗨。", "en": "Hi." }
+      ],
+      "alts": [
+        { "en": "Or: give it back anyway", "answers": ["还是还给人家吧。", "还给人家吧。"], "need": [["还给人家"]], "gloss": "Give it back anyway.",
+          "sets": { "nothing-happened.ep4": "return" },
+          "then": [
+            { "narr": "阿峰 walks over and holds out the bag." },
+            { "who": "feng", "zh": "谢谢你的外套。", "en": "Thank you for your jacket." },
+            { "narr": "那个人 takes it, and nods. Twice." }
+          ] }
+      ],
+      "fail": [ { "who": "feng", "zh": "还不还？", "en": "Give it back or not?", "pace": "fast" } ],
+      "levels": {
+        "1": {
+          "answers": ["留着吧！", "留着！"],
+          "need": [["留着"]],
+          "gloss": "Keep it!",
+          "alts": [ { "of": 0, "answers": ["还给人家！"], "need": [["还给"]], "gloss": "Give it back!" } ],
+          "status": "live" },
+        "3": {
+          "answers": ["你留着吧，下次穿着去见人家！"],
+          "need": [["留着"], ["下次"]],
+          "gloss": "Keep it, and wear it next time you see them!",
+          "alts": [ { "of": 0, "answers": ["还是还给人家吧，再约下次。"], "need": [["还给人家"], ["再约"]], "gloss": "Give it back anyway, and make a plan for next time." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "nothing-happened.ep4": "keep" }, "end": "win", "en": "Two people in the same jacket, in the same noodle shop, pretending not to notice. 🧥",
+      "else": [ { "end": "win", "en": "The jacket goes home. 阿峰 walks out as if he were floating. 🧥" } ] }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "id": "liaozhai-coins",
+  "format": "scene",
+  "title": "雨钱",
+  "title_en": "Raining Coins",
+  "level": 4,
+  "listen": 4,
+  "topics": ["shopping"],
+  "audience": "heritage",
+  "hook": 5,
+  "status": "live",
+  "series": { "id": "liaozhai", "ep": 2, "next": "The fox never came back." },
+  "tags": ["聊斋", "雨钱", "狐仙"],
+  "setting": "A small town in 山东, long ago. Your rented room: one lamp, borrowed books, and an empty rice jar.",
+  "stage": "🪙",
+  "bg": ["#120e06", "#7a6a2a"],
+  "cast": {
+    "fangdong": { "name": "房东", "en": "your landlord, owed three months", "emoji": "🧔", "voice": "m-mid" },
+    "hu": { "name": "胡先生", "en": "a learned old gentleman who visits every night", "emoji": "🦊", "voice": "m-old" }
+  },
+  "steps": [
+    { "sfx": "knock" },
+    { "who": "fangdong", "zh": "房租呢？三个月了！再不交，就搬走！", "en": "The rent! Three months! Pay up, or move out!", "fx": "shake" },
+    { "narr": "Midnight. As every night, a softer knock. An old gentleman in a grey robe, with a white beard, and eyes that shine a little too brightly in the lamplight." },
+    { "narr": "You both know he's a fox. Neither of you has ever said so. It would be rude.", "hold": 1 },
+    { "say": {
+      "id": "sit",
+      "en": "Receive him formally: please sit, sir, and you'll pour the tea.",
+      "cue": "Receive him.",
+      "answers": ["先生请坐，学生给您倒茶。", "先生请坐，学生去倒茶。"],
+      "gloss": "Please sit, sir. Let me pour you some tea.",
+      "need": [["倒茶"], ["先生"], ["请坐"]],
+      "key": { "学生": "your humble student (I)" },
+      "tip": "学生 = 'your student': a scholar's modest word for I, talking to a teacher.",
+      "ok": [ { "who": "hu", "zh": "好。昨晚说到哪儿了？", "en": "Good. Now, where did we get to last night?" } ],
+      "fail": [ { "who": "hu", "zh": "嗯？", "en": "Hm?" } ],
+      "levels": {
+        "3": {
+          "answers": ["先生请坐。", "先生，请坐。"],
+          "need": [["先生"], ["请坐"]],
+          "gloss": "Please sit, sir.",
+          "status": "live" },
+        "5": {
+          "answers": ["先生快请坐，学生这就给您倒茶。"],
+          "need": [["这就"], ["倒茶"], ["请坐"]],
+          "gloss": "Please, sir, sit down. I'll pour your tea this moment.",
+          "status": "live" }
+      }
+    } },
+    { "narr": "For an hour he talks: about old books, about poems nobody else remembers, about why the rain falls." },
+    { "who": "hu", "zh": "读书，是为了明理。", "en": "We read to understand what's right.", "pace": "slow", "hold": 1 },
+    { "narr": "Your stomach growls, loudly enough to interrupt the sages.", "fx": "shake" },
+    { "who": "hu", "zh": "你饿了？", "en": "You're hungry?" },
+    { "say": {
+      "id": "favour",
+      "en": "Ask him, humbly, for a favour.",
+      "cue": "A favour.",
+      "answers": ["先生，能不能帮学生一个忙？"],
+      "gloss": "Sir, might you do your student a favour?",
+      "need": [["帮学生"], ["一个忙"]],
+      "tip": "帮……一个忙 = do ... a favour. 能不能 = could you (or not)?",
+      "ok": [ { "who": "hu", "zh": "什么忙？", "en": "What favour?" } ],
+      "fail": [ { "who": "hu", "zh": "有话直说。", "en": "Say what you mean." } ],
+      "levels": {
+        "3": {
+          "answers": ["先生，能帮我一个忙吗？", "能帮学生一个忙吗？"],
+          "need": [["个忙"]],
+          "gloss": "Sir, could you do me a favour?",
+          "status": "live" },
+        "5": {
+          "answers": ["学生斗胆，能不能请先生帮学生一个忙？"],
+          "need": [["斗胆"], ["帮学生"], ["一个忙"]],
+          "gloss": "If I may be so bold, sir: might you do your student a favour?",
+          "tip": "斗胆 dǒudǎn = I make so bold: the humble way to ask too much.",
+          "status": "live" }
+      }
+    } },
+    { "say": {
+      "id": "money",
+      "en": "Explain: you're broke. Could he conjure a little money?",
+      "cue": "Money.",
+      "answers": ["学生没钱了，请先生变点钱吧。"],
+      "gloss": "I've no money left, sir. Could you conjure a little?",
+      "need": [["变点钱"], ["没钱"]],
+      "key": { "变": "conjure" },
+      "tip": "变 biàn = change, conjure: 变点钱 = magic up a bit of money.",
+      "ok": [
+        { "who": "hu", "zh": "这有什么难的。", "en": "Nothing easier.", "fx": "laugh" },
+        { "who": "hu", "zh": "去，把门关上。", "en": "Go on: shut the door." }
+      ],
+      "fail": [ { "who": "hu", "zh": "到底要什么？", "en": "What is it you want?" } ],
+      "levels": {
+        "3": {
+          "answers": ["学生没钱了。", "先生，我没钱了。"],
+          "need": [["没钱"]],
+          "gloss": "I've no money, sir.",
+          "status": "live" },
+        "5": {
+          "answers": ["学生没钱了，穷得揭不开锅，请先生变点钱。"],
+          "need": [["揭不开锅"], ["没钱"], ["变点钱"]],
+          "gloss": "I've no money, sir. There's nothing in the pot. Could you conjure some?",
+          "tip": "揭不开锅 = can't lift the pot lid: there's nothing to cook.",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "whoosh" },
+    { "narr": "From the rafters, a patter. Then a roar. Copper coins, raining down: up to your ankles, your shins, your knees.", "prop": "🪙", "fx": "shake" },
+    { "who": "hu", "zh": "够了吗？", "en": "Is that enough?" },
+    { "say": {
+      "id": "more",
+      "en": "Tell him: not yet, a little more!",
+      "cue": "More!",
+      "answers": ["还不够，再来一点！", "不够不够，再多一点！"],
+      "gloss": "Not enough yet! A little more!",
+      "need": [["一点"], ["不够"]],
+      "tip": "还不够 = not enough yet. 再……一点 = a bit more.",
+      "ok": [
+        { "narr": "The old gentleman stops smiling." },
+        { "narr": "He clicks his tongue, once. Every coin is gone, back to whatever purses it came from. The floor is bare.", "hold": 2 }
+      ],
+      "fail": [ { "who": "hu", "zh": "够了吗？", "en": "Is that enough?" } ],
+      "levels": {
+        "3": {
+          "answers": ["再来一点！", "再多一点！"],
+          "need": [["再来一点", "再多一点"]],
+          "gloss": "A bit more!",
+          "status": "live" },
+        "5": {
+          "answers": ["还不够，烦请先生再多一点！"],
+          "need": [["烦请"], ["一点"], ["不够"]],
+          "gloss": "Not yet, sir. Might I trouble you for a little more?",
+          "tip": "烦请 = may I trouble you to: very polite, and here, very greedy.",
+          "status": "live" }
+      }
+    } },
+    { "who": "hu", "zh": "这些钱，都是别人家的。", "en": "Those coins all belonged to other people.", "pace": "slow" },
+    { "who": "hu", "zh": "我是来跟你谈学问的，不是来帮你做贼的。", "en": "I came to talk scholarship with you. Not to help you become a thief.", "pace": "slow", "hold": 2 },
+    { "say": {
+      "id": "answer",
+      "en": "Apologise, or defend yourself: you're only poor.",
+      "cue": "Sorry, or poor?",
+      "answers": ["先生，是学生错了。", "是学生错了，先生。"],
+      "gloss": "Sir, I was wrong.",
+      "need": [["是学生错了"], ["先生"]],
+      "tip": "是学生错了 = it is I who was wrong: 是 owns the fault.",
+      "sets": { "liaozhai.coins": "sorry" },
+      "ok": [
+        { "who": "hu", "zh": "知错就好。", "en": "Knowing it is enough.", "pace": "slow" },
+        { "narr": "He bows to you, the way one scholar bows to another, and steps out into the night." }
+      ],
+      "alts": [
+        { "en": "Or: defend yourself", "answers": ["学生只是太穷了。", "先生，学生只是太穷了。"], "need": [["只是"], ["太穷了"]], "gloss": "I'm only poor, sir.",
+          "sets": { "liaozhai.coins": "poor" },
+          "then": [
+            { "who": "hu", "zh": "穷，可以。贼，不可以。", "en": "Poor, yes. A thief, no.", "pace": "slow" },
+            { "narr": "He sweeps out. On the table, the book you were reading together lies open, at exactly the right page." }
+          ] }
+      ],
+      "fail": [ { "who": "hu", "zh": "你怎么说？", "en": "Well? What do you say?", "pace": "slow" } ],
+      "levels": {
+        "3": {
+          "answers": ["是我错了。", "学生错了。"],
+          "need": [["错了"]],
+          "gloss": "I was wrong.",
+          "alts": [ { "of": 0, "answers": ["我太穷了。", "学生太穷了。"], "need": [["太穷"]], "gloss": "I'm too poor." } ],
+          "status": "live" },
+        "5": {
+          "answers": ["先生教训得是，是学生错了。"],
+          "need": [["教训得是"], ["是学生错了"], ["先生"]],
+          "gloss": "You're quite right to scold me, sir. I was wrong.",
+          "alts": [ { "of": 0, "answers": ["学生不是贪心，只是实在太穷了。"], "need": [["贪心"], ["只是"], ["太穷了"]], "gloss": "It isn't greed, sir. I'm only very, very poor." } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "liaozhai.coins": "sorry" }, "end": "win", "en": "The fox never came back. Years later you passed the exams, on the strength of his notes in your margins. 🦊",
+      "else": [ { "end": "win", "en": "The fox never came back. The landlord did, every month, on time. 🦊" } ] }
+  ]
+}

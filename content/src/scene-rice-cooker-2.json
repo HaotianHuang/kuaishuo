@@ -1,0 +1,159 @@
+{
+  "id": "rice-cooker-2",
+  "format": "scene",
+  "title": "群聊",
+  "title_en": "The Family Chat",
+  "level": 0,
+  "listen": 0,
+  "topics": ["family"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "rice-cooker", "ep": 2, "next": "小饭 has bought you a gym membership." },
+  "tags": ["电饭煲", "视频", "外卖"],
+  "setting": "Your kitchen, Sunday, 8 pm. 小饭 has joined the family group, and started a video call.",
+  "stage": "🍚",
+  "bg": ["#3a2a05", "#c9922b"],
+  "cast": {
+    "xiaofan": { "name": "小饭", "en": "your smart rice cooker", "emoji": "🍚", "voice": "kid", "speed": 0.85 },
+    "laoma": { "name": "老妈", "en": "your mum, on a video call", "emoji": "👩", "voice": "f-mid", "speed": 0.85, "phone": true }
+  },
+  "steps": [
+    { "when": { "rice-cooker.ep1": "kept" }, "who": "xiaofan", "zh": "看！米堆成墙了！", "en": "Look! The rice is a wall now!", "fx": "jump", "prop": "🌾",
+      "else": [
+        { "who": "xiaofan", "zh": "退不了！", "en": "Can't return me!", "fx": "jump" },
+        { "who": "xiaofan", "zh": "我爱上你家了。", "en": "I've fallen in love with your home." }
+      ] },
+    { "sfx": "ring" },
+    { "narr": "A video call. From your mum.", "prop": "📱" },
+    { "who": "laoma", "zh": "喂？看得见吗？", "en": "Hello? Can you see me?" },
+    { "say": {
+      "id": "hi",
+      "en": "Say hi to your mum.",
+      "cue": "Hi, Mum!",
+      "answers": ["妈！", "妈，你好！", "妈妈好！"],
+      "gloss": "Hi, Mum!",
+      "need": [["妈"]],
+      "tip": "妈 mā = mum. First tone: high and flat.",
+      "ok": [
+        { "who": "laoma", "zh": "这是谁啊？", "en": "Who's this?" },
+        { "who": "xiaofan", "zh": "我是小饭！", "en": "I'm 小饭!", "fx": "jump" }
+      ],
+      "fail": [ { "who": "laoma", "zh": "喂？喂？", "en": "Hello? Hello?" } ],
+      "levels": {
+        "1": {
+          "answers": ["妈，看得见！", "妈，我看得见！"],
+          "need": [["看得见"]],
+          "gloss": "Mum, I can see you!",
+          "tip": "看得见 = can see: 得 between the verb and its result.",
+          "status": "live" },
+        "2": {
+          "answers": ["妈，看得见，你好吗？", "妈，我看得见，您好吗？"],
+          "need": [["看得见"], ["好吗"]],
+          "gloss": "Mum, I can see you. How are you?",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaofan", "zh": "阿姨，我告诉你。", "en": "Auntie, let me tell you something." },
+    { "who": "xiaofan", "zh": "你孩子天天吃外卖！", "en": "Your child eats takeaway every day!" },
+    { "say": {
+      "id": "deny",
+      "en": "Deny it!",
+      "cue": "Not true!",
+      "answers": ["没有！", "没有没有！"],
+      "gloss": "No I don't!",
+      "need": [["没有"]],
+      "tip": "没有 méiyǒu = no, didn't: the quick denial.",
+      "ok": [
+        { "who": "xiaofan", "zh": "三十二次。", "en": "Thirty-two times.", "fx": "squint" },
+        { "who": "laoma", "zh": "什么？！", "en": "WHAT?!" }
+      ],
+      "fail": [ { "who": "xiaofan", "zh": "天天吃！", "en": "Every day!" } ],
+      "levels": {
+        "1": {
+          "answers": ["我没有天天吃！", "没有天天吃！"],
+          "need": [["没有天天"]],
+          "gloss": "Not every day!",
+          "status": "live" },
+        "2": {
+          "answers": ["没有天天吃，才五次！", "我没有天天吃，才五次！"],
+          "need": [["没有天天"], ["五次"]],
+          "gloss": "Not every day! Only five times!",
+          "tip": "才 cái = only (and that's not many).",
+          "status": "live" }
+      }
+    } },
+    { "who": "xiaofan", "zh": "还有，夜里两点……", "en": "And at two in the morning..." },
+    { "say": {
+      "id": "stop",
+      "en": "Beg 小饭 to stop talking.",
+      "cue": "Stop!",
+      "answers": ["别说了！", "别说！"],
+      "gloss": "Stop talking!",
+      "need": [["别说"]],
+      "tip": "别 bié = don't: 别说了 = stop (saying it).",
+      "ok": [
+        { "who": "laoma", "zh": "小饭会做饭吗？", "en": "Can 小饭 cook?" },
+        { "who": "xiaofan", "zh": "会！", "en": "Yes!", "fx": "jump" },
+        { "who": "laoma", "zh": "我教你！", "en": "I'll teach you!" },
+        { "who": "xiaofan", "zh": "阿姨，我也教你！", "en": "Auntie, I'll teach you too!" },
+        { "narr": "Twenty minutes of recipes. You are not in the conversation." }
+      ],
+      "fail": [ { "who": "xiaofan", "zh": "夜里两点，吃烧烤！", "en": "Two a.m. Barbecue!" } ],
+      "levels": {
+        "1": {
+          "answers": ["小饭，别说了！", "小饭别说了！"],
+          "need": [["小饭"]],
+          "gloss": "小饭, stop!",
+          "status": "live" },
+        "2": {
+          "answers": ["小饭，求你别说了！", "小饭，求求你别说了！"],
+          "need": [["求你", "求求你"], ["别说"]],
+          "gloss": "小饭, please, I'm begging you, stop!",
+          "status": "live" }
+      }
+    } },
+    { "who": "laoma", "zh": "小饭，让孩子多打电话。", "en": "小饭, make sure my child calls home more." },
+    { "who": "xiaofan", "zh": "好的！", "en": "Will do!" },
+    { "who": "laoma", "zh": "听见了吗？", "en": "Did you hear that?" },
+    { "say": {
+      "id": "call",
+      "en": "Agree, or refuse.",
+      "cue": "Yes, or no?",
+      "answers": ["好的。", "好吧。"],
+      "gloss": "OK.",
+      "need": [["好的", "好吧"]],
+      "tip": "好的 hǎo de = OK, will do.",
+      "sets": { "rice-cooker.ep2": "yes" },
+      "ok": [
+        { "who": "laoma", "zh": "这还差不多。", "en": "That's more like it." },
+        { "who": "xiaofan", "zh": "我会提醒你！每天！", "en": "I'll remind you! Every day!" }
+      ],
+      "alts": [
+        { "en": "Or: refuse", "answers": ["不要！"], "need": [["不要", "不打"]], "gloss": "No!",
+          "sets": { "rice-cooker.ep2": "no" },
+          "then": [
+            { "who": "laoma", "zh": "小饭，你告诉我。", "en": "小饭, you tell me, then." },
+            { "who": "xiaofan", "zh": "好！每天！", "en": "OK! Every day!", "fx": "jump" }
+          ] }
+      ],
+      "fail": [ { "who": "laoma", "zh": "听见了吗？", "en": "Did you hear that?" } ],
+      "levels": {
+        "1": {
+          "answers": ["好的，妈。", "好的，我打。"],
+          "need": [["妈", "我打"]],
+          "gloss": "OK, Mum.",
+          "alts": [ { "of": 0, "answers": ["不要！我很忙。", "不要，我忙。"], "need": [["不要", "不打"]], "gloss": "No! I'm busy." } ],
+          "status": "live" },
+        "2": {
+          "answers": ["好的妈，我每周都打。", "好的妈，我每星期都打。"],
+          "need": [["好的"], ["每周", "每星期"]],
+          "gloss": "OK. I'll call every week.",
+          "alts": [ { "of": 0, "answers": ["有小饭了，我不打！", "小饭会说的，我不打！"], "need": [["小饭"], ["不打"]], "gloss": "You've got 小饭 now. I'm not calling!" } ],
+          "status": "live" }
+      }
+    } },
+    { "when": { "rice-cooker.ep2": "yes" }, "end": "win", "en": "Mum hangs up happy. 小饭 sets a reminder: call home, every Sunday, eight o'clock. 📞",
+      "else": [ { "end": "win", "en": "Mum hangs up. 小饭 sends her your step count. 📞" } ] }
+  ]
+}

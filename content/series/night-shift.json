@@ -1,0 +1,57 @@
+{
+  "id": "night-shift",
+  "title": "夜班",
+  "title_en": "Night Shift",
+  "eps": 6,
+  "audience": "all",
+  "levels": [
+    2,
+    4
+  ],
+  "genre": "horror",
+  "optin": true,
+  "home": {
+    "name": "便利店",
+    "en": "a 24-hour convenience store on an empty road; the last clerk left a rules sheet"
+  },
+  "cast": {
+    "shouyinji": {
+      "name": "收银机",
+      "en": "the till: says 欢迎光临 in a flat, pleasant voice, and sometimes more",
+      "emoji": "🧾",
+      "voice": "f-young",
+      "tts": "zf_001"
+    },
+    "hongyi": {
+      "name": "红雨衣",
+      "en": "a customer in a red raincoat: very polite, and always dry",
+      "emoji": "🧥",
+      "voice": "m-old",
+      "tts": "zm_098",
+      "aka": [
+        "老韩"
+      ]
+    },
+    "siji": {
+      "name": "司机",
+      "en": "a night taxi driver, a regular",
+      "emoji": "🚕",
+      "voice": "m-mid",
+      "tts": "zm_015"
+    },
+    "dianzhang": {
+      "name": "店长",
+      "en": "the manager: never answers at night, arrives at six yawning",
+      "emoji": "🧑‍💼",
+      "voice": "f-mid",
+      "tts": "zf_047"
+    },
+    "pang": {
+      "name": "庞经理",
+      "en": "the store manager in 1998, an old man now",
+      "emoji": "👴",
+      "voice": "m-old",
+      "tts": "zm_033"
+    }
+  }
+}

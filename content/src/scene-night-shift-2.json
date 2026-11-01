@@ -1,0 +1,167 @@
+{
+  "id": "night-shift-2",
+  "format": "scene",
+  "title": "红雨衣",
+  "title_en": "The Red Raincoat",
+  "level": 3,
+  "listen": 3,
+  "topics": ["work"],
+  "audience": "new",
+  "hook": 5,
+  "status": "live",
+  "warn": "A haunted night shift: uncanny and sad, no gore. It ends safe at dawn.",
+  "series": { "id": "night-shift", "ep": 2, "next": "At dawn, his change is still on the counter. The coins are from 1998." },
+  "tags": ["规则怪谈", "便利店", "红雨衣"],
+  "setting": "The convenience store, your second night, 2:58 am. Rule five, in fresh ink: 他认识你。",
+  "stage": "🧥",
+  "bg": ["#0a0406", "#4a1820"],
+  "cast": {
+    "shouyinji": { "name": "收银机", "en": "the till", "emoji": "🧾", "voice": "f-young", "speed": 0.9 },
+    "hongyi": { "name": "红雨衣", "en": "the customer in the red raincoat", "emoji": "🧥", "voice": "m-old", "speed": 0.9 },
+    "dianzhang": { "name": "店长", "en": "the manager", "emoji": "🧑‍💼", "voice": "f-mid" }
+  },
+  "steps": [
+    { "when": { "night-shift.ep1": "down" }, "who": "dianzhang", "zh": "昨晚你没抬头。很好。", "en": "You didn't look up last night. Good.", "fx": "enter",
+      "else": [ { "narr": "Last night you saw yourself on the CCTV, looking up. Tonight you keep your eyes off the screen." } ] },
+    { "narr": "Night two. 2:58 am. Rain." },
+    { "sfx": "ding" },
+    { "who": "shouyinji", "zh": "欢迎光临。", "en": "Welcome." },
+    { "narr": "The red raincoat. Tonight it's dripping, as if it had walked a long way." },
+    { "narr": "He says your name. Your full name. You've told nobody here." },
+    { "who": "hongyi", "zh": "晚上好。", "en": "Good evening.", "fx": "enter", "pace": "slow" },
+    { "say": {
+      "id": "name",
+      "en": "Ask him how he knows your name.",
+      "cue": "How?",
+      "answers": ["您怎么知道我的名字？", "请问，您怎么知道我的名字？"],
+      "gloss": "How do you know my name?",
+      "need": [["怎么知道"], ["名字"]],
+      "tip": "怎么知道 = how (do you) know: 您 for a customer, even this one.",
+      "ok": [
+        { "who": "hongyi", "zh": "排班表上写着。", "en": "It's on the rota.", "pace": "slow" },
+        { "narr": "The rota is in the back office. The back office is locked." }
+      ],
+      "fail": [ { "who": "hongyi", "zh": "一杯热豆浆。", "en": "One hot soy milk.", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["您怎么知道？", "您怎么知道我？"],
+          "need": [["怎么知道"]],
+          "gloss": "How do you know?",
+          "status": "live" },
+        "4": {
+          "answers": ["我们见过吗？您怎么知道我的名字？"],
+          "need": [["见过"], ["怎么知道"]],
+          "gloss": "Have we met? How do you know my name?",
+          "status": "live" }
+      }
+    } },
+    { "who": "hongyi", "zh": "一杯热豆浆。", "en": "One hot soy milk.", "pace": "slow" },
+    { "narr": "Seven yuan. The same faded ten-yuan note.", "prop": "💴" },
+    { "who": "hongyi", "zh": "找我三块，谢谢。", "en": "Three back, thank you.", "pace": "slow" },
+    { "say": {
+      "id": "rule",
+      "en": "Rule two. Refuse the change: it's the rules.",
+      "cue": "Rule two.",
+      "answers": ["对不起，规定不能找零。", "对不起，店里规定不能找零。"],
+      "gloss": "Sorry. The rules say no change.",
+      "need": [["规定"], ["不能找零", "不找零"]],
+      "key": { "规定": "the rules" },
+      "tip": "规定 guīdìng = rule, regulation. 不能 = can't (not allowed).",
+      "ok": [
+        { "who": "hongyi", "zh": "……对。规定。", "en": "...Yes. The rules.", "hold": 1 },
+        { "who": "hongyi", "zh": "你记得很清楚。", "en": "You remember them well.", "pace": "slow" }
+      ],
+      "fail": [ { "who": "hongyi", "zh": "找我三块。", "en": "Three back.", "pace": "slow" } ],
+      "levels": {
+        "2": {
+          "answers": ["对不起，不能找零。", "不好意思，不找零。"],
+          "need": [["不能找零", "不找零"]],
+          "gloss": "Sorry, no change.",
+          "status": "live" },
+        "4": {
+          "answers": ["店里有规定，不管多少都不找零。", "对不起，店里有规定，不管多少都不找零。"],
+          "need": [["有规定"], ["不管多少"]],
+          "gloss": "The shop has a rule: however much it is, no change.",
+          "status": "live" }
+      }
+    } },
+    { "sfx": "ding" },
+    { "who": "shouyinji", "zh": "你认识他吗？", "en": "Do you know him?", "fx": "shake" },
+    { "narr": "Rule three: if the till speaks, answer it." },
+    { "say": {
+      "id": "till",
+      "en": "Answer the till: you don't know him. He's a customer.",
+      "cue": "Answer it.",
+      "answers": ["我不认识他，他是客人。", "我不认识他。他是客人。"],
+      "gloss": "I don't know him. He's a customer.",
+      "need": [["不认识"], ["客人"]],
+      "tip": "认识 rènshi = know (a person). 客人 = customer, guest.",
+      "ok": [
+        { "who": "shouyinji", "zh": "……客人。", "en": "...A customer.", "hold": 1 },
+        { "who": "hongyi", "zh": "你不认识我。", "en": "You don't know me.", "pace": "slow" },
+        { "who": "hongyi", "zh": "可是我认识这儿。", "en": "But I know this place.", "pace": "slow" }
+      ],
+      "fail": [ { "who": "shouyinji", "zh": "你认识他吗？你认识他吗？", "en": "Do you know him? Do you know him?", "fx": "shake" } ],
+      "levels": {
+        "2": {
+          "answers": ["不认识。", "我不认识他。"],
+          "need": [["不认识"]],
+          "gloss": "I don't know him.",
+          "status": "live" },
+        "4": {
+          "answers": ["我不认识他，他只是个客人。", "我不认识他。他只是个客人。"],
+          "need": [["只是"], ["客人"]],
+          "gloss": "I don't know him. He's just a customer.",
+          "status": "live" }
+      }
+    } },
+    { "who": "hongyi", "zh": "我以前也在这儿上夜班。", "en": "I used to work nights here too.", "pace": "slow", "hold": 1 },
+    { "who": "hongyi", "zh": "一九九八年。", "en": "In 1998.", "pace": "slow", "hold": 1 },
+    { "who": "hongyi", "zh": "规则，是我写的。", "en": "I wrote the rules.", "pace": "slow", "hold": 2 },
+    { "who": "hongyi", "zh": "那年以后，我再也没下班。", "en": "After that year, I never went off shift.", "pace": "slow" },
+    { "who": "hongyi", "zh": "也没人找过我钱。", "en": "And nobody's ever given me my change.", "pace": "slow", "hold": 2 },
+    { "narr": "Three coins in the till drawer. Rule two, in his own handwriting, taped beside it." },
+    { "say": {
+      "id": "coins",
+      "en": "Give him his change anyway, or keep to rule two and see him out.",
+      "cue": "Change, or the rule?",
+      "answers": ["这是找您的钱。", "这是找您的钱，您收好。"],
+      "gloss": "Here's your change.",
+      "need": [["找您的钱"]],
+      "tip": "找您的钱 = your change (the money given back to you).",
+      "sets": { "night-shift.ep2": "change" },
+      "ok": [
+        { "who": "hongyi", "zh": "……谢谢。", "en": "...Thank you.", "hold": 2 },
+        { "narr": "He holds the coins for a long time. Then the door, with no chime." }
+      ],
+      "alts": [
+        { "en": "Or: keep to rule two", "answers": ["不用找了，您慢走。", "规定就是规定。您慢走。"], "need": [["慢走"]], "gloss": "No change. Mind how you go.",
+          "key": { "慢走": "mind how you go" },
+          "sets": { "night-shift.ep2": "rule" },
+          "then": [
+            { "who": "hongyi", "zh": "……你是个好店员。", "en": "...You're a good clerk.", "pace": "slow", "hold": 1 },
+            { "narr": "The door, with no chime." }
+          ] }
+      ],
+      "fail": [ { "who": "hongyi", "zh": "……", "en": "...", "hold": 2 } ],
+      "levels": {
+        "2": {
+          "answers": ["找您钱。", "找您的钱。"],
+          "need": [["找您"]],
+          "gloss": "Your change.",
+          "alts": [ { "of": 0, "answers": ["您慢走。"], "need": [["慢走"]], "gloss": "Mind how you go." } ],
+          "status": "live" },
+        "4": {
+          "answers": ["这是找您的钱，三块，您收好。"],
+          "need": [["收好"], ["找您的钱"]],
+          "gloss": "Here's your change: three yuan. Keep it safe.",
+          "alts": [ { "of": 0, "answers": ["规定就是规定。不用找了，您慢走。"], "need": [["规定就是规定"], ["慢走"]], "gloss": "Rules are rules. No change. Mind how you go." } ],
+          "status": "live" }
+      }
+    } },
+    { "narr": "6:00. Grey light, the milk van, the fridges humming the way fridges do." },
+    { "who": "dianzhang", "zh": "早。今晚还来吗？", "en": "Morning. Coming in tonight?", "fx": "enter" },
+    { "when": { "night-shift.ep2": "change" }, "end": "win", "en": "You walk home in the daylight. You don't mention the coins to anyone. 🌅",
+      "else": [ { "end": "win", "en": "In the rota, under last night, someone has written one word: 谢谢。 🌅" } ] }
+  ]
+}

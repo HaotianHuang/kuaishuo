@@ -1,0 +1,81 @@
+{
+  "id": "carol",
+  "title": "春节颂歌",
+  "title_en": "A Spring Festival Carol",
+  "eps": 4,
+  "audience": "all",
+  "levels": [
+    2,
+    4
+  ],
+  "genre": "classic",
+  "home": {
+    "name": "写字楼",
+    "en": "an office tower on 除夕, and the New Years you skipped; retold from Dickens's A Christmas Carol"
+  },
+  "cast": {
+    "xiaoge": {
+      "name": "小葛",
+      "en": "your assistant: kind, and wants to go home",
+      "emoji": "👩‍💼",
+      "voice": "f-young",
+      "tts": "zf_001"
+    },
+    "xiaodeng": {
+      "name": "小灯笼",
+      "en": "the first visitor: a child with a red lantern",
+      "emoji": "🏮",
+      "voice": "kid",
+      "tts": "zf_072"
+    },
+    "laoma": {
+      "name": "老妈",
+      "en": "your mother, the year you were eight",
+      "emoji": "👩",
+      "voice": "f-mid",
+      "tts": "zf_047"
+    },
+    "yeye": {
+      "name": "爷爷",
+      "en": "your grandfather, the year you were eight",
+      "emoji": "👴",
+      "voice": "m-old",
+      "tts": "zm_014"
+    },
+    "xiaoshihou": {
+      "name": "小时候的你",
+      "en": "you, aged eight",
+      "emoji": "🧒",
+      "voice": "kid",
+      "tts": "zf_092"
+    },
+    "tanghulu": {
+      "name": "糖葫芦大叔",
+      "en": "the second visitor: cheerful, with a stick of candied haws",
+      "emoji": "🍡",
+      "voice": "m-mid",
+      "tts": "zm_009"
+    },
+    "didi": {
+      "name": "弟弟",
+      "en": "小葛's little brother, on crutches, full of jokes",
+      "emoji": "👦",
+      "voice": "kid",
+      "tts": "zf_085"
+    },
+    "laoba": {
+      "name": "老爸",
+      "en": "your father",
+      "emoji": "👨",
+      "voice": "m-mid",
+      "tts": "zm_013"
+    },
+    "liecheyuan": {
+      "name": "列车员",
+      "en": "the guard on the last train",
+      "emoji": "🚄",
+      "voice": "m-young",
+      "tts": "zm_056"
+    }
+  }
+}

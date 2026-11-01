@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voice bake-off</title>
+<!-- tools/bakeoff.py fills in the data and writes this page to review/voices/bakeoff.html. Your picks stay in this
+     browser (localStorage) until you download them. -->
+<style>
+:root { --bg: #fbfaf7; --fg: #1d1d1f; --mut: #6b6b70; --line: #e4e1da; --card: #fff; --acc: #c2410c; --acc-fg: #fff;
+  --good: #15803d; --bad: #b91c1c; --hl: #ffe9a8; }
+@media (prefers-color-scheme: dark) { :root { --bg: #161616; --fg: #ecebe8; --mut: #9a9a9f; --line: #303033; --card: #1f1f21;
+  --acc: #fb923c; --acc-fg: #1d1d1f; --good: #4ade80; --bad: #f87171; --hl: #5a4710; } }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif }
+header, main { max-width: 1000px; margin: 0 auto; padding: 0 16px }
+header { padding-top: 20px }
+h1 { font-size: 21px; margin: 0 0 2px }
+h2 { font-size: 16px; margin: 22px 0 8px }
+p { margin: 0 0 10px }
+.sub, .mut { color: var(--mut) }
+nav { display: flex; gap: 2px; border-bottom: 1px solid var(--line); margin-top: 12px; overflow-x: auto }
+nav button { background: none; border: 0; border-bottom: 2px solid transparent; padding: 8px 12px; font: inherit; color: var(--mut); cursor: pointer; white-space: nowrap }
+nav button[aria-selected=true] { color: var(--fg); border-color: var(--acc) }
+main { padding-top: 16px; padding-bottom: 60px }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 12px }
+.zh { font-size: 28px; line-height: 1.4 }
+.zh.s { font-size: 20px }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
+button.b { font: inherit; border: 1px solid var(--line); background: var(--card); color: var(--fg); border-radius: 8px; padding: 6px 12px; cursor: pointer }
+button.b:hover { border-color: var(--acc) }
+button.big { font-size: 17px; padding: 12px 20px; min-width: 130px }
+button.on { background: var(--acc); color: var(--acc-fg); border-color: var(--acc) }
+button.flag.on { background: var(--bad); border-color: var(--bad); color: #fff }
+table { border-collapse: collapse; width: 100% }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top }
+th { font-weight: 600; font-size: 13px }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums }
+td.n { white-space: nowrap }
+.bad { color: var(--bad) } .good { color: var(--good) }
+mark { background: var(--hl); color: inherit; border-radius: 3px; padding: 0 1px }
+kbd { font: 12px ui-monospace, Menlo, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; color: var(--mut) }
+.scroll { overflow-x: auto }
+.tag { font-size: 12px; color: var(--mut); border: 1px solid var(--line); border-radius: 999px; padding: 0 8px }
+.small { font-size: 13px }
+table.dense { font-size: 13px }
+table.dense th { font-size: 12px }
+table.dense td, table.dense th { padding: 6px 5px }
+.ch { cursor: pointer; border-radius: 4px }
+.ch:hover { background: var(--hl) }
+.ch.on { color: var(--bad); text-decoration: underline wavy var(--bad); text-underline-offset: 5px }
+#line { margin-bottom: 6px }
+input.note { font: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; background: var(--card); color: var(--fg); width: min(100%, 360px) }
+</style>
+</head>
+<body>
+<header>
+  <h1>Voice bake-off</h1>
+  <p class="sub" id="sub"></p>
+  <nav role="tablist" id="tabs"></nav>
+</header>
+<main id="main"></main>
+<script>
+const D = /*DATA*/null;
+const NAMES = { kokoro: 'Kokoro (today)', eleven_v4: 'Eleven v4', eleven_v3: 'Eleven v3', eleven_multilingual_v2: 'Multilingual v2', eleven_flash_v2_5: 'Flash v2.5' };
+const G = { f: 'woman', m: 'man' };
+const KEY = 'kuaishuo-bakeoff-1';
+let S = { ab: [], wrong: {}, slow: {}, notes: {} };
+try { S = { ...S, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} };
+
+const line = Object.fromEntries(D.lines.map((l) => [l.id, l]));
+const byKey = new Map(D.clips.map((c) => [`${c.e}.${c.g}.${c.l}.${c.t}${c.m ? '.' + c.m : ''}`, c]));
+const clipOf = (e, g, l, t = 1, m = '') => byKey.get(`${e}.${g}.${l}.${t}${m ? '.' + m : ''}`);
+const engines = D.engines.filter((e) => D.clips.some((c) => c.e === e));
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+const pct = (a, b) => (b ? Math.round((100 * a) / b) + '%' : '–');
+const $ = (s) => document.querySelector(s);
+
+// one player: a list of clips plays in turn, with a breath between
+const player = new Audio();
+let queue = [];
+function play(...cs) { queue = cs.filter(Boolean); next(); }
+function next() {
+  const c = queue.shift();
+  if (!c) return;
+  player.src = `bakeoff/clips/${c.f}.m4a`;
+  player.onended = () => setTimeout(next, 400);
+  player.play().catch(() => {});
+}
+const P = new Map();   // button id → clips, so markup stays plain
+let pid = 0;
+function btn(label, clips, cls = 'b') { const id = 'p' + pid++; P.set(id, clips); return `<button class="${cls}" data-play="${id}">${label}</button>`; }
+document.addEventListener('click', (ev) => { const b = ev.target.closest('[data-play]'); if (b) play(...P.get(b.dataset.play)); });
+
+const SYM = { f: '♀', m: '♂' };
+const TONES = ['', 'first', 'second', 'third', 'fourth', 'neutral'];
+const toneOf = (s) => { for (const ch of s) { const i = 'āēīōūǖáéíóúǘǎěǐǒǔǚàèìòùǜ'.indexOf(ch); if (i >= 0) return 1 + Math.floor(i / 6); } return 5; };
+const checkAt = (l, k) => l.zh.indexOf(l.check[k][0]) + l.check[k][0].indexOf(l.check[k][1]);
+const markAt = (l, at) => [...l.zh].map((ch, i) => (i === at ? `<mark>${esc(ch)}</mark>` : esc(ch))).join('');
+function marked(l) {   // the line, with the characters a reading check is about marked
+  const at = new Set((l.check || []).map(([ctx, ch]) => l.zh.indexOf(ctx) + ctx.indexOf(ch)));
+  return [...l.zh].map((ch, i) => (at.has(i) ? `<mark>${esc(ch)}</mark>` : esc(ch))).join('');
+}
+
+// ---------- blind A/B ----------
+const pairs = [];
+for (let i = 0; i < engines.length; i++) for (let j = i + 1; j < engines.length; j++) pairs.push([engines[i], engines[j]]);
+const pairKey = (a, b) => [a, b].sort().join('|');
+function nextPair() {   // the pair of engines heard least so far, then the line heard least
+  const count = (p) => S.ab.filter((x) => pairKey(x.a.e, x.b.e) === pairKey(...p)).length + Math.random() * 0.9;
+  const p = pairs.map((p) => [count(p), p]).sort((a, b) => a[0] - b[0])[0][1];
+  const ls = D.lines.filter((l) => 'fm'.split('').every((g) => clipOf(p[0], g, l.id) && clipOf(p[1], g, l.id)));
+  const used = (id) => S.ab.filter((x) => x.l === id).length + Math.random() * 0.9;
+  const l = ls.map((l) => [used(l.id), l.id]).sort((a, b) => a[0] - b[0])[0][1];
+  const take = (e) => (clipOf(e, 'f', l, 3) ? 1 + Math.floor(Math.random() * 3) : 1);
+  const [x, y] = Math.random() < 0.5 ? p : [p[1], p[0]];
+  return { l, g: Math.random() < 0.5 ? 'f' : 'm', a: { e: x, t: take(x) }, b: { e: y, t: take(y) } };
+}
+// the pair on screen is kept too, so a reload doesn't lose it; chars are the characters tapped as said wrong
+let cur = S.cur && line[S.cur.l] && clipOf(S.cur.a.e, S.cur.g, S.cur.l, S.cur.a.t) && clipOf(S.cur.b.e, S.cur.g, S.cur.l, S.cur.b.t) ? S.cur : null;
+const sideClip = (s) => clipOf(s.e, cur.g, cur.l, s.t);
+const isHan = (ch) => /\p{Script=Han}/u.test(ch);
+const lineChars = () => [...line[cur.l].zh].map((ch, i) => (isHan(ch) ? `<span class="ch ${cur.chars?.includes(i) ? 'on' : ''}" data-ch="${i}">${esc(ch)}</span>` : esc(ch))).join('');
+// which sides a pick says got the tapped characters wrong: the one not picked, both, or (can't tell) one of them
+const blamed = (x) => ({ a: [x.b.e], b: [x.a.e], x: [x.a.e, x.b.e] }[x.pick] || []);
+function abTab() {
+  cur = cur || nextPair();
+  S.cur = cur; save();
+  const l = line[cur.l];
+  const q = l.kind === 'model' ? 'Which would you rather copy?' : l.kind === 'act' ? 'Which performs it better?' : 'Which sounds more like a person?';
+  const A = sideClip(cur.a), B = sideClip(cur.b);
+  $('#main').innerHTML = `
+    <div class="card">
+      <p class="mut small">Two engines, hidden, saying the same line in a ${G[cur.g]}'s voice. Pick by ear; the scores tab shows who won once you've done some. Twenty or more makes it count; sixty covers every pair six times.</p>
+      <div class="zh" id="line">${lineChars()}</div>
+      <p class="mut">${esc(l.note || l.kind)}</p>
+      <p class="mut small">A character said wrong? Tap it, then pick the one that says it right, or <b>Both wrong</b>.</p>
+      <div id="noteRow" class="row" ${cur.chars?.length ? '' : 'hidden'}><input class="note" id="note" placeholder="What you heard (optional)" value="${esc(cur.note || '')}"></div>
+      <h2>${q}</h2>
+      <div class="row">${btn('▶ A', [A], 'b big')} ${btn('▶ B', [B], 'b big')} ${btn('▶ both', [A, B], 'b')}</div>
+      <div class="row" style="margin-top:14px">
+        <button class="b big" data-pick="a">A</button>
+        <button class="b" data-pick="=">Can't tell</button>
+        <button class="b big" data-pick="b">B</button>
+        <button class="b" data-pick="x">Both wrong</button>
+        ${S.ab.length ? '<button class="b" data-undo>Undo</button>' : ''}
+      </div>
+      <p class="mut small" style="margin-top:12px">${S.ab.length} picked. Keys: <kbd>space</kbd> both, <kbd>1</kbd> A, <kbd>2</kbd> B, <kbd>a</kbd> or <kbd>←</kbd> A, <kbd>b</kbd> or <kbd>→</kbd> B, <kbd>s</kbd> can't tell, <kbd>w</kbd> both wrong, <kbd>z</kbd> undo.</p>
+    </div>`;
+  $('#note').oninput = (ev) => { cur.note = ev.target.value; save(); };
+}
+function pick(v) {
+  const { chars, note, ...x } = cur;
+  S.ab.push({ ...x, ...(chars?.length ? { chars, note: note || '' } : {}), pick: v, at: Date.now() });
+  cur = nextPair(); abTab(); play(sideClip(cur.a), sideClip(cur.b));
+}
+function undo() { const x = S.ab.pop(); if (!x) return; cur = { l: x.l, g: x.g, a: x.a, b: x.b, chars: x.chars || [], note: x.note || '' }; abTab(); }
+document.addEventListener('click', (ev) => {
+  const p = ev.target.closest('[data-pick]');
+  if (p) pick(p.dataset.pick);
+  if (ev.target.closest('[data-undo]')) undo();
+  const c = ev.target.closest('[data-ch]');
+  if (c) {
+    const i = +c.dataset.ch;
+    cur.chars = cur.chars?.includes(i) ? cur.chars.filter((j) => j !== i) : [...(cur.chars || []), i].sort((a, b) => a - b);
+    save();
+    $('#line').innerHTML = lineChars();
+    $('#noteRow').hidden = !cur.chars.length;
+  }
+});
+document.addEventListener('keydown', (ev) => {
+  if (tab !== 'ab' || ev.metaKey || ev.ctrlKey || ev.target.matches('input, textarea')) return;
+  const k = ev.key.toLowerCase();
+  if (k === ' ') { ev.preventDefault(); play(sideClip(cur.a), sideClip(cur.b)); }
+  else if (k === '1') play(sideClip(cur.a));
+  else if (k === '2') play(sideClip(cur.b));
+  else if (k === 'a' || k === 'arrowleft') pick('a');
+  else if (k === 'b' || k === 'arrowright') pick('b');
+  else if (k === 's' || k === 'arrowdown') pick('=');
+  else if (k === 'w') pick('x');
+  else if (k === 'z') undo();
+});
+
+// ---------- readings ----------
+const said = (c) => c[3] === 'said';
+const agrees = (l, i) => said(l.check[i]) || (l.app?.[i] || '').replace(/\s/g, '') === l.check[i][2].replace(/\s/g, '');
+function pitchNote(e, l, k) {   // what the pitch says of take 1, the take the buttons play
+  const v = 'fm'.split('').map((g) => [g, clipOf(e, g, l.id)?.pt?.[k]]).filter(([, w]) => w != null);
+  return v.length ? `<div class="small" style="margin-top:4px">${v.map(([g, w]) => `${SYM[g]} <span class="${w ? 'bad' : 'mut'}">${w ? esc(w) : 'fits'}</span>`).join(' · ')}</div>` : '';
+}
+function readingsTab() {
+  const ls = D.lines.filter((l) => l.check);
+  $('#main').innerHTML = `
+    <p class="mut">Each marked character, in each engine (take 1, both voices). Flag the ones it says wrong; anything not flagged counts as right. Under each flag is what the pitch says of take 1 in each voice: "fits", or what is clearly off (the scores tab says how it's measured). Where the app's own pinyin disagrees with how a native says it, that's in red: that's ours to fix, whichever voice we pick.</p>
+    ${ls.map((l) => `
+      <div class="card">
+        <div class="zh s">${marked(l)}</div>
+        <p class="mut small">${esc(l.py)}${l.note ? ' · ' + esc(l.note) : ''}</p>
+        <div class="scroll"><table>
+          <tr><th>Should be</th>${engines.map((e) => `<th>${NAMES[e]}<div class="row small" style="margin-top:4px">${btn('▶ ' + G.f, [clipOf(e, 'f', l.id)])}${btn('▶ ' + G.m, [clipOf(e, 'm', l.id)])}</div></th>`).join('')}</tr>
+          ${l.check.map((c, i) => `<tr>
+            <td><b>${esc(c[1])}</b> in ${esc(c[0])}: <b>${esc(c[2])}</b>${said(c) ? '<div class="mut small">said so; pinyin writes the dictionary tone</div>' : agrees(l, i) ? '' : `<div class="bad small">the app shows ${esc(l.app?.[i] || '?')}</div>`}</td>
+            ${engines.map((e) => { const k = `${l.id}|${i}|${e}`; return `<td><button class="b flag small ${S.wrong[k] ? 'on' : ''}" data-wrong="${k}">${S.wrong[k] ? 'said wrong' : 'flag'}</button>${pitchNote(e, l, i)}</td>`; }).join('')}
+          </tr>`).join('')}
+        </table></div>
+      </div>`).join('')}`;
+}
+document.addEventListener('click', (ev) => {
+  const w = ev.target.closest('[data-wrong]');
+  if (!w) return;
+  const k = w.dataset.wrong;
+  if (S.wrong[k]) delete S.wrong[k]; else S.wrong[k] = true;
+  save();
+  w.classList.toggle('on', !!S.wrong[k]);
+  w.textContent = S.wrong[k] ? 'said wrong' : 'flag';
+});
+
+// ---------- slow ----------
+const flip = (s) => [...s].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7) % 2 === 1;   // a fixed, hidden order per row
+function slowTab() {
+  const ls = D.lines.filter((l) => l.kind === 'model');
+  const ee = engines.filter((e) => e !== 'kokoro');
+  $('#main').innerHTML = `
+    <p class="mut">The slow model answer (${Math.round(D.slow * 100)}% speed). Each row is one engine and voice saying it slowly two ways, in a hidden order: the engine's own slow speed, and its normal take stretched (how the app makes slow answers now). Which is clearer to copy? Kokoro's stretched one is there for reference.</p>
+    ${ls.map((l) => `
+      <div class="card">
+        <div class="zh s">${esc(l.zh)}</div>
+        <p class="mut small">${esc(l.note || '')} · Kokoro: ${btn('▶ ' + G.f, [clipOf('kokoro', 'f', l.id, 1, 'stretch')])} ${btn('▶ ' + G.m, [clipOf('kokoro', 'm', l.id, 1, 'stretch')])}</p>
+        <table>${ee.flatMap((e) => ['f', 'm'].map((g) => {
+          const k = `${l.id}|${e}|${g}`, swap = flip(k);
+          const one = clipOf(e, g, l.id, 1, swap ? 'stretch' : 'slow'), two = clipOf(e, g, l.id, 1, swap ? 'slow' : 'stretch');
+          if (!one || !two) return '';
+          const v = S.slow[k], is = (m) => (v === m ? 'on' : '');
+          const m1 = swap ? 'stretch' : 'slow', m2 = swap ? 'slow' : 'stretch';
+          return `<tr><td class="small">${NAMES[e]}, ${G[g]}</td><td><div class="row">${btn('▶ 1', [one])}${btn('▶ 2', [two])}</div></td>
+            <td><div class="row"><button class="b small ${is(m1)}" data-slow="${k}" data-v="${m1}">1 is clearer</button><button class="b small ${is('=')}" data-slow="${k}" data-v="=">same</button><button class="b small ${is(m2)}" data-slow="${k}" data-v="${m2}">2 is clearer</button></div></td></tr>`;
+        })).join('')}</table>
+      </div>`).join('')}`;
+}
+document.addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-slow]');
+  if (!b) return;
+  S.slow[b.dataset.slow] = b.dataset.v;
+  save();
+  b.parentElement.querySelectorAll('button').forEach((x) => x.classList.toggle('on', x === b));
+});
+
+// ---------- scores ----------
+function scoresTab() {
+  const sm = D.summary;
+  const has = (k) => engines.some((e) => sm[e]?.[k] != null);
+  const wins = (e, f = () => true) => {
+    const mine = S.ab.filter((x) => (x.a.e === e || x.b.e === e) && f(x));
+    const w = mine.filter((x) => (x.pick === 'a' && x.a.e === e) || (x.pick === 'b' && x.b.e === e)).length;
+    const t = mine.filter((x) => x.pick === '=' || x.pick === 'x').length;
+    return `${w}/${mine.length - t}${mine.length - t ? ` <span class="mut">(${pct(w, mine.length - t)})</span>` : ''}`;
+  };
+  const isModel = (x) => line[x.l].kind === 'model';
+  const checks = D.lines.flatMap((l) => (l.check || []).map((c, i) => [l, i]));
+  const flagged = (e) => checks.filter(([l, i]) => S.wrong[`${l.id}|${i}|${e}`]).length;
+  const slowWins = (e, m) => Object.entries(S.slow).filter(([k, v]) => k.split('|')[1] === e && v === m).length;
+  const kinds = [...new Set(D.lines.map((l) => l.kind))];
+  const disagree = checks.filter(([l, i]) => !agrees(l, i));
+  const hasPitch = engines.some((e) => sm[e].pitch?.[1]);
+  const pitchRows = checks.map(([l, k]) => ({ l, k, per: engines.map((e) => {
+    const mine = D.clips.filter((c) => c.l === l.id && c.e === e && !c.m && c.pt && c.pt[k] != null);
+    return { e, n: mine.length, off: mine.filter((c) => c.pt[k]) };
+  }) })).filter((r) => r.per.some((p) => p.n));
+  const pitchOff = pitchRows.filter((r) => r.per.some((p) => p.off.length));
+  const heardWrong = S.ab.filter((x) => x.pick === 'x' || x.chars?.length);
+  const bothWrong = (e) => S.ab.filter((x) => x.pick === 'x' && (x.a.e === e || x.b.e === e)).length;
+  const saidWrong = (e) => heardWrong.filter((x) => blamed(x).includes(e)).length;
+  const withMarks = (x) => [...line[x.l].zh].map((ch, i) => (x.chars?.includes(i) ? `<span class="bad"><b>${esc(ch)}</b></span>` : esc(ch))).join('');
+  $('#main').innerHTML = `
+    <h2>The recognisers</h2>
+    <p class="mut">SenseVoice hears every clip, and Whisper hears the ones SenseVoice doubts (a clip more than ${Math.round(D.off * 100)}% off). "Off" is the share of syllables heard wrong (0 is perfect). A clip both doubt is doubted, as in the build's voice check, where a model answer doubted by both fails a batch.</p>
+    <div class="scroll card"><table class="dense">
+      <tr><th>Engine</th><th class="n">Clips</th><th class="n">SenseVoice off</th><th class="n">Doubted by both</th><th class="n">Tone slips</th>${hasPitch ? '<th class="n">Off by pitch (marked · any)</th>' : ''}<th class="n">Model answers doubted</th><th class="n">Slow doubted (own · stretched)</th>${has('takes') ? '<th class="n">Takes alike</th><th class="n">Voice steady (♀ / ♂)</th>' : ''}<th class="n">Credits</th></tr>
+      ${engines.map((e) => { const s = sm[e]; return `<tr><td>${NAMES[e]}</td><td class="n">${s.clips}</td><td class="n">${s.sv ?? '–'}</td>
+        <td class="n">${s.both} <span class="mut">(${pct(s.both, s.heard)})</span></td><td class="n ${s.tones[0] > 20 ? 'bad' : ''}">${s.tones[0]} <span class="mut">/ ${s.tones[2]}</span></td>${hasPitch ? `<td class="n">${s.pitch[0]}/${s.pitch[1]} · ${pct(s.pitch[2], s.pitch[3])}</td>` : ''}<td class="n ${s.model.length ? 'bad' : ''}">${s.model.length}</td>
+        <td class="n">${e === 'kokoro' ? '–' : s.slow.slow[0] + '/' + s.slow.slow[1]} · ${s.slow.stretch[0]}/${s.slow.stretch[1]}</td>
+        ${has('takes') ? `<td class="n">${s.takes ?? '–'}</td><td class="n">${s.voice?.f ?? '–'} / ${s.voice?.m ?? '–'}</td>` : ''}<td class="n">${s.credits}</td></tr>`; }).join('')}
+    </table></div>
+    ${has('takes') ? '<p class="mut small">Takes alike: how alike a line\'s three takes sound as a speaker (CAM++ cosine, 1 is the same voice); Kokoro has one take. Voice steady: how alike every line in one voice is to that voice on average, so whether it stays one person across the set.</p>' : ''}
+    <p class="mut small">Tone slips: characters SenseVoice heard as the same syllable on another tone (微 wēi heard as 胃 wèi, 八 bā as 把 bǎ), out of all the characters it heard. The doubts above compare syllables without tones, so they let these through; in a tone language they're the errors that matter most.</p>
+    <div class="card small">${engines.map((e) => `<p><b>${NAMES[e]}</b>: ${sm[e].tone_top.length ? sm[e].tone_top.map(([t, n]) => `${esc(t)} ×${n}`).join(', ') : 'none'}</p>`).join('')}</div>
+    ${hasPitch ? `<h2>Marked characters, by pitch</h2>
+    <p class="mut">The recognisers write the word the context suggests, whatever its tone: 涨 said as a level zhāng still came back 涨. So each marked character also gets its pitch measured, in every take (SenseVoice's timing, pYIN pitch). Off by pitch names only clear contradictions: a third tone said high, or as high as a first tone right after it (涨三); a first tone said low; a second falling; a fourth rising. It's rough, because the timing comes from a recogniser: use it to find takes to listen to, not as a verdict. "Any" in the table above is every character of these lines, marked or not.</p>
+    <p class="mut small">${pitchRows.length - pitchOff.length} of ${pitchRows.length} marked characters fit in every take measured. The other ${pitchOff.length}:</p>
+    <div class="scroll card"><table class="dense">
+      <tr><th>Line</th><th>Should be</th>${engines.map((e) => `<th>${NAMES[e]}</th>`).join('')}</tr>
+      ${pitchOff.map(({ l, k, per }) => { const c = l.check[k], i = checkAt(l, k), t = l.said?.[i]; return `<tr><td class="zh s">${markAt(l, i)}</td>
+        <td><b>${esc(c[1])}</b> ${esc(c[2])}<div class="mut">${t && t !== toneOf(c[2]) ? `said on a ${TONES[t]} tone here` : `a ${TONES[t] || '?'} tone`}</div></td>
+        ${per.map((p) => `<td><span class="${p.off.length ? 'bad' : 'mut'}">${p.off.length}/${p.n}</span><div class="row" style="gap:4px;margin-top:4px">${p.off.map((x) => btn(`${SYM[x.g]}${x.t} ${esc(x.pt[k])}`, [x], 'b small')).join('')}</div></td>`).join('')}</tr>`; }).join('')}
+    </table></div>` : ''}
+    <h2>Doubted by both, by kind of line</h2>
+    <div class="scroll card"><table>
+      <tr><th>Kind</th>${engines.map((e) => `<th class="n">${NAMES[e]}</th>`).join('')}</tr>
+      ${kinds.map((k) => `<tr><td>${k}</td>${engines.map((e) => { const [b, n] = sm[e].kinds[k] || [0, 0]; return `<td class="n ${b ? 'bad' : ''}">${b}/${n}</td>`; }).join('')}</tr>`).join('')}
+    </table></div>
+    <h2>Your ear</h2>
+    <div class="scroll card"><table>
+      <tr><th>Engine</th><th class="n">A/B wins</th><th class="n">on model answers</th><th class="n">on the rest</th><th class="n">Both wrong</th><th class="n">Said wrong in A/B</th><th class="n">Readings flagged</th><th class="n">Own slow preferred</th><th class="n">Stretched preferred</th></tr>
+      ${engines.map((e) => `<tr><td>${NAMES[e]}</td><td class="n">${wins(e)}</td><td class="n">${wins(e, isModel)}</td><td class="n">${wins(e, (x) => !isModel(x))}</td>
+        <td class="n ${bothWrong(e) ? 'bad' : ''}">${bothWrong(e)}</td><td class="n ${saidWrong(e) ? 'bad' : ''}">${saidWrong(e)}</td>
+        <td class="n ${flagged(e) ? 'bad' : ''}">${flagged(e)}/${checks.length}</td><td class="n">${e === 'kokoro' ? '–' : slowWins(e, 'slow')}</td><td class="n">${e === 'kokoro' ? '–' : slowWins(e, 'stretch')}</td></tr>`).join('')}
+    </table>
+    <p class="mut small">Wins leave out "can't tell" and "both wrong". Said wrong in A/B: pairs where you marked a character and picked the other side, or called both wrong.</p>
+    <p class="mut small">${S.ab.length} A/B picks (${S.ab.filter((x) => x.pick === '=').length} can't tell, ${S.ab.filter((x) => x.pick === 'x').length} both wrong), ${Object.keys(S.wrong).length} readings flagged, ${Object.keys(S.slow).length} slow rows picked.</p>
+    <div class="row"><button class="b" id="dl">Download my picks</button><button class="b" id="cp">Copy my picks</button><span class="mut small" id="cpd"></span></div></div>
+    ${heardWrong.length ? `<h2>What you heard said wrong in A/B</h2>
+    <div class="scroll card"><table>${heardWrong.map((x) => `<tr><td class="zh s">${withMarks(x)}</td>
+      <td class="small">${x.pick === '=' ? `one of ${NAMES[x.a.e]} and ${NAMES[x.b.e]}` : blamed(x).map((e) => NAMES[e]).join(' and ')}<div class="mut">${G[x.g]}, takes ${x.a.t} and ${x.b.t}${x.note ? ' · ' + esc(x.note) : ''}</div></td>
+      <td><div class="row">${btn('▶ ' + NAMES[x.a.e], [clipOf(x.a.e, x.g, x.l, x.a.t)], 'b small')}${btn('▶ ' + NAMES[x.b.e], [clipOf(x.b.e, x.g, x.l, x.b.t)], 'b small')}</div></td></tr>`).join('')}</table></div>` : ''}
+    <h2>The app's own pinyin, against a native reading</h2>
+    <div class="card">${disagree.length ? `<p>${disagree.length} of ${checks.length} checks: the screen would show a reading a native wouldn't say.</p><table>${disagree.map(([l, i]) => `<tr><td class="zh s">${esc(l.zh)}</td><td><b>${esc(l.check[i][1])}</b> in ${esc(l.check[i][0])}: app <span class="bad">${esc(l.app?.[i] || '?')}</span>, native <b>${esc(l.check[i][2])}</b></td></tr>`).join('')}</table>` : `<p class="good">All ${checks.length} agree.</p>`}</div>
+    <h2>Every clip both recognisers doubted</h2>
+    ${engines.map((e) => { const bad = D.clips.filter((c) => c.e === e && !c.m && c.wo > D.off && c.svo > D.off).sort((a, b) => b.wo + b.svo - a.wo - a.svo); return `
+      <div class="card"><b>${NAMES[e]}</b> <span class="mut">${bad.length} clips</span>${bad.length ? `<table>${bad.map((c) => `<tr><td>${btn('▶', [c])}</td><td>${esc(line[c.l].zh)}<div class="mut small">${G[c.g]}, take ${c.t} · ${line[c.l].kind}</div></td><td class="small">Whisper: ${esc(c.w)}<br>SenseVoice: ${esc(c.sv)}</td></tr>`).join('')}</table>` : ''}</div>`; }).join('')}
+    <p class="mut small">Credits: ${D.spent.charged} charged on ${D.spent.calls - D.spent.unknown} calls that said what they cost${D.spent.unknown ? `, ${D.spent.unknown} that didn't` : ''}; the account's counter shows ${D.spent.counter ?? '?'} since the first run.</p>`;
+  const picks = () => JSON.stringify({ made: D.made, saved: new Date().toISOString(), ...S }, null, 1);
+  $('#dl').onclick = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([picks()], { type: 'application/json' })); a.download = 'bakeoff-picks.json'; a.click(); };
+  $('#cp').onclick = () => navigator.clipboard.writeText(picks()).then(() => { $('#cpd').textContent = 'Copied.'; }, () => { $('#cpd').textContent = "Couldn't copy: use Download."; });
+}
+
+// ---------- tabs ----------
+const TABS = { ab: ['Blind A/B', abTab], readings: ['Readings', readingsTab], slow: ['Slow', slowTab], scores: ['Scores', scoresTab] };
+let tab = TABS[location.hash.slice(1)] ? location.hash.slice(1) : 'ab';
+function show(t) {
+  tab = t;
+  history.replaceState(null, '', '#' + t);
+  P.clear();
+  $('#tabs').innerHTML = Object.entries(TABS).map(([k, [name]]) => `<button role="tab" aria-selected="${k === t}" data-tab="${k}">${name}</button>`).join('');
+  TABS[t][1]();
+}
+document.addEventListener('click', (ev) => { const b = ev.target.closest('[data-tab]'); if (b) show(b.dataset.tab); });
+addEventListener('hashchange', () => { const t = location.hash.slice(1); if (TABS[t] && t !== tab) show(t); });
+$('#sub').textContent = `${D.lines.length} lines through ${engines.length} engines, a woman's and a man's voice each (Kokoro: zf_004, zm_030; ElevenLabs: Coco Li, James Gao), three takes on ElevenLabs: ${D.clips.length} clips. Made ${D.made}.`;
+show(tab);
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+{
+  "id": "dont-answer-3",
+  "format": "chat",
+  "title": "业主群",
+  "title_en": "The Building Chat",
+  "level": 1,
+  "listen": 1,
+  "topics": ["home"],
+  "audience": "new",
+  "hook": 4,
+  "status": "live",
+  "series": { "id": "dont-answer", "ep": 3, "next": "The lights are going out, one floor at a time, and they're coming down." },
+  "tags": ["业主群", "别开门", "退群"],
+  "setting": "Flat 804, 3:07 am, the night after the lift. The residents' group chat wakes you.",
+  "stage": "📱",
+  "bg": ["#03060c", "#1d2b45"],
+  "chat": { "group": { "zh": "幸福小区业主群" }, "members": 86, "me": { "zh": "八零四" }, "giveup": [
+    { "who": "liu", "zh": "八零四睡着了吧。", "en": "804 must have fallen asleep." },
+    { "end": "lose", "en": "You slept through it. By morning: 99+ unread, and a note on your door. 🫣 Run that back." }
+  ] },
+  "cast": {
+    "sun": { "name": "孙", "en": "a new member nobody added", "emoji": "🖼️", "voice": "f-old" },
+    "liu": { "name": "刘阿姨", "en": "302: chatty, up at all hours", "emoji": "👩‍🦱", "voice": "f-mid" },
+    "zheng": { "name": "小郑", "en": "1101: a student", "emoji": "🧑‍🎓", "voice": "m-young" },
+    "wuye": { "name": "物业", "en": "the property office's night man", "emoji": "🧑‍💼", "voice": "m-mid" }
+  },
+  "steps": [
+    { "narr": "3:07 am. Your phone buzzes: the residents' group." },
+    { "narr": "孙 joined the group.", "zh": "“孙”加入了群聊", "kind": "system" },
+    { "who": "sun", "kind": "voice", "secs": 9, "mention": true, "zh": "八零四，开门。", "en": "804. Open the door.", "clock": "03:07" },
+    { "when": { "dont-answer.lift": "told" }, "narr": "Her picture is the photo 物业 showed you." },
+    { "who": "liu", "zh": "孙是谁啊？", "en": "Who's 孙?", "typing": 1 },
+    { "say": {
+      "id": "who",
+      "en": "Ask the group who added her.",
+      "cue": "Who added her?",
+      "answers": ["谁加的她？", "她是谁加的？", "谁拉她进群的？", "谁把她加进来的？"],
+      "gloss": "Who added her?",
+      "need": [["谁加", "谁拉", "谁把"]],
+      "key": { "谁加": "who added", "谁拉": "who pulled (in)" },
+      "time": 25,
+      "tip": "加 jiā = add. 谁加的她？ = who added her? 拉 lā (pull) someone into a group is the everyday way to say it.",
+      "decoys": ["家", "价"],
+      "ok": [
+        { "who": "wuye", "zh": "我没加。", "en": "Not me.", "typing": 1 },
+        { "who": "liu", "zh": "我也没加！", "en": "Not me either!", "typing": 0.6 }
+      ],
+      "fail": [ { "who": "liu", "zh": "孙是谁啊？", "en": "Who's 孙?", "typing": 1 } ],
+      "levels": {
+        "0": {
+          "answers": ["谁加的？", "谁加她？", "谁拉的？"],
+          "gloss": "Who added her?",
+          "status": "live" },
+        "2": {
+          "answers": ["谁把她拉进群的？", "是谁拉她进群的？", "谁把她加进群里的？"],
+          "need": [["谁把", "是谁拉"], ["进群", "群里"]],
+          "gloss": "Who brought her into the group?",
+          "tip": "把 bǎ puts the person first: 谁把她拉进群的？ = who pulled her into the group?",
+          "status": "live" }
+      }
+    } },
+    { "who": "zheng", "zh": "有人在敲我的门。", "en": "Someone's knocking on my door.", "typing": 2, "fx": "shake" },
+    { "who": "zheng", "zh": "我住一一零一。", "en": "I'm in 1101.", "typing": 0.6 },
+    { "who": "liu", "kind": "voice", "secs": 60, "zh": "哎呀，这么晚了，谁啊？", "en": "Goodness, this late? Who is it?" },
+    { "who": "zheng", "zh": "可能是外卖？我去开门。", "en": "A delivery, maybe? I'll go and open it.", "typing": 2 },
+    { "say": {
+      "id": "warn",
+      "en": "Warn him: don't open the door!",
+      "cue": "Don't let him!",
+      "answers": ["别开门！", "不要开门！", "千万别开门！", "先别开门！"],
+      "gloss": "Don't open the door!",
+      "need": [["别开门", "不要开门", "别开"]],
+      "not": [ { "heard": ["快开门", "开门吧", "去开门"], "note": "That tells him to open it! Don't is 别 bié: 别开门！" } ],
+      "key": { "别开门": "don't open the door" },
+      "time": 22,
+      "tip": "别 bié = don't: 别开门 = don't open the door. 千万 qiānwàn in front makes it 'whatever you do'.",
+      "decoys": ["关", "门口"],
+      "ok": [ { "who": "zheng", "zh": "为什么？", "en": "Why?", "typing": 0.6 } ],
+      "fail": [ { "who": "zheng", "zh": "我去开门了。", "en": "I'm going to open it.", "typing": 1 } ],
+      "levels": {
+        "0": {
+          "answers": ["别开！", "别开门！", "不要开！"],
+          "need": [["别开", "不要开"]],
+          "gloss": "Don't open it!",
+          "status": "live" },
+        "2": {
+          "answers": ["千万别开门，太危险了！", "千万不要开门！", "千万别开门，先问是谁！"],
+          "need": [["千万"], ["别开门", "不要开门"]],
+          "gloss": "Whatever you do, don't open it!",
+          "status": "live" }
+      }
+    } },
+    { "who": "wuye", "zh": "八零四是新来的，我拉的。", "en": "804's new. I added them.", "typing": 1.5 },
+    { "narr": "You scroll up, to the day you joined." },
+    { "narr": "孙 invited you to the group.", "zh": "“孙”邀请你加入了群聊", "kind": "system", "clock": "昨天 09:12", "fx": "shake" },
+    { "when": { "dont-answer.lift": "hid" }, "who": "liu", "zh": "电梯又坏了？一直在叮。", "en": "Is the lift broken again? It keeps dinging.", "typing": 1.5 },
+    { "who": "sun", "kind": "voice", "secs": 9, "mention": true, "zh": "八零四，开门。", "en": "804. Open the door." },
+    { "say": {
+      "id": "reply",
+      "en": "Ask her what she needs, or leave the group.",
+      "cue": "Ask her, or leave.",
+      "answers": ["您需要什么？", "您要什么？", "您想要什么？"],
+      "gloss": "What do you need?",
+      "need": [["需要什么", "要什么"]],
+      "key": { "需要什么": "what (you) need" },
+      "time": 25,
+      "tip": "需要 xūyào = need. 您 nín is the polite 你, for someone older.",
+      "sets": { "dont-answer.chat": "asked" },
+      "ok": [ { "who": "sun", "kind": "voice", "secs": 3, "zh": "等人。", "en": "I'm waiting for someone.", "typing": 2 } ],
+      "alts": [
+        { "en": "Or: leave the group", "answers": ["我退群了。", "我先退群了。", "退群了。"], "need": [["退群"]], "gloss": "I'm leaving the group.",
+          "key": { "退群": "leave a group chat" },
+          "sets": { "dont-answer.chat": "left" },
+          "then": [
+            { "narr": "You left the group.", "zh": "你退出了群聊", "kind": "system" },
+            { "narr": "A minute later, 小郑 messages you on his own." }
+          ] }
+      ],
+      "fail": [ { "who": "sun", "kind": "voice", "secs": 9, "zh": "八零四，开门。", "en": "804. Open the door." } ],
+      "levels": {
+        "0": {
+          "answers": ["要什么？", "您要什么？", "需要什么？"],
+          "need": [["要什么"]],
+          "gloss": "What do you want?",
+          "status": "live" },
+        "2": {
+          "answers": ["您到底需要什么？", "这么晚了，您需要什么？", "您找我，到底需要什么？"],
+          "need": [["到底", "这么晚"], ["需要什么", "要什么"]],
+          "gloss": "What is it you need?",
+          "alts": [ { "of": 0, "answers": ["太吓人了，我先退群了。", "太吓人了，我退群了。"], "need": [["吓人"], ["退群"]], "gloss": "This is too scary. I'm leaving the group." } ],
+          "status": "live" }
+      }
+    } },
+    { "who": "zheng", "zh": "敲门的走了。", "en": "Whoever was knocking has gone.", "typing": 2 },
+    { "who": "zheng", "kind": "photo", "art": "🚪📝", "zh": "门上贴着：第三条：别跑。", "en": "Stuck on my door: Rule three. Don't run.", "typing": 1.5 },
+    { "who": "zheng", "zh": "谢谢你，八零四。", "en": "Thanks, 804.", "typing": 1 },
+    { "end": "win", "en": "Your own door has a note on it too. You don't open it till it's light." }
+  ]
+}

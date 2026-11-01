@@ -1,0 +1,135 @@
+{
+  "id": "night-market",
+  "format": "scene",
+  "title": "太贵了！",
+  "title_en": "That's Too Much!",
+  "level": 0,
+  "topics": ["shopping"],
+  "audience": "new",
+  "hook": 3,
+  "status": "live",
+  "tags": ["夜市", "成都", "砍价"],
+  "write": ["多少钱", "贵", "便宜"],
+  "setting": "Chengdu, a night market by the river, 9 pm. Your friend's birthday is tomorrow.",
+  "stage": "🏮",
+  "bg": ["#140f2e", "#6a2a5e"],
+  "cast": {
+    "boss": { "name": "老板", "en": "the panda-hat seller, a born showman", "emoji": "🧔", "voice": "m-mid", "speed": 0.85 }
+  },
+  "steps": [
+    { "narr": "The last panda hat, and another hand is reaching for it. 🐼", "zh": "最后一顶熊猫帽，有人也想要！", "prop": "🐼", "arrive": "boss" },
+    { "who": "boss", "zh": "最后一个！谁要？", "en": "The last one! Who's having it?", "fx": "laugh" },
+    { "say": {
+      "id": "price",
+      "en": "It's the perfect birthday present. Ask how much it is, quick.",
+      "cue": "Last one. Price?",
+      "answers": ["多少钱？", "这个多少钱？", "多少钱一个？", "怎么卖？"],
+      "gloss": "How much?",
+      "need": [["多少钱", "怎么卖", "几块"]],
+      "tip": "多少钱 duōshao qián = how much (money)? The question every market runs on.",
+      "ok": [ { "who": "boss", "zh": "一百！很便宜了！", "en": "A hundred! That's a steal!", "fx": "laugh" } ],
+      "fail": [ { "who": "boss", "zh": "啊？你说啥？", "en": "Eh? What's that?", "fx": "squint" } ],
+      "miss": [ { "who": "boss", "zh": "不问价？一百！", "en": "Not asking? It's a hundred!", "fx": "laugh" } ],
+      "levels": { "1": {
+        "answers": ["这个多少钱？", "这个帽子多少钱？", "老板，这个多少钱？", "多少钱一个？"],
+        "need": [["这个多少钱", "帽子多少钱", "多少钱一个", "这个怎么卖"]],
+        "gloss": "How much is this one?",
+        "tip": "这个 zhège = this one: point and ask 这个多少钱？",
+        "status": "live" } }
+    } },
+    { "say": {
+      "id": "toomuch",
+      "en": "A hundred? Tell him that's too expensive.",
+      "cue": "A hundred?!",
+      "answers": ["太贵了！", "好贵啊！", "这么贵！", "太贵了吧！"],
+      "gloss": "That's too much!",
+      "need": [["贵"]],
+      "not": [ { "heard": ["不贵"], "note": "不贵 is 'not expensive': he'd agree! Too expensive is 太贵了." } ],
+      "tip": "贵 guì = expensive. 太……了 = too...: 太贵了 is how every haggle begins.",
+      "ok": [ { "who": "boss", "zh": "贵？这是纯手工的！", "en": "Pricey? It's all handmade!", "fx": "shake" } ],
+      "fail": [ { "who": "boss", "zh": "一百，不贵吧？", "en": "A hundred. Not bad, eh?" } ],
+      "miss": [
+        { "who": "boss", "zh": "不贵吧？一百拿走！", "en": "Not bad, right? A hundred, it's yours!", "fx": "give", "prop": "🐼" },
+        { "end": "lose", "en": "You pay a hundred. At the next stall, the same hat is thirty. 🐼", "zh": "你花了一百，隔壁才三十。" }
+      ],
+      "levels": { "1": {
+        "answers": ["这也太贵了吧！", "怎么这么贵？", "太贵了，买不起！", "一百？也太贵了！"],
+        "need": [["也太贵", "这么贵", "买不起"]],
+        "key": { "也太贵": "way too expensive" },
+        "gloss": "That's way too much!",
+        "tip": "这也太……了吧 = this is way too...: pure outrage, the haggler's opener.",
+        "status": "live" } }
+    } },
+    { "say": {
+      "id": "cheaper",
+      "en": "Ask him to go cheaper.",
+      "cue": "Time to haggle!",
+      "answers": ["便宜点！", "便宜一点！", "便宜点吧！", "能便宜点吗？"],
+      "gloss": "Cheaper!",
+      "need": [["便宜"]],
+      "tip": "便宜 piányi = cheap. 便宜点 = a bit cheaper: say it with a smile.",
+      "ok": [ { "who": "boss", "zh": "那你说多少？", "en": "Then you name a price!" } ],
+      "fail": [ { "who": "boss", "zh": "怎么样？一百！", "en": "So? A hundred!", "fx": "squint" } ],
+      "miss": [ { "who": "boss", "zh": "行，你说多少？", "en": "Fine. You name a price." } ],
+      "levels": { "1": {
+        "answers": ["能便宜点吗？", "能不能便宜点？", "可以便宜一点吗？", "能便宜一点吗？"],
+        "need": [["能便宜", "可以便宜"]],
+        "key": { "能便宜": "could (you) make it cheaper" },
+        "gloss": "Could you go a bit cheaper?",
+        "tip": "能……吗？ = could you...?: 能便宜点吗 is the polite haggle.",
+        "status": "live" } }
+    } },
+    { "say": {
+      "id": "fifty",
+      "en": "Offer fifty.",
+      "cue": "Name your price!",
+      "answers": ["五十！", "五十块！", "五十吧！", "五十，行吗？"],
+      "gloss": "Fifty!",
+      "need": [["五十"]],
+      "not": [ { "heard": ["五百", "百五"], "note": "That's in the hundreds! Fifty is 五十 wǔshí." } ],
+      "tip": "五十 wǔshí = fifty: five tens. Start low: he did.",
+      "alts": [
+        { "en": "Or: walk away, the oldest trick", "answers": ["算了，不要了！", "不要了！", "算了！"], "gloss": "Forget it, I'll pass!", "need": [["算了", "不要了"]],
+          "then": [ { "who": "boss", "zh": "别走别走！五十！", "en": "Wait, wait! Fifty!", "fx": "run" } ] }
+      ],
+      "ok": [ { "who": "boss", "zh": "哎呀，五十就五十！", "en": "Ohh... fine, fifty it is!", "fx": "cry" } ],
+      "fail": [ { "who": "boss", "zh": "多少？说个数！", "en": "How much? Give me a number!" } ],
+      "miss": [ { "who": "boss", "zh": "行吧，五十给你！", "en": "Fine. Fifty, and it's yours!", "fx": "shake" } ],
+      "levels": { "1": {
+        "answers": ["五十行不行？", "五十块行不行？", "五十行吗？", "五十块，可以吗？"],
+        "need": [["五十行不行", "五十块行不行", "五十行吗", "五十块行吗", "五十可以吗", "五十块可以吗"]],
+        "key": { "五十行不行": "would fifty do?" },
+        "gloss": "Would fifty do?",
+        "tip": "行不行？ = OK or not?: put it after any offer.",
+        "alts": [ { "of": 0, "answers": ["那我不要了。", "算了，不要了。"], "gloss": "Then I'll pass." } ],
+        "status": "live" } }
+    } },
+    { "say": {
+      "id": "deal",
+      "en": "Fifty! Seal the deal.",
+      "cue": "Seal the deal!",
+      "answers": ["好，要了！", "要了！", "成交！", "好，我买了！"],
+      "gloss": "Deal, I'll take it!",
+      "need": [["要了", "买了", "成交", "要这个", "这个我要"]],
+      "key": { "要了": "I'll take it" },
+      "tip": "要了 = I'll take it: the 了 says the deal is done. 成交 chéngjiāo = deal!",
+      "ok": [ { "who": "boss", "zh": "给你，拿好！", "en": "Here you go. Hold on to it!", "fx": "give", "prop": "🐼" } ],
+      "fail": [ { "who": "boss", "zh": "要不要？", "en": "Want it or not?" } ],
+      "miss": [
+        { "who": "boss", "zh": "不要？那我收起来了！", "en": "No? Then I'm putting it away!", "fx": "leave" },
+        { "end": "lose", "en": "He packs the hat away. Your friend gets a birthday card. ✉️", "zh": "朋友只收到了一张生日卡。" }
+      ],
+      "levels": { "1": {
+        "answers": ["好，就要这个！", "行，就要这个了！", "好，这个我要了！", "成交，就要这个！"],
+        "need": [["要这个", "这个我要"]],
+        "key": { "要这个": "(I'll) take this one" },
+        "gloss": "Right, I'll take this one!",
+        "tip": "就要这个 = this one, then: 就 makes it final.",
+        "status": "live" } }
+    } },
+    { "narr": "You walk off, proud. The next stall: a whole pile of the same hat. Thirty. 😶", "zh": "隔壁一大堆，三十块。", "prop": "🏷️", "hold": 1 },
+    { "who": "boss", "zh": "朋友，下次再来！", "en": "Come again, friend!" },
+    { "who": "boss", "zh": "这个送你，拿着！", "en": "And this is for you. Catch!", "fx": "give", "prop": "🔑" },
+    { "end": "win", "en": "Fifty for the hat, a panda keyring for free, and the best story at the party. 🐼", "zh": "朋友一定会喜欢的！" }
+  ]
+}
