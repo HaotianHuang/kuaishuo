@@ -38,4 +38,4 @@ wrong, open an issue.
 ## Licence
 
 The code is MIT (`LICENSE`). The glosses (CC-CEDICT, CC BY-SA 4.0), stroke data (Arphic Public License) and the
-vendored Hanzi Writer (MIT) keep their own licences; `LICENSE` lists them.
+vendored Hanzi Writer (MIT) keep their own licences; `NOTICE.md` lists them.
